@@ -4,7 +4,7 @@
 # Description: Auto update my system, use via Cron.
 # AUTHOR     : SVAKSHA
 # COPYRIGHT© : 2005-Now SVAKSHA <http://svaksha.com/pages/Bio> AllRightsReserved
-# DATES      : Created:2006mar31
+# DATES      : Created:2006mar31 Modified:2006jun15
 # LICENSE    : GNU GPL License
 # This code is distributed in the hope that it will be useful, but WITHOUT ANY
 # WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR 
@@ -26,3 +26,4 @@ sudo apt-get -y update
 sudo apt-get -y upgrade
 sudo apt-get -y dist-upgrade
 sudo apt-get -y autoclean
+sudo apt-get -y safe-upgrade
