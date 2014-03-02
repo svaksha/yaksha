@@ -21,6 +21,11 @@
 	excludesfile = ~/.gitignore
 	attributesfile = ~/.gitattributes	
 
+[help]
+
+	# Autocorrect and execute mistyped commands
+	autocorrect = 1
+	
 [http]
 	sslVerify = false
 
