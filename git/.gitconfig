@@ -21,6 +21,10 @@
 	excludesfile = ~/.gitignore
 	attributesfile = ~/.gitattributes	
 
+[diff]
+	# Detect copies as well as renames
+	renames = copies
+	
 [help]
 
 	# Autocorrect and execute mistyped commands
