@@ -1,0 +1,42 @@
+[alias]
+	last = log -1 HEAD
+	
+[color]
+	# Use colors in Git commands that are capable of colored output when
+	# outputting to the terminal. Default setting in Git ≥ 1.8.4
+	ui = auto
+
+[color "branch"]
+	current = orange reverse
+	local = orange
+	remote = green
+
+[color "diff"]
+	meta = yellow
+	old = red       # for deletions
+	new = green     # all additions
+
+[core]
+	# Use custom `.gitignore` and `.gitattributes`
+	excludesfile = ~/.gitignore
+	attributesfile = ~/.gitattributes	
+
+[diff]
+	# Detect copies as well as renames
+	renames = copies
+	
+[help]
+
+	# Autocorrect and execute mistyped commands
+	autocorrect = 1
+	
+[http]
+	sslVerify = false
+
+[push]
+	default = simple
+	
+[user]
+	name = SVAKSHA
+	email = svaksha@gmail.com
+	
