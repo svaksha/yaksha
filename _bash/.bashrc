@@ -65,8 +65,7 @@ else
 fi
 unset color_prompt force_color_prompt
 
-################################################################################
-# enable color support of ls and also add handy aliases
+### enable color support of ls and also add handy aliases ######################
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
     alias ls='ls --color=auto'
@@ -143,23 +142,21 @@ git config --global user.email svaksha@gmail.com
 git config --global http.sslVerify false
 
 
-################################################################################
-## PYTHON 2 to 3 in the VirtualenvWrapper
-## http://stackoverflow.com/questions/5585875/what-is-the-official-preferred-way-to-install-pip-and-virtualenv-systemwide
-## http://clouddenizen.com/2011/11/04/virtualenvwrapper-setup-in-ubuntu/
-## http://askubuntu.com/questions/244641/how-to-set-up-and-use-a-virtual-python-environment-in-ubuntu
-## Tuesday 07 May 2013 12:04:38 PM IST 
-################################################################################
+### PYTHON 2 to 3 in the VirtualenvWrapper #####################################
+# http://stackoverflow.com/questions/5585875/what-is-the-official-preferred-way-to-install-pip-and-virtualenv-systemwide
+# http://clouddenizen.com/2011/11/04/virtualenvwrapper-setup-in-ubuntu/
+# http://askubuntu.com/questions/244641/how-to-set-up-and-use-a-virtual-python-environment-in-ubuntu
+# 
+### Tuesday 07 May 2013 12:04:38 PM IST ########################################
 # export PATH=$PATH:$HOME/.local/bin
 # export PROJECT_HOME=$HOME/eng3/
 # export PIP_VIRTUALENV_BASE=/home/mom/.virtualenvs
 # alias pip=pip-python
 
-################################################################################
-# Friday 31 May 2013 02:52:12 AM IST 
+### Friday 31 May 2013 02:52:12 AM IST #########################################
 export PATH=/home/mom/sbt/bin:$PATH
 
-# added by Anaconda 1.9.2 installer ############################################
+### added by Anaconda 1.9.2 installer ##########################################
 export PATH="/home/mom/anaconda/bin:$PATH"
 
 
