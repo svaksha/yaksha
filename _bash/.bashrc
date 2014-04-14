@@ -140,6 +140,8 @@ complete -o default -F _pip_completion pip
 git config --global user.name "SVAKSHA"
 git config --global user.email svaksha@gmail.com
 git config --global http.sslVerify false
+### git-completion 
+source ~/git-completion.bash
 
 
 ### PYTHON 2 to 3 in the VirtualenvWrapper #####################################
