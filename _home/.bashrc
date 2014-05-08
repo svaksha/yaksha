@@ -161,4 +161,8 @@ export PATH=/home/mom/sbt/bin:$PATH
 ### added by Anaconda 1.9.2 installer ##########################################
 export PATH="/home/mom/anaconda/bin:$PATH"
 
+### Tue, 29 Apr 2014 19:44:13 +0530 ############################################
+# http://askubuntu.com/questions/440114/ubuntu-14-04-python-2-7-still-default-set-3-x-as-default
+alias python='python3.4'
+################################################################################
 
