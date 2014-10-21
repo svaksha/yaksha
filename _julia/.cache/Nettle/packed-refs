@@ -1,0 +1,26 @@
+# pack-refs with: peeled fully-peeled 
+6734eaa685b430d059808e6eb971a6e08a2d71fc refs/heads/hashing
+b771a55013730ce71437812239afde0bf364a2f9 refs/heads/master
+4b867c1397dfa5481b207ad9f3429d23f2daea26 refs/pull/10/head
+af5fd91d43a5bb110ffbdc25c4c949b223e5be47 refs/pull/10/merge
+6801e781835e9d32a57decad889fb091ce12f688 refs/pull/12/head
+2022a458528ae689d25adf649e857ec2d97aff1b refs/pull/13/head
+fbef262a48852cffa0619997730231183b1fb62e refs/pull/14/head
+3d95d6b581e6ebe020450cf5a620cd16f0f66b8b refs/pull/14/merge
+619c7c5a59ca22456fc9aa2f47be85d189f44046 refs/pull/15/head
+fffa879cf8fe8f17b69e4b979a1f7e77dfb09c74 refs/pull/22/head
+5c6cb7ed258100896cb741dce08c2b7ff10dfc37 refs/pull/26/head
+93520a907bd799062e3e1a4f354104f0a5b81955 refs/pull/28/head
+cc39633b7ae81a03a4d024f8c80b027110e0dadc refs/pull/28/merge
+218286e0e84036f9d8bf004546bc2d9121dfbe38 refs/pull/3/head
+79507dd694cb1343eaf20203105d6f66b9a0fa19 refs/pull/3/merge
+6734eaa685b430d059808e6eb971a6e08a2d71fc refs/pull/4/head
+4d2804bd7dbe8381a62e6d8334cc4a0eedb76e29 refs/pull/4/merge
+541d9e36323844745683c6c3b44b37f1c7dfd93d refs/pull/6/head
+18c26e325be99994757c10cdaad69c1c3bfa6b0e refs/pull/6/merge
+85fe95f2a653479f1d5a84ef3e49c70950b741d0 refs/pull/7/head
+cf156003060a0e18dc1d0f05c492ba085f2c13e5 refs/pull/7/merge
+447ab379577fad637e5cae25f89235177a7d61f1 refs/tags/v0.1.3
+^099d101dd1577902c4e55f499a857b8cdf23ade0
+56079b23d8614344fd5b9498f178c032d0fd3e12 refs/tags/v0.1.4
+^1eb727b1e18e8e4c5d42b7572972a245f1e270e5

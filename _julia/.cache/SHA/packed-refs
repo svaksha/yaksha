@@ -1,0 +1,8 @@
+# pack-refs with: peeled fully-peeled 
+28702f45c98522baaa000b0ddefa77acff99744d refs/heads/jcb/perf
+1c94457d8a0649b9518de9329ceceaf037fa9ac0 refs/heads/master
+28702f45c98522baaa000b0ddefa77acff99744d refs/pull/1/head
+f5e52522743de269487216f1ed2293b69d1e8987 refs/tags/v0.0.1
+^6fc545579834a7caf306d47fc3608ce578b95f3e
+25b54325e69094535ccb7cc63fc18d2b456fe553 refs/tags/v0.0.2
+^28702f45c98522baaa000b0ddefa77acff99744d
