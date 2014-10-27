@@ -17,7 +17,7 @@ sudo apt-get install -y \
     flpsed \
     pdfjam \
     xournal \
-    pdfedit
+    pdfedit \
 ## Skype alternative
     jitsi \
     
