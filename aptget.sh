@@ -20,6 +20,11 @@ sudo apt-get install -y \
     pdfedit \
 ## Skype alternative
     jitsi \
+## HP printer stuff
+    hplip
+    mtink # http://xwtools.automatix.de/
+# Reactivate HP LaserJet 1018/1020 after reloading paper
+    printer-driver-foo2zjs-common #20140209dfsg0-1ubuntu1    
     
     
       
