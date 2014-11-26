@@ -33,8 +33,9 @@ if [ -z "$debian_chroot" ] && [ -r /etc/debian_chroot ]; then
     debian_chroot=$(cat /etc/debian_chroot)
 fi
 
-################################################################################
+######### COLOR ################################################################
 # set a fancy prompt (non-color, unless we know we "want" color)
+################################################################################
 case "$TERM" in
     xterm-color) color_prompt=yes;;
 esac
@@ -42,6 +43,7 @@ esac
 # uncomment for a colored prompt, if the terminal has the capability; turned
 # off by default to not distract the user: the focus in a terminal window
 # should be on the output of commands, not on the prompt
+#==============================================================================
 force_color_prompt=yes
 
 if [ -n "$force_color_prompt" ]; then
@@ -55,8 +57,8 @@ if [ -n "$force_color_prompt" ]; then
     fi
 fi
 
-# LINKS #########################################################################
-# COLOR CHART, http://www.arwin.net/tech/bash.php
+# LINKS for COLOR CHART, 
+# http://www.arwin.net/tech/bash.php
 # http://ubuntugenius.wordpress.com/2011/07/11/how-to-change-the-command-line-prompt-colour-in-the-ubuntulinux-terminal/
 ################################################################################
 
@@ -67,7 +69,8 @@ else
 fi
 unset color_prompt force_color_prompt
 
-### enable color support of ls and also add handy aliases ######################
+### enable color support of ls and also add handy aliases 
+################################################################################
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
     alias ls='ls --color=auto'
@@ -80,7 +83,6 @@ if [ -x /usr/bin/dircolors ]; then
 fi
 
 
-################################################################################
 ### Colour prompt :: 23-July-2012 
 ################################################################################
 
@@ -90,7 +92,6 @@ fi
 #export PS1="\[\033[46;32m\][\u@\[\033[1;33m\]\h]\]\033[0m\]>"
 #export PS1="[\@] \u@\h> "
 
-################################################################################
 # If this is an xterm set the title to user@host:dir
 ################################################################################
 case "$TERM" in
@@ -101,7 +102,6 @@ xterm*|rxvt*)
     ;;
 esac
 
-################################################################################
 # some more ls aliases
 ################################################################################
 
@@ -110,7 +110,7 @@ alias la='ls -A'
 alias l='ls -CF'
 
 ################################################################################
-# Alias definitions. 
+# ALIAS definitions. 
 ################################################################################
 # You may want to put all your additions into a separate file like
 # ~/.bash_aliases, instead of adding them here directly.
@@ -132,8 +132,18 @@ fi
 ################################################################################
 export PATH="$(pwd)/julia:$PATH"
 #$PWD/julia/bin
-#PATH=$PATH:/home/mom/julia/bin
+PATH=$PATH:/home/mom/julia/bin/jdp
 export PATH="/home/mom/julia/bin:$PATH"
+
+
+################################################################################
+### GIT configurations; updated on Tuesday 07 May 2013 12:04:38 PM IST  
+################################################################################
+git config --global user.name "SVAKSHA"
+git config --global user.email svaksha@gmail.com
+git config --global http.sslVerify false
+# git-completion ======================
+source ~/git-completion.bash
 
 
 ################################################################################
@@ -150,15 +160,6 @@ complete -o default -F _pip_completion pip
 
 
 ################################################################################
-### GIT configurations; updated on Tuesday 07 May 2013 12:04:38 PM IST  
-################################################################################
-git config --global user.name "SVAKSHA"
-git config --global user.email svaksha@gmail.com
-git config --global http.sslVerify false
-# git-completion ======================
-source ~/git-completion.bash
-
-################################################################################
 ### PYTHON 2 to 3 in the VirtualenvWrapper; Tuesday 07 May 2013 12:04:38 PM IST
 ################################################################################
 # http://stackoverflow.com/questions/5585875/what-is-the-official-preferred-way-to-install-pip-and-virtualenv-systemwide
@@ -173,11 +174,12 @@ source ~/git-completion.bash
 ### Friday 31 May 2013 02:52:12 AM IST =========================================
 export PATH=/home/mom/sbt/bin:$PATH
 
-### added via Anaconda 1.9.2 installer ##########################################
-export PATH="/home/mom/anaconda/bin:$PATH"
-
 ### Tue, 29 Apr 2014 19:44:13 +0530 
 # http://askubuntu.com/questions/440114/ubuntu-14-04-python-2-7-still-default-set-3-x-as-default
 alias python='python3.4'
+
 ################################################################################
+### Anaconda 1.9.2 installer 
+################################################################################
+export PATH="/home/mom/anaconda/bin:$PATH"
 
