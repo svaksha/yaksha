@@ -1,0 +1,95 @@
+56a9e88c781ad4c0ea2e362aac14a85267bb39af	not-for-merge	branch 'jn/system' of git://github.com/JuliaLang/BinDeps.jl
+786720a62fb0eec036df38c4d033d9c1b7a19997	not-for-merge	branch 'master' of git://github.com/JuliaLang/BinDeps.jl
+f0751e65632b62bd5132c494f00030bfd5e39ef0	not-for-merge	branch 'sf/checksummore' of git://github.com/JuliaLang/BinDeps.jl
+cc3120fb5bc18f1fd9cdf824e59f756aeb068ead	not-for-merge	branch 'sf/checksums' of git://github.com/JuliaLang/BinDeps.jl
+95e38683d789a4c29fe09d90cb9e86fc7c711e35	not-for-merge	branch 'sf/defaults' of git://github.com/JuliaLang/BinDeps.jl
+79a4ca5453da6fcbab9c07ca76bca8a7c8076fb1	not-for-merge	branch 'sf/homebrew' of git://github.com/JuliaLang/BinDeps.jl
+303c0760eed5dcd72f1cada45a806dc4aa5a5b93	not-for-merge	branch 'sf/lib64' of git://github.com/JuliaLang/BinDeps.jl
+e127060b2d2e05dc75d630a4a693e9a2f6b22cde	not-for-merge	branch 'teh/travis' of git://github.com/JuliaLang/BinDeps.jl
+226bfe8d9a1e8a0278248f0b6e64b7ef7fce7504	not-for-merge	'refs/pull/1/head' of git://github.com/JuliaLang/BinDeps.jl
+bd51b6b872a914cec0f55557e4e7fa0fe938ca71	not-for-merge	'refs/pull/1/merge' of git://github.com/JuliaLang/BinDeps.jl
+2ba91ee9826386c2e3e9d625ad55535429fddfdb	not-for-merge	'refs/pull/101/head' of git://github.com/JuliaLang/BinDeps.jl
+bdf6b6813552554792aa6d7393e83696ae30264b	not-for-merge	'refs/pull/102/head' of git://github.com/JuliaLang/BinDeps.jl
+174ccd1793191fd5594695141ce4c725f06c1c47	not-for-merge	'refs/pull/106/head' of git://github.com/JuliaLang/BinDeps.jl
+157e697590db6b75e350d3e62aea10a0a2c35c03	not-for-merge	'refs/pull/106/merge' of git://github.com/JuliaLang/BinDeps.jl
+fbf3caa7f1d63aee3c9695a50d733b69e6a155c6	not-for-merge	'refs/pull/107/head' of git://github.com/JuliaLang/BinDeps.jl
+35a0b5fc457c27617a671fafaaf928c0b6d77634	not-for-merge	'refs/pull/107/merge' of git://github.com/JuliaLang/BinDeps.jl
+e127060b2d2e05dc75d630a4a693e9a2f6b22cde	not-for-merge	'refs/pull/108/head' of git://github.com/JuliaLang/BinDeps.jl
+2ee18dcdc08cd341cfc737ecf3cd14019a8d1c18	not-for-merge	'refs/pull/108/merge' of git://github.com/JuliaLang/BinDeps.jl
+c9383d47f3351d0198e2c975ea36441a815fb48f	not-for-merge	'refs/pull/109/head' of git://github.com/JuliaLang/BinDeps.jl
+be917ba461e4ffac1e9787114d656446448918be	not-for-merge	'refs/pull/113/head' of git://github.com/JuliaLang/BinDeps.jl
+184ebe43b6ead16b6c08e010bc79c6e953a2cb66	not-for-merge	'refs/pull/14/head' of git://github.com/JuliaLang/BinDeps.jl
+c52db24fbb210c14075b822fb3074b600b46b554	not-for-merge	'refs/pull/14/merge' of git://github.com/JuliaLang/BinDeps.jl
+36c3d02f454943b5bb719eb9f4337aa88c0317b6	not-for-merge	'refs/pull/15/head' of git://github.com/JuliaLang/BinDeps.jl
+5dfcd639d8a57253816c7f07652ce5be10b933f7	not-for-merge	'refs/pull/15/merge' of git://github.com/JuliaLang/BinDeps.jl
+7362b717886547c7575e690e66c0e6b02ee0f674	not-for-merge	'refs/pull/23/head' of git://github.com/JuliaLang/BinDeps.jl
+d6baef0c74af4c20fbda477a2dd96c6c9470c322	not-for-merge	'refs/pull/23/merge' of git://github.com/JuliaLang/BinDeps.jl
+912cc934515191a880a6e6801c238b2a33fd01d2	not-for-merge	'refs/pull/24/head' of git://github.com/JuliaLang/BinDeps.jl
+3440b44dfccb4e861f53cdb17375b90f5f3b9fb5	not-for-merge	'refs/pull/24/merge' of git://github.com/JuliaLang/BinDeps.jl
+db356d82233054925dc9ca4bd4a8a4327a65c62e	not-for-merge	'refs/pull/27/head' of git://github.com/JuliaLang/BinDeps.jl
+76ca096669ab43b9a1096e9d6872b58f92d7c0fc	not-for-merge	'refs/pull/27/merge' of git://github.com/JuliaLang/BinDeps.jl
+41b5276ccb4c78e6333d0f3cebe76424c48a64d3	not-for-merge	'refs/pull/31/head' of git://github.com/JuliaLang/BinDeps.jl
+d10d876740c7f7a05eed4b28e29ecff56a2b89ec	not-for-merge	'refs/pull/31/merge' of git://github.com/JuliaLang/BinDeps.jl
+6d52cbd2fa17b07ea9aaae3a12885c12db74a893	not-for-merge	'refs/pull/32/head' of git://github.com/JuliaLang/BinDeps.jl
+8a0204098ca17c4408e6ba8b566fc4e66d999347	not-for-merge	'refs/pull/32/merge' of git://github.com/JuliaLang/BinDeps.jl
+d84c437142dc2c6d7a3a9c737d32c2728de456be	not-for-merge	'refs/pull/33/head' of git://github.com/JuliaLang/BinDeps.jl
+d102b15e83aeb9bd87e52a4a8adafb1b0004a21a	not-for-merge	'refs/pull/33/merge' of git://github.com/JuliaLang/BinDeps.jl
+f050fe5c6cea2931016e82838a49b37ba7224350	not-for-merge	'refs/pull/34/head' of git://github.com/JuliaLang/BinDeps.jl
+f0767b363a500118e4ecd9466e7f9b4247218ebb	not-for-merge	'refs/pull/34/merge' of git://github.com/JuliaLang/BinDeps.jl
+7215029b081540317a916ca4bd57b0c432212a3c	not-for-merge	'refs/pull/38/head' of git://github.com/JuliaLang/BinDeps.jl
+33513fc160b51350f5068a5b21c7e0354e171e53	not-for-merge	'refs/pull/38/merge' of git://github.com/JuliaLang/BinDeps.jl
+d686f3ae2c21e4d3f8317a1a05773d15ef5783d8	not-for-merge	'refs/pull/39/head' of git://github.com/JuliaLang/BinDeps.jl
+288c3dc4a4c13b2778392a1d0e0baac2d13c7fb7	not-for-merge	'refs/pull/4/head' of git://github.com/JuliaLang/BinDeps.jl
+60b914ca1b15eba03da05386d79516333863fdd4	not-for-merge	'refs/pull/4/merge' of git://github.com/JuliaLang/BinDeps.jl
+996d6f7e3862081f02042fb9ecfad09369a1865c	not-for-merge	'refs/pull/41/head' of git://github.com/JuliaLang/BinDeps.jl
+46febe2ae2beea80ad5b4401de4a733ef4892494	not-for-merge	'refs/pull/41/merge' of git://github.com/JuliaLang/BinDeps.jl
+18c7172efdb8deab0c1531a3d1d2342c1725b324	not-for-merge	'refs/pull/43/head' of git://github.com/JuliaLang/BinDeps.jl
+782a87178ac827987bb934f5378a9a9277f3230a	not-for-merge	'refs/pull/43/merge' of git://github.com/JuliaLang/BinDeps.jl
+79a4ca5453da6fcbab9c07ca76bca8a7c8076fb1	not-for-merge	'refs/pull/44/head' of git://github.com/JuliaLang/BinDeps.jl
+b7d89f10db0da065aecda43ab863510e97925a1e	not-for-merge	'refs/pull/44/merge' of git://github.com/JuliaLang/BinDeps.jl
+b3c9d64b6e56aafcf4bb2a48c76832f98916a146	not-for-merge	'refs/pull/45/head' of git://github.com/JuliaLang/BinDeps.jl
+f43f9130583abc4e211cb54d49df5d074050ee5a	not-for-merge	'refs/pull/45/merge' of git://github.com/JuliaLang/BinDeps.jl
+667f462616ec3fe072cc7d9a15a0c7a730a59c76	not-for-merge	'refs/pull/46/head' of git://github.com/JuliaLang/BinDeps.jl
+9a8a2665ca9704acb5dcab851d6ef27926067c3d	not-for-merge	'refs/pull/46/merge' of git://github.com/JuliaLang/BinDeps.jl
+fd4c08358e170b3b202eb18c50f2a16a58643153	not-for-merge	'refs/pull/47/head' of git://github.com/JuliaLang/BinDeps.jl
+8c779d2262737fa4d218015f8be2333a63b6145f	not-for-merge	'refs/pull/47/merge' of git://github.com/JuliaLang/BinDeps.jl
+c91829f5eb548b13693e0d9205c9b89fd5410c47	not-for-merge	'refs/pull/48/head' of git://github.com/JuliaLang/BinDeps.jl
+efa41d422fded880666a001af238b05c1c14bc80	not-for-merge	'refs/pull/48/merge' of git://github.com/JuliaLang/BinDeps.jl
+a297bc8e6c2696e749d552c580aff6976c8e729f	not-for-merge	'refs/pull/51/head' of git://github.com/JuliaLang/BinDeps.jl
+0d4fd32b0b43cadf3a90bc13bc40becd112e0bbd	not-for-merge	'refs/pull/51/merge' of git://github.com/JuliaLang/BinDeps.jl
+fa5c51b8a3d97eb6ba0db74468ef614b34d6b4bd	not-for-merge	'refs/pull/59/head' of git://github.com/JuliaLang/BinDeps.jl
+e9b77a39188320a71177892331b42faea0da156f	not-for-merge	'refs/pull/59/merge' of git://github.com/JuliaLang/BinDeps.jl
+f3d20ce5666fdfff26615f3b35fd5804561154c9	not-for-merge	'refs/pull/6/head' of git://github.com/JuliaLang/BinDeps.jl
+d69b7531e2a4fd756a4c76987b6d0e2a1d29e71b	not-for-merge	'refs/pull/6/merge' of git://github.com/JuliaLang/BinDeps.jl
+d7f27662cb7772a5ea3a725327fb7726c97868f0	not-for-merge	'refs/pull/60/head' of git://github.com/JuliaLang/BinDeps.jl
+bf4af8a5b243a8e6ca39fda0412979d5f861868f	not-for-merge	'refs/pull/60/merge' of git://github.com/JuliaLang/BinDeps.jl
+c59c2993e1ffefb7103473921106f56aa34e9682	not-for-merge	'refs/pull/61/head' of git://github.com/JuliaLang/BinDeps.jl
+42a410fc58fc68cbece79ed946f8098238eb9951	not-for-merge	'refs/pull/61/merge' of git://github.com/JuliaLang/BinDeps.jl
+6fcb1cfddb6a4a1626f5f198a109397cf04b8308	not-for-merge	'refs/pull/62/head' of git://github.com/JuliaLang/BinDeps.jl
+674fc238d3755cc0b1cd6640afb34b07b705fcd2	not-for-merge	'refs/pull/62/merge' of git://github.com/JuliaLang/BinDeps.jl
+19fc8137cc2412e95ad2ed3178cac32b14b1f6b3	not-for-merge	'refs/pull/63/head' of git://github.com/JuliaLang/BinDeps.jl
+ab896c80d1f2d896b5adc40f164f4fc5cee3c575	not-for-merge	'refs/pull/64/head' of git://github.com/JuliaLang/BinDeps.jl
+9c843fb9526eea170ae41cad1ba5ddc0336eb2e0	not-for-merge	'refs/pull/64/merge' of git://github.com/JuliaLang/BinDeps.jl
+94f1cb647658e45a2467ff082c37a6af77da5c83	not-for-merge	'refs/pull/65/head' of git://github.com/JuliaLang/BinDeps.jl
+6b5b96a5557a0ce6adc51f3ddefeca90b65dddda	not-for-merge	'refs/pull/73/head' of git://github.com/JuliaLang/BinDeps.jl
+9da90ca8c9c52edabab16ac16de05c10a6de704f	not-for-merge	'refs/pull/74/head' of git://github.com/JuliaLang/BinDeps.jl
+303c0760eed5dcd72f1cada45a806dc4aa5a5b93	not-for-merge	'refs/pull/78/head' of git://github.com/JuliaLang/BinDeps.jl
+6ad559137c88a372ea3b7619c405aad117ca4e03	not-for-merge	'refs/pull/83/head' of git://github.com/JuliaLang/BinDeps.jl
+bc95509b89d0c808e8c9500caad590e3583ffbff	not-for-merge	'refs/pull/83/merge' of git://github.com/JuliaLang/BinDeps.jl
+50ed8928097d8c58d946d281e32143db7e7fe6d6	not-for-merge	'refs/pull/84/head' of git://github.com/JuliaLang/BinDeps.jl
+cc3120fb5bc18f1fd9cdf824e59f756aeb068ead	not-for-merge	'refs/pull/87/head' of git://github.com/JuliaLang/BinDeps.jl
+5676491ed69efab436b362cea2da0b63ac3491d3	not-for-merge	'refs/pull/88/head' of git://github.com/JuliaLang/BinDeps.jl
+f0751e65632b62bd5132c494f00030bfd5e39ef0	not-for-merge	'refs/pull/89/head' of git://github.com/JuliaLang/BinDeps.jl
+b94ce9a30d499f0ee239c5bf240b8534139919d4	not-for-merge	'refs/pull/90/head' of git://github.com/JuliaLang/BinDeps.jl
+de4dbf9ce02eaff1b27ddbd557bfa55e07ba72fa	not-for-merge	'refs/pull/95/head' of git://github.com/JuliaLang/BinDeps.jl
+d5fbea152855668658318beca641209af5550bd3	not-for-merge	'refs/pull/96/head' of git://github.com/JuliaLang/BinDeps.jl
+95e38683d789a4c29fe09d90cb9e86fc7c711e35	not-for-merge	'refs/pull/98/head' of git://github.com/JuliaLang/BinDeps.jl
+95cefdaf5792abb566b9dc3a5b19a89b5ba2f05d	not-for-merge	tag 'v0.2.12' of git://github.com/JuliaLang/BinDeps.jl
+80ed0bd8435d2c0bfd8d292cfd493017e78bdf47	not-for-merge	tag 'v0.2.13' of git://github.com/JuliaLang/BinDeps.jl
+dabfba5519f87229e3a014bb51e4a03cdf689331	not-for-merge	tag 'v0.3.0' of git://github.com/JuliaLang/BinDeps.jl
+0ca23ba353b9b252172f20461d21b46d86e77b7a	not-for-merge	tag 'v0.3.1' of git://github.com/JuliaLang/BinDeps.jl
+5a08a7dcc5337b3cef98566f9d1cea449fddea6b	not-for-merge	tag 'v0.3.2' of git://github.com/JuliaLang/BinDeps.jl
+d9d75eb2c0019717969083b9619c4ac7beb7d367	not-for-merge	tag 'v0.3.3' of git://github.com/JuliaLang/BinDeps.jl
+6f31a8f51bb0b95aa7aa7085776695de54587fa0	not-for-merge	tag 'v0.3.4' of git://github.com/JuliaLang/BinDeps.jl
+927bbf705e74afff891d875b2988af3ae2c2a2d6	not-for-merge	tag 'v0.3.5' of git://github.com/JuliaLang/BinDeps.jl
+2f644c2efff39964d89aa3a6de5ea6b2877fe20e	not-for-merge	tag 'v0.3.6' of git://github.com/JuliaLang/BinDeps.jl

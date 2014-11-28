@@ -1,0 +1,35 @@
+95f0cf371fa1e7033104d1f69ad46e6ec1c4276b	not-for-merge	branch 'master' of git://github.com/JuliaLang/ZMQ.jl
+adf0b1e6c95685e8d4ea6e3b3d8c50b7cfc4f0b4	not-for-merge	branch 'sf/winbin' of git://github.com/JuliaLang/ZMQ.jl
+cfb81439811755bc8e8ccde02e91014b6b27ab5e	not-for-merge	branch 'travis' of git://github.com/JuliaLang/ZMQ.jl
+69b1c8d56a7a2b8063db0c757902a0a2165e3068	not-for-merge	branch 'zerocopy' of git://github.com/JuliaLang/ZMQ.jl
+8eeb3c210b7813f42e561b226024ba64a5f4085f	not-for-merge	'refs/pull/10/head' of git://github.com/JuliaLang/ZMQ.jl
+fbd95cf0b4040068cd70268960b238bec1a9afef	not-for-merge	'refs/pull/10/merge' of git://github.com/JuliaLang/ZMQ.jl
+2a00d3fa5359748a95f9785623991bff006bcfc0	not-for-merge	'refs/pull/11/head' of git://github.com/JuliaLang/ZMQ.jl
+3e1e34b9b90966b43305abe8609bbcedaf731420	not-for-merge	'refs/pull/11/merge' of git://github.com/JuliaLang/ZMQ.jl
+ef127caeecd768f9e9c93efc086493a924d315eb	not-for-merge	'refs/pull/23/head' of git://github.com/JuliaLang/ZMQ.jl
+5b5b69884b02557451dab9534367b7c345c6a0dc	not-for-merge	'refs/pull/23/merge' of git://github.com/JuliaLang/ZMQ.jl
+9dc62070b8ed01dfb8d3bb2e5c96cf3fc07fd293	not-for-merge	'refs/pull/26/head' of git://github.com/JuliaLang/ZMQ.jl
+ce9af75e6f98f400d13f949543034816f39cb03c	not-for-merge	'refs/pull/26/merge' of git://github.com/JuliaLang/ZMQ.jl
+9c09e2247269b82ba9b889c7d2c9e2b797393425	not-for-merge	'refs/pull/28/head' of git://github.com/JuliaLang/ZMQ.jl
+0252c0c5d1d5c7dac0e1b4ac13935f3499a7df4a	not-for-merge	'refs/pull/28/merge' of git://github.com/JuliaLang/ZMQ.jl
+adf0b1e6c95685e8d4ea6e3b3d8c50b7cfc4f0b4	not-for-merge	'refs/pull/29/head' of git://github.com/JuliaLang/ZMQ.jl
+a37a1eb79de52d7d24b0ada6189cfc3cfe376a55	not-for-merge	'refs/pull/29/merge' of git://github.com/JuliaLang/ZMQ.jl
+d1cc873e901a6f6aa953ba396673ef11c708bc62	not-for-merge	'refs/pull/33/head' of git://github.com/JuliaLang/ZMQ.jl
+d23adc868e69a927f6a8b55ceba114d2c85efacd	not-for-merge	'refs/pull/33/merge' of git://github.com/JuliaLang/ZMQ.jl
+f19b637018dcecfd2812a22bc030ec5369545c0a	not-for-merge	'refs/pull/42/head' of git://github.com/JuliaLang/ZMQ.jl
+69b1c8d56a7a2b8063db0c757902a0a2165e3068	not-for-merge	'refs/pull/51/head' of git://github.com/JuliaLang/ZMQ.jl
+fa7011a71e1f4f4cc858f5c1be17d6b3231bacec	not-for-merge	'refs/pull/59/head' of git://github.com/JuliaLang/ZMQ.jl
+30c4c7b8967c971ba4f67e719cec3a287cbc59cc	not-for-merge	'refs/pull/59/merge' of git://github.com/JuliaLang/ZMQ.jl
+a5007906215c2c8314a4537e27b8d11fe2aa3cb4	not-for-merge	'refs/pull/6/head' of git://github.com/JuliaLang/ZMQ.jl
+2400c26f5afd3a93cf51df0a068a25041642ef37	not-for-merge	'refs/pull/6/merge' of git://github.com/JuliaLang/ZMQ.jl
+92ef908898dafad7f01a5c15eab93d6cd9916433	not-for-merge	'refs/pull/60/head' of git://github.com/JuliaLang/ZMQ.jl
+cb2cc0de85195e63d3568d92162d8ff2914afe3a	not-for-merge	'refs/pull/61/head' of git://github.com/JuliaLang/ZMQ.jl
+6a0fe62c2cf47747ecfb6f375911d1dc3973c89d	not-for-merge	'refs/pull/62/head' of git://github.com/JuliaLang/ZMQ.jl
+ed3adac0a8176a2788782829f8327ba491e5de05	not-for-merge	'refs/pull/63/head' of git://github.com/JuliaLang/ZMQ.jl
+bfd086fcd10e7a5ee33d638412f9c785a8b4670f	not-for-merge	'refs/pull/7/head' of git://github.com/JuliaLang/ZMQ.jl
+568e069442a95731ac8ce6c84ed1a35dfb62341b	not-for-merge	'refs/pull/7/merge' of git://github.com/JuliaLang/ZMQ.jl
+c7aefddfb6d9fb0ebcde5fc1751be10a5f89a383	not-for-merge	'refs/pull/8/head' of git://github.com/JuliaLang/ZMQ.jl
+795b0dedc54b22b6985c5bb1309d98e2b376e702	not-for-merge	'refs/pull/8/merge' of git://github.com/JuliaLang/ZMQ.jl
+6284f37f23e5d9b9518ee7caeb51cbfe20b1808d	not-for-merge	'refs/pull/9/head' of git://github.com/JuliaLang/ZMQ.jl
+12159cde3bd02551eefb8df0ead3c7657cefcc77	not-for-merge	'refs/pull/9/merge' of git://github.com/JuliaLang/ZMQ.jl
+25caf496c1b08065388573161dad74e54e664a3d	not-for-merge	tag 'v0.1.10' of git://github.com/JuliaLang/ZMQ.jl

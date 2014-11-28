@@ -1,0 +1,69 @@
+58a4e4862752c13e88314d3f1b194c274182820e	not-for-merge	branch 'anj/float' of git://github.com/JuliaStats/GLM.jl
+92a4628d4fde2344badb99cd7842b0c2f9fc673b	not-for-merge	branch 'anj/glmint' of git://github.com/JuliaStats/GLM.jl
+83c224b42ec2fdf7624ac918ab50083165750868	not-for-merge	branch 'anj/qr' of git://github.com/JuliaStats/GLM.jl
+44131fbda5a6cfc87c962045f1d06d2d9887299e	not-for-merge	branch 'dataframes' of git://github.com/JuliaStats/GLM.jl
+a2bd85b737a6d23f02f8545a9273b3489997296d	not-for-merge	branch 'jmw/cleanup' of git://github.com/JuliaStats/GLM.jl
+51cbb9d3f840760e058bc6a4c5e3805a4762c06e	not-for-merge	branch 'jmw/coefnames' of git://github.com/JuliaStats/GLM.jl
+33229ff87b86acb1cdaa39b5e228469b0c78a8fd	not-for-merge	branch 'julia-0.2' of git://github.com/JuliaStats/GLM.jl
+dcbc4f94cb553d62e60723a540f2961968776d58	not-for-merge	branch 'master' of git://github.com/JuliaStats/GLM.jl
+648b1409fd9cfbe130337c73f8b499fb821928f4	not-for-merge	'refs/pull/1/head' of git://github.com/JuliaStats/GLM.jl
+a602b6fc8150a63f024c8a9da4f672d24eee2d28	not-for-merge	'refs/pull/1/merge' of git://github.com/JuliaStats/GLM.jl
+81f0f489ea5e4130baa1f460ee4836671d034dc4	not-for-merge	'refs/pull/13/head' of git://github.com/JuliaStats/GLM.jl
+22d7c267a3f555cecd188eb369b523dcee7a9f01	not-for-merge	'refs/pull/13/merge' of git://github.com/JuliaStats/GLM.jl
+319881640fc4f8b3bd74a9818bf3d29095536ef7	not-for-merge	'refs/pull/15/head' of git://github.com/JuliaStats/GLM.jl
+cbf28309219bbef7127894d8d71d715d4180577d	not-for-merge	'refs/pull/15/merge' of git://github.com/JuliaStats/GLM.jl
+b8a7aedb3d3aec7a4bfe3584ab93812ba83d09f4	not-for-merge	'refs/pull/2/head' of git://github.com/JuliaStats/GLM.jl
+7078a5d03e093d6b1b570f0f1fee04ead2f6ae64	not-for-merge	'refs/pull/2/merge' of git://github.com/JuliaStats/GLM.jl
+92a4628d4fde2344badb99cd7842b0c2f9fc673b	not-for-merge	'refs/pull/27/head' of git://github.com/JuliaStats/GLM.jl
+0f71622dead950353baf70ec9be445513e541fd9	not-for-merge	'refs/pull/27/merge' of git://github.com/JuliaStats/GLM.jl
+07a772d0e1205b02375d6028111f58e27daa6a7a	not-for-merge	'refs/pull/3/head' of git://github.com/JuliaStats/GLM.jl
+3bf56c6cf8580d83529db526324cc0c110e7d03f	not-for-merge	'refs/pull/3/merge' of git://github.com/JuliaStats/GLM.jl
+a912b11f12c76c296465151c3b9bd3f36353f266	not-for-merge	'refs/pull/30/head' of git://github.com/JuliaStats/GLM.jl
+49c5f2910a0be4c74faf0457cec6184a5dea90ed	not-for-merge	'refs/pull/30/merge' of git://github.com/JuliaStats/GLM.jl
+51cbb9d3f840760e058bc6a4c5e3805a4762c06e	not-for-merge	'refs/pull/31/head' of git://github.com/JuliaStats/GLM.jl
+cb8dd74347b9c521cbd9c26de94be23c62bcbcd9	not-for-merge	'refs/pull/31/merge' of git://github.com/JuliaStats/GLM.jl
+e69e0327a96e0e240ff008769dd357ccb30a9328	not-for-merge	'refs/pull/33/head' of git://github.com/JuliaStats/GLM.jl
+4074d74777e5312f7066c791a6dfbb3eacfa72f3	not-for-merge	'refs/pull/33/merge' of git://github.com/JuliaStats/GLM.jl
+77ce66b3624d264dc6bb67c62ae3efd530757119	not-for-merge	'refs/pull/40/head' of git://github.com/JuliaStats/GLM.jl
+917f3c1a25b844108c6ca15a8dd2e7466e4d03f5	not-for-merge	'refs/pull/40/merge' of git://github.com/JuliaStats/GLM.jl
+7c057bb13c035db45e8998f47451851e32cc2189	not-for-merge	'refs/pull/41/head' of git://github.com/JuliaStats/GLM.jl
+9ab100051ca4e546f035b1869eaa46f229c6e9a6	not-for-merge	'refs/pull/46/head' of git://github.com/JuliaStats/GLM.jl
+a2bd85b737a6d23f02f8545a9273b3489997296d	not-for-merge	'refs/pull/47/head' of git://github.com/JuliaStats/GLM.jl
+13d357ee11a2730e8e05848db437996eff83a33c	not-for-merge	'refs/pull/5/head' of git://github.com/JuliaStats/GLM.jl
+64877239010f9140494d127c3bdb94992133faf9	not-for-merge	'refs/pull/5/merge' of git://github.com/JuliaStats/GLM.jl
+83c224b42ec2fdf7624ac918ab50083165750868	not-for-merge	'refs/pull/50/head' of git://github.com/JuliaStats/GLM.jl
+110974a46620e4a2ebd06608a6af480baa548957	not-for-merge	'refs/pull/52/head' of git://github.com/JuliaStats/GLM.jl
+5ea1e68a5d7ea2c5e02c04864ff9a8446afc3de4	not-for-merge	'refs/pull/52/merge' of git://github.com/JuliaStats/GLM.jl
+84388cc8e7d8f6de98764c6517fcf10a2e922045	not-for-merge	'refs/pull/53/head' of git://github.com/JuliaStats/GLM.jl
+fba3e83cbb29a0dd2d672828f3cad2e68a79e47f	not-for-merge	'refs/pull/53/merge' of git://github.com/JuliaStats/GLM.jl
+fefe01b9300ce415ea7b179f3a08f163d51bf37d	not-for-merge	'refs/pull/56/head' of git://github.com/JuliaStats/GLM.jl
+81ad2152e88950607bff097525ffafd46dfbd747	not-for-merge	'refs/pull/57/head' of git://github.com/JuliaStats/GLM.jl
+3d9b1751b7ea3c3ed3264a5184132e8d9fc5bfb8	not-for-merge	'refs/pull/57/merge' of git://github.com/JuliaStats/GLM.jl
+52548f02a9c843da5b2c278868086fd85bec64e0	not-for-merge	'refs/pull/58/head' of git://github.com/JuliaStats/GLM.jl
+3ab944a3a440cae6092efdbcd95a61546681ee6e	not-for-merge	'refs/pull/59/head' of git://github.com/JuliaStats/GLM.jl
+58a4e4862752c13e88314d3f1b194c274182820e	not-for-merge	'refs/pull/63/head' of git://github.com/JuliaStats/GLM.jl
+a48f372fa0e8034e4bd1d9894d5ca398fc30580f	not-for-merge	'refs/pull/65/head' of git://github.com/JuliaStats/GLM.jl
+940426adbb288f3847cefec01061262be92ec3ae	not-for-merge	'refs/pull/65/merge' of git://github.com/JuliaStats/GLM.jl
+0c6c2bd6e722bc8fd4d2a9273d19caf6979c0761	not-for-merge	'refs/pull/70/head' of git://github.com/JuliaStats/GLM.jl
+0c4c6730d5e7db3ff724ce25316661c52aab48bf	not-for-merge	'refs/pull/70/merge' of git://github.com/JuliaStats/GLM.jl
+4f900d4f022d69fb6894cc4e048c3d7528bbf858	not-for-merge	'refs/pull/72/head' of git://github.com/JuliaStats/GLM.jl
+d882a128e081b7dac9aac650d5fa03ab569dea0a	not-for-merge	'refs/pull/77/head' of git://github.com/JuliaStats/GLM.jl
+79220e6c52da1dcefa26f46cb4d3fd5c7aee569b	not-for-merge	'refs/pull/85/head' of git://github.com/JuliaStats/GLM.jl
+f9c4dcb9bae4e2dabe3642f44adf95f4c63e5945	not-for-merge	'refs/pull/87/head' of git://github.com/JuliaStats/GLM.jl
+5e68e1144c95bba4e4dbb1eccc667dd06e1d7ccf	not-for-merge	'refs/pull/88/head' of git://github.com/JuliaStats/GLM.jl
+dabfd5260760f48071ee035ba62017537858a77a	not-for-merge	'refs/pull/88/merge' of git://github.com/JuliaStats/GLM.jl
+2d8442505bcbcc5e2cd0494b0571c62d580c7ba7	not-for-merge	'refs/pull/89/head' of git://github.com/JuliaStats/GLM.jl
+82ec951e470562c6d60e030717b380eb8c213eca	not-for-merge	'refs/pull/89/merge' of git://github.com/JuliaStats/GLM.jl
+88e92e968c02f6df388efa35d683054d5184625c	not-for-merge	'refs/pull/90/head' of git://github.com/JuliaStats/GLM.jl
+6692a53a6389c21be5c98f4ce70b787bdc2addef	not-for-merge	'refs/pull/91/head' of git://github.com/JuliaStats/GLM.jl
+b75eaa5cd3f2f95764933b519c8cbc7236c5f892	not-for-merge	'refs/pull/92/head' of git://github.com/JuliaStats/GLM.jl
+448ef67e4704148b5aff45aa4d89d8b6c616afec	not-for-merge	'refs/pull/93/head' of git://github.com/JuliaStats/GLM.jl
+f7dea7836e30d09afc6815a69e1f71d9b484f14b	not-for-merge	tag '0.2.0' of git://github.com/JuliaStats/GLM.jl
+2d109390c68128b3adead184977c91a66361d069	not-for-merge	tag 'v0.2.1' of git://github.com/JuliaStats/GLM.jl
+a1022647268c11465e37251006b8f2ed95c08103	not-for-merge	tag 'v0.2.3' of git://github.com/JuliaStats/GLM.jl
+15d3386250546627542c903636b32ae12f302388	not-for-merge	tag 'v0.2.4' of git://github.com/JuliaStats/GLM.jl
+c902ea8e791d0afe25e3e568d22d5a169091db0d	not-for-merge	tag 'v0.2.5' of git://github.com/JuliaStats/GLM.jl
+6639f242b5131987e7b7387ea6cce8efdc0b2de5	not-for-merge	tag 'v0.3.0' of git://github.com/JuliaStats/GLM.jl
+939bd42ee8257ef317d63d6448f44b4fc8c45b99	not-for-merge	tag 'v0.3.1' of git://github.com/JuliaStats/GLM.jl
+1b0dbf3e2cb83b1209a1f6add5bfe22ceb78672d	not-for-merge	tag 'v0.3.2' of git://github.com/JuliaStats/GLM.jl
+d6d560009b2737e991550bacf8776552259a6ad9	not-for-merge	tag 'v0.4.0' of git://github.com/JuliaStats/GLM.jl

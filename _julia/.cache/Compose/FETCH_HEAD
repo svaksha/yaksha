@@ -1,0 +1,107 @@
+b683730fe926f588a7f358c53de3b30441339a93	not-for-merge	branch 'compose2' of git://github.com/dcjones/Compose.jl
+940228bf5fa42b73bc9069377a4247073742ce2c	not-for-merge	branch 'd3' of git://github.com/dcjones/Compose.jl
+11e9cc38c98f01500da8a034b8fdfcaba892d7a8	not-for-merge	branch 'example-images' of git://github.com/dcjones/Compose.jl
+b8e24a95768c0918ea5caeb03aca39566d2f032e	not-for-merge	branch 'gh-pages' of git://github.com/dcjones/Compose.jl
+7bb279be4b0946b47587d5ac0fcf8cc7a86f8dae	not-for-merge	branch 'master' of git://github.com/dcjones/Compose.jl
+a3b35cc1b86096d406a71542237237be48a100c5	not-for-merge	branch 'pathshape' of git://github.com/dcjones/Compose.jl
+b132951499efefef6f96639d0b71c8a8a62e5578	not-for-merge	branch 'propose' of git://github.com/dcjones/Compose.jl
+077a5b1f63c1a483167e6b8f6f45a3fa0bb565cd	not-for-merge	'refs/pull/1/head' of git://github.com/dcjones/Compose.jl
+c9d415d3eb7c5faf1a00b1a9000261362b825c17	not-for-merge	'refs/pull/1/merge' of git://github.com/dcjones/Compose.jl
+b3908a4e65f877b08992d95e779420c67e810f49	not-for-merge	'refs/pull/10/head' of git://github.com/dcjones/Compose.jl
+f51979ad353e7c5f9f961615e75acad9e7bc998d	not-for-merge	'refs/pull/10/merge' of git://github.com/dcjones/Compose.jl
+7b4a67881b6e0cb6c7d4edfdf2cd1217b593a9ab	not-for-merge	'refs/pull/12/head' of git://github.com/dcjones/Compose.jl
+39f4a607cdda3f3bb394ac23aa87c3b0e230a1c9	not-for-merge	'refs/pull/12/merge' of git://github.com/dcjones/Compose.jl
+d8dc21c45bd8ca0aca831ab1cb63f8239fa028e7	not-for-merge	'refs/pull/13/head' of git://github.com/dcjones/Compose.jl
+c3216b56ba4502e7116644a08937d1c79abe4821	not-for-merge	'refs/pull/13/merge' of git://github.com/dcjones/Compose.jl
+e059c133744b2fc7a4a0796f4d1cb34cd175aa49	not-for-merge	'refs/pull/15/head' of git://github.com/dcjones/Compose.jl
+bb859c3368ec8f16a74c2d9019bf6b510b2b084a	not-for-merge	'refs/pull/15/merge' of git://github.com/dcjones/Compose.jl
+590a8c0d0e8b21201b3d3ccb1095486cc5c68ff6	not-for-merge	'refs/pull/17/head' of git://github.com/dcjones/Compose.jl
+81359e5cf5cd1a105ac4a75f3c7429439a675412	not-for-merge	'refs/pull/17/merge' of git://github.com/dcjones/Compose.jl
+4ed96c56549cbf09732c010012e13f0388070d43	not-for-merge	'refs/pull/18/head' of git://github.com/dcjones/Compose.jl
+42f1d6fa76b8310ea916b9696a8df9944a99bfb5	not-for-merge	'refs/pull/18/merge' of git://github.com/dcjones/Compose.jl
+a13901502760720c24c46915ea14427ec263921c	not-for-merge	'refs/pull/23/head' of git://github.com/dcjones/Compose.jl
+489d8a01099b95e092b78e98d82b00f50a7cbf4b	not-for-merge	'refs/pull/23/merge' of git://github.com/dcjones/Compose.jl
+76bbb5c7f51a00180375cf6d51d450b9e46bb907	not-for-merge	'refs/pull/24/head' of git://github.com/dcjones/Compose.jl
+9e6ef7009195ca18db7ccf53c73e7be29843db02	not-for-merge	'refs/pull/24/merge' of git://github.com/dcjones/Compose.jl
+d4a186ace649c5718b85829c8a72eedf0b194e3f	not-for-merge	'refs/pull/26/head' of git://github.com/dcjones/Compose.jl
+7a7d03074c81c9ea48b3ec2443fc45f83a80db97	not-for-merge	'refs/pull/26/merge' of git://github.com/dcjones/Compose.jl
+b29df2b698457d05f0d59845ee6712b019cd3dba	not-for-merge	'refs/pull/27/head' of git://github.com/dcjones/Compose.jl
+ad79798350bed9e05594e2674c63601d60fbd88a	not-for-merge	'refs/pull/27/merge' of git://github.com/dcjones/Compose.jl
+e26215e84bb1942c5a4fb3a2b52f04a3514bc525	not-for-merge	'refs/pull/34/head' of git://github.com/dcjones/Compose.jl
+1b2664d15ddae3abb4d0b03b84cf34fccd1c4c1c	not-for-merge	'refs/pull/34/merge' of git://github.com/dcjones/Compose.jl
+77e71464bbe5f70c5987441b2b2c99038001bd53	not-for-merge	'refs/pull/36/head' of git://github.com/dcjones/Compose.jl
+d267f552c9c88e9d1136b0c07e8244d58176fd12	not-for-merge	'refs/pull/37/head' of git://github.com/dcjones/Compose.jl
+d521e59bf2a2b2abdaf84ac2dc648ccc52e92127	not-for-merge	'refs/pull/39/head' of git://github.com/dcjones/Compose.jl
+ccfe83ab57f5172c92d473b1a51369be16dfc30c	not-for-merge	'refs/pull/4/head' of git://github.com/dcjones/Compose.jl
+50cb678c0041105a17002e1fdffed30882c33c0f	not-for-merge	'refs/pull/4/merge' of git://github.com/dcjones/Compose.jl
+3db5509bca48093e8e5484a57ee1e236d2a4f509	not-for-merge	'refs/pull/45/head' of git://github.com/dcjones/Compose.jl
+a7813542457989e9b094f2bdf9356ac07325ccc3	not-for-merge	'refs/pull/46/head' of git://github.com/dcjones/Compose.jl
+a71dd8ef55ff5ef5abc1feb1a66e828f34b876cf	not-for-merge	'refs/pull/47/head' of git://github.com/dcjones/Compose.jl
+c0bc3fc1425313acf35043164049451e4f8b9635	not-for-merge	'refs/pull/48/head' of git://github.com/dcjones/Compose.jl
+d3537053a72620a03ebc2ea4435e09835a13606e	not-for-merge	'refs/pull/49/head' of git://github.com/dcjones/Compose.jl
+461f640b00ad0b7f7fe3a1448efe51d31c8d8913	not-for-merge	'refs/pull/5/head' of git://github.com/dcjones/Compose.jl
+e511542bfb5a7cbf79e7aca063f0d1a7d341a75d	not-for-merge	'refs/pull/5/merge' of git://github.com/dcjones/Compose.jl
+cdd641040bc2b9da44a2f7405dec92a6756fbbbe	not-for-merge	'refs/pull/50/head' of git://github.com/dcjones/Compose.jl
+3b345e41f5696e86c6702bcece2407dc8fb02f03	not-for-merge	'refs/pull/51/head' of git://github.com/dcjones/Compose.jl
+c5c20063bfaa3b72ea5b928906197efb1edbf750	not-for-merge	'refs/pull/52/head' of git://github.com/dcjones/Compose.jl
+387d42725757ae02190bee2c2a492974d93086d3	not-for-merge	'refs/pull/52/merge' of git://github.com/dcjones/Compose.jl
+83fe365fa343490924c512c063232a1686a6aad3	not-for-merge	'refs/pull/53/head' of git://github.com/dcjones/Compose.jl
+525ddb39083d11c991500162692707dbda540f09	not-for-merge	'refs/pull/57/head' of git://github.com/dcjones/Compose.jl
+ffd38b351b6156b8cb58b07c7ac41c0d4c410b5c	not-for-merge	'refs/pull/57/merge' of git://github.com/dcjones/Compose.jl
+65b416d109f8525a0e626a8ab181e3f7b1c6765e	not-for-merge	'refs/pull/59/head' of git://github.com/dcjones/Compose.jl
+b1294810307f27d70bd2d1bf4bd675d957aae032	not-for-merge	'refs/pull/6/head' of git://github.com/dcjones/Compose.jl
+e0a3a931aa4b8ba60122f75ed0ab367928a3c08a	not-for-merge	'refs/pull/6/merge' of git://github.com/dcjones/Compose.jl
+e3c10c225c73c47df5e95b7ee8d29364184e1ab3	not-for-merge	'refs/pull/64/head' of git://github.com/dcjones/Compose.jl
+fa6de92b8e52bc22336643a6d5eaf1670e09c889	not-for-merge	'refs/pull/65/head' of git://github.com/dcjones/Compose.jl
+73667f094a6897546dd7afd7688e7ee8832d0064	not-for-merge	'refs/pull/67/head' of git://github.com/dcjones/Compose.jl
+d020fac46ef43aae330659bc37e686ac0d13292b	not-for-merge	'refs/pull/69/head' of git://github.com/dcjones/Compose.jl
+3271ea6da1d0e31e71246112691cf2956e17348d	not-for-merge	'refs/pull/7/head' of git://github.com/dcjones/Compose.jl
+ddc3b80adc26f5f418d562e4b6c20c7f4102ee94	not-for-merge	'refs/pull/7/merge' of git://github.com/dcjones/Compose.jl
+cfab8602672759b34f65bdca344768c983fe5d16	not-for-merge	'refs/pull/71/head' of git://github.com/dcjones/Compose.jl
+79c9da16926728cd326684ac42ab2cbbe5d18b9e	not-for-merge	'refs/pull/74/head' of git://github.com/dcjones/Compose.jl
+9481b6401df3f132e8bf5ddfe5e18d4988f5614d	not-for-merge	'refs/pull/76/head' of git://github.com/dcjones/Compose.jl
+5761db67f66011c38946c3aa6ab0dba419916a31	not-for-merge	'refs/pull/77/head' of git://github.com/dcjones/Compose.jl
+68a9b082e9524373d5ac383913f3e4c85b9e6b9b	not-for-merge	'refs/pull/78/head' of git://github.com/dcjones/Compose.jl
+920b1b27fa5776357080b0bdb85dc5a2fa2617ed	not-for-merge	'refs/pull/79/head' of git://github.com/dcjones/Compose.jl
+95b71e8bcbc002d3d8b1846b85d38ec70c43b2d5	not-for-merge	'refs/pull/8/head' of git://github.com/dcjones/Compose.jl
+ba5bec37c830eadd091e8cba158b8871ea974fed	not-for-merge	'refs/pull/8/merge' of git://github.com/dcjones/Compose.jl
+82e7286b137e37e9acfe8e228da33d1e100703dc	not-for-merge	'refs/pull/83/head' of git://github.com/dcjones/Compose.jl
+509559e43eb48c5b065798f305ff9389b37f6d01	not-for-merge	'refs/pull/83/merge' of git://github.com/dcjones/Compose.jl
+d829ecec76234872b0572b34d42b3cf8e917a69c	not-for-merge	'refs/pull/84/head' of git://github.com/dcjones/Compose.jl
+b81a11f285bc80cc3028d70fe97e1c9bc3778261	not-for-merge	'refs/pull/86/head' of git://github.com/dcjones/Compose.jl
+6b765e83697839c5cecba39f95c223df45b79f06	not-for-merge	'refs/pull/86/merge' of git://github.com/dcjones/Compose.jl
+19bcebc6d7045a09bf5e8354f883d558e17ec59e	not-for-merge	'refs/pull/88/head' of git://github.com/dcjones/Compose.jl
+b4f50a3745b2e495ed894ab2358a4a6600dba2e9	not-for-merge	'refs/pull/88/merge' of git://github.com/dcjones/Compose.jl
+5398c94ca221455ed037fb8425400f49ccb9ae53	not-for-merge	'refs/pull/9/head' of git://github.com/dcjones/Compose.jl
+d1002e2b45ac43ca205a3cbf489ba98d818d18a6	not-for-merge	'refs/pull/9/merge' of git://github.com/dcjones/Compose.jl
+fcba3b24b9ddcaec5cddc597d0d37292d1a915bb	not-for-merge	tag 'v0.1.0' of git://github.com/dcjones/Compose.jl
+6a52ed8d6d614909b30fb8b7efb3d047c8d14f95	not-for-merge	tag 'v0.1.1' of git://github.com/dcjones/Compose.jl
+88d18bbf9b11a55295b878de3af9e478178ec04e	not-for-merge	tag 'v0.1.16' of git://github.com/dcjones/Compose.jl
+0f99366951fe568bd1c54007fe37edd599a41b35	not-for-merge	tag 'v0.1.17' of git://github.com/dcjones/Compose.jl
+5a7e1bd75fcb34c927714286a6d7b42bc48c4349	not-for-merge	tag 'v0.1.18' of git://github.com/dcjones/Compose.jl
+ac00496e8d44c1e1ee7f1d94c6b4b2388edf4510	not-for-merge	tag 'v0.1.19' of git://github.com/dcjones/Compose.jl
+5e2fd5e8021700b4aa7a24453048a357ea6efe88	not-for-merge	tag 'v0.1.2' of git://github.com/dcjones/Compose.jl
+f6b377e6413ea61b504fe167d45d8c4fc3ee32a1	not-for-merge	tag 'v0.1.20' of git://github.com/dcjones/Compose.jl
+b111a40ab2cfea70028bd7bcabe6b013eecb5c54	not-for-merge	tag 'v0.1.21' of git://github.com/dcjones/Compose.jl
+b820bfecb32129788cabef4dcd7bfe0d7c88c092	not-for-merge	tag 'v0.1.22' of git://github.com/dcjones/Compose.jl
+15987684ce8cbdb1d7eb391e8a83ca2c194c25ca	not-for-merge	tag 'v0.1.23' of git://github.com/dcjones/Compose.jl
+411ae083adbee8a08b1d3552c230ca399d2f1e17	not-for-merge	tag 'v0.1.24' of git://github.com/dcjones/Compose.jl
+3d86266483706d1228b97bba010381a899fc0e21	not-for-merge	tag 'v0.1.25' of git://github.com/dcjones/Compose.jl
+4d736bb08179959ec38cfa41ea83bfdd5ffd57cd	not-for-merge	tag 'v0.1.26' of git://github.com/dcjones/Compose.jl
+ff5f032087fcfd96a812170e2792b89f08b1a647	not-for-merge	tag 'v0.1.27' of git://github.com/dcjones/Compose.jl
+07d12b75a8b304103957915a7c60b6ffc886eafd	not-for-merge	tag 'v0.1.28' of git://github.com/dcjones/Compose.jl
+0ab510fa77295dda9a8851309bcf13fd88c3c998	not-for-merge	tag 'v0.1.29' of git://github.com/dcjones/Compose.jl
+30e9f7daf77bb42e26ebae0f06e59c631251cca8	not-for-merge	tag 'v0.1.3' of git://github.com/dcjones/Compose.jl
+591034adc19f8747e00989fa02208b28e4fea9a0	not-for-merge	tag 'v0.1.4' of git://github.com/dcjones/Compose.jl
+f849d4fa6b7a986c7c0647032a6655bedee35dab	not-for-merge	tag 'v0.1.5' of git://github.com/dcjones/Compose.jl
+2e8376647a2a066dea901caf0b49cf3c7eeca762	not-for-merge	tag 'v0.2.0' of git://github.com/dcjones/Compose.jl
+b0f71e63226e4d2b3ddea6cf7da14075fad8b661	not-for-merge	tag 'v0.3.0' of git://github.com/dcjones/Compose.jl
+69420ff8b9e7e684ca052ed933cc962fe5a4cabe	not-for-merge	tag 'v0.3.1' of git://github.com/dcjones/Compose.jl
+bfffb1fc6d18352ef64514d8e69e38acbf6b570b	not-for-merge	tag 'v0.3.2' of git://github.com/dcjones/Compose.jl
+dcc2211e585205882f0e8af93f6568d7804c80bb	not-for-merge	tag 'v0.3.3' of git://github.com/dcjones/Compose.jl
+0cb672839e84741130e37705a9b3bf0c18512683	not-for-merge	tag 'v0.3.4' of git://github.com/dcjones/Compose.jl
+7d8ad22343c87c8323608719efc07322f103631f	not-for-merge	tag 'v0.3.5' of git://github.com/dcjones/Compose.jl
+30d54250c2aeb7a7247ea011929a13aedd8eec3a	not-for-merge	tag 'v0.3.6' of git://github.com/dcjones/Compose.jl
+f79c5a1ebaf2178b079962e3c3ed8d0dee342e06	not-for-merge	tag 'v0.3.7' of git://github.com/dcjones/Compose.jl
+09f8361d33921d11bf7b0c7aa3449d758694e6ee	not-for-merge	tag 'v0.3.8' of git://github.com/dcjones/Compose.jl
+a426ead39565adf56ef6d6e0452d60785f3fd724	not-for-merge	tag 'v0.3.9' of git://github.com/dcjones/Compose.jl

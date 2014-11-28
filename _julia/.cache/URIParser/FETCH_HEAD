@@ -1,0 +1,13 @@
+61b3e3dcdeb0a3c60e44481aea50506406f23b2f	not-for-merge	branch 'master' of git://github.com/JuliaWeb/URIParser.jl
+ccc40040f4c7ffd1ec8c45555b26f8936e34948e	not-for-merge	branch 'tan/merge' of git://github.com/JuliaWeb/URIParser.jl
+d5d8c6931b39dd82730335b7b281abf15b31d11e	not-for-merge	'refs/pull/10/head' of git://github.com/JuliaWeb/URIParser.jl
+6fa5bc0d19e02f4d5211ffa2e67a1d4ea7a8d134	not-for-merge	'refs/pull/12/head' of git://github.com/JuliaWeb/URIParser.jl
+82b217d9a94c866c4b8c26a53a89d4b63f44bafb	not-for-merge	'refs/pull/13/head' of git://github.com/JuliaWeb/URIParser.jl
+ccc40040f4c7ffd1ec8c45555b26f8936e34948e	not-for-merge	'refs/pull/3/head' of git://github.com/JuliaWeb/URIParser.jl
+aa866fa6baada12132aacfd8278c7039b534bc93	not-for-merge	'refs/pull/3/merge' of git://github.com/JuliaWeb/URIParser.jl
+43ec57821fd0555575160bf9584599a57f2349c5	not-for-merge	'refs/pull/4/head' of git://github.com/JuliaWeb/URIParser.jl
+12e588075ca08d3c8736e28307a738ebff90524d	not-for-merge	'refs/pull/4/merge' of git://github.com/JuliaWeb/URIParser.jl
+da8c301407492dbf9b54e4f32b2f49d2d1e8aad0	not-for-merge	'refs/pull/8/head' of git://github.com/JuliaWeb/URIParser.jl
+66037eb41c5ee2741604ceef5f62a753b04b1892	not-for-merge	tag 'v0.0.1' of git://github.com/JuliaWeb/URIParser.jl
+521864bd6893f437277977569803cc85b93ab62b	not-for-merge	tag 'v0.0.2' of git://github.com/JuliaWeb/URIParser.jl
+ec58fae1faf08324cde594edfbe7f6d65da2be5d	not-for-merge	tag 'v0.0.3' of git://github.com/JuliaWeb/URIParser.jl

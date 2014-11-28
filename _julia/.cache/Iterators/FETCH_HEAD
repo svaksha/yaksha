@@ -1,0 +1,47 @@
+1bbeeeee39a5936ee4c29fd704390befd96be653	not-for-merge	branch 'add_perf' of git://github.com/JuliaLang/Iterators.jl
+e676fdefaadafcb005dec354a2880106ec1ecc4a	not-for-merge	branch 'kms/fix_length' of git://github.com/JuliaLang/Iterators.jl
+49d33c6d6177f7f326673ff948757f2ca5b9f449	not-for-merge	branch 'master' of git://github.com/JuliaLang/Iterators.jl
+f44802500f5cf8a0c547fa9bd7c71af7cafe9b9c	not-for-merge	'refs/pull/1/head' of git://github.com/JuliaLang/Iterators.jl
+4f1c1fa4f2d75decf0fefec740ccbbde1f46018d	not-for-merge	'refs/pull/1/merge' of git://github.com/JuliaLang/Iterators.jl
+1b82fbccf0718b6fca134540a43146cae68cecd1	not-for-merge	'refs/pull/10/head' of git://github.com/JuliaLang/Iterators.jl
+5e5b6b5868186932c07f5d9858db9d0adf7e3835	not-for-merge	'refs/pull/11/head' of git://github.com/JuliaLang/Iterators.jl
+131cdf7e7df9bc47bf114d775727b5ee683ea475	not-for-merge	'refs/pull/12/head' of git://github.com/JuliaLang/Iterators.jl
+d2e68bad5f9a360d82ccfa603ec5733da6b214e5	not-for-merge	'refs/pull/15/head' of git://github.com/JuliaLang/Iterators.jl
+f508c9d624dbb225deadcc7c53a41eb57938a478	not-for-merge	'refs/pull/15/merge' of git://github.com/JuliaLang/Iterators.jl
+201001d94646a86953cdf0651ca29a25367eaadb	not-for-merge	'refs/pull/17/head' of git://github.com/JuliaLang/Iterators.jl
+eeb79098329ab1fe9f8c59b23380c0070d6f7dab	not-for-merge	'refs/pull/2/head' of git://github.com/JuliaLang/Iterators.jl
+fa0258f0665556dcb960bb691fd4b9b1bab7414e	not-for-merge	'refs/pull/2/merge' of git://github.com/JuliaLang/Iterators.jl
+d21f60b3017ef2180dd80f5cad32fdb9037089ed	not-for-merge	'refs/pull/21/head' of git://github.com/JuliaLang/Iterators.jl
+43395c9e05ff43be843c7ed0b6b089d9b4a4c02c	not-for-merge	'refs/pull/21/merge' of git://github.com/JuliaLang/Iterators.jl
+cdf771fff738cd90f210a2b5059adeea69f3116c	not-for-merge	'refs/pull/22/head' of git://github.com/JuliaLang/Iterators.jl
+69be04b77e98f773622d0c340852327463311829	not-for-merge	'refs/pull/22/merge' of git://github.com/JuliaLang/Iterators.jl
+491d24c476bceaa87588de7258a72032ec7457b4	not-for-merge	'refs/pull/27/head' of git://github.com/JuliaLang/Iterators.jl
+e676fdefaadafcb005dec354a2880106ec1ecc4a	not-for-merge	'refs/pull/28/head' of git://github.com/JuliaLang/Iterators.jl
+1a3078932aa2137dbb8e78587458e12ab0fb396f	not-for-merge	'refs/pull/28/merge' of git://github.com/JuliaLang/Iterators.jl
+1bbeeeee39a5936ee4c29fd704390befd96be653	not-for-merge	'refs/pull/29/head' of git://github.com/JuliaLang/Iterators.jl
+edef82318470c0607eaa306cc64e8ea3719b5874	not-for-merge	'refs/pull/3/head' of git://github.com/JuliaLang/Iterators.jl
+10a36c7d907ff5377b3cf3c3d7b7490bd3ddaf7d	not-for-merge	'refs/pull/3/merge' of git://github.com/JuliaLang/Iterators.jl
+95d755ddabd1b5b3a0288d562bfe1486f1ba9cbe	not-for-merge	'refs/pull/30/head' of git://github.com/JuliaLang/Iterators.jl
+7c9941872b463c73624e01d04178b11bace49709	not-for-merge	'refs/pull/30/merge' of git://github.com/JuliaLang/Iterators.jl
+5574827f45c6b47f0c001d4c6b6382b15e5b2d80	not-for-merge	'refs/pull/31/head' of git://github.com/JuliaLang/Iterators.jl
+c7a8f4b1ec54720a213dd8e8e3c2d4224373d5c8	not-for-merge	'refs/pull/32/head' of git://github.com/JuliaLang/Iterators.jl
+1dca330cd9307815b1e618780c8729d304c50ef5	not-for-merge	'refs/pull/33/head' of git://github.com/JuliaLang/Iterators.jl
+3b89c38029ed7aaf5100a1d970b1e00cb9d51b43	not-for-merge	'refs/pull/34/head' of git://github.com/JuliaLang/Iterators.jl
+7e519368390aedd7640ea44296593f04f0378eb3	not-for-merge	'refs/pull/34/merge' of git://github.com/JuliaLang/Iterators.jl
+d51e048357b30701d5f934101a602d32b06f07e6	not-for-merge	'refs/pull/4/head' of git://github.com/JuliaLang/Iterators.jl
+ca3399e0668e64b86ebdf89132c7ddbaaed8aa6e	not-for-merge	'refs/pull/4/merge' of git://github.com/JuliaLang/Iterators.jl
+a8808933133c672be7325b97dfa061b7ac9121a7	not-for-merge	'refs/pull/5/head' of git://github.com/JuliaLang/Iterators.jl
+d76069ae2837d1ca5ee6e2c82c3cc3f9abe1f1d3	not-for-merge	'refs/pull/5/merge' of git://github.com/JuliaLang/Iterators.jl
+c2d11f63b6193328f0e8a6539e7194118663b246	not-for-merge	'refs/pull/6/head' of git://github.com/JuliaLang/Iterators.jl
+fc72a49a06f15f135b7b2d420c135c2bcd491b93	not-for-merge	'refs/pull/6/merge' of git://github.com/JuliaLang/Iterators.jl
+7e166c660dbc113afe3be5f479a1a79b98e0d445	not-for-merge	'refs/pull/8/head' of git://github.com/JuliaLang/Iterators.jl
+fc5a711e979e2b232c13ddf4fdd3e8dfd9641847	not-for-merge	'refs/pull/8/merge' of git://github.com/JuliaLang/Iterators.jl
+a05fb0094d525cf6887af2e95d5b9473728eef39	not-for-merge	'refs/pull/9/head' of git://github.com/JuliaLang/Iterators.jl
+a3f64175d4ead0c46575b9047b903c2745b2ca8c	not-for-merge	'refs/pull/9/merge' of git://github.com/JuliaLang/Iterators.jl
+2f4dfdf047a229255456b32d929422fab3f9fb54	not-for-merge	tag 'v0' of git://github.com/JuliaLang/Iterators.jl
+be9a18ca5784f755be510814552114019166fb2e	not-for-merge	tag 'v0.1.2' of git://github.com/JuliaLang/Iterators.jl
+09fe9cddbe49801c0e0cfb531f244fc1c3badeb8	not-for-merge	tag 'v0.1.3' of git://github.com/JuliaLang/Iterators.jl
+4b38ca4db562ada9ee031f724a625329dc32c253	not-for-merge	tag 'v0.1.4' of git://github.com/JuliaLang/Iterators.jl
+d069d3fc4a486fe84ef93ab97b1413184c45756c	not-for-merge	tag 'v0.1.5' of git://github.com/JuliaLang/Iterators.jl
+96bdd6614d968d576a9b4c76b0b4bdce270136f5	not-for-merge	tag 'v0.1.6' of git://github.com/JuliaLang/Iterators.jl
+199934a572a1665c83b824fedc2fdba9a37bef31	not-for-merge	tag 'v0.1.7' of git://github.com/JuliaLang/Iterators.jl

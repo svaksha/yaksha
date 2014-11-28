@@ -10,24 +10,37 @@ sudo apt-get install -y \
     gnu \
     make \
     gnu-make \
+    cmake \
+    cmake-curses-gui \
     gfortran \
     m4 \
     patch \
     clang \ 
     g++ \
+    # BOOST
+    fftw-dev \
+    libtiff4-dev \
+    openexr \
+    libboost \
+    liblemon \
+    fftw3-dev \
+    libpng-dev \
 # general
     curl \
     wget \
+    emacs \
     geany \
     meld \
     spyder \
+    whois \
 # DVCS packages
     subversion \
     git \
     tig \
     mercurial \
+    tortoisehg \
 ## PDF related packages
-    flpsed \
+    flpsed \ 
     pdfjam \
     xournal \
     pdfedit \
@@ -46,6 +59,7 @@ sudo apt-get install -y \
 # more browsers
     google-chrome-stable \    
 # Python stuff
+    build-essential \
     pip \
     pip-installer \
     python-pip \
@@ -53,8 +67,10 @@ sudo apt-get install -y \
     Jinja2 \
     Tornado \
     pyzmq \
-      
-      
-      
-        
+    manpages-dev \      
+    # scientific python stuff
+    cython \
+    numpy \
+    python-numpy \
+    scipy \
 
