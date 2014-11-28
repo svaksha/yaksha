@@ -5,7 +5,18 @@ set -e
 cd
 sudo apt-get update -y
 sudo apt-get install -y \
-# C/C++ 
+## smartctl-tools
+    smartctl \
+    smartmontools \
+## general
+    curl \
+    wget \
+    emacs \
+    geany \
+    meld \
+    spyder \
+    whois \
+## C/C++ 
     gcc \
     gnu \
     make \
@@ -25,40 +36,13 @@ sudo apt-get install -y \
     liblemon \
     fftw3-dev \
     libpng-dev \
-# general
-    curl \
-    wget \
-    emacs \
-    geany \
-    meld \
-    spyder \
-    whois \
-# DVCS packages
+## DVCS packages
     subversion \
     git \
     tig \
     mercurial \
     tortoisehg \
-## PDF related packages
-    flpsed \ 
-    pdfjam \
-    xournal \
-    pdfedit \
-## Skype alternative
-    jitsi \
-## HP printer stuff
-    hplip \
-    mtink \  # http://xwtools.automatix.de/
-# Reactivate HP LaserJet 1018/1020 after reloading paper
-    printer-driver-foo2zjs-common \   #20140209dfsg0-1ubuntu1    
-# smartctl-tools
-    smartctl \
-    smartmontools \
-# sensors package
-    lm-sensors \
-# more browsers
-    google-chrome-stable \    
-# Python stuff
+## Python stuff
     build-essential \
     pip \
     pip-installer \
@@ -73,4 +57,32 @@ sudo apt-get install -y \
     numpy \
     python-numpy \
     scipy \
+###-----------------
+### UTILITIES
+###-----------------
+    simplescan \
+## Adobe
+    acroread \
+    gdebi \
+    AdbeRdr9.5.5-1_i386linux_enu.deb
+    # PDF related packages
+    flpsed \ 
+    pdfjam \
+    xournal \
+    pdfedit \
+    cups-pdf \
+## Skype alternative
+    jitsi \
+## HP printer stuff
+    hplip \
+    mtink \  # http://xwtools.automatix.de/
+    hp-toolbox \
+    hp-setup \
+    hplip-plugin \
+    ## Reactivate HP LaserJet 1018/1020 after reloading paper
+    printer-driver-foo2zjs-common \   #20140209dfsg0-1ubuntu1    
+## sensors package
+    lm-sensors \
+## Browsers
+    google-chrome-stable \    
 

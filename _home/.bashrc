@@ -136,7 +136,7 @@ if [ -x /usr/bin/dircolors ]; then
     alias ls='ls --color=auto'
     alias dir='dir --color=auto'
     alias vdir='vdir --color=auto'
-
+    # -- colorize the output of grep --
     alias grep='grep --color=auto'
     alias fgrep='fgrep --color=auto'
     alias egrep='egrep --color=auto'
@@ -271,6 +271,9 @@ export PATH=/home/mom/sbt/bin:$PATH
 # http://askubuntu.com/questions/440114/ubuntu-14-04-python-2-7-still-default-set-3-x-as-default
 #--------------------------------------------------------------
 alias python='python3.4'
+export PYTHONSTARTUP="$HOME/.pythonrc"
+
+
 
 ################################################################################
 ### Anaconda 1.9.2 installer 
