@@ -1,5 +1,15 @@
+[user]
+	name = SVAKSHA ॥ स्वक्ष 
+	email = svaksha@gmail.com
+	
 [alias]
 	last = log -1 HEAD
+    co = checkout
+    br = branch
+    ci = commit
+    st = status
+    unstage = reset HEAD --
+    visual = !gitk
 	
 [color]
 	# Use colors in Git commands that are capable of colored output when
@@ -38,8 +48,4 @@
 
 [push]
 	default = simple
-	
-[user]
-	name = SVAKSHA ॥ स्वक्ष 
-	email = svaksha@gmail.com
-	
+

@@ -85,4 +85,7 @@ sudo apt-get install -y \
     lm-sensors \
 ## Browsers
     google-chrome-stable \    
+## BibTeX Reference software
+    pybliographer \
+#    referencer  #IGNORE 
 
