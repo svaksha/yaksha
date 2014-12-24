@@ -87,5 +87,18 @@ sudo apt-get install -y \
     google-chrome-stable \    
 ## BibTeX Reference software
     pybliographer \
-#    referencer  #IGNORE 
+#    referencer  #IGNORE, https://launchpad.net/referencer
+
+################################################################################
+# Adding trusted PPA's 
+################################################################################
+sudo add-apt-repository ppa:staticfloat-julia-deps/ppa
+sudo add-apt-repository ppa:staticfloat-julianightlies/ppa
+sudo add-apt-repository ppa:staticfloat-juliareleases/ppa
+sudo add-apt-repository ppa:git-core/ppa
+################################################################################
+# Removing PPA's from /etc/apt/sources.list.d
+################################################################################
+# sudo add-apt-repository --remove ppa:whatever/ppa
+
 
