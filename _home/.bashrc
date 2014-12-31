@@ -1,8 +1,11 @@
 ################################################################################
 # My shell files are bottled up at: http://svaksha.github.io/bottu
-# UPDATED: Fri 28 Nov 2014 10:06:32 IST 
+# UPDATED: Wed 31 Dec 2014 10:31:15 IST 
 # ~/.bashrc: executed by bash(1) for non-login shells. For examples
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
+#-------------------------------------------------------------------------------
+# LINKS for BASHRC samples and check github.com for DOTFILES
+# http://tldp.org/LDP/abs/html/sample-bashrc.html
 ################################################################################
 
 ################################################################################
@@ -168,7 +171,7 @@ esac
 # You may want to put all your additions into a separate file like
 # ~/.bash_aliases, instead of adding them here directly.
 # See /usr/share/doc/bash-doc/examples in the bash-doc package.
-#--------------------------------------------------------------
+#-------------------------------------------------------------------------------
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
@@ -176,13 +179,13 @@ fi
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).
-#--------------------------------------------------------------
+#-------------------------------------------------------------------------------
 if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
 
 ### some more aliases
-#--------------------------------------------------------------
+#-------------------------------------------------------------------------------
 alias ..='cd ..'
 alias cd..='cd ..'
 alias f="find . |grep "
@@ -217,25 +220,12 @@ function ii()   # get current host related info
 
 
 ################################################################################
-### GIT configurations; updated on Tuesday 07 May 2013 12:04:38 PM IST  
-################################################################################
-git config --global user.name "SVAKSHA"
-git config --global user.email svaksha@gmail.com
-git config --global http.sslVerify false
-
-# git-completion 
-#--------------------------------------------------------------
-source ~/git-completion.bash
-
-
-################################################################################
 # Julia PATH, added on 12-Apr-2012 03:53:14 AM IST
 ################################################################################
 export PATH="$(pwd)/julia:$PATH"
-#$PWD/julia/bin
+# $PWD/julia/bin
 PATH=$PATH:/home/mom/julia/bin/jdp
 export PATH="/home/mom/julia/bin:$PATH"
-
 
 
 ################################################################################
@@ -265,14 +255,13 @@ complete -o default -F _pip_completion pip
 
 ### Friday 31 May 2013 02:52:12 AM IST 
 #--------------------------------------------------------------
-export PATH=/home/mom/sbt/bin:$PATH
+# export PATH=/home/mom/sbt/bin:$PATH
 
-### Tue, 29 Apr 2014 19:44:13 +0530 
+### Tue, 29/05 Apr 2014 19:44:13 +0530 
 # http://askubuntu.com/questions/440114/ubuntu-14-04-python-2-7-still-default-set-3-x-as-default
 #--------------------------------------------------------------
-alias python='python3.4'
-export PYTHONSTARTUP="$HOME/.pythonrc"
-
+# alias python='python3.4'
+# export PYTHONSTARTUP="$HOME/.pythonrc"
 
 
 ################################################################################
@@ -280,8 +269,17 @@ export PYTHONSTARTUP="$HOME/.pythonrc"
 ################################################################################
 export PATH="/home/mom/anaconda/bin:$PATH"
 
+
 ################################################################################
-### LINKS for BASHRC samples and check github.com for DOTFILES
-# http://tldp.org/LDP/abs/html/sample-bashrc.html
+### GIT configurations; updated: 30/12/2014 10:34:36 
 ################################################################################
+git config --global user.name "SVAKSHA ॥ स्वक्ष ॥"
+git config --global user.email svaksha@gmail.com
+git config --global http.sslVerify false
+
+# git-completion 
+#--------------------------------------------------------------
+source ~/git-completion.bash
+
+
 
