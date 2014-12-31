@@ -220,15 +220,6 @@ function ii()   # get current host related info
 
 
 ################################################################################
-# Julia PATH, added on 12-Apr-2012 03:53:14 AM IST
-################################################################################
-export PATH="$(pwd)/julia:$PATH"
-# $PWD/julia/bin
-PATH=$PATH:/home/mom/julia/bin/jdp
-export PATH="/home/mom/julia/bin:$PATH"
-
-
-################################################################################
 ### PIP bash completion start || Fri, 03 May 2013 16:02:40 +0530 
 ################################################################################
 _pip_completion()
@@ -281,5 +272,14 @@ git config --global http.sslVerify false
 #--------------------------------------------------------------
 source ~/git-completion.bash
 
+
+################################################################################
+# Julia PATH | added: 12/04/2012 03:53:14 | updated: 31/12/2014 15:55:36 
+################################################################################
+export PATH="$(pwd)/julia:$PATH"
+# $PWD/julia/bin
+export PATH="/home/mom/julia/bin:$PATH"
+PATH=$PATH:/home/mom/julia/bin/jdp   # jdp == DeclarativePackages.jl
+export PATH="/home/mom/julia/test:$PATH"
 
 
