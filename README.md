@@ -1,7 +1,7 @@
-# BOTTU
-Bottled my dot files in a single space! 
+# 8in9u
+Bind the dot files in a single space! 
 
-**Note: WIP as I slowly merge my old & scattered svn backups into git.**
+**WIP : Must slowly merge my old & scattered svn backups into git.**
 
 # LICENSE
 * COPYRIGHT © 2007-Now [SVAKSHA](http://svaksha.com/pages/Bio) AllRightsReserved.

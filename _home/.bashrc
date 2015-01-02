@@ -280,6 +280,6 @@ export PATH="$(pwd)/julia:$PATH"
 # $PWD/julia/bin
 export PATH="/home/mom/julia/bin:$PATH"
 PATH=$PATH:/home/mom/julia/bin/jdp   # jdp == DeclarativePackages.jl
-export PATH="/home/mom/julia/test:$PATH"
+# export PATH="/home/mom/julia/test:$PATH"
 
 
