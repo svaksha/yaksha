@@ -186,17 +186,19 @@ fi
 
 ### some more aliases
 #-------------------------------------------------------------------------------
-alias ..='cd ..'
-alias cd..='cd ..'
-alias f="find . |grep "
-alias g='grep -R'
-alias h='history'
-# alias h="history | grep "
-alias l='ls -CF'
-alias la='ls -A'
-alias ll='ls -alF'
-alias p="ps aux |grep "
-alias path='echo -e ${PATH//:/\\n}'
+alias .. = 'cd ..'
+alias cd.. = 'cd ..'
+alias f = "find . |grep "
+alias g = 'grep -R'
+alias h = 'history'
+# alias h = "history | grep "
+alias ju = "julia"
+alias l = 'ls -CF'
+alias la = 'ls -A'
+alias ll = 'ls -alF'
+alias p = "ps aux |grep "
+alias path = 'echo -e ${PATH//:/\\n}'
+alias py = 'python'
 
 
 
