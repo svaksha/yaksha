@@ -1,0 +1,66 @@
+################################################################################
+# My shell files are bottled up at: http://svaksha.github.io/8in9u
+# ALIAS definitions UPDATED: Sun 04 Jan 2015 09:04:38 IST 
+################################################################################
+# Moved all my additions into a separate "~/.bash_alias" file.
+# See /usr/share/doc/bash-doc/examples in the bash-doc package.
+################################################################################
+
+# Moved old repo bash alias - Verify these for dups ===========================
+
+
+#-------------------------------------------------------------------------------
+# All the APT and APTITUDE commands
+#-------------------------------------------------------------------------------
+
+alias apt-install='sudo apt-get install'
+alias apt-search='apt-cache search'
+alias apt-show='apt-cache show'
+alias apt-purge='sudo apt-get --purge  remove'
+alias apt-up="sudo apt-get update && sudo apt-get upgrade"
+alias apt-policy="LANG=C apt-cache policy"
+alias update='sudo apt-get update && sudo apt-get dist-upgrade' # Update/Upgrade OS 
+
+# apt-remove
+#----------------------------------------------------
+alias auto-rm='sudo apt-get autoremove'
+alias remove='sudo apt-get remove'
+
+
+# find file #----------------------------------------------------
+alias f='find . |grep '
+
+# search history #----------------------------------------------------
+alias ..='cd ..'
+alias cd..='cd ..'
+alias cls='clear'             # Clear the terminal
+alias f="find . |grep "
+alias g='grep -R'
+alias got='git'
+alias gt='git'
+alias gs='git status'
+alias h='history'
+# alias h="history | grep "
+alias ju="julia"
+alias l='ls -CF'
+alias la='ls -A'
+alias ll='ls -alF'
+# alias ll='ls --color --time-style="+%b %d %Y %H:%M"'
+alias p="ps aux |grep "
+alias path='echo -e ${PATH//:/\\n}'
+alias py='python'
+alias t='top'
+
+
+# Moved old repo bash alias - Verify these for dups ===========================
+
+alias emacs='emacs22-gtk'
+alias emacsfs='emacs22-gtk -fs'
+alias home='cd ~; clear'
+alias h='head'
+alias ls='ls --color=auto'
+alias bash='source $HOME/.bashrc'
+alias alias='cat $HOME/.bash_aliases'
+alias shr='shred -u '
+alias t='tail'
+alias temps='acpi -t'

@@ -1,12 +1,12 @@
 ################################################################################
-# My shell files are bottled up at: http://svaksha.github.io/bottu
-# UPDATED: Wed 31 Dec 2014 10:31:15 IST 
+# My shell files are bottled up at: http://svaksha.github.io/8in9u
+# UPDATED: Sun 04 Jan 2015 09:04:38 IST 
 # ~/.bashrc: executed by bash(1) for non-login shells. For examples
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
-#-------------------------------------------------------------------------------
+################################################################################
 # LINKS for BASHRC samples and check github.com for DOTFILES
 # http://tldp.org/LDP/abs/html/sample-bashrc.html
-################################################################################
+#-------------------------------------------------------------------------------
 
 ################################################################################
 ### HISTORY
@@ -130,8 +130,7 @@ else
 fi
 unset color_prompt force_color_prompt
 
-
-
+#-------------------------------------------------------------------------------
 ### enable color support of ls and also add handy aliases 
 #-------------------------------------------------------------------------------
 if [ -x /usr/bin/dircolors ]; then
@@ -145,7 +144,7 @@ if [ -x /usr/bin/dircolors ]; then
     alias egrep='egrep --color=auto'
 fi
 
-
+#-------------------------------------------------------------------------------
 ### Colour prompt :: 23-July-2012 
 #-------------------------------------------------------------------------------
 #STARTCOLOR='\e[0;34m';
@@ -172,10 +171,13 @@ esac
 # ~/.bash_aliases, instead of adding them here directly.
 # See /usr/share/doc/bash-doc/examples in the bash-doc package.
 #-------------------------------------------------------------------------------
-if [ -f ~/.bash_aliases ]; then
-    . ~/.bash_aliases
+if [ -f ~/.bash_alias ]; then
+    . ~/.bash_alias
 fi
 
+#-------------------------------------------------------------------------------
+### For the ALIAS list, see the "~/.bash_aliases" file
+#-------------------------------------------------------------------------------
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).
@@ -183,23 +185,6 @@ fi
 if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
-
-### some more aliases
-#-------------------------------------------------------------------------------
-alias .. = 'cd ..'
-alias cd.. = 'cd ..'
-alias f = "find . |grep "
-alias g = 'grep -R'
-alias h = 'history'
-# alias h = "history | grep "
-alias ju = "julia"
-alias l = 'ls -CF'
-alias la = 'ls -A'
-alias ll = 'ls -alF'
-alias p = "ps aux |grep "
-alias path = 'echo -e ${PATH//:/\\n}'
-alias py = 'python'
-
 
 
 ################################################################################
