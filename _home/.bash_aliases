@@ -1,0 +1,102 @@
+################################################################################
+# My shell/dot files are bottled up at: http://svaksha.github.io/8in9u
+# ALIAS definitions UPDATED: Sun 04 Jan 2015 10:22:27 IST 
+################################################################################
+# Moved all my additions into a separate "~/.bash_aliases" file.
+# See /usr/share/doc/bash-doc/examples in the bash-doc package.
+################################################################################
+#
+#
+#= AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+#
+# APT and APTITUDE commands --------------------------------------------------
+alias apt-install='sudo apt-get install'
+alias apt-policy='LANG=C apt-cache policy'
+alias apt-purge='sudo apt-get --purge  remove'
+alias apt-rm='sudo apt-get remove' # apt remove system dep files - USE WITH CARE
+alias auto-rm='sudo apt-get autoremove'  # apt remove system dep files - USE WITH CARE
+alias apt-search='apt-cache search'
+alias apt-show='apt-cache show'
+alias apt-updg='sudo apt-get update && sudo apt-get upgrade'
+alias apt-updist='sudo apt-get update && sudo apt-get dist-upgrade' # Update/Upgrade OS 
+
+
+#= BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+alias bash='source $HOME/.bashrc' # reload bash
+alias bash-alias='cat $HOME/.bash_aliases'
+
+
+#= CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+alias ..='cd ..'
+alias cd..='cd ..'
+alias cls='clear'    # Clear the terminal
+
+
+#= DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD
+#
+#= EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE
+alias emacs='emacs22-gtk'
+alias emacsfs='emacs22-gtk -fs'
+
+
+#= FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+alias f='find . |grep' # find file 
+
+
+#= GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG
+alias g='grep -R'
+alias got='git'
+# alias gt='git'
+alias gs='git status'
+
+
+#= HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH
+# alias home='cd ~; clear'
+alias h='history'
+# alias h="history | grep "  # search history 
+
+
+#= IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII
+#
+#= JJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJ
+alias ju='julia'
+# alias ju-pull='git pull git@github.com:JuliaLang/julia.git'
+
+
+#= KKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK
+#
+#= LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL
+alias l='ls -CF'
+alias la='ls -A'
+alias ll='ls -alF'
+# alias ll='ls --color --time-style="+%b %d %Y %H:%M"'
+alias ls='ls --color=auto'
+
+#= MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+#= NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+#= OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO
+#
+#= PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP
+alias p="ps aux |grep "
+alias path='echo -e ${PATH//:/\\n}'
+alias py='python'
+
+#= QQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQ
+#= RRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR
+#= SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS
+alias shr='shred -u '
+
+
+#= TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT
+alias t='top'
+alias tl='tail'
+alias temps='acpi -t'
+
+#= UUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU
+#= VVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV
+#= WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+#= XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+#= YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY
+#= ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ
+
+# dot_bash_aliases end =========================================================
