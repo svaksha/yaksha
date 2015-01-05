@@ -1,0 +1,201 @@
+#!/usr/bin/env bash
+# -*- coding: utf-8 -*-
+################################################################################
+# My dot-shell files: http://svaksha.github.io/8ok5h
+# Author: SVAKSHA, 05/11/2010 03:11:29 
+################################################################################
+
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+######### GENERAL OS, IDE stuff #########
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+######### { USE GLOB SYNTAX }
+syntax: glob
+# switch to regexp syntax.
+syntax: regexp
+^\.pc/
+
+######### { EDITOR }
+#----------------------------------------------------
+### Kate
+*.kate-swp
+### Vi 
+*.swp
+### TextMate
+*.tmproj
+*.tmproject
+tmtags
+
+######### { LINUX }
+#----------------------------------------------------
+.directory
+*~        # temporary files
+*.tmp     # temporary files
+tags
+MANIFEST
+
+### WINDOWS 
+[Tt]humbs.db
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+### MAC OS - Apple JUNK FILES  
+.DS_Store
+.DS_Store?
+._*
+.AppleDouble
+.LSOverride
+.Spotlight-V100
+.Trashes
+Icon
+
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+######### COMPRESSED PACKAGES
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+# it's better to unpack these files and commit the raw source
+# git has its own built in compression methods
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+######### DVCS 
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+*.git
+*.hg
+.hgignore
+
+
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+# PROGRAMMING LANGUAGE SPECIFIC 
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+*.elc  # lisp compiled files
+
+### Fortran module files ###
+*.mod
+
+### Compiled Object files 
+*.slo
+*.o
+*.obj
+*.ko    # C obj files
+*.elf   # C obj files
+
+### Compiled Static libraries ###
+*.lai
+*.la
+*.l[doa]
+*.a
+*.lib
+*.lo    # C compiled static lib
+
+### Precompiled Headers ###
+*.gch
+*.pch
+
+#----------------------------------------------------
+### Compiled source Dynamic libraries ###
+#----------------------------------------------------
+*.com
+*.class
+*.dylib
+*.dll    # C, Shared objects and Windows DLLs.
+*.sass-cache
+*.scssc
+*.so   # C extensions
+*.so.*
+
+### Executables ###
+*.exe
+*.out      # ignore symbolic files
+*.app
+*.i*86
+*.x86_64
+*.hex
+
+#---------------------------------------------------------
+### PYTHON PACKAGES / Byte-compiled / optimized / DLL files
+#---------------------------------------------------------
+__pycache__/
+*.egg
+*.egg-info/
+*.pyc
+*.pyo
+*.py[cod]
+*.swp
+*~
+.installed.cfg
+bin/
+build/
+develop-eggs/
+dist/
+eggs/
+env/
+include
+lib/
+lib64/
+parts/
+sdist/
+var/
+
+#---------------------------------------------------------
+### IPYTHON-JUPYTER Notebooks
+#---------------------------------------------------------
+.ipynb_checkpoints/*
+*.ipynb
+
+#---------------------------------------------------------
+### QA :: UNIT TEST / COVERAGE REPORTS
+#---------------------------------------------------------
+.coverage
+.tox
+.cache
+coverage.xml
+nosetests.xml
+htmlcov/
+
+
+#====================================================
+### Mr.Developer the zc.buildout extension
+#====================================================
+.mr.developer.cfg
+.project
+.pydevproject
+
+
+#====================================================
+### INSTALLER ERROR LOGS
+#====================================================
+pip-log.txt
+*error_log.txt
+log/
+pip-delete-this-directory.txt
+
+
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+### DATABASE and LOGS
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+*.log
+*.sql
+*.sqlite
+cache
+config/databases.yml
+
+
+#====================================================
+### i18 / i10 TRANSLATIONS
+#====================================================
+*.mo
+
+#====================================================
+### DOCS : SPHINX
+#====================================================
+docs/_build/
+
