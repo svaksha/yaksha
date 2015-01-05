@@ -1,21 +1,43 @@
+#!/usr/bin/env bash
+################################################################################
+# My dot-shell files: http://svaksha.github.io/8ok5h
+# UPDATED: Sun 04 Jan 2015 09:04:38 IST 
+################################################################################
+
 [user]
 	name = SVAKSHA ॥ स्वक्ष ॥
 	email = svaksha@gmail.com
 
 [alias]
-	last = log -1 HEAD
-    co = checkout
     br = branch
     cm = commit
+    co = checkout
+	ga = git add
+    gb = git branch
+    gc = git commit -v
+    gd = git diff
+    get = git 
+    got = git 
+    gs = git status
+    gx = gitx --all
+    last = log -1 HEAD
+	sr = svn rebase
     st = status
     unstage = reset HEAD --
     visual = !gitk
-    	
+
+ 	
 [color]
 	# Use colors in Git commands that are capable of colored output when
 	# outputting to the terminal. Default setting in Git ≥ 1.8.4
 	#---------------------------------------------------------------------------
-	ui = auto
+	branch = true
+	diff = true
+	interactive = auto
+	pager = true
+	status = true
+	ui = true
+    
 
 [color "branch"]
 	current = blue 
@@ -24,9 +46,15 @@
 
 [color "diff"]
 	meta = yellow
-	old = cyan       # for deletions
+	old = cyan      # for deletions
 	new = green     # all additions
+ 
+[color "status"]
+    added = green
+    changed = red bold
+    untracked = magenta bold
 
+    
 [core]
 	# Use custom `.gitignore` and `.gitattributes`
 	#---------------------------------------------------------------------------	

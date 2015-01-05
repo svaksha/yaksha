@@ -1,10 +1,11 @@
+#!/usr/bin/env bash
 ################################################################################
-# My shell files are bottled up at: http://svaksha.github.io/8in9u
-# UPDATED: Sun 04 Jan 2015 09:04:38 IST 
+# My dot-shell files: http://svaksha.github.io/8ok5h
+# UPDATED: 05/01/2015 09:39:53 
 # ~/.bashrc: executed by bash(1) for non-login shells. For examples
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 ################################################################################
-# LINKS for BASHRC samples and check github.com for DOTFILES
+# LINKS for BASHRC samples, check github.com for DOTFILES
 # http://tldp.org/LDP/abs/html/sample-bashrc.html
 #-------------------------------------------------------------------------------
 
@@ -33,7 +34,7 @@ export HISTTIMEFORMAT="%F[%H:%M] "  # HISTTIMEFORMAT=’%c ‘ also does the sam
 
 # After each command, save and reload history
 #-------------------------------------------------------------------------------
-#export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
+export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
@@ -103,7 +104,6 @@ force_color_prompt=yes
 
 if [ -n "$force_color_prompt" ]; then
     if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
-	# We have color support; assume it's compliant with Ecma-48
 	# (ISO/IEC-6429). (Lack of such support is extremely rare, and such
 	# a case would tend to support setf rather than setaf.)
     #---------------------------------------------------------------------------
@@ -171,8 +171,8 @@ esac
 # ~/.bash_aliases, instead of adding them here directly.
 # See /usr/share/doc/bash-doc/examples in the bash-doc package.
 #-------------------------------------------------------------------------------
-if [ -f ~/.bash_alias ]; then
-    . ~/.bash_alias
+if [ -f ~/.bash_aliases ]; then
+    . ~/.bash_aliases
 fi
 
 #-------------------------------------------------------------------------------
@@ -199,7 +199,6 @@ function ii()   # get current host related info
   echo -e "\n${RED}Current date :$NC " ; date
   echo -e "\n${RED}Machine stats :$NC " ; uptime
   echo -e "\n${RED}Memory stats :$NC " ; free
-  my_ip 2>&- ;
   echo -e "\n${RED}Local IP Address :$NC" ; echo ${MY_IP:-"Not connected"}
   echo -e "\n${RED}ISP Address :$NC" ; echo ${MY_ISP:-"Not connected"}
   echo
@@ -255,9 +254,12 @@ git config --global user.name "SVAKSHA ॥ स्वक्ष ॥"
 git config --global user.email svaksha@gmail.com
 git config --global http.sslVerify false
 
-# git-completion 
-#--------------------------------------------------------------
-source ~/git-completion.bash
+
+################################################################################
+# Reload git-completion, gitconfig and bash_aliases when BASH restarts
+################################################################################
+source ~/.git-completion.bash
+source ~/.bash_aliases
 
 
 ################################################################################

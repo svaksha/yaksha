@@ -1,7 +1,5 @@
-# 8in9u
-Bind the dot files in a single space! 
-
-**Standard Disclaimer: No warranty for any particular use, express or implied. Use at your own risk!**
+# 8ok5h
+**Standard Disclaimer**: No warranty/guarantee for any particular use, express or implied and you agree to use these [dot-shell files](http://svaksha.github.io/8ok5h) at your own risk and liability!
 
 # LICENSE
 * COPYRIGHT© 2007-Now [SVAKSHA](http://svaksha.com/pages/Bio) AllRightsReserved.

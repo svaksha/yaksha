@@ -1,3 +1,8 @@
+#!/usr/bin/env bash
+################################################################################
+# My dot-shell files: http://svaksha.github.io/8ok5h
+# UPDATED: 05/01/2015 09:39:53 
+################################################################################
 # bash/zsh completion support for core Git.
 #
 # Copyright (C) 2006,2007 Shawn O. Pearce <spearce@spearce.org>
@@ -281,16 +286,12 @@ __gitcomp_file ()
 # argument, and using the options specified in the second argument.
 __git_ls_files_helper ()
 {
-	(
-		test -n "${CDPATH+set}" && unset CDPATH
-		cd "$1"
-		if [ "$2" == "--committable" ]; then
-			git diff-index --name-only --relative HEAD
-		else
-			# NOTE: $2 is not quoted in order to support multiple options
-			git ls-files --exclude-standard $2
-		fi
-	) 2>/dev/null
+	if [ "$2" == "--committable" ]; then
+		git -C "$1" diff-index --name-only --relative HEAD
+	else
+		# NOTE: $2 is not quoted in order to support multiple options
+		git -C "$1" ls-files --exclude-standard $2
+	fi 2>/dev/null
 }
 
 
@@ -388,7 +389,8 @@ __git_refs ()
 		;;
 	*)
 		echo "HEAD"
-		git for-each-ref --format="%(refname:short)" -- "refs/remotes/$dir/" | sed -e "s#^$dir/##"
+		git for-each-ref --format="%(refname:short)" -- \
+			"refs/remotes/$dir/" 2>/dev/null | sed -e "s#^$dir/##"
 		;;
 	esac
 }
@@ -522,7 +524,7 @@ __git_complete_index_file ()
 		;;
 	esac
 
-	__gitcomp_file "$(__git_index_files "$1" "$pfx")" "$pfx" "$cur_"
+	__gitcomp_file "$(__git_index_files "$1" ${pfx:+"$pfx"})" "$pfx" "$cur_"
 }
 
 __git_complete_file ()
@@ -1207,7 +1209,7 @@ _git_diff ()
 }
 
 __git_mergetools_common="diffuse diffmerge ecmerge emerge kdiff3 meld opendiff
-			tkdiff vimdiff gvimdiff xxdiff araxis p4merge bc3 codecompare
+			tkdiff vimdiff gvimdiff xxdiff araxis p4merge bc codecompare
 "
 
 _git_difftool ()
@@ -1876,6 +1878,10 @@ _git_config ()
 		;;
 	sendemail.suppresscc)
 		__gitcomp "$__git_send_email_suppresscc_options"
+		return
+		;;
+	sendemail.transferencoding)
+		__gitcomp "7bit 8bit quoted-printable base64"
 		return
 		;;
 	--get|--get-all|--unset|--unset-all)
@@ -2551,6 +2557,16 @@ _git_tag ()
 		__gitcomp_nl "$(__git_refs)"
 		;;
 	esac
+
+	case "$cur" in
+	--*)
+		__gitcomp "
+			--list --delete --verify --annotate --message --file
+			--sign --cleanup --local-user --force --column --sort
+			--contains --points-at
+			"
+		;;
+	esac
 }
 
 _git_whatchanged ()
@@ -2738,4 +2754,3 @@ __git_complete gitk __gitk_main
 if [ Cygwin = "$(uname -o 2>/dev/null)" ]; then
 __git_complete git.exe __git_main
 fi
-

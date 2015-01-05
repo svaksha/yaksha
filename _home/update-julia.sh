@@ -1,5 +1,8 @@
-#/usr/bin/env sh
+#/usr/bin/env bash
 #
+################################################################################
+# My dot-shell files: http://svaksha.github.io/8ok5h
+################################################################################
 # @jiahao's script for updating source build, https://gist.github.com/jiahao/3f9826b077372220b6f0
 # Modified by @svaksha
 # An experimental script to automatically update julia
