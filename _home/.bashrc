@@ -254,6 +254,14 @@ git config --global user.name "SVAKSHA ॥ स्वक्ष ॥"
 git config --global user.email svaksha@gmail.com
 git config --global http.sslVerify false
 
+# function for global "git status --ignored" - replaced with alias
+#git() {
+#    if [[ ($1 == "status") ]]; then
+#        command git status --ignored "${@:2}";
+#    else
+#        command git "$@";
+#    fi;
+#}
 
 ################################################################################
 # Reload git-completion, gitconfig and bash_aliases when BASH restarts

@@ -38,28 +38,29 @@
 	status = true
 	ui = true
     
-
-[color "branch"]
+    [color "branch"]
 	current = blue 
 	local = red
 	remote = green
 
-[color "diff"]
+    [color "diff"]
 	meta = yellow
 	old = cyan      # for deletions
 	new = green     # all additions
  
-[color "status"]
+    [color "status"]
     added = green
     changed = red bold
     untracked = magenta bold
 
+[buildout]
+    extensions = mr.developer
     
 [core]
-	# Use custom `.gitignore` and `.gitattributes`
+	# Use custom `.gitignore_global` and `.gitattributes`
 	#---------------------------------------------------------------------------	
-	excludesfile = ~/.gitignore
 	attributesfile = ~/.gitattributes	
+    excludesfile = ~/.gitignore_global
 
 [diff]
 	# Detect copies as well as renames

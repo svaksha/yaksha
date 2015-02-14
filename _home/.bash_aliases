@@ -34,12 +34,14 @@ alias cat-alias='cat $HOME/.bash_aliases'
 alias cat-gitc='cat $HOME/.gitconfig'
 
 #= DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD
+alias dig='dig +noall +answer'
+alias dig-dns='dig +dnssec +sigchase +topdown'
 
 
 #= EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE
 alias ed-bsh='sudo gedit .bashrc'
 alias ed-bash='sudo gedit .bashrc'
-alias ed-gitconf='sudo gedit .git/config'
+alias ed-gitconf='sudo gedit .gitconfig'
 alias emacs='emacs22-gtk'
 alias emacsfs='emacs22-gtk -fs'
 
@@ -63,11 +65,12 @@ alias gcob='git checkout -b'
 alias gcot='git checkout -t'
 alias gcotb='git checkout --track -b'
 alias gd='git diff'
+alias gig='git status --ignored'
 alias gk='gitk --all&'
 # too lazy to type log history
 alias gl='git log'
 alias glg='git log --pretty=format:"%h %s" --graph'
-alias glgd = 'log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short'
+alias glgd='log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short'
 alias gpl='git pull'
 alias gps='git push'
 

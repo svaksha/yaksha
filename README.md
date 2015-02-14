@@ -1,7 +1,7 @@
-# 8ok5h
-**Standard Disclaimer**: No warranty/guarantee for any particular use, express or implied and you agree to use these [dot-shell files](http://svaksha.github.io/8ok5h) at your own risk and liability!
+# yantra
+
+**Standard Disclaimer**: No warranty/guarantee for any particular use, express or implied and you agree to use [these program files](http://svaksha.github.io/yantra) at your own risk and liability!
 
 # LICENSE
 * COPYRIGHT© 2007-Now [SVAKSHA](http://svaksha.com/pages/Bio) AllRightsReserved.
-* Distributed under the [AGPLv3 License](http://www.gnu.org/licenses/agpl.html) and the Copyright, Licence and this Permission notice must be retained in all software copies as detailed in the LICENSE.md file.
-
++ This work is licensed and distributed under the [AGPLv3 License](http://www.gnu.org/licenses/agpl.html) and ALL software copies and forks of this work must retain the Copyright, Licence (and the LICENSE.md file) and this permission notice.

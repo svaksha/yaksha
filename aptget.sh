@@ -15,7 +15,7 @@ sudo apt-get install -y \
 ## smartctl-tools
     smartctl \
     smartmontools \
-## general
+## general tools
     curl \
     wget \
     emacs \
@@ -23,6 +23,7 @@ sudo apt-get install -y \
     meld \
     spyder \
     whois \
+    texlive \ #latex 
 ## C/C++ 
     gcc \
     gnu \
