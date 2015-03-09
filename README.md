@@ -1,6 +1,7 @@
-# yantra
+# अब्ज (abja)
 
-**Standard Disclaimer**: No warranty/guarantee for any particular use, express or implied and you agree to use [these program files](http://svaksha.github.io/yantra) at your own risk and liability!
+**Standard Disclaimer**: No warranty/guarantee for any particular use, express or implied and you agree to use [these program files](http://svaksha.github.io/abja) at your own risk and liability!
+
 
 # LICENSE
 * COPYRIGHT© 2007-Now [SVAKSHA](http://svaksha.com/pages/Bio) AllRightsReserved.

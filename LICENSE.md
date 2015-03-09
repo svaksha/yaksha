@@ -1,6 +1,6 @@
 # LICENSE
 
-* COPYTIGHT © 2007-Now [SVAKSHA](http://svaksha.com/pages/Bio) All Rights Reserved.
+* COPYRIGHT © 2007-Now [SVAKSHA](http://svaksha.com/pages/Bio) All Rights Reserved.
 * [GNU AGPLv3 License](http://www.gnu.org/licenses/agpl.html)
 
 Permission is hereby granted, free of charge, to any person obtaining

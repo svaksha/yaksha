@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 ################################################################################
-# My dot-shell files: http://svaksha.github.io/8ok5h
+# My dot-shell files: http://svaksha.github.io/bhut
 # UPDATED: 05/01/2015 09:39:53 
 ################################################################################
 # bash/zsh completion support for core Git.
@@ -32,6 +32,7 @@
 # completion style.  For example '!f() { : git commit ; ... }; f' will
 # tell the completion to use commit completion.  This also works with aliases
 # of form "!sh -c '...'".  For example, "!sh -c ': git commit ; ... '".
+################################################################################
 
 case "$COMP_WORDBREAKS" in
 *:*) : great ;;

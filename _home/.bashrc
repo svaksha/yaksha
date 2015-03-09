@@ -1,11 +1,26 @@
 #!/usr/bin/env bash
 ################################################################################
-# My dot-shell files: http://svaksha.github.io/8ok5h
-# UPDATED: 05/01/2015 09:39:53 
+# My daemons : http://svaksha.github.io/abhr
+# UPDATED: Mon 02 Mar 2015 07:19:56 IST 
+################################################################################
+# COPYRIGHT © 2007-Now [SVAKSHA](http://svaksha.com/pages/Bio) All Rights Reserved.
+# LICENSE :: [GNU AGPLv3 License](http://www.gnu.org/licenses/agpl.html)
+# Permission is hereby granted, free of charge, to any person obtaining a copy 
+# of this software and associated documentation files (the "Software"), to deal 
+# in the Software without restriction, including without limitation the rights 
+# to use, copy, modify, merge, publish, distribute, sublicense, and/or sell 
+# copies of the Software, and to permit persons to whom the Software is 
+# furnished to do so, subject to the following conditions:
+# ALL copies of this work and repository forks must retain the Copyright, 
+# LICENSE(.md) notice and this permission notice in substantial portions of the software. 
+# See the [LICENSE.md](https://github.com/svaksha/yantra/blob/master/LICENSE.md) file.
+################################################################################
+# 
 # ~/.bashrc: executed by bash(1) for non-login shells. For examples
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 ################################################################################
-# LINKS for BASHRC samples, check github.com for DOTFILES
+#
+# LINKS for BASHRC samples, check github.com for more DOTFILES
 # http://tldp.org/LDP/abs/html/sample-bashrc.html
 #-------------------------------------------------------------------------------
 
@@ -170,13 +185,12 @@ esac
 # You may want to put all your additions into a separate file like
 # ~/.bash_aliases, instead of adding them here directly.
 # See /usr/share/doc/bash-doc/examples in the bash-doc package.
+### For the ALIAS list, see the "~/.bash_aliases" file
 #-------------------------------------------------------------------------------
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
 
-#-------------------------------------------------------------------------------
-### For the ALIAS list, see the "~/.bash_aliases" file
 #-------------------------------------------------------------------------------
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
@@ -215,7 +229,7 @@ COMP_CWORD=$COMP_CWORD \
 PIP_AUTO_COMPLETE=1 $1 ) )
 }
 complete -o default -F _pip_completion pip
-# pip bash completion end
+# pip bash completion end =================================================
 
 
 ################################################################################
@@ -242,26 +256,19 @@ complete -o default -F _pip_completion pip
 
 
 ################################################################################
-### Anaconda 1.9.2 installer 
+### Anaconda 2.1.0 installer
 ################################################################################
-export PATH="/home/mom/anaconda/bin:$PATH"
+# export PATH="/home/mom/anaconda/bin:$PATH"
+export PATH="$(pwd)/anaconda:$PATH"
 
 
 ################################################################################
 ### GIT configurations; updated: 30/12/2014 10:34:36 
 ################################################################################
-git config --global user.name "SVAKSHA ॥ स्वक्ष ॥"
+git config --global user.name "SVAKSHA ॥ स्वक्ष ॥ "
 git config --global user.email svaksha@gmail.com
 git config --global http.sslVerify false
 
-# function for global "git status --ignored" - replaced with alias
-#git() {
-#    if [[ ($1 == "status") ]]; then
-#        command git status --ignored "${@:2}";
-#    else
-#        command git "$@";
-#    fi;
-#}
 
 ################################################################################
 # Reload git-completion, gitconfig and bash_aliases when BASH restarts
@@ -275,8 +282,22 @@ source ~/.bash_aliases
 ################################################################################
 export PATH="$(pwd)/julia:$PATH"
 # $PWD/julia/bin
-export PATH="/home/mom/julia/bin:$PATH"
-PATH=$PATH:/home/mom/julia/bin/jdp   # jdp == DeclarativePackages.jl
-# export PATH="/home/mom/julia/test:$PATH"
+# export PATH="/home/mom/julia/bin:$PATH"
+############## jdp == DeclarativePackages.jl
+export PATH="$(pwd)/julia/bin/jdp:$PATH"
+#PATH=$PATH:/home/mom/julia/bin/jdp   
+
+
+################################################################################
+# PATH for the MoProSuite_1502_India software | added: Fri 20 Feb 2015 02:30:52 IST 
+# To launch MoProGUI, type RunMoProGUI or launch it from the install folder
+################################################################################
+export PATH="$(pwd)/MoProSuite_1502_India:$PATH"
+
+
+################################################################################
+# PATH for CrystalExplorer software | added: Fri 20 Feb 2015 10:17:52 IST 
+################################################################################
+alias crystalexplorer=/usr/local/CrystalExplorer/CrystalExplorer
 
 

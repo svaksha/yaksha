@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
 ################################################################################
-# My dot-shell files: http://svaksha.github.io/8ok5h
-# UPDATED: Sun 04 Jan 2015 09:04:38 IST 
+# My daemons : http://svaksha.github.io/abhr
+# UPDATED: Mon 02 Mar 2015 11:43:52 IST 
 ################################################################################
 
 [user]
-	name = SVAKSHA ॥ स्वक्ष ॥
+	name = "SVAKSHA ॥ स्वक्ष ॥ "
 	email = svaksha@gmail.com
 
 [alias]
@@ -62,11 +62,23 @@
 	attributesfile = ~/.gitattributes	
     excludesfile = ~/.gitignore_global
 
+[commit]
+    template = ~/.gitmessage
+
 [diff]
 	# Detect copies as well as renames
 	#---------------------------------------------------------------------------	
 	renames = copies
 	
+[gitlab]
+	user = svaksha
+
+[github]
+	user = svaksha
+
+[grep]
+    linenumber = true
+
 [help]
 	# Autocorrect and execute mistyped commands
 	#---------------------------------------------------------------------------
