@@ -1,0 +1,53 @@
+#!/usr/bin/env bash
+# AUTHOR: SVAKSHA || Created: 15/01/2008 || Updated: 02/03/2015 07:19:56 IST 
+################################################################################
+# My daemons : http://svaksha.github.io/abja
+# COPYRIGHT © 2007-Now [SVAKSHA](http://svaksha.com/pages/Bio) All Rights Reserved.
+# LICENSE :: [GNU AGPLv3](http://www.gnu.org/licenses/agpl-3.0.html) or later version.
+# Permission is hereby granted, free of charge, to any person obtaining a copy 
+# of this software and associated documentation files (the "Software"), to deal 
+# in the Software without restriction, including without limitation the rights 
+# to use, copy, modify, merge, publish, distribute, sublicense, and/or sell 
+# copies of the Software, and to permit persons to whom the Software is 
+# furnished to do so, subject to the following conditions:
+# ALL copies of this work and repository forks must retain the Copyright, 
+# LICENSE(.md) notice and this permission notice in substantial portions of the software. 
+# See the [LICENSE.md](https://github.com/svaksha/abja/blob/master/LICENSE.md) file.
+################################################################################
+#
+set mainfont {sans 9}
+set textfont {monospace 9}
+set uifont {sans 9 bold}
+set tabstop 8
+set findmergefiles 0
+set maxgraphpct 50
+set maxwidth 16
+set cmitmode patch
+set wrapcomment none
+set autoselect 1
+set autosellen 40
+set showneartags 1
+set hideremotes 0
+set showlocalchanges 1
+set datetimeformat {%Y-%m-%d %H:%M:%S}
+set limitdiffs 1
+set uicolor grey85
+set want_ttk 1
+set bgcolor white
+set fgcolor black
+set colors {green red blue magenta darkgrey brown orange}
+set diffcolors {red "#00a000" blue}
+set markbgcolor #e0e0ff
+set diffcontext 3
+set selectbgcolor gray85
+set extdifftool meld
+set perfile_attrs 1
+set geometry(main) 1317x714+49+24
+set geometry(state) normal
+set geometry(topwidth) 1317
+set geometry(topheight) 225
+set geometry(pwsash0) "480 1"
+set geometry(pwsash1) "725 1"
+set geometry(botwidth) 600
+set geometry(botheight) 484
+set permviews {}
