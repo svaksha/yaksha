@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 ################################################################################
-# My dot/shell/automation files: http://svaksha.github.io/bhut
-# ALIAS definitions UPDATED: UPDATED: Sun 15 Feb 2015 09:04:55 AM IST 
+# My daemons: http://svaksha.github.io/abja
+# ALIAS definitions UPDATED: Sun 15 Feb 2015 09:04:55 AM IST 
 ################################################################################
 # Moved all my additions into a separate "~/.bash_aliases" file.
 # See /usr/share/doc/bash-doc/examples in the bash-doc package.
@@ -14,14 +14,14 @@
 alias apt-install='sudo apt-get -fy install'
 alias apt-policy='LANG=C apt-cache policy'
 alias apt-purge='sudo apt-get --purge remove'
-# WARNING : USE CAREFULLY 
-alias apt-rm='sudo apt-get remove' # apt remove system dep files - USE CAREFULLY 
-alias apt-autorm='sudo apt-get autoremove'  # apt remove system dep files - USE CAREFULLY
-# END WARNING : USE CAREFULLY 
 alias apt-search='apt-cache search'
 alias apt-show='apt-cache show'
 alias apt-up='sudo apt-get update && sudo apt-get upgrade'
 alias apt-updist='sudo apt-get update && sudo apt-get dist-upgrade' # Update/Upgrade OS 
+# WARNING : USE CAREFULLY 
+alias apt-rm='sudo apt-get remove' # apt remove system dep files - USE CAREFULLY 
+alias apt-autorm='sudo apt-get autoremove'  # apt remove system dep files - USE CAREFULLY
+# END WARNING : USE CAREFULLY 
 
 
 #BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
@@ -29,9 +29,12 @@ alias bash='source $HOME/.bashrc' # reload bash
 
 
 #CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
-alias ..='cd ..'
+alias ..="cd .."        #go to parent dir
+alias ...="cd ../.."    #go to grandparent dir
+alias -- -="cd -"       #go to previous dir
 alias cd..='cd ..'
 alias clr='clear'    # Clear the terminal
+alias cal='cal -3' #show 3 months by default
 alias cat-alias='cat $HOME/.bash_aliases'
 alias cat-bash='cat $HOME/.bashrc'
 alias cat-gitc='cat $HOME/.gitconfig'
@@ -44,8 +47,8 @@ alias ed-alias='sudo gedit $HOME/.bashrc_aliases'
 alias ed-bash='sudo gedit $HOME/.bashrc'
 alias ed-gitconf='sudo gedit $HOME/.gitconfig'
 alias ed-gitignore='sudo gedit $HOME/.gitignore_global'
-alias emacs='emacs22-gtk'
-alias emacsfs='emacs22-gtk -fs'
+alias emacs='emacs24-gtk'
+alias emacsfs='emacs24-gtk -fs'
 
 
 #FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
@@ -90,16 +93,20 @@ alias h='history'
 #JJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJ
 alias ju='julia'
 # alias ju-pull='git pull git@github.com:JuliaLang/julia.git' # IGNORE, use update script.
-# alias ju-pkgup='cd julia; ./julia -e 'Pkg.update()''
+# alias ju-pkgup='cd julia; ./julia -e 'Pkg.update()''        # alt script handles this.
 
 
 #KKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK
 
 
 #LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL
+
+alias l.='ls -d .*'     #list hidden files
 alias l='ls -CF'
 alias la='ls -A'
-alias ll='ls -alF'
+alias ll='ls -lhrt'     #extra info compared to "l"
+alias lld='ls -lUd */'  #list directories
+# alias ll='ls -alF'
 # alias ll='ls --color --time-style="+%b %d %Y %H:%M"'
 alias ls='ls --color=auto'
 
@@ -138,3 +145,4 @@ alias temps='acpi -t'
 #ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ
 
 # END ".bash_aliases" ==========================================================
+
