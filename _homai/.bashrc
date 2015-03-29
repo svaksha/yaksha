@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 ################################################################################
-# My daemons : http://svaksha.github.io/abja
+# My daemons : http://svaksha.github.io/5vaksha
 # COPYRIGHT © 2007-Now [SVAKSHA](http://svaksha.com/pages/Bio) All Rights Reserved.
 # LICENSE :: [GNU AGPLv3](http://www.gnu.org/licenses/agpl-3.0.html) or later version.
 # Permission is hereby granted, free of charge, to any person obtaining a copy 
@@ -11,7 +11,7 @@
 # furnished to do so, subject to the following conditions:
 # ALL copies of this work and repository forks must retain the Copyright, 
 # LICENSE(.md) notice and this permission notice in substantial portions of the software. 
-# See the [LICENSE.md](https://github.com/svaksha/abja/blob/master/LICENSE.md) file.
+# See the [LICENSE.md](https://github.com/svaksha/5vaksha/blob/master/LICENSE.md) file.
 # UPDATED: Mon 02 Mar 2015 07:19:56 IST 
 ################################################################################
 # 

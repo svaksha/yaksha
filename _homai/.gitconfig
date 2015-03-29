@@ -1,8 +1,9 @@
 #!/usr/bin/env bash
 ################################################################################
-# My daemons : http://svaksha.github.io/abja
+# My daemons:: http://svaksha.github.io/5vaksha
+# UPDATED:: 29/Mar/2015
 # COPYRIGHT © 2007-Now [SVAKSHA](http://svaksha.com/pages/Bio) All Rights Reserved.
-# LICENSE :: [GNU AGPLv3](http://www.gnu.org/licenses/agpl-3.0.html) or later version.
+# LICENSE:: [GNU AGPLv3](http://www.gnu.org/licenses/agpl-3.0.html) or later version.
 # Permission is hereby granted, free of charge, to any person obtaining a copy 
 # of this software and associated documentation files (the "Software"), to deal 
 # in the Software without restriction, including without limitation the rights 
@@ -11,8 +12,7 @@
 # furnished to do so, subject to the following conditions:
 # ALL copies of this work and repository forks must retain the Copyright, 
 # LICENSE(.md) notice and this permission notice in substantial portions of the software. 
-# See the [LICENSE.md](https://github.com/svaksha/abja/blob/master/LICENSE.md) file.
-# UPDATED: Mon 02 Mar 2015 07:19:56 IST 
+# See the [LICENSE.md](https://github.com/svaksha/5vaksha/blob/master/LICENSE.md) file.
 ################################################################################
 
 [user]
@@ -20,24 +20,50 @@
 	email = svaksha@gmail.com
 
 [alias]
-    br = branch
-    cm = commit
-    co = checkout
-	ga = git add
-    gb = git branch
-    gc = git commit -v
-    gd = git diff
-    get = git 
-    got = git 
-    gs = git status
-    gx = gitx --all
-    last = log -1 HEAD
-	sr = svn rebase
-    st = status
-    unstage = reset HEAD --
-    visual = !gitk
+	gt        = git
+    get       = git 
+    got       = git 
+	ga        = git add
+    gb        = git branch
+    gc        = git commit -v
+    gd        = git diff
+    gs        = git status
+    ci        = commit
+    cia       = commit -a
+    cim       = commit -m
+    ciam      = commit -a -m
+    co        = checkout
+    gx        = gitx --all
+# too many alias acronyms, need to cleanup and re-order this cheatsheet
+    br        = branch
+    b         = branch
+    cm        = commit
+    last      = log -1 HEAD
+	svnrb     = svn rebase
+    st        = status
+    unstage   = reset HEAD --
+    visual    = !gitk
+    dstat     = diff --stat
+    diffclr   = diff --color-words
+    diffw     = diff -w
+    diffx     = diff -w --color-words
+    pff       = pull --ff-only
+    mff       = merge --ff-only
+    st        = status
+    logg      = log --graph --decorate
+    logpretty = log --graph --pretty=oneline --abbrev-commit --decorate
+    logtime   = log --format='%C(yellow)%h %Cgreen%an %Cblue%ar %Creset- %s'
+    lcmit     = log --graph --decorate --pretty=oneline --abbrev-commit
+    logall    = log --graph --decorate --pretty=oneline --abbrev-commit --all
+    loggraph  = log --all --graph --decorate
+    logrefs   = log --all --graph --decorate --oneline --simplify-by-decoration --no-merges
+    loglocal  = log --oneline origin..HEAD
+    logfetch  = log --oneline HEAD..origin/master
+    detach    = checkout HEAD^0
+    hdiff     = diff HEAD~
+    cont      = rebase --continue
+    abort     = rebase --abort
 
- 	
 [color]
 	# Use colors in Git commands that are capable of colored output when
 	# outputting to the terminal. Default setting in Git ≥ 1.8.4
@@ -50,20 +76,21 @@
 	ui = true
     
     [color "branch"]
-	current = blue 
-	local = red
-	remote = green
+	current = cyan bold
+	local   = cyan
+	remote  = red bold
 
     [color "diff"]
-	meta = yellow
-	old = cyan      # for deletions
-	new = green     # all additions
+	frag = magenta bold
+	meta = yellow bold
+	old  = yellow       # for deletions
+	new  = green bold   # all additions
  
     [color "status"]
-    added = green
-    changed = red bold
-    untracked = magenta bold
-
+    added     = green bold
+    changed   = yellow bold
+    untracked = cyan
+	    
 [buildout]
     extensions = mr.developer
     
@@ -73,17 +100,18 @@
 	attributesfile = ~/.gitattributes	
     excludesfile = ~/.gitignore_global
 
-[commit]
-    template = ~/.gitmessage
+#[commit]
+#    template = ~/.gitmessage
 
 [diff]
 	# Detect copies as well as renames
 	#---------------------------------------------------------------------------	
 	renames = copies
 	
+[bitbucket]
+	user = svaksha
 [gitlab]
 	user = svaksha
-
 [github]
 	user = svaksha
 
@@ -99,6 +127,7 @@
 	sslVerify = false
 
 [push]
-	default = simple
+	default = nothing
 
-
+# https://help.github.com/articles/changing-a-remote-s-url/
+# git config --global url."https://github.com"
