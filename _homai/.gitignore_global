@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 ################################################################################
 # My daemons : http://svaksha.github.io/5vaksha
-# Author: SVAKSHA, 05/11/2010 03:11:29 || UPDATED: 29/03/2015
+# Author: SVAKSHA, 05/11/2010 03:11:29 || UPDATED: 09/04/2015
 # COPYRIGHT © 2007-Now [SVAKSHA](http://svaksha.com/pages/Bio) All Rights Reserved.
 # LICENSE :: [GNU AGPLv3](http://www.gnu.org/licenses/agpl-3.0.html) or later version.
 # Permission is hereby granted, free of charge, to any person obtaining a copy 
@@ -45,12 +45,13 @@ tmtags
 #----------------------------------------------------
 ######### { LINUX }
 #----------------------------------------------------
-.directory # KDE directory preferences
-*~        # temporary files
-*.tmp     # temporary files
-tags
-.~lock.*#  # LibreOffice locks
 IGNORE/
+.directory  # KDE directory preferences
+*~          # temporary files
+*.tmp       # temporary files
+tags
+.~lock.*#   # LibreOffice locks
+*.ini       # Option files
 
 ### WINDOWS 
 [Tt]humbs.db
@@ -313,7 +314,6 @@ vignettes/*.pdf
 # DATABASE and LOGS
 ################################################################################
 #
-*.log
 *.sql
 *.sqlite
 cache
@@ -326,7 +326,6 @@ pip-delete-this-directory.txt
 *error_log.txt
 log/
 logs
-*.log
 
 ################################################################################
 # i18 / i10 TRANSLATIONS
@@ -334,6 +333,18 @@ logs
 *.mo
 *.pot
 
+################################################################################
+# LaTeX2ε - document typesetting for scientific publishing.
+################################################################################
+*.aux
+*.bbl
+*.blg
+*.dvi
+*.fdb_latexmk
+*.fls
+*.log
+*.pdf
+*.toc
 
 ### END OF `.gitignore_global` FILE ###########################################
 

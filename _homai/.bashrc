@@ -1,8 +1,10 @@
 #!/usr/bin/env bash
 ################################################################################
 # My daemons : http://svaksha.github.io/5vaksha
+# UPDATED: 03/04/2015
+################################################################################
 # COPYRIGHT © 2007-Now [SVAKSHA](http://svaksha.com/pages/Bio) All Rights Reserved.
-# LICENSE :: [GNU AGPLv3](http://www.gnu.org/licenses/agpl-3.0.html) or later version.
+# LICENSE :: [GNU AGPLv3 License](http://www.gnu.org/licenses/agpl.html)
 # Permission is hereby granted, free of charge, to any person obtaining a copy 
 # of this software and associated documentation files (the "Software"), to deal 
 # in the Software without restriction, including without limitation the rights 
@@ -12,7 +14,6 @@
 # ALL copies of this work and repository forks must retain the Copyright, 
 # LICENSE(.md) notice and this permission notice in substantial portions of the software. 
 # See the [LICENSE.md](https://github.com/svaksha/5vaksha/blob/master/LICENSE.md) file.
-# UPDATED: Mon 02 Mar 2015 07:19:56 IST 
 ################################################################################
 # 
 # ~/.bashrc: executed by bash(1) for non-login shells. For examples
@@ -43,7 +44,7 @@ shopt -s histappend
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
 #-------------------------------------------------------------------------------
 HISTSIZE=5000
-HISTFILESIZE=100000
+HISTFILESIZE=10000
 export HISTTIMEFORMAT="%F[%H:%M] "  # HISTTIMEFORMAT=’%c ‘ also does the same thing.
 
 # After each command, save and reload history
@@ -79,10 +80,18 @@ fi
 # Define some colors first:
 red='\e[0;31m'
 RED='\e[1;31m'
+green='\e[0;32m'
+GREEN='\e[1;32m'
+yellow='\e[0;33m'
+YELLOW='\e[1;33m'
 blue='\e[0;34m'
 BLUE='\e[1;34m'
+purple='\e[0;35m'
+PURPLE='\e[1;35m'
 cyan='\e[0;36m'
 CYAN='\e[1;36m'
+white='\e[0;37m'
+WHITE='\e[1;37m'
 NC='\e[0m'              # No Color
 
 # Looks best on a black background.....
@@ -99,7 +108,6 @@ function _exit()	# function to run upon exit of shell
     echo -e "${RED}NAMASTE${NC}"
 }
 trap _exit EXIT
-
 
 ################################################################################
 ### COLOR
@@ -156,6 +164,9 @@ if [ -x /usr/bin/dircolors ]; then
     alias grep='grep --color=auto'
     alias fgrep='fgrep --color=auto'
     alias egrep='egrep --color=auto'
+    # GREP_COLOR=bright yellow on black bg.
+    # use GREP_COLOR=7 to highlight whitespace on black terminals
+    alias grep='GREP_COLOR="1;33;40" grep --color=auto'
 fi
 
 #-------------------------------------------------------------------------------
@@ -257,9 +268,8 @@ complete -o default -F _pip_completion pip
 ################################################################################
 ### Anaconda 2.1.0 installer
 ################################################################################
-# export PATH="/home/mom/anaconda/bin:$PATH"
+export PATH=~/anaconda/bin:$PATH
 export PATH="$(pwd)/anaconda:$PATH"
-
 
 ################################################################################
 ### GIT configurations; updated: 30/12/2014 10:34:36 
@@ -277,7 +287,7 @@ source ~/.bash_aliases
 
 
 ################################################################################
-# Julia PATH | added: 12/04/2012 03:53:14 | updated: 31/12/2014 15:55:36 
+# Julia PATH | created: 12/04/2012 03:53:14 | updated: 31/12/2014 15:55:36 
 ################################################################################
 export PATH="$(pwd)/julia:$PATH"
 # $PWD/julia/bin
@@ -288,14 +298,14 @@ export PATH="$(pwd)/julia/bin/jdp:$PATH"
 
 
 ################################################################################
-# PATH for the MoProSuite_1502_India software | added: Fri 20 Feb 2015 02:30:52 IST 
+# PATH for the MoProSuite_1502_India software | created: Fri 20 Feb 2015 02:30:52 IST 
 # To launch MoProGUI, type RunMoProGUI or launch it from the install folder
 ################################################################################
 export PATH="$(pwd)/MoProSuite_1502_India:$PATH"
 
 
 ################################################################################
-# PATH for CrystalExplorer software | added: Fri 20 Feb 2015 10:17:52 IST 
+# PATH for CrystalExplorer software | created: Fri 20 Feb 2015 10:17:52 IST 
 ################################################################################
 alias crystalexplorer=/usr/local/CrystalExplorer/CrystalExplorer
 

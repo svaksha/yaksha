@@ -1,6 +1,6 @@
 # 5vaksha
 
-Devilish Daemons!
+@svaksha does devilish dotfile daemons!
 
 **Standard Disclaimer**: No warranty/guarantee for any particular use, express or implied and you agree to use [these program files](http://svaksha.github.io/5vaksha) at your own risk and liability!
 
