@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 ################################################################################
 # My daemons : http://svaksha.github.io/5vaksha
-# UPDATED: 03/04/2015
+# UPDATED: 09/04/2015
 ################################################################################
 # COPYRIGHT © 2007-Now [SVAKSHA](http://svaksha.com/pages/Bio) All Rights Reserved.
 # LICENSE :: [GNU AGPLv3 License](http://www.gnu.org/licenses/agpl.html)
@@ -230,6 +230,48 @@ function ii()   # get current host related info
 
 
 ################################################################################
+### GIT configurations; updated: 30/12/2014 10:34:36 
+################################################################################
+git config --global user.name "SVAKSHA ॥ स्वक्ष ॥ "
+git config --global user.email svaksha@gmail.com
+git config --global http.sslVerify false
+
+
+################################################################################
+# Reload git-completion, gitconfig and bash_aliases when BASH restarts
+################################################################################
+source ~/.git-completion.bash
+source ~/.bash_aliases
+
+################################################################################
+# Julia PATH | created: 12/04/2012 03:53:14 | updated: 31/12/2014 15:55:36 
+################################################################################
+export PATH="$(pwd)/julia:$PATH"
+# $PWD/julia/bin
+# export PATH="/home/mom/julia/bin:$PATH"
+############## jdp == DeclarativePackages.jl
+export PATH="$(pwd)/julia/bin/jdp:$PATH"
+#PATH=$PATH:/home/mom/julia/bin/jdp   
+
+
+################################################################################
+# PATH for the MoProSuite_1502_India software | created: Fri 20 Feb 2015 02:30:52 IST 
+# To launch MoProGUI, type RunMoProGUI or launch it from the install folder
+################################################################################
+export PATH="$(pwd)/MoProSuite_1502_India:$PATH"
+
+################################################################################
+# PATH for CrystalExplorer software | created: Fri 20 Feb 2015 10:17:52 IST 
+################################################################################
+alias crystalexplorer=/usr/local/CrystalExplorer/CrystalExplorer
+
+################################################################################
+# Switching to arbtt, http://darcs.nomeata.de/arbtt/, 04/04/2015 07:36:28 
+################################################################################
+(arbtt-capture &)
+. /etc/profile.d/vte.sh
+
+################################################################################
 ### PIP bash completion start || Fri, 03 May 2013 16:02:40 +0530 
 ################################################################################
 _pip_completion()
@@ -266,47 +308,18 @@ complete -o default -F _pip_completion pip
 
 
 ################################################################################
-### Anaconda 2.1.0 installer
+# Anaconda 2.2.0 installer (np19py34_0 AND np19py27_0), DATE: 2015Apr09
 ################################################################################
 export PATH=~/anaconda/bin:$PATH
 export PATH="$(pwd)/anaconda:$PATH"
 
-################################################################################
-### GIT configurations; updated: 30/12/2014 10:34:36 
-################################################################################
-git config --global user.name "SVAKSHA ॥ स्वक्ष ॥ "
-git config --global user.email svaksha@gmail.com
-git config --global http.sslVerify false
+# project specific PATH
+export PATH=~/anaconda/envs/biosci/biosci/wasmuthlab/figmop/molecbio/aligners:$PATH
+export PATH=~/anaconda/envs/biosci/biosci/wasmuthlab/figmop/molecbio/blosum:$PATH
+export PATH=~/anaconda/envs/biosci/biosci/wasmuthlab/figmop/molecbio/rosetta:$PATH
+export PATH=~/anaconda/envs/biosci/biosci/wasmuthlab/figmop/molecbio/rosettaApps:$PATH
+export PATH=~/anaconda/envs/biosci/biosci/wasmuthlab/figmop/patternHmm/src:$PATH
+export PATH=~/anaconda/envs/biosci/biosci/wasmuthlab/figmop/molecbio/blosum:$PATH
 
-
-################################################################################
-# Reload git-completion, gitconfig and bash_aliases when BASH restarts
-################################################################################
-source ~/.git-completion.bash
-source ~/.bash_aliases
-
-
-################################################################################
-# Julia PATH | created: 12/04/2012 03:53:14 | updated: 31/12/2014 15:55:36 
-################################################################################
-export PATH="$(pwd)/julia:$PATH"
-# $PWD/julia/bin
-# export PATH="/home/mom/julia/bin:$PATH"
-############## jdp == DeclarativePackages.jl
-export PATH="$(pwd)/julia/bin/jdp:$PATH"
-#PATH=$PATH:/home/mom/julia/bin/jdp   
-
-
-################################################################################
-# PATH for the MoProSuite_1502_India software | created: Fri 20 Feb 2015 02:30:52 IST 
-# To launch MoProGUI, type RunMoProGUI or launch it from the install folder
-################################################################################
-export PATH="$(pwd)/MoProSuite_1502_India:$PATH"
-
-
-################################################################################
-# PATH for CrystalExplorer software | created: Fri 20 Feb 2015 10:17:52 IST 
-################################################################################
-alias crystalexplorer=/usr/local/CrystalExplorer/CrystalExplorer
 
 
