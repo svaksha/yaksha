@@ -1,12 +1,23 @@
 #!/usr/bin/env bash
 ################################################################################
-# My daemons: http://svaksha.github.io/5vaksha
-# ALIAS definitions UPDATED: 29/03/2015 
+# @svaksha <3 devilish dotfile daemons! : http://svaksha.github.io/5vaksha
+# Author: SVAKSHA || ALIAS definitions || UPDATED: 2015APR13
+# COPYRIGHT © 2007-Now [SVAKSHA](http://svaksha.com/pages/Bio) All Rights Reserved.
+# LICENSE :: [GNU AGPLv3 License](http://www.gnu.org/licenses/agpl.html)
+# Permission is hereby granted, free of charge, to any person obtaining a copy 
+# of this software and associated documentation files (the "Software"), to deal 
+# in the Software without restriction, including without limitation the rights 
+# to use, copy, modify, merge, publish, distribute, sublicense, and/or sell 
+# copies of the Software, and to permit persons to whom the Software is 
+# furnished to do so, subject to the following conditions:
+# ALL copies of this work and repository forks must retain the Copyright, 
+# LICENSE(.md) notice and this permission notice in substantial portions of the software. 
+# See the [LICENSE.md](https://github.com/svaksha/5vaksha/blob/master/LICENSE.md) file.
 ################################################################################
+#
 # Moved all my additions into a separate "~/.bash_aliases" file.
 # See /usr/share/doc/bash-doc/examples in the bash-doc package.
 ################################################################################
-#
 #
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA

@@ -1,8 +1,7 @@
 #!/usr/bin/env bash
 ################################################################################
-# My daemons : http://svaksha.github.io/5vaksha
-# UPDATED: 09/04/2015
-################################################################################
+# @svaksha <3 devilish dotfile daemons! : http://svaksha.github.io/5vaksha
+# Author: SVAKSHA || CREATED: 2005NOV05 || UPDATED: 2015APR11
 # COPYRIGHT © 2007-Now [SVAKSHA](http://svaksha.com/pages/Bio) All Rights Reserved.
 # LICENSE :: [GNU AGPLv3 License](http://www.gnu.org/licenses/agpl.html)
 # Permission is hereby granted, free of charge, to any person obtaining a copy 
@@ -242,6 +241,7 @@ git config --global http.sslVerify false
 ################################################################################
 source ~/.git-completion.bash
 source ~/.bash_aliases
+source ~/.curlrc
 
 ################################################################################
 # Julia PATH | created: 12/04/2012 03:53:14 | updated: 31/12/2014 15:55:36 
