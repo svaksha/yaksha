@@ -138,7 +138,7 @@ alias tl='tail'
 alias temps='acpi -t'
 
 #===============================================================================
-# Grouping all search utils 
+# Grouping all SEARCH utils 
 #===============================================================================
 alias f='find . | grep' # find file 
 alias g='grep -R'
@@ -156,9 +156,8 @@ alias ju='julia'
 alias py='python'
 # From @audreyr, http://www.codemakesmehappy.com/2015/04/spring-cleaning-for-python-programmers.html
 alias rmpyc='find . -type f -name "*.pyc" -print -delete'
-export PYTHONDONTWRITEBYTECODE=true
-
+# Recursively IGNORE "Permission denied" directories.
+#alias rmpyc-ig-path='find . -type f -name "*.pyc" ! -readable \( -path "./.dbus" -o -path "./.gvfs" -o -path "./.cache/dconf" \) -print -delete -ls'
 
 # END ".bash_aliases" ==========================================================
-
 

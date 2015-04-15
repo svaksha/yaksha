@@ -145,9 +145,10 @@ export LS_COLORS=$LS_COLORS:"*.wmv=01;35":"*.wma=01;35":"*.flv=01;35":"*.m4a=01;
 # http://ubuntugenius.wordpress.com/2011/07/11/how-to-change-the-command-line-prompt-colour-in-the-ubuntulinux-terminal/
 #-------------------------------------------------------------------------------
 if [ "$color_prompt" = yes ]; then
-    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u\[\033[01;31m\]@\h\[\033[01;33m\]:\[\033[00;36m\]\w\[\033[01;37m\]\$ '
+    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]स्वक्ष\[\033[01;31m\]@ilak\[\033[01;33m\]:\[\033[00;36m\]\w\[\033[01;37m\]\$ '
 else
-    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
+#    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
+    PS1='${debian_chroot:+($debian_chroot)}स्वक्ष@ilak:\w\$ '
 fi
 unset color_prompt force_color_prompt
 
@@ -227,7 +228,7 @@ function ii()   # get current host related info
   echo
 }
 
-
+#............................ GIT ..............................................
 ################################################################################
 ### GIT configurations; updated: 30/12/2014 10:34:36 
 ################################################################################
@@ -243,6 +244,7 @@ source ~/.git-completion.bash
 source ~/.bash_aliases
 source ~/.curlrc
 
+#............................ JULIA ............................................
 ################################################################################
 # Julia PATH | created: 12/04/2012 03:53:14 | updated: 31/12/2014 15:55:36 
 ################################################################################
@@ -254,6 +256,7 @@ export PATH="$(pwd)/julia/bin/jdp:$PATH"
 #PATH=$PATH:/home/mom/julia/bin/jdp   
 
 
+#............................ CHEMISTRY ........................................
 ################################################################################
 # PATH for the MoProSuite_1502_India software | created: Fri 20 Feb 2015 02:30:52 IST 
 # To launch MoProGUI, type RunMoProGUI or launch it from the install folder
@@ -271,6 +274,8 @@ alias crystalexplorer=/usr/local/CrystalExplorer/CrystalExplorer
 (arbtt-capture &)
 . /etc/profile.d/vte.sh
 
+
+#............................ PYTHON ...........................................
 ################################################################################
 ### PIP bash completion start || Fri, 03 May 2013 16:02:40 +0530 
 ################################################################################
@@ -281,7 +286,6 @@ COMP_CWORD=$COMP_CWORD \
 PIP_AUTO_COMPLETE=1 $1 ) )
 }
 complete -o default -F _pip_completion pip
-# pip bash completion end =================================================
 
 
 ################################################################################
@@ -321,5 +325,9 @@ export PATH=~/anaconda/envs/biosci/biosci/wasmuthlab/figmop/molecbio/rosettaApps
 export PATH=~/anaconda/envs/biosci/biosci/wasmuthlab/figmop/patternHmm/src:$PATH
 export PATH=~/anaconda/envs/biosci/biosci/wasmuthlab/figmop/molecbio/blosum:$PATH
 
+#-------------------------------------------------------------------------------
+# command to delete bytecode (.pyc) files, works with the global alias file
+#-------------------------------------------------------------------------------
+export PYTHONDONTWRITEBYTECODE=true # REF: https://twitter.com/wlonk/status/587431447222444033
 
 

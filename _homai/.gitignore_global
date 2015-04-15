@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 ################################################################################
 # @svaksha <3 devilish dotfile daemons! : http://svaksha.github.io/5vaksha
-# Author: SVAKSHA, 05/11/2010 03:11:29 || UPDATED: 2015APR11
+# Author: SVAKSHA, 05/11/2010 03:11:29 || UPDATED: 2015APR15
 # COPYRIGHT © 2007-Now [SVAKSHA](http://svaksha.com/pages/Bio) All Rights Reserved.
 # LICENSE :: [GNU AGPLv3](http://www.gnu.org/licenses/agpl-3.0.html) or later version.
 # Permission is hereby granted, free of charge, to any person obtaining a copy 
@@ -17,7 +17,7 @@
 #
 #
 ################################################################################
-# OS GLOBAL / IDE / LOFFICE 
+# PLATFORMS-OS GLOBAL UTILS
 ################################################################################
 #
 #----------------------------------------------------
@@ -51,8 +51,9 @@ IGNORE/
 *~          # temporary files
 *.tmp       # temporary files
 tags
+
 .~lock.*#   # LibreOffice locks
-#*.ini       # Option files
+#*.ini      # Cannot ignore ALL config files, will affect my dotfile backup.
 
 ### WINDOWS 
 [Tt]humbs.db
@@ -106,9 +107,9 @@ gen/ # Generated files
 # git
 *.git
 # Mercurial
+.hgignore
 *.hg 
 */.hg/*
-.hgignore
 /.hg/*
 # Subversion
 .svn/  
@@ -164,6 +165,7 @@ gen/ # Generated files
 #===============================================================================
 *.mod  # fortran module files
 
+
 #===============================================================================
 ### JAVA
 #===============================================================================
@@ -171,16 +173,18 @@ gen/ # Generated files
 *.class
 .mtj.tmp/ # Mobile Tools for Java (J2ME)
 hs_err_pid*  # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
-
+# The 'Initial Configuration' JSON file shares a common format with the MVC brokers 
+*/*.json
+initial.json # Java and Django models fixture initial data 
 
 # Package Files 
-#-------------------
 *.jar
 *.war
 *.ear
+*.iml
 
 #===============================================================================
-### JAVASCRIPT
+### JAVASCRIPT-JAVASCRIPT-JAVASCRIPT-JAVASCRIPT-JAVASCRIPT-JAVASCRIPT-JAVASCRIPT
 #===============================================================================
 *.min.js
 .nakignore
@@ -253,13 +257,23 @@ build/
 develop-eggs/
 dist/
 eggs/
-env/
-include
+env*/
 lib/
 lib64/
 parts/
 sdist/
 var/
+# lets ignore the big Anaconda too
+conda-meta/
+etc/
+Examples/
+imports/
+include/
+.index/
+mkspecs/
+plugins/
+share/
+ssl/
 
 # PyInstaller
 *.manifest
@@ -272,7 +286,7 @@ target/
 #----------------------------
 docs/_build/
 
-### IPYTHON-JUPYTER Notebooks
+### JUPYTER Notebooks
 #----------------------------
 .ipynb_checkpoints/*
 *.ipynb
@@ -282,9 +296,11 @@ docs/_build/
 .coverage
 .tox
 .cache
+.autonose-depends.pickle
 coverage.xml
 nosetests.xml
 htmlcov/
+pylint.log
 
 ### Mr.Developer the zc.buildout extension
 #----------------------------
