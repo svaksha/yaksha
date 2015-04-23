@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
+#
 ################################################################################
 # @svaksha <3 devilish dotfile daemons! : http://svaksha.github.io/5vaksha
-# Author: SVAKSHA || CREATED: 2005NOV05 || UPDATED: 2015APR11
+# Author: SVAKSHA || CREATED: 2005NOV05 || UPDATED: 2015APR23
 # COPYRIGHT © 2007-Now [SVAKSHA](http://svaksha.com/pages/Bio) All Rights Reserved.
 # LICENSE :: [GNU AGPLv3 License](http://www.gnu.org/licenses/agpl.html)
 # Permission is hereby granted, free of charge, to any person obtaining a copy 
@@ -72,6 +73,9 @@ if [ -z "$debian_chroot" ] && [ -r /etc/debian_chroot ]; then
     debian_chroot=$(cat /etc/debian_chroot)
 fi
 
+# Timeout
+#-------------------------------------------------------------------------------
+#timeout 10 "ls ${HOME}"
 
 ################################################################################
 # Greetings, MOTD, etc...
@@ -244,17 +248,6 @@ source ~/.git-completion.bash
 source ~/.bash_aliases
 source ~/.curlrc
 
-#............................ JULIA ............................................
-################################################################################
-# Julia PATH | created: 12/04/2012 03:53:14 | updated: 31/12/2014 15:55:36 
-################################################################################
-export PATH="$(pwd)/julia:$PATH"
-# $PWD/julia/bin
-# export PATH="/home/mom/julia/bin:$PATH"
-############## jdp == DeclarativePackages.jl
-export PATH="$(pwd)/julia/bin/jdp:$PATH"
-#PATH=$PATH:/home/mom/julia/bin/jdp   
-
 
 #............................ CHEMISTRY ........................................
 ################################################################################
@@ -268,11 +261,20 @@ export PATH="$(pwd)/MoProSuite_1502_India:$PATH"
 ################################################################################
 alias crystalexplorer=/usr/local/CrystalExplorer/CrystalExplorer
 
+
+#............................ TIME-TRACKER.......................................
 ################################################################################
-# Switching to arbtt, http://darcs.nomeata.de/arbtt/, 04/04/2015 07:36:28 
+# Switching to arbtt, http://darcs.nomeata.de/arbtt/, 2015APR04 07:36:28 
 ################################################################################
 (arbtt-capture &)
 . /etc/profile.d/vte.sh
+
+
+#............................ WEB ..............................................
+################################################################################
+# Heroku Toolbelt
+################################################################################
+export PATH="/usr/local/heroku/bin:$PATH"
 
 
 #............................ PYTHON ...........................................
@@ -317,17 +319,21 @@ complete -o default -F _pip_completion pip
 export PATH=~/anaconda/bin:$PATH
 export PATH="$(pwd)/anaconda:$PATH"
 
-# project specific PATH
-export PATH=~/anaconda/envs/biosci/biosci/wasmuthlab/figmop/molecbio/aligners:$PATH
-export PATH=~/anaconda/envs/biosci/biosci/wasmuthlab/figmop/molecbio/blosum:$PATH
-export PATH=~/anaconda/envs/biosci/biosci/wasmuthlab/figmop/molecbio/rosetta:$PATH
-export PATH=~/anaconda/envs/biosci/biosci/wasmuthlab/figmop/molecbio/rosettaApps:$PATH
-export PATH=~/anaconda/envs/biosci/biosci/wasmuthlab/figmop/patternHmm/src:$PATH
-export PATH=~/anaconda/envs/biosci/biosci/wasmuthlab/figmop/molecbio/blosum:$PATH
-
 #-------------------------------------------------------------------------------
 # command to delete bytecode (.pyc) files, works with the global alias file
 #-------------------------------------------------------------------------------
 export PYTHONDONTWRITEBYTECODE=true # REF: https://twitter.com/wlonk/status/587431447222444033
 
+
+
+#............................ JULIA ............................................
+################################################################################
+# Julia PATH | created: 2012APR12 03:53:14 | updated: 2014DEC31 15:55:36 
+################################################################################
+export PATH="$(pwd)/julia:$PATH"
+# $PWD/julia/bin
+# export PATH="/home/mom/julia/bin:$PATH"
+############## jdp == DeclarativePackages.jl
+export PATH="$(pwd)/julia/bin/jdp:$PATH"
+#PATH=$PATH:/home/mom/julia/bin/jdp   
 
