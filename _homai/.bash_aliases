@@ -202,11 +202,27 @@ alias gpom='git push -u origin master'
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # HG - MERCURIAL
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-alias ha='hg add'
-alias hf='hg forget'           # Track new, forget missing
-alias harm='hg addrem­ove'       # Begin tracking changes
-alias hrm='hg remove'          # Stop tracking file
-	
+alias hh='hg help'              # HELP, the full command list.
+alias hi='hg init'              # Creates a `.hg/` subfolder 
+alias hc='hg commit -m'         # Save files and Commit message to Repo
+alias ha='hg add'               # Begin tracking all files 
+alias hs='hg status'            # Lists status of files
+alias hd='hg diff'              # Lists tracked file changes, `filename` will List changes to it
+alias hp='hg push'              # Push changesets to Remote
+alias hpl='hg pull'             # Pull all new changesets into Local
+alias hl='hg log'               # History of changesets
+alias hm='hg merge'
+alias hn='hg annotate'          # Logs of changes
+alias hf='hg forget'            # Track new, forget missing
+alias hr='hg revert'            # Undo all uncomm­itted changes	
+alias h-arm='hg addrem­ove'      # Begin tracking changes
+alias h-rmv='hg remove'         # Stop tracking file
+alias h-head='hg heads'         # List heads
+alias h-pth='hg paths'          # Lists known remote Repos
+alias h-in='hg incoming'        # List changesets available
+# Only use in private repos.
+alias h-roll='hg rollback'      # can undo commit, import, pull, local push, and unbundle. 
+
 # END ".bash_aliases" ==========================================================
 
 
