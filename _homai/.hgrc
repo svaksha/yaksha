@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
-# AUTHOR: SVAKSHA || Created: 22MAR2007 || Updated: 09APR2015 09:09:11 IST 
 ################################################################################
-# @svaksha <3 devilish dotfile daemons! : http://svaksha.github.io/5vaksha
+# @svaksha <3 devilish dotfile daemons : http://svaksha.github.io/5vaksha
+# Author: SVAKSHA, 2008MAR22 || UPDATED: 2015APR27
 # COPYRIGHT © 2007-Now [SVAKSHA](http://svaksha.com/pages/Bio) All Rights Reserved.
 # LICENSE :: [GNU AGPLv3](http://www.gnu.org/licenses/agpl-3.0.html) or later version.
 # Permission is hereby granted, free of charge, to any person obtaining a copy 
@@ -9,14 +9,56 @@
 # in the Software without restriction, including without limitation the rights 
 # to use, copy, modify, merge, publish, distribute, sublicense, and/or sell 
 # copies of the Software, and to permit persons to whom the Software is 
-# furnished to do so, subject to the following conditions:
-# ALL copies of this work and repository forks must retain the Copyright, 
-# LICENSE(.md) notice and this permission notice in substantial portions of the software. 
+# furnished to do so, subject to the following conditions: ALL copies of this 
+# work and repository forks must retain the Copyright, LICENSE(.md) notice and 
+# this permission notice in substantial portions of the software. 
 # See the [LICENSE.md](https://github.com/svaksha/5vaksha/blob/master/LICENSE.md) file.
 ################################################################################
+# http://www.selenic.com/mercurial/hg.1.html
 #
-
+# --- User interface --- #
 [ui]
-username = SVAKSHA <svaksha@gmail.com>
-verbose = True
+# show changed files, be verbose if True
+verbose=True                             
+username="SVAKSHA <svaksha@gmail.com>"   # username data to appear in commits
+ignore = ~/.hgignore_global              # ignore this file if working in another HG repo
+
+
+# log repository events to a blackbox for debugging
+[blackbox]
+track = *
+track = command, commandfinish, commandexception, exthook, pythonhook
+track = incoming
+# limit the size of a log file
+maxsize = 1.5 MB
+# rotate up to N log files when the current one gets too big
+maxfiles = 3
+
+[color]
+mode = terminfo
+color.brightblue = 12
+color.pink = 207
+color.orange = 202
+
+status.modified = blue bold underline red_background
+status.added = green bold
+status.removed = red bold blue_background
+status.deleted = cyan bold underline
+status.unknown = magenta bold underline
+status.ignored = black bold
+
+[graph]
+# Web graph view configuration section to change elements display property per branch.
+default.width = 2                        # 2px width
+default.color = FF0000                   # make the default branch stand out in RED.
+
+[hooks]
+changegroup.update = hg update           # update working directory after adding changesets
+
+[paths]
+default = http://bitbucket.org/svaksha
+
+[phases]
+publish = False
+
 

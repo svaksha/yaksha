@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 ################################################################################
 # @svaksha <3 devilish dotfile daemons! : http://svaksha.github.io/5vaksha
-# Author: SVAKSHA || ALIAS definitions || UPDATED: 2015APR13
+# Author: SVAKSHA || ALIAS definitions || UPDATED: 2015APR24
 # COPYRIGHT © 2007-Now [SVAKSHA](http://svaksha.com/pages/Bio) All Rights Reserved.
 # LICENSE :: [GNU AGPLv3 License](http://www.gnu.org/licenses/agpl.html)
 # Permission is hereby granted, free of charge, to any person obtaining a copy 
@@ -20,9 +20,8 @@
 ################################################################################
 #
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-#AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # APT and APTITUDE commands
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 alias apt-install='sudo apt-get -fy install'
 alias apt-policy='LANG=C apt-cache policy'
 alias apt-purge='sudo apt-get --purge remove'
@@ -36,13 +35,19 @@ alias apt-autorm='sudo apt-get autoremove'  # apt remove system dep files - USE 
 # END WARNING : USE CAREFULLY 
 
 
+
+################################################################################
+# BASH # BASH # BASH # BASH # BASH # BASH # BASH # BASH # BASH # BASH # BASH
+################################################################################
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-#BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+# BASH reloaded
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-alias bash='source $HOME/.bashrc' # reload bash
+alias b='. ~/.bashrc' # DOT shortcut to reload bash
+alias ba='source ~/.bashrc' # Another shortcut to reload bash
+alias bas='source $HOME/.bashrc' # reload bash
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-#CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+# Change Dir 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 alias ..="cd .."        #go to parent dir
 alias ...="cd ../.."    #go to grandparent dir
@@ -50,22 +55,126 @@ alias -- -="cd -"       #go to previous dir
 alias cd..='cd ..'
 alias clr='clear'    # Clear the terminal
 alias cal='cal -3' #show 3 months by default
-alias cat-alias='cat $HOME/.bash_aliases'
-alias cat-bash='cat $HOME/.bashrc'
-alias cat-gitc='cat $HOME/.gitconfig'
 
 #-------------------------------------------------------------------------------
-#EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE
+# EDIT 
 #-------------------------------------------------------------------------------
 alias ed-alias='sudo gedit $HOME/.bashrc_aliases'
 alias ed-bash='sudo gedit $HOME/.bashrc'
 alias ed-gitconf='sudo gedit $HOME/.gitconfig'
 alias ed-gitignore='sudo gedit $HOME/.gitignore_global'
+
+# Fire an editor
 alias emacs='emacs24-gtk'
 alias emacsfs='emacs24-gtk -fs'
 
+
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-#GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG
+# HISTORY
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+alias h='history'
+alias clr='cd ~; clear'
+alias hcl='history -c; clear'     # clear all the history and screen
+# alias h='history | grep'        # search history 
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# LIST
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+alias l.='ls -d .*'     #list hidden files
+alias l='ls -CF'
+alias la='ls -A'
+alias ll='ls -alF'
+#alias ll='ls -lhrt'     # extra info compared to "l"
+alias lld='ls -lUd */'  # list only directories
+alias ls='ls --color=auto'
+#alias lst='ls --color --time-style="+%b %d %Y %H:%M"' #replaced with bash script
+
+# Display the contents of these files on the terminal.
+alias s-alias='cat $HOME/.bash_aliases'
+alias s-bash='cat $HOME/.bashrc'
+alias s-gitc='cat $HOME/.gitconfig'
+
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# PATH, Proceses
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+alias p='ps aux | grep' # grep processes with [OPTION] PATTERN [FILE]
+alias path='echo -e ${PATH//:/\\n}'
+
+### various ping options. Read REF's for router/modem option.
+# REF[1]: https://en.wikipedia.org/wiki/Maximum_transmission_unit
+# REF[2]: http://www.richud.com/wiki/Network_MTU_Check
+#-------------------------------------------------------------------------------
+alias ping='ping 192.168.1.1' # ping dsl router
+alias ping1='ping -M do -s 1452 google.com' # Error {From MyDslModem.local.lan (192.168.1.1) icmp_seq=1 Frag needed and DF set (mtu = 1460)}
+alias ping2='ping -M do -s 1492 google.com'
+alias ping3='ping 10.8.0.1 -M do -s 1432'
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+alias shr='shred -u'
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# Processes yet again
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+alias t='top'
+alias tl='tail'
+alias temps='acpi -t'
+
+#===============================================================================
+# Grouping all SEARCH utils 
+#===============================================================================
+alias f='find . | grep'        # find file 
+alias g='grep -R'              
+alias gri="grep -i"            # ignore case
+
+
+
+################################################################################
+# HARDWARE MONITOR  # HARDWARE MONITOR  # HARDWARE MONITOR  # HARDWARE MONITOR
+################################################################################
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# HDD health - using smartmontools
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+alias disk='sudo smartctl -s on -a /dev/sda'     # HDD health - using smartmontools
+alias df='df -h'                                # Filesystem diskspace usage
+
+
+
+
+################################################################################
+# PROGRAMMING LANGUAGES   # PROGRAMMING LANGUAGES   # PROGRAMMING LANGUAGES
+################################################################################
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# JULIA REPL & programming
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+alias ju='julia'
+# alias ju-pull='git pull git@github.com:JuliaLang/julia.git' # IGNORE, use update script.
+# alias ju-pkgup='cd julia; ./julia -e 'Pkg.update()''        # alt script handles this.
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# Python related commands
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+alias con='cd anaconda/envs/'
+alias cona='source activate'
+alias cond='source deactivate'
+alias py='python'
+# From @audreyr, http://www.codemakesmehappy.com/2015/04/spring-cleaning-for-python-programmers.html
+alias rmpyc='find . -type f -name "*.pyc" -print -delete'
+# Recursively IGNORE "Permission denied" directories.
+#alias rmpyc-ig-path='find . -type f -name "*.pyc" ! -readable \( -path "./.dbus" -o -path "./.gvfs" -o -path "./.cache/dconf" \) -print -delete -ls'
+
+
+
+
+
+################################################################################
+# DVCS # DVCS # DVCS # DVCS # DVCS # DVCS # DVCS # DVCS # DVCS # DVCS # DVCS 
+################################################################################
+#
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# GIT
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # GIT stuff : https://www.kernel.org/pub/software/scm/git/docs/git-config.html
 alias ga='git add'
@@ -91,73 +200,13 @@ alias gp='git push'
 alias gpom='git push -u origin master'
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-#HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH
+# HG - MERCURIAL
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-alias home='cd ~; clear'
-alias h='history'
-# alias h='history | grep'  # search history 
-alias hd='sudo smartctl -s on -a /dev/sda'
-
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-#LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-alias l.='ls -d .*'     #list hidden files
-alias l='ls -CF'
-alias la='ls -A'
-alias ll='ls -alF'
-#alias ll='ls -lhrt'     # extra info compared to "l"
-alias lld='ls -lUd */'  # list only directories
-alias ls='ls --color=auto'
-#alias lst='ls --color --time-style="+%b %d %Y %H:%M"' #replaced with bash script
-
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-#PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-alias p='ps aux | grep' # grep processes with [OPTION] PATTERN [FILE]
-alias path='echo -e ${PATH//:/\\n}'
-
-### various ping options. Read REF's for router/modem option.
-# REF[1]: https://en.wikipedia.org/wiki/Maximum_transmission_unit
-# REF[2]: http://www.richud.com/wiki/Network_MTU_Check
-#-------------------------------------------------------------------------------
-alias ping='ping 192.168.1.1' # ping dsl router
-alias ping1='ping -M do -s 1452 google.com' # Error {From MyDslModem.local.lan (192.168.1.1) icmp_seq=1 Frag needed and DF set (mtu = 1460)}
-alias ping2='ping -M do -s 1492 google.com'
-alias ping3='ping 10.8.0.1 -M do -s 1432'
-
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-#SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-alias shr='shred -u'
-
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-#TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-alias t='top'
-alias tl='tail'
-alias temps='acpi -t'
-
-#===============================================================================
-# Grouping all SEARCH utils 
-#===============================================================================
-alias f='find . | grep' # find file 
-alias g='grep -R'
-
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-# JULIA REPL & programming
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-alias ju='julia'
-# alias ju-pull='git pull git@github.com:JuliaLang/julia.git' # IGNORE, use update script.
-# alias ju-pkgup='cd julia; ./julia -e 'Pkg.update()''        # alt script handles this.
-
-#===============================================================================
-# Python related commands
-#===============================================================================
-alias py='python'
-# From @audreyr, http://www.codemakesmehappy.com/2015/04/spring-cleaning-for-python-programmers.html
-alias rmpyc='find . -type f -name "*.pyc" -print -delete'
-# Recursively IGNORE "Permission denied" directories.
-#alias rmpyc-ig-path='find . -type f -name "*.pyc" ! -readable \( -path "./.dbus" -o -path "./.gvfs" -o -path "./.cache/dconf" \) -print -delete -ls'
-
+alias ha='hg add'
+alias hf='hg forget'           # Track new, forget missing
+alias harm='hg addrem­ove'       # Begin tracking changes
+alias hrm='hg remove'          # Stop tracking file
+	
 # END ".bash_aliases" ==========================================================
+
 
