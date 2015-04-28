@@ -56,6 +56,15 @@ alias cd..='cd ..'
 alias clr='clear'    # Clear the terminal
 alias cal='cal -3' #show 3 months by default
 
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# HISTORY
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+alias h='history'
+alias clr='cd ~; clear'
+alias hcl='history -c; clear'     # clear all the history and screen
+# alias h='history | grep'        # search history 
+
+
 #-------------------------------------------------------------------------------
 # EDIT 
 #-------------------------------------------------------------------------------
@@ -68,14 +77,6 @@ alias ed-gitignore='sudo gedit $HOME/.gitignore_global'
 alias emacs='emacs24-gtk'
 alias emacsfs='emacs24-gtk -fs'
 
-
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-# HISTORY
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-alias h='history'
-alias clr='cd ~; clear'
-alias hcl='history -c; clear'     # clear all the history and screen
-# alias h='history | grep'        # search history 
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # LIST
@@ -220,8 +221,11 @@ alias h-rmv='hg remove'         # Stop tracking file
 alias h-head='hg heads'         # List heads
 alias h-pth='hg paths'          # Lists known remote Repos
 alias h-in='hg incoming'        # List changesets available
+alias h-tip='hg export tip'     # export the most recent commit
 # Only use in private repos.
 alias h-roll='hg rollback'      # can undo commit, import, pull, local push, and unbundle. 
+
+
 
 # END ".bash_aliases" ==========================================================
 
