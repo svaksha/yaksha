@@ -1,26 +1,27 @@
 #!/usr/bin/env bash
 #
 ################################################################################
-# @svaksha <3 devilish dotfile daemons! : http://svaksha.github.io/5vaksha
-# Author: SVAKSHA || CREATED: 2005NOV05 || UPDATED: 2015APR23
-# COPYRIGHT © 2007-Now [SVAKSHA](http://svaksha.com/pages/Bio) All Rights Reserved.
-# LICENSE :: [GNU AGPLv3 License](http://www.gnu.org/licenses/agpl.html)
+# File       : .bashrc
+# Description: Configuration file for BASH, save as ~/.bashrc to use.
+# AUTHOR     : SVAKSHA <http://svaksha.github.io/5vaksha>
+# COPYRIGHT© : 2005-Now SVAKSHA <http://svaksha.com/pages/Bio> AllRightsReserved
+# DATES      : 2005NOV05 - 2015MAY06 (Updated)
+# LICENSE    : GNU AGPLv3 License <http://www.gnu.org/licenses/agpl.html>
 # Permission is hereby granted, free of charge, to any person obtaining a copy 
 # of this software and associated documentation files (the "Software"), to deal 
 # in the Software without restriction, including without limitation the rights 
 # to use, copy, modify, merge, publish, distribute, sublicense, and/or sell 
 # copies of the Software, and to permit persons to whom the Software is 
-# furnished to do so, subject to the following conditions:
-# ALL copies of this work and repository forks must retain the Copyright, 
-# LICENSE(.md) notice and this permission notice in substantial portions of the software. 
+# furnished to do so, subject to the following conditions: ALL copies of this 
+# work and repository forks must retain the Copyright, LICENSE(.md) notice and 
+# this permission notice in substantial portions of the software. 
 # See the [LICENSE.md](https://github.com/svaksha/5vaksha/blob/master/LICENSE.md) file.
 ################################################################################
-# 
+
 # ~/.bashrc: executed by bash(1) for non-login shells. For examples
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 ################################################################################
-#
-# LINKS for BASHRC samples, check github.com for more DOTFILES
+# NOTES : LINKS for BASHRC samples, check github.com for more DOTFILES
 # http://tldp.org/LDP/abs/html/sample-bashrc.html
 #-------------------------------------------------------------------------------
 
@@ -232,6 +233,14 @@ function ii()   # get current host related info
   echo
 }
 
+#............................ XTERM ............................................
+################################################################################
+### TERM=xterm
+################################################################################
+export TERM=xterm-256color
+export PROMPT_COMMAND="history -a; history -n"
+
+
 #............................ GIT ..............................................
 ################################################################################
 ### GIT configurations; updated: 30/12/2014 10:34:36 
@@ -242,11 +251,12 @@ git config --global http.sslVerify false
 
 
 ################################################################################
-# Reload git-completion, gitconfig and bash_aliases when BASH restarts
+# Reload BASH, source these files to make changes active after editing
 ################################################################################
 source ~/.git-completion.bash
 source ~/.bash_aliases
-source ~/.curlrc
+#source ~/.curlrc
+#source ~/.vimrc
 
 
 #............................ CHEMISTRY ........................................
@@ -266,8 +276,8 @@ alias crystalexplorer=/usr/local/CrystalExplorer/CrystalExplorer
 ################################################################################
 # Switching to arbtt, http://darcs.nomeata.de/arbtt/, 2015APR04 07:36:28 
 ################################################################################
-(arbtt-capture &)
-. /etc/profile.d/vte.sh
+#(arbtt-capture &)
+#. /etc/profile.d/vte.sh
 
 
 #............................ WEB ..............................................
@@ -291,7 +301,7 @@ complete -o default -F _pip_completion pip
 
 
 ################################################################################
-### PYTHON 2 to 3 in the VirtualenvWrapper; Tuesday 07 May 2013 12:04:38 PM IST
+### PYTHON 2 to 3 in the VirtualenvWrapper; 2013MAY07 12:04:38 PM IST
 ################################################################################
 # http://stackoverflow.com/questions/5585875/what-is-the-official-preferred-way-to-install-pip-and-virtualenv-systemwide
 # http://clouddenizen.com/2011/11/04/virtualenvwrapper-setup-in-ubuntu/
@@ -299,14 +309,14 @@ complete -o default -F _pip_completion pip
 ################################################################################
 # export PATH=$PATH:$HOME/.local/bin
 # export PROJECT_HOME=$HOME/eng3/
-# export PIP_VIRTUALENV_BASE=/home/mom/.virtualenvs
+# export PIP_VIRTUALENV_BASE=~/.virtualenvs
 # alias pip=pip-python
 
-### Friday 31 May 2013 02:52:12 AM IST 
+### 2013MAY31 02:52:12 AM IST 
 #--------------------------------------------------------------
-# export PATH=/home/mom/sbt/bin:$PATH
+# export PATH=$PATH/sbt/bin:$PATH
 
-### Tue, 29/05 Apr 2014 19:44:13 +0530 
+### 2014APR29 19:44:13 +0530 
 # http://askubuntu.com/questions/440114/ubuntu-14-04-python-2-7-still-default-set-3-x-as-default
 #--------------------------------------------------------------
 # alias python='python3.4'
@@ -316,14 +326,15 @@ complete -o default -F _pip_completion pip
 ################################################################################
 # Anaconda 2.2.0 installer (np19py34_0 AND np19py27_0), DATE: 2015Apr09
 ################################################################################
-export PATH=~/anaconda/bin:$PATH
+export PATH="~/anaconda/bin:$PATH"
 export PATH="$(pwd)/anaconda:$PATH"
+# added by Anaconda 2.2.0 installer
+export PATH="$HOME/anaconda/bin:$PATH"
 
 #-------------------------------------------------------------------------------
 # command to delete bytecode (.pyc) files, works with the global alias file
 #-------------------------------------------------------------------------------
 export PYTHONDONTWRITEBYTECODE=true # REF: https://twitter.com/wlonk/status/587431447222444033
-
 
 
 #............................ JULIA ............................................
@@ -332,8 +343,9 @@ export PYTHONDONTWRITEBYTECODE=true # REF: https://twitter.com/wlonk/status/5874
 ################################################################################
 export PATH="$(pwd)/julia:$PATH"
 # $PWD/julia/bin
-# export PATH="/home/mom/julia/bin:$PATH"
+# export PATH="$(pwd)/julia/bin:$PATH"
 ############## jdp == DeclarativePackages.jl
 export PATH="$(pwd)/julia/bin/jdp:$PATH"
-#PATH=$PATH:/home/mom/julia/bin/jdp   
+#PATH=$PATH:$(pwd)/julia/bin/jdp   
+
 

@@ -1,0 +1,192 @@
+################################################################################
+# @svaksha <3 devilish dotfile daemons : http://svaksha.github.io/5vaksha
+# Author: SVAKSHA, 2012AUG11 || UPDATED: 2015APR27
+# COPYRIGHT © 2007-Now [SVAKSHA](http://svaksha.com/pages/Bio) All Rights Reserved.
+# LICENSE :: [GNU AGPLv3](http://www.gnu.org/licenses/agpl-3.0.html) or later version.
+# Permission is hereby granted, free of charge, to any person obtaining a copy 
+# of this software and associated documentation files (the "Software"), to deal 
+# in the Software without restriction, including without limitation the rights 
+# to use, copy, modify, merge, publish, distribute, sublicense, and/or sell 
+# copies of the Software, and to permit persons to whom the Software is 
+# furnished to do so, subject to the following conditions: ALL copies of this 
+# work and repository forks must retain the Copyright, LICENSE(.md) notice and 
+# this permission notice in substantial portions of the software. 
+# See the [LICENSE.md](https://github.com/svaksha/5vaksha/blob/master/LICENSE.md) file.
+################################################################################
+# .tigrc = Configuration file for tig
+# Tig is an ncurses-based text-mode interface for git.
+# http://jonas.nitro.dk/tig/tigrc.5.html
+# https://github.com/jonas/tig
+###############################################################################
+#
+#######################################
+# Visualization
+#######################################
+
+
+
+    set filename-width = 21
+    set id-width = 18
+    set blame-options = -C -C -C
+    set line-graphics = utf-8
+    set line-number-interval = 5
+    set horizontal-scroll = 50%
+    set read-git-colors = yes
+    # set author-width = 14
+    set show-author = full
+    set show-filename = always
+    set show-date = yes
+    set show-notes = yes
+    set show-refs = yes
+    set show-id = yes
+    set show-rev-graph = yes
+    set show-changes = yes
+    set vertical-split = yes
+    set split-view-height = 70%
+    set status-untracked-dirs = yes
+    set tab-size = 2
+    set diff-context = 1
+    set ignore-space = some
+    set commit-order = topo
+    set ignore-case = no
+    set wrap-lines = no
+    set focus-child = yes
+    set show-line-numbers = yes
+
+# Variables {{{
+
+set horizontal-scroll = 50%
+set line-graphics = yes
+# enable mouse support
+set mouse = true
+
+# }}}
+# Views {{{
+
+set blame-view	= date:default author:full file-name:auto id:yes,color line-number:no,interval=5 text
+set grep-view	= file-name:yes line-number:yes,interval=1 text
+# Main view column settings.
+set main-view   = line-number:yes,interval=5 id:yes date:default author:full commit-title:yes,graph,refs,overflow=no
+set refs-view	= date:default author:full ref commit-title
+set stash-view	= line-number:yes,interval=5 id:no date:default author:full commit-title:yes
+set status-view	= line-number:yes,interval=5 status:short file-name
+set tree-view	= line-number:yes,interval=5 mode author:full file-size date:default id:no file-name
+
+# }}}
+# Colors {{{
+color cursor white black
+color status white default
+color title-focus white black
+color date yellow default
+color author green default
+color main-head magenta default
+color main-tag magenta default
+color stat-staged green default
+color stat-unstaged red default
+color stat-untracked yellow default
+color tree.header white default
+color tree.directory cyan default
+# }}}
+
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+# copy of the .gitconfig contents. DONT USE HERE
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+
+################################################################################
+# .tigrc = Configuration file for tig
+# Tig is an ncurses-based text-mode interface for git.
+# http://jonas.nitro.dk/tig/tigrc.5.html
+# https://github.com/jonas/tig
+###############################################################################
+[tig] 
+  show-changes = true
+[tig "color"] 
+  cursor         = yellow red bold
+  cursor         = white black
+  status         = blue default
+  title-focus    = white blue
+  date           = yellow default
+  author         = green default
+  main-head      = magenta default
+  main-tag       = magenta default
+  stat-staged    = green default
+  stat-unstaged  = red default
+  stat-untracked = yellow default
+
+[tig "tree"]
+  header    = white default
+  directory = cyan default
+
+[tig "bind"] 
+  generic               = P parent
+  diff-context          = 1
+  filename-width        = 21
+  id-width              = 21
+  blame-options         = -C -C -C
+  horizontal-scroll     = 50%
+  read-git-colors       = no # yes
+  show-line-numbers     = yes
+  line-graphics         = utf-8
+  line-number-interval  = 5
+  author-width          = 14
+  show-author           = full
+  show-filename         = always
+  show-date             = local
+  show-file-size        = units
+  show-notes            = yes
+  show-refs             = true #yes
+  show-id               = yes
+  show-rev-graph        = yes
+  show-changes          = yes
+  vertical-split        = yes
+  split-view-height     = 70%
+  status-untracked-dirs = yes
+  tab-size              = 4
+  ignore-space          = some
+  commit-order          = topo
+  ignore-case           = no
+  wrap-lines            = no
+  focus-child           = yes
+  mouse                 = true
+  
+[tig "view"] 
+    blame-view = \
+                date:default \
+                author:full \
+                file-name:auto \
+                id:yes,color \
+                line-number:yes,interval=5 \
+                text
+    grep-view = \
+                file-name:yes \
+                line-number:yes,interval=1 \
+                text
+    # Main view column things.
+    #----------------------------------
+    main-view = \
+                line-number:yes,interval=5 \
+                id:yes date:default \
+                author:full \
+                commit-title:yes,graph,refs \
+                overflow=no
+    refs-view = \
+                date:default \
+                author:full ref commit-title
+    stash-view = \
+                line-number:yes,interval=5 \
+                id:no \
+                date:default \
+                author:full \
+                commit-title:yes
+    status-view = \
+                line-number:yes,interval=5 \
+                status:short file-name
+    tree-view = \
+                line-number:yes,interval=5 mode \
+                author:full file-size \
+                date:default \
+                id:no file-name
+
+
