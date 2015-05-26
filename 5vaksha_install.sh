@@ -111,7 +111,7 @@ function install_utilities {
     ## video and audio (music - mpto mp3) converters
     sudo apt-get -y install papcl
     ## medical imaging
-    sudo apt-get -y install aeskulap
+    sudo apt-get -y install aeskulap Ginkgo-CADx
     # get the github source (https://github.com/rg3/youtube-dl) && DONT use the pip package OR apt "sudo apt-get install youtube-dl"
     #"youtube-dl"
 }
