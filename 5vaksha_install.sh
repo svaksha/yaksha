@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 ################################################################################
-# File       : 5vaksha_install.sh
+# File       : 5vaksha_install.sh from <http://svaksha.github.io/5vaksha>
 # Description: Installation script for a new system
 # AUTHOR     : SVAKSHA <http://svaksha.github.io/5vaksha>
 # COPYRIGHT© : 2005-Now SVAKSHA <http://svaksha.com/pages/Bio> AllRightsReserved
@@ -110,6 +110,8 @@ function install_utilities {
     sudo apt-get -y install equivs
     ## video and audio (music - mpto mp3) converters
     sudo apt-get -y install papcl
+    ## medical imaging
+    sudo apt-get -y install aeskulap
     # get the github source (https://github.com/rg3/youtube-dl) && DONT use the pip package OR apt "sudo apt-get install youtube-dl"
     #"youtube-dl"
 }

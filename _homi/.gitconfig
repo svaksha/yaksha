@@ -1,6 +1,6 @@
 ################################################################################
 # @svaksha <3 devilish dotfile daemons : http://svaksha.github.io/5vaksha
-# Author: SVAKSHA, 2009FEB16 || UPDATED: 2015APR29
+# Author: SVAKSHA, 2009Feb16 || UPDATED: 2015May08
 # COPYRIGHT © 2007-Now [SVAKSHA](http://svaksha.com/pages/Bio) All Rights Reserved.
 # LICENSE :: [GNU AGPLv3](http://www.gnu.org/licenses/agpl-3.0.html) or later version.
 # Permission is hereby granted, free of charge, to any person obtaining a copy 
@@ -76,7 +76,7 @@
     [color "branch"]
 	current = cyan bold
 	local   = cyan bold
-	remote  = red bold
+	remote  = yellow bold
 
     [color "diff"]
 	frag = cyan bold
@@ -85,18 +85,18 @@
 	new  = green bold   # all additions
  
     [color "status"]
-    added     = magenta bold
+    added     = cyan bold
     changed   = green bold
     untracked = yellow bold 
 
     [color "default"] 
     cursor       = magenta
     date         = cyan 
-    delimiter    = red 
+    delimiter    = blue 
     line-number  = yellow bold
     diff-header  = yellow 
     diff-index   = blue 
-    diff-chunk   = magenta 
+    diff-chunk   = green bold
     graph-commit = cyan 
 	    
 [buildout]
@@ -138,101 +138,5 @@
 
 [push]
 	default = nothing
-
-
-################################################################################
-# .tigrc = Configuration file for tig
-# Tig is an ncurses-based text-mode interface for git.
-# http://jonas.nitro.dk/tig/tigrc.5.html
-# https://github.com/jonas/tig
-###############################################################################
-[tig] 
-  show-changes = true
-[tig "color"] 
-  cursor         = yellow red bold
-  cursor         = white black
-  status         = blue default
-  title-focus    = white blue
-  date           = yellow default
-  author         = green default
-  main-head      = magenta default
-  main-tag       = magenta default
-  stat-staged    = green default
-  stat-unstaged  = red default
-  stat-untracked = yellow default
-
-[tig "tree"]
-  header    = white default
-  directory = cyan default
-
-[tig "bind"] 
-  generic               = P parent
-  diff-context          = 1
-  filename-width        = 21
-  id-width              = 21
-  blame-options         = -C -C -C
-  horizontal-scroll     = 50%
-  read-git-colors       = no # yes
-  show-line-numbers     = yes
-  line-graphics         = utf-8
-  line-number-interval  = 5
-  author-width          = 14
-  show-author           = full
-  show-filename         = always
-  show-date             = local
-  show-file-size        = units
-  show-notes            = yes
-  show-refs             = true #yes
-  show-id               = yes
-  show-rev-graph        = yes
-  show-changes          = yes
-  vertical-split        = yes
-  split-view-height     = 70%
-  status-untracked-dirs = yes
-  tab-size              = 4
-  ignore-space          = some
-  commit-order          = topo
-  ignore-case           = no
-  wrap-lines            = no
-  focus-child           = yes
-  mouse                 = true
-  
-[tig "view"] 
-    blame-view = \
-                date:default \
-                author:full \
-                file-name:auto \
-                id:yes,color \
-                line-number:yes,interval=5 \
-                text
-    grep-view = \
-                file-name:yes \
-                line-number:yes,interval=1 \
-                text
-    # Main view column things.
-    #----------------------------------
-    main-view = \
-                line-number:yes,interval=5 \
-                id:yes date:default \
-                author:full \
-                commit-title:yes,graph,refs \
-                overflow=no
-    refs-view = \
-                date:default \
-                author:full ref commit-title
-    stash-view = \
-                line-number:yes,interval=5 \
-                id:no \
-                date:default \
-                author:full \
-                commit-title:yes
-    status-view = \
-                line-number:yes,interval=5 \
-                status:short file-name
-    tree-view = \
-                line-number:yes,interval=5 mode \
-                author:full file-size \
-                date:default \
-                id:no file-name
 
 
