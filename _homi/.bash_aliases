@@ -1,9 +1,11 @@
 #!/usr/bin/env bash
 ################################################################################
-# @svaksha <3 devilish dotfile daemons! : http://svaksha.github.io/5vaksha
-# Author: SVAKSHA || ALIAS definitions || UPDATED: 2015APR24
-# COPYRIGHT © 2007-Now [SVAKSHA](http://svaksha.com/pages/Bio) All Rights Reserved.
-# LICENSE :: [GNU AGPLv3 License](http://www.gnu.org/licenses/agpl.html)
+# File       : .bash_aliases
+# Description: a separate "~/.bash_aliases" file for ALIAS definitions, commands split from ~/.bashrc file
+# AUTHOR     : SVAKSHA <http://svaksha.github.io/5vaksha>
+# COPYRIGHT© : 2005-Now SVAKSHA <http://svaksha.com/pages/Bio> AllRightsReserved
+# DATES      : 2005Nov05 - 2015May07 (Updated)
+# LICENSE    : GNU AGPLv3 License <http://www.gnu.org/licenses/agpl.html>
 # Permission is hereby granted, free of charge, to any person obtaining a copy 
 # of this software and associated documentation files (the "Software"), to deal 
 # in the Software without restriction, including without limitation the rights 
@@ -27,13 +29,13 @@ alias apt-policy='LANG=C apt-cache policy'
 alias apt-purge='sudo apt-get --purge remove'
 alias apt-search='apt-cache search'
 alias apt-show='apt-cache show'
-alias apt-up='sudo apt-get update && sudo apt-get upgrade'
-alias apt-updist='sudo apt-get update && sudo apt-get dist-upgrade' # Update/Upgrade OS 
+alias update='sudo apt-get -y update'
+alias upgrade='sudo apt-get -y upgrade'
+alias dist-upgrade='sudo apt-get update && sudo apt-get dist-upgrade' # Update/Upgrade OS 
 # WARNING : USE CAREFULLY 
 alias apt-rm='sudo apt-get remove' # apt remove system dep files - USE CAREFULLY 
 alias apt-autorm='sudo apt-get autoremove'  # apt remove system dep files - USE CAREFULLY
 # END WARNING : USE CAREFULLY 
-
 
 
 ################################################################################
@@ -106,10 +108,10 @@ alias path='echo -e ${PATH//:/\\n}'
 # REF[1]: https://en.wikipedia.org/wiki/Maximum_transmission_unit
 # REF[2]: http://www.richud.com/wiki/Network_MTU_Check
 #-------------------------------------------------------------------------------
-alias ping='ping 192.168.1.1' # ping dsl router
-alias ping1='ping -M do -s 1452 google.com' # Error {From MyDslModem.local.lan (192.168.1.1) icmp_seq=1 Frag needed and DF set (mtu = 1460)}
-alias ping2='ping -M do -s 1492 google.com'
-alias ping3='ping 10.8.0.1 -M do -s 1432'
+alias png='ping 192.168.1.1' # ping dsl router
+alias ping='ping -M do -s 1452 google.com' # Error {From MyDslModem.local.lan (192.168.1.1) icmp_seq=1 Frag needed and DF set (mtu = 1460)}
+alias ping1='ping -M do -s 1492 google.com'
+alias ping2='ping 10.8.0.1 -M do -s 1432'
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS
@@ -133,7 +135,7 @@ alias gri="grep -i"            # ignore case
 
 
 ################################################################################
-# HARDWARE MONITOR  # HARDWARE MONITOR  # HARDWARE MONITOR  # HARDWARE MONITOR
+# O.SYSTEM, Kernel AND HARDWARE MONITOR
 ################################################################################
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # HDD health - using smartmontools
@@ -141,7 +143,12 @@ alias gri="grep -i"            # ignore case
 alias disk='sudo smartctl -s on -a /dev/sda'     # HDD health - using smartmontools
 alias df='df -h'                                # Filesystem diskspace usage
 
-
+# Kernel
+alias unm-a='uname -a' # for all info regarding kernel version,
+alias unm-r='uname -r' # for exact kernel version
+alias lsb-a='lsb_release -a' # for all information related to ubuntu version,
+alias lsb-r='lsb_release -r' # for exact version
+alias fdisk='sudo fdisk -l' # for partition info with all details. 
 
 
 ################################################################################
@@ -165,7 +172,6 @@ alias py='python'
 alias rmpyc='find . -type f -name "*.pyc" -print -delete'
 # Recursively IGNORE "Permission denied" directories.
 #alias rmpyc-ig-path='find . -type f -name "*.pyc" ! -readable \( -path "./.dbus" -o -path "./.gvfs" -o -path "./.cache/dconf" \) -print -delete -ls'
-
 
 
 
