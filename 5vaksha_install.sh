@@ -49,10 +49,17 @@ date +"%c|completed running: $?" >> out_5vaksha_install_sh.log
 function install_utilities {
     sudo apt-get update
     sudo apt-get -y upgrade
-    ## HDD monitoring 
+    ## CPU / HDD monitoring 
     sudo apt-get -y install smartctl
     sudo apt-get -y install smartmontools
     sudo apt-get -y install gsmartcontrol   # GUI
+    sudo apt-get -y install indicator-cpufreq 
+    ## sensors package
+    sudo apt-get -y install lm-sensors
+    sudo apt-get -y install powertop
+    sudo apt-get -y install simplescan
+    # Compiz / Unity / Gnome
+    sudo apt-get -y install compizconfig-settings-manager
     ## Editors
     sudo apt-get -y install vim
     sudo apt-get -y install dconf-editor
@@ -76,10 +83,6 @@ function install_utilities {
     ## LaTeX2ε 
     sudo apt-get -y install texlive
     sudo apt-get -y install gedit-latex-plugin
-    ## sensors package
-    sudo apt-get -y install lm-sensors
-    sudo apt-get -y install powertop
-    sudo apt-get -y install simplescan
     ## Adobe
     sudo apt-get -y install gdebi
     sudo apt-get -y install AdbeRdr9.5.5-1_i386linux_enu.deb
