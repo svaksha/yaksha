@@ -4,7 +4,7 @@
 # Description: Installation script for a new system
 # AUTHOR     : SVAKSHA <http://svaksha.github.io/5vaksha>
 # COPYRIGHT© : 2005-Now SVAKSHA <http://svaksha.com/pages/Bio> AllRightsReserved
-# DATES      : 2005MAR22 - 2015MAY06 (Updated)
+# DATES      : 2005Mar22 - 2015Jun13 (Updated)
 # LICENSE    : GNU AGPLv3 License <http://www.gnu.org/licenses/agpl.html>
 # Permission is hereby granted, free of charge, to any person obtaining a copy 
 # of this software, to deal in the Software without restriction, including 
@@ -52,11 +52,13 @@ function install_utilities {
     ## CPU / HDD monitoring 
     sudo apt-get -y install smartctl
     sudo apt-get -y install smartmontools
-    sudo apt-get -y install gsmartcontrol   # GUI
+    sudo apt-get -y install gsmartcontrol   # GUI version
     sudo apt-get -y install indicator-cpufreq 
     ## sensors package
     sudo apt-get -y install lm-sensors
     sudo apt-get -y install powertop
+    sudo apt-get -y install atop
+    sudo apt-get -y install memstat
     sudo apt-get -y install simplescan
     # Compiz / Unity / Gnome
     sudo apt-get -y install compizconfig-settings-manager

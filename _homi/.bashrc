@@ -1,11 +1,10 @@
 #!/usr/bin/env bash
-#
 ################################################################################
 # File       : .bashrc
 # Description: Configuration file for BASH, save as ~/.bashrc to use.
 # AUTHOR     : SVAKSHA <http://svaksha.github.io/5vaksha>
 # COPYRIGHT© : 2005-Now SVAKSHA <http://svaksha.com/pages/Bio> AllRightsReserved
-# DATES      : 2005NOV05 - 2015MAY06 (Updated)
+# DATES      : 2005NOV05 - 2015MAY20 (Updated)
 # LICENSE    : GNU AGPLv3 License <http://www.gnu.org/licenses/agpl.html>
 # Permission is hereby granted, free of charge, to any person obtaining a copy 
 # of this software and associated documentation files (the "Software"), to deal 
