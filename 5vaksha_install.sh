@@ -53,12 +53,13 @@ function install_utilities {
     sudo apt-get -y install smartctl
     sudo apt-get -y install smartmontools
     sudo apt-get -y install gsmartcontrol   # GUI version
-    sudo apt-get -y install indicator-cpufreq 
     ## sensors package
     sudo apt-get -y install lm-sensors
+    sudo apt-get -y install indicator-cpufreq 
     sudo apt-get -y install powertop
     sudo apt-get -y install atop
     sudo apt-get -y install memstat
+    sudo apt-get -y install linux-tools-common # AKA, "perf": http://www.brendangregg.com/perf.html
     sudo apt-get -y install simplescan
     # Compiz / Unity / Gnome
     sudo apt-get -y install compizconfig-settings-manager

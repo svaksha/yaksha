@@ -1,10 +1,11 @@
 #!/usr/bin/env bash
 ################################################################################
-# Global ignore configuration for Mercurial / hg.
-# @svaksha <3 devilish dotfile daemons : http://svaksha.github.io/5vaksha
-# Author: SVAKSHA, 2008MAR31 || UPDATED: 2015APR27
-# COPYRIGHT © 2007-Now [SVAKSHA](http://svaksha.com/pages/Bio) All Rights Reserved.
-# LICENSE :: [GNU AGPLv3](http://www.gnu.org/licenses/agpl-3.0.html) or later version.
+# FileName   : .hgignore_global
+# Description: Global ignore configuration for Mercurial / hg.
+# AUTHOR     : SVAKSHA <http://svaksha.github.io/5vaksha>
+# COPYRIGHT© : 2005-Now SVAKSHA <http://svaksha.com/pages/Bio> AllRightsReserved
+# DATES      : 2008MAR31 (created) - 2015Jun16 (Updated)
+# LICENSE    : GNU AGPLv3 License <http://www.gnu.org/licenses/agpl.html>
 # Permission is hereby granted, free of charge, to any person obtaining a copy 
 # of this software and associated documentation files (the "Software"), to deal 
 # in the Software without restriction, including without limitation the rights 

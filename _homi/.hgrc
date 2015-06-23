@@ -1,9 +1,11 @@
 #!/usr/bin/env bash
 ################################################################################
-# @svaksha <3 devilish dotfile daemons : http://svaksha.github.io/5vaksha
-# Author: SVAKSHA, 2008MAR22 || UPDATED: 2015APR27
-# COPYRIGHT © 2007-Now [SVAKSHA](http://svaksha.com/pages/Bio) All Rights Reserved.
-# LICENSE :: [GNU AGPLv3](http://www.gnu.org/licenses/agpl-3.0.html) or later version.
+# FileName   : .hgrc
+# Description: Global configuration for Mercurial / hg.
+# AUTHOR     : SVAKSHA <http://svaksha.github.io/5vaksha>
+# COPYRIGHT© : 2005-Now SVAKSHA <http://svaksha.com/pages/Bio> AllRightsReserved
+# DATES      : Created, 2008Mar22 ; Updated, 2015Jun17
+# LICENSE    : GNU AGPLv3 License <http://www.gnu.org/licenses/agpl.html>
 # Permission is hereby granted, free of charge, to any person obtaining a copy 
 # of this software and associated documentation files (the "Software"), to deal 
 # in the Software without restriction, including without limitation the rights 
@@ -14,6 +16,7 @@
 # this permission notice in substantial portions of the software. 
 # See the [LICENSE.md](https://github.com/svaksha/5vaksha/blob/master/LICENSE.md) file.
 ################################################################################
+#
 # http://www.selenic.com/mercurial/hg.1.html
 #
 # --- User interface --- #
