@@ -1,8 +1,11 @@
 ################################################################################
-# @svaksha <3 devilish dotfile daemons : http://svaksha.github.io/5vaksha
-# Author: SVAKSHA, 2009Feb16 || UPDATED: 2015May08
-# COPYRIGHT © 2007-Now [SVAKSHA](http://svaksha.com/pages/Bio) All Rights Reserved.
-# LICENSE :: [GNU AGPLv3](http://www.gnu.org/licenses/agpl-3.0.html) or later version.
+# File       : .gitconfig
+# Description: Configuration file for GIT, save as ~/.gitconfig to use.
+# AUTHOR     : SVAKSHA <http://svaksha.github.io/5vaksha>
+# COPYRIGHT© : 2005-Now SVAKSHA <http://svaksha.com/pages/Bio> AllRightsReserved
+# DATES      : Created:2009Feb16 - Updated:2015Jun21
+# LICENSE    : GNU AGPLv3 License <http://www.gnu.org/licenses/agpl.html>,
+#              https://github.com/svaksha/5vaksha/blob/master/LICENSE.md
 # Permission is hereby granted, free of charge, to any person obtaining a copy 
 # of this software and associated documentation files (the "Software"), to deal 
 # in the Software without restriction, including without limitation the rights 
@@ -11,9 +14,7 @@
 # furnished to do so, subject to the following conditions: ALL copies of this 
 # work and repository forks must retain the Copyright, LICENSE(.md) notice and 
 # this permission notice in substantial portions of the software. 
-# See the [LICENSE.md](https://github.com/svaksha/5vaksha/blob/master/LICENSE.md) file.
 ################################################################################
-#
 
 [user]
 	name = "SVAKSHA ॥ स्वक्ष ॥ "
@@ -21,7 +22,7 @@
 
 [alias]
 	g         = git
-    get       = git 
+    gt        = git 
     got       = git 
 	ga        = git add
     gb        = git branch
@@ -47,7 +48,6 @@
     diffx     = diff -w --color-words
     pff       = pull --ff-only
     mff       = merge --ff-only
-    st        = status
     logg      = log --graph --decorate
     logpretty = log --graph --pretty=oneline --abbrev-commit --decorate
     logtime   = log --format='%C(yellow)%h %Cgreen%an %Cblue%ar %Creset- %s'
@@ -66,12 +66,12 @@
 	# Use colors in Git commands that are capable of colored output when
 	# outputting to the terminal. Default setting in Git ≥ 1.8.4
 	#---------------------------------------------------------------------------
-	branch = true
-	diff = true
+	branch      = true
+	diff        = true
 	interactive = true
-	pager = true
-	status = true
-	ui = true
+	pager       = true
+	status      = true
+	ui          = true
     
     [color "branch"]
 	current = cyan bold
@@ -109,7 +109,7 @@
 	excludesfile   = ~/.gitignore_global
 
     # Prevent showing files whose names contain non-ASCII symbols as unversioned.
-    # http://michael-kuehnel.de/git/2014/11/21/git-mac-osx-and-german-umlaute.html
+    # From, http://michael-kuehnel.de/git/2014/11/21/git-mac-osx-and-german-umlaute.html
 	#---------------------------------------------------------------------------	
     precomposeunicode = false
 
