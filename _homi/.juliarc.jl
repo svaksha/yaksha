@@ -52,7 +52,8 @@ end
 =#
  
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-# To run multiple julia versions, Ex. both v0.3 and v0.4-dev
+# Run multiple Julia versions with distinct history files, Ex. both v0.3 & v0.4-dev
+# The v0.3 Julia will use the file ~/.julia_history_v0.3 instead of ~/.julia_history
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 if VERSION < v"0.4-"
     ENV["JULIA_HISTORY"] = joinpath(homedir(), "~/.julia_history_v0.3")
