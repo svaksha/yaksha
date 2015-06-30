@@ -5,7 +5,7 @@
 #              commands in homedir(), in a file named .juliarc.jl
 # AUTHOR     : SVAKSHA <http://svaksha.github.io/5vaksha>
 # COPYRIGHT© : 2005-Now SVAKSHA <http://svaksha.com/pages/Bio> AllRightsReserved
-# DATES      : Created:2013Oct01 - Updated:2015Jun29
+# DATES      : Created:2013Oct01 - Updated:2015Jun30
 # LICENSE    : GNU AGPLv3 License <http://www.gnu.org/licenses/agpl.html>,
 #              https://github.com/svaksha/5vaksha/blob/master/LICENSE.md
 # Permission is hereby granted, free of charge, to any person obtaining a copy 
@@ -24,7 +24,6 @@
 
 using Base
 using IJulia
-#using HDF5
 using Docile
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -43,7 +42,7 @@ if first = length([Dates.firstdayofmonth(first+Dates.Month(1))
     for first in Dates.Date(2015):Dates.Date(2015,12,31)]) == 365
         do 
         # Ensure the system is running the latest master branch.
-        Pkg.checkout("HDF5")     
+#        Pkg.checkout("HDF5")     
         Pkg.checkout("IJulia")
         Pkg.checkout("Docile")
         end
