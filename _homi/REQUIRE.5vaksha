@@ -1,7 +1,10 @@
+AxisArrays
 Blocks
 Blosc
 Cairo
-DASSL
+Clustering
+Compat                
+DASSL               
 DataFrames
 Debug
 DeclarativePackages
@@ -10,6 +13,7 @@ DistributedArrays
 Docile
 Elliptic
 ForwardDiff
+Grid
 Gtk
 HDF5
 HDFS
@@ -18,13 +22,14 @@ Images
 ImageView
 IniFile
 JSON
-JuMP
+JuMP                   
+Match
 MDCT
-NFFT
+NFFT                  
 ODE
 PyCall
+Requires
 Tk
+WoodburyMatrices
 ZMQ
-
-
 
