@@ -1,42 +1,30 @@
 #!/usr/bin/env bash
 ################################################################################
-# File       : 5vaksha_install.sh from <http://svaksha.github.io/5vaksha>
-# Description: Installation script for a new system
-# AUTHOR     : SVAKSHA <http://svaksha.github.io/5vaksha>
+# File       : 5vaksha_install.sh, a part of http://svaksha.github.io/5vaksha
+# Description: Bash Installation script for a new system.
+# AUTHOR     : SVAKSHA, http://svaksha.github.io/5vaksha
 # COPYRIGHT© : 2005-Now SVAKSHA <http://svaksha.com/pages/Bio> AllRightsReserved
-# DATES      : 2005Mar22 - 2015Jun13 (Updated)
+# DATES      : Created:2005Mar22 - Updated:2015Jul08
 # LICENSE    : GNU AGPLv3 License <http://www.gnu.org/licenses/agpl.html>
-# Permission is hereby granted, free of charge, to any person obtaining a copy 
-# of this software, to deal in the Software without restriction, including 
-# without limitation the rights to use, copy, modify, merge, publish, 
-# redistribute, sublicense, and/or sell copies of the Software and use in 
-# source and binary forms, with or without modification, and to permit persons 
-# to whom the Software is furnished to do so, subject to the following 
-# conditions being met:
-#
+#              https://github.com/svaksha/5vaksha/blob/master/LICENSE.md
+# This code is distributed in the hope that it will be useful, but WITHOUT ANY
+# WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR 
+# A PARTICULAR PURPOSE. Permission is hereby granted, free of charge, to any 
+# person obtaining a copy of this software, to deal in the Software without 
+# restriction, including without limitation the rights to use, copy, modify, 
+# merge, publish, redistribute, and/or sell copies of the Software and use in 
+# source form, with or without modification, and to permit persons to whom the 
+# Software is furnished to do so as per the terms in the LICENSE.md file and 
+# subject to the following conditions being met:
 # 1. ALL copies, forks and redistributions of source code AND/OR binary form 
 #    must retain the above Copyright notice, the Licence file for source code 
-#    (AGPLv3) AND documentation (CC BY-NC-SA 4.0) along with this permission 
-#    notice and list of conditions and the following disclaimer, in substantial 
-#    portions of the Software.
+#    (AGPLv3) along with this permission notice and list of conditions and the 
+#    following disclaimer, in substantial portions of the Software.
 # 2. Neither the name of the COPYRIGHT HOLDER(S) nor the names of its 
 #    contributors may be used to endorse or promote products derived from this 
 #    software without specific prior written permission.
-#
-# THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDER(S) AND CONTRIBUTORS "AS IS", 
-# WITHOUT WARRANTY OF ANY KIND, NOR ANY EXPRESS OR IMPLIED WARRANTIES,  
-# INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND 
-# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT ARE DISCLAIMED. IN NO  
-# EVENT SHALL THE COPYRIGHT HOLDER(S) OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT,
-# INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES, CLAIM, OR 
-# OTHER LIABILITY, (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE 
-# GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) 
-# HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN AN ACTION OF 
-# CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
-# ARISING IN ANY WAY, OUT OF OR IN THE USE OF THIS SOFTWARE, OR THE USE OR OTHER
-# DEALINGS IN THE SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-#
 ################################################################################
+#
 # 
 # Usage: "./5vaksha_install.sh"
 
@@ -46,8 +34,9 @@
 date +'%c|started running `apt-get`: ' >> out_5vaksha_install_sh.log
 date +"%c|completed running: $?" >> out_5vaksha_install_sh.log
 
+# install general system utilities on ubuntu 14.04
 function install_utilities {
-    sudo apt-get update
+    sudo apt-get -y update
     sudo apt-get -y upgrade
     ## CPU / HDD monitoring 
     sudo apt-get -y install smartctl
@@ -170,53 +159,104 @@ function install_dvcs {
 # PYTHON
 ################################################################################
 function install_python {
-  sudo apt-get -y install build-essential
-  sudo apt-get -y install pip pip-installer
-  sudo apt-get -y install python-setuptools
-  sudo apt-get -y install python-pip 
-  sudo apt-get -y install python3-dev python3-pip python3
-  ## scientific python 
-  sudo apt-get -y install cython
-  sudo apt-get -y install numpy
-  sudo apt-get -y install python-numpy
-  sudo apt-get -y install scipy
-  ## More Python stuff
-  sudo apt-get -y install python-virtualenv
-  sudo apt-get -y install IPython
-  sudo apt-get -y install ipython3
-  sudo apt-get -y install ipython3-notebook
-  sudo apt-get -y install Jinja2
-  sudo apt-get -y install Tornado
-  sudo apt-get -y install pyzmq
-  sudo apt-get -y install manpages-dev
-  sudo apt-get -y install python-fontforge 
-  sudo pip install jedi -i http://pypi.python.org/simple/
-  sudo pip install pylint -i http://pypi.python.org/simple/
+    sudo apt-get -y install build-essential
+    sudo apt-get -y install pip pip-installer
+    sudo apt-get -y install python-setuptools
+    sudo apt-get -y install python-pip python-dev python-yaml
+    sudo apt-get -y install python-software-properties
+    # python3
+    sudo apt-get -y install python-virtualenv python3-dev pkgconf 
+    sudo apt-get -y install libfreetype6-dev libfreetype6 libxft-dev 
+    sudo apt-get -y install libblas-dev liblapack-dev libyaml-dev 
+    sudo apt-get -y install python3-pip python3
+    ## scientific python 
+    sudo apt-get -y install cython
+    sudo apt-get -y install numpy python-numpy
+    sudo apt-get -y install scipy
+    # Jupyter / IPython
+#sudo apt-get -y install IPython ipython3 ipython3-notebook
+    sudo pip install ipython jinja2 tornado pyzmq pandas jsonschema pyaml
+    sudo apt-get -y install python-matplotlib python-scipy
+    ## More Python stuff
+    sudo apt-get -y install python-virtualenv
+    sudo apt-get -y install manpages-dev
+    sudo apt-get -y install python-fontforge 
+    sudo pip install jedi -i http://pypi.python.org/simple/
+    sudo pip install pylint -i http://pypi.python.org/simple/
+}
+
+################################################################################
+# JAVA
+################################################################################
+function install_java {
+    sudo add-apt-repository --yes ppa:webupd8team/java
+    sudo apt-get -y install oracle-java8-installer # javac -v = 1.8.XXX
 }
 
 ################################################################################
 # JavaScript
 ################################################################################
 function install_javascript {
-  sudo apt-get -y install nodejs
-  sudo apt-get -y install npm nodejs-legacy
-  sudo npm install -g configurable-http-proxy
-  sudo npm install -g jslint
-  sudo npm install -g jshint
-  ln -s ${5vaksha_dir}.jshintrc ~/.jshintrc
+    sudo apt-get -y install nodejs
+    sudo apt-get -y install npm nodejs-legacy
+    sudo npm install -g configurable-http-proxy
+    sudo npm install -g jslint
+    sudo npm install -g jshint
+    ln -s ${5vaksha_dir}.jshintrc ~/.jshintrc
+    # NPM 
+    #-----------
+    sudo add-apt-repository --yes ppa:chris-lea/node.js
+    sudo apt-get update
+    sudo apt-get -y install nodejs # nodejs -v = 0.10.28 # dont pin versions
+}
+
+################################################################################
+# JULIA
+################################################################################
+function install_julia{
+    sudo add-apt-repository --yes ppa:staticfloat/juliareleases
+    sudo add-apt-repository --yes ppa:staticfloat/julia-deps
+    sudo add-apt-repository --yes ppa:staticfloat/julianightlies
+    sudo apt-get -y update sudo apt-get -y upgrade
+    sudo apt-get -y install julia
+    julia --eval 'Pkg.add("IJulia")' # Better to keep this in juliarc/REQUIRE ??
+    julia --eval 'Pkg.add("Gadfly")'
+}    
+
+
+################################################################################
+# R-project / language
+################################################################################
+function install_rlang{
+    sudo add-apt-repository --yes ppa:marutter/rrutter
+    sudo apt-get -y update
+    sudo apt-get -y install r-base r-base-dev libcurl4-gnutls-dev # R -v = 3.1.0
+    sudo Rscript -e "install.packages('Rserve',,'http://cran.us.r-project.org')"
+    sudo Rscript -e "install.packages('ggplot2',,'http://cran.us.r-project.org')"
+    sudo Rscript -e "install.packages('devtools',,'http://cran.us.r-project.org')"
+    sudo Rscript -e "install.packages('RJSONIO',,'http://cran.us.r-project.org')"
+    sudo Rscript -e "install.packages('RCurl',,'http://cran.us.r-project.org')"
+}
+
+################################################################################
+# RUBY
+################################################################################
+function install_ruby{
+    sudo apt-get -y install ruby1.9.1 ruby1.9.1-dev
+    sudo gem install iruby
 }
 
 ################################################################################
 # Fonts
 ################################################################################
 function install_fonts {
-  wget https://github.com/Lokaltog/powerline/raw/develop/font/PowerlineSymbols.otf
-  wget https://github.com/Lokaltog/powerline/raw/develop/font/10-powerline-symbols.conf
-  mkdir -p ~/.fonts
-  mv PowerlineSymbols.otf ~/.fonts/
-  mkdir -p ~/.config/fontconfig/conf.d
-  mv 10-powerline-symbols.conf ~/.config/fontconfig/conf.d/
-  fc-cache -vf ~/.fonts/
+    wget https://github.com/Lokaltog/powerline/raw/develop/font/PowerlineSymbols.otf
+    wget https://github.com/Lokaltog/powerline/raw/develop/font/10-powerline-symbols.conf
+    mkdir -p ~/.fonts
+    mv PowerlineSymbols.otf ~/.fonts/
+    mkdir -p ~/.config/fontconfig/conf.d
+    mv 10-powerline-symbols.conf ~/.config/fontconfig/conf.d/
+    fc-cache -vf ~/.fonts/
 }
 
 
@@ -228,7 +268,7 @@ function install_tmux {
     sudo apt-get -y install python-netifaces 
     ln -s ${5vaksha_dir}.tmux ~/.tmux
     ln -s ${5vaksha_dir}.config/ ~/.config
-    git clone https://github.com/Lokaltog/powerline   ~/.tmux/powerline2
+    git clone https://github.com/Lokaltog/powerline ~/.tmux/powerline2
     cd ~/.tmux/powerline2; sudo python setup.py install
     ln -s ${5vaksha_dir}.tmux/tmux.conf ~/.tmux.conf
 }
@@ -251,13 +291,25 @@ function install_vim {
 ################################################################################
 # On the CLOUDs
 ################################################################################
-function install_cloudserver {
+function install_webserver {
     ## AMQP
     sudo apt-get -y install rabbitmq-server  ## Erlang
     sudo pip install pika -i https://github.com/pika/pika   # python client lib for RabbitMQ
     ## WebServer
     sudo apt-get -y install twisted
     sudo apt-get -y install tornado
+    # gradle
+    sudo add-apt-repository --yes ppa:cwchien/gradle
+    sudo apt-get update
+    sudo apt-get -y install gradle
+    # nginx
+    sudo add-apt-repository --yes ppa:nginx/stable
+    sudo apt-get update
+    sudo apt-get -y install nginx # nginx -v = 1.6.0
+    # ZMQ, also needed by Jupyter/IPython / IRuby etc..
+    sudo add-apt-repository --yes ppa:chris-lea/zeromq
+    sudo apt-get update
+    sudo apt-get -y install libzmq3-dbg libzmq3-dev libzmq3
 }
 
 ################################################################################
@@ -309,8 +361,20 @@ case $install_typ in
     python)
         install_python
     ;;
+    java)
+        install_java
+    ;;
     javascript)
         install_javascript
+    ;;
+    julia)
+        install_julia
+    ;;
+    rlang)
+        install_rlang
+    ;;
+    ruby)
+        install_ruby
     ;;
     fonts)
         install_fonts
@@ -321,18 +385,25 @@ case $install_typ in
     vim)
         install_vim
     ;;
+    webserver)
+        install_webserver
+    ;;
     all)
         install_utilities
         install_gcc
         install_dvcs
         install_python
+        install_java
         install_javascript
+        install_julia
+        install_rlang
+        install_ruby
         install_fonts
         install_tmux
         install_vim
+        install_webserver
     ;;
     *)
         echo "Unknown"
     esac
-
 
