@@ -5,7 +5,7 @@
 #              commands in homedir(), in a file named .juliarc.jl
 # AUTHOR     : SVAKSHA <http://svaksha.github.io/5vaksha>
 # COPYRIGHT© : 2005-Now SVAKSHA <http://svaksha.com/pages/Bio> AllRightsReserved
-# DATES      : Created:2013Oct01 - Updated:2015Jun30
+# DATES      : Created:2013Oct01 - Updated:2015Jul12
 # LICENSE    : GNU AGPLv3 License <http://www.gnu.org/licenses/agpl.html>,
 #              https://github.com/svaksha/5vaksha/blob/master/LICENSE.md
 # Permission is hereby granted, free of charge, to any person obtaining a copy 
@@ -22,6 +22,7 @@
 # to be executed when the Julia REPL starts up.
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
+
 using Base
 using IJulia
 using Docile
@@ -31,6 +32,23 @@ using Docile
 # https://julia.readthedocs.org/en/latest/manual/packages/
 # http://docs.julialang.org/en/latest/stdlib/dates/
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+#Pkg.status()
+#Pkg.update()
+
+function devil_pkg_update()
+    if dt == Dates.Date(2015):Dates.Date(2016);
+        recur(dt) do x
+        Dates.dayofweek(x) == Dates.tonext(isweekday, Date(2016,12,31)) &&
+        Dates.Jan <= Dates.month(x) <= Dates.Dec &&
+        Dates.dayofweekofmonth(x) == 2
+        end
+    end
+    x == Pkg.status() && Pkg.update()
+    return x
+end       
+
+
 #=
 if isweekday == x->Dates.dayofweek(x) && Dates.tonext(isweekday, Date(2015,12,31)) 
         Pkg.status()
@@ -54,6 +72,7 @@ end
 # Run multiple Julia versions with distinct history files, Ex. both v0.3 & v0.4-dev
 # The v0.3 Julia will use the file ~/.julia_history_v0.3 instead of ~/.julia_history
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+#=
 if VERSION < v"0.4-"
     ENV["JULIA_HISTORY"] = joinpath(homedir(), "~/.julia_history_v0.3")
 end
@@ -88,10 +107,9 @@ ini = Inifile()
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 # Using isinterative() to check if julia is run in REPL. 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-if isinteractive()
-        include("$(pwd)/.julia/v0.4/REPL/scripts/repl.jl:$PATH")
-end
-
+# if isinteractive()
+#        include("$(pwd)/.julia/v0.4/REPL/scripts/repl.jl:$PATH")
+#end
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 # Load the `start_tomo.jl` file in the current Tomography directory.
@@ -101,4 +119,4 @@ end
 #  include("start_tomo.jl")
 #end
 
-
+=#
