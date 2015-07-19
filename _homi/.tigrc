@@ -1,76 +1,86 @@
 #!/usr/bin/env bash
 ################################################################################
-# @svaksha <3 devilish dotfile daemons : http://svaksha.github.io/5vaksha
-# Author: SVAKSHA || UPDATED: 2015APR29
-# COPYRIGHT © 2007-Now [SVAKSHA](http://svaksha.com/pages/Bio) All Rights Reserved.
-# LICENSE :: [GNU AGPLv3](http://www.gnu.org/licenses/agpl-3.0.html) or later version.
-# Permission is hereby granted, free of charge, to any person obtaining a copy 
-# of this software and associated documentation files (the "Software"), to deal 
-# in the Software without restriction, including without limitation the rights 
-# to use, copy, modify, merge, publish, distribute, sublicense, and/or sell 
-# copies of the Software, and to permit persons to whom the Software is 
-# furnished to do so, subject to the following conditions: ALL copies of this 
-# work and repository forks must retain the Copyright, LICENSE(.md) notice and 
-# this permission notice in substantial portions of the software. 
-# See the [LICENSE.md](https://github.com/svaksha/5vaksha/blob/master/LICENSE.md) file.
+# Desc     : .tigrc = Configuration file for tig
+# Author   : SVAKSHA, devilish dotfile daemons at: http://svaksha.github.io/5vaksha 
+# DATES    : Created:2010/12/12 - Updated:2015/07/19
+# Copyright© 2015-Now SVAKSHA(http://svaksha.com/pages/Bio) All Rights Reserved. 
+# License  : [GNU AGPLv3](http://www.gnu.org/licenses/agpl-3.0.html) & later versions.
+#            https://github.com/svaksha/5vaksha/blob/master/LICENSE.md
+# This code is distributed in the hope that it will be useful, but WITHOUT ANY
+# WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR 
+# A PARTICULAR PURPOSE. Permission is hereby granted, free of charge, to any 
+# person obtaining a copy of this software, to deal in the Software without 
+# restriction, including without limitation the rights to use, copy, modify, 
+# merge, publish, redistribute, and/or sell copies of the Software and use in 
+# source form, with or without modification, and to permit persons to whom the 
+# Software is furnished to do so as per the terms in the LICENSE.md file and 
+# subject to the following conditions being met:
+# 1. ALL copies, forks and redistributions of source code AND/OR binary form 
+#    must retain the above Copyright notice, the Licence file for source code 
+#    (AGPLv3) AND documentation (CC BY-NC-SA 4.0) along with this permission 
+#    notice and list of conditions and the following disclaimer, in substantial 
+#    portions of the Software.
+# 2. Neither the name of the COPYRIGHT HOLDER(S) nor the names of its 
+#    contributors may be used to endorse or promote products derived from this 
+#    software without specific prior written permission.
 ################################################################################
-# .tigrc = Configuration file for tig
-# Tig is an ncurses-based text-mode interface for git.
-# http://jonas.nitro.dk/tig/tigrc.5.html
-# https://github.com/jonas/tig
-###############################################################################
 #
 # Tig configuration - see 'man tigrc' for a complete reference.
-#===============================================================================
-
-
+# Tig is an ncurses-based text-mode interface for git.
+# http://jonas.nitro.dk/tig/tigrc.5.html and https://github.com/jonas/tig
+###############################################################################
+#
 #===============================================================================
 # Variables 
 #===============================================================================
-set horizontal-scroll	  = 50%		 # Number of columns to scroll as % of width
-set split-view-height	  = 70%		 # Height of the bottom view for horizontal splits
-set vertical-split		  = vertical # Enum: horizontal, vertical, auto; Use auto to switch to horizontal split when width allows it
-set split-view-width	  = 40%		 # Width of right-most view for vertical splits
-set mouse			      = yes	     # Enable mouse support with "true" or "yes"
-set mouse-scroll	      = 5		 # Number of lines to scroll via the mouse
-
-# Misc
-#--------------------------------------------
-set filename-width        = 21
-set id-width              = 21
-set refresh-mode		  = auto	# Enum: manual, auto, after-command, periodic
-set refresh-interval      = 60		# Interval in seconds between refreshes
-set ignore-case			  = no		# Ignore case when searching?
-set focus-child			  = yes		# Move focus to child view when opened?
-set editor-line-number	  = yes		# Automatically pass line number to editor. Used for opening file at specific line e.g. from a diff
-
-set blame-options         = -C -C -C
-set line-graphics         = utf-8
+set author-width          = 21
+set editor-line-number	  = yes	  # Automatically pass line number to editor. Used for opening file at specific line e.g. from a diff
+set filename-width        = 18
+set focus-child			  = yes	  # Move focus to child view when opened?
+set horizontal-scroll	  = 45%	  # Number of columns to scroll as % of width
+set id-width              = 18
+set ignore-case			  = no	  # Ignore case when searching?
+set line-graphics         = utf-8 # Enum: ascii, default, utf-8
 set line-number-interval  = 5
-set horizontal-scroll     = 50%
+set mouse			      = yes	  # Enable mouse support with "true" or "yes"
+set mouse-scroll	      = 5	  # Number of lines to scroll via the mouse
 set read-git-colors       = yes
-set author-width          = 14
+set refresh-mode		  = auto  # Enum: manual, auto, after-command, periodic
+set refresh-interval      = 60	  # Interval in seconds between refreshes
+set split-view-height	  = 70%	  # Height of the bottom view for horizontal splits
+set split-view-width	  = 40%	  # Width of right-most view for vertical splits
+set tab-size              = 4  	  # Number of spaces to use when expanding tabs
+set vertical-split		  = yes   # Enum: horizontal, vertical, auto; Use auto to switch to horizontal split when width allows it
+set wrap-lines            = no	  # Wrap long lines in pager views?
+
+# Settings controlling how content is read from Git
+#--------------------------------------------
+set commit-order		  = auto	# Enum: auto, default, topo, date, reverse (main)
+set status-untracked-dirs = yes		# Show files in untracked directories? (status)
+set ignore-space		  = some	# Enum: no, all, some, at-eol (diff)
+set diff-context	      = 3		# Number of lines to show around diff changes (diff)
+set diff-options		  = -C		# User-defined options for `tig show` (git-diff)
+set blame-options		  = -C -C -C	# User-defined options for `tig blame` (git-blame)
+set log-options		      = --pretty=raw	# User-defined options for `tig log` (git-log)
+set main-options          = -n 1000	# User-defined options for `tig` (git-log)
+
+
+# UI display settings
+#--------------------------------------------
+set git-colors            = yes
 set show-author           = full
-set show-filename         = always
+set show-changes          = yes	   # Show changes commits in the main view?
 set show-date             = yes
-set show-notes            = yes
+set show-filename         = always
+set show-notes	          = yes		# When non-bool passed as `--show-notes=...` (diff)
 set show-refs             = yes
 set show-id               = yes
 set show-rev-graph        = yes
-set show-changes          = yes
-set status-untracked-dirs = yes
-set tab-size              = 2
-set diff-context          = 1
-set ignore-space          = some
-set commit-order          = topo
-set ignore-case           = no
-set wrap-lines            = no
-set focus-child           = yes
 set show-line-numbers     = yes
 
-#===============================================================================
+
 # Views 
-#===============================================================================
+#=========
 set blame-view	= date:default author:full file-name:auto id:yes,color line-number:no,interval=5 text
 set grep-view	= file-name:yes line-number:yes,interval=1 text
 # Main view column settings.
@@ -82,52 +92,43 @@ set tree-view	= line-number:yes,interval=5 mode author:full file-size date:defau
 
 # Pager based views
 #--------------------------------------------
-set pager-view	= line-number:yes,interval=5 text
-set stage-view	= line-number:yes,interval=5 text
-set log-view	= line-number:yes,interval=5 text
 set blob-view	= line-number:yes,interval=5 text
 set diff-view	= line-number:yes,interval=5 text:yes,commit-title-overflow=no
+set log-view	= line-number:yes,interval=5 text
+set pager-view	= line-number:yes,interval=5 text
+set stage-view	= line-number:yes,interval=5 text
 
-# UI display settings
-#--------------------------------------------
-set git-colors      = yes
-set show-changes	= yes		# Show changes commits in the main view?
-set wrap-lines		= no		# Wrap long lines in pager views?
-set tab-size		= 4  		# Number of spaces to use when expanding tabs
-set line-graphics	= default	# Enum: ascii, default, utf-8
 
-# Settings controlling how content is read from Git
-#--------------------------------------------
-set commit-order		  = auto	# Enum: auto, default, topo, date, reverse (main)
-set status-untracked-dirs = yes		# Show files in untracked directories? (status)
-set ignore-space		  = no		# Enum: no, all, some, at-eol (diff)
-set show-notes	          = yes		# When non-bool passed as `--show-notes=...` (diff)
-#set diff-context	      = 3		# Number of lines to show around diff changes (diff)
-set diff-options		  = -C		# User-defined options for `tig show` (git-diff)
-#set blame-options		= -C -C -C	# User-defined options for `tig blame` (git-blame)
-#set log-options		= --pretty=raw	# User-defined options for `tig log` (git-log)
-#set main-options		= -n 1000	# User-defined options for `tig` (git-log)
-
-#-------------------------------------------------------------------------------
-# Colors 
-#-------------------------------------------------------------------------------
+#===============================================================================
+# Color Settings
+#===============================================================================
+color "Author: "	 = cyan default bold
+#color author         = green default
 color cursor         = white black
-color status         = white default
-color title-focus    = white black
 color date           = yellow default
-color author         = green default
-color main-head      = magenta default
-color main-tag       = magenta default
+color delimiter      = cyan default
+color diff-chunk     = green default
+color diff-header    = blue default
+color diff-index     = cyan default
+#color graph-commit   = cyan default
+color line-number    = yellow default 
+color main-head      = cyan default
+color main-tag       = white default
+#color "Reported-by:" = green default
+color status         = white default
 color stat-staged    = green default
-color stat-unstaged  = red default
+color stat-unstaged  = green default
 color stat-untracked = yellow default
+color title-focus    = white black
 color tree.header    = white default
 color tree.directory = cyan default
-#color "Author: "	 = cyan default
-
-#-------------------------------------------------------------------------------
 
 
+#===============================================================================
+# Bind Keymaps
+#===============================================================================
+
+bind generic I !@sh -c "echo -n %(commit) | awk '{print $2}' | pbcopy"
 
 
 

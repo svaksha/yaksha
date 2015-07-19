@@ -3,7 +3,7 @@
 # Description: Configuration file for GIT, save as ~/.gitconfig to use.
 # AUTHOR     : SVAKSHA <http://svaksha.github.io/5vaksha>
 # COPYRIGHT© : 2005-Now SVAKSHA <http://svaksha.com/pages/Bio> AllRightsReserved
-# DATES      : Created:2009Feb16 - Updated:2015Jun21
+# DATES      : Created:2009/02/16 - Updated:2015/07/19
 # LICENSE    : GNU AGPLv3 License <http://www.gnu.org/licenses/agpl.html>,
 #              https://github.com/svaksha/5vaksha/blob/master/LICENSE.md
 # Permission is hereby granted, free of charge, to any person obtaining a copy 
@@ -17,8 +17,15 @@
 ################################################################################
 
 [user]
-	name = "SVAKSHA ॥ स्वक्ष ॥ "
+	name = "SVAKSHA"
 	email = svaksha@gmail.com
+
+[bitbucket]
+	user = svaksha
+[gitlab]
+	user = svaksha
+[github]
+	user = svaksha
 
 [alias]
 	g         = git
@@ -30,13 +37,13 @@
     gd        = git diff
     gs        = git status
     ci        = commit
+    cm        = commit
     cia       = commit -a
     cim       = commit -m
     ciam      = commit -a -m
     co        = checkout
     gx        = gitx --all
 # too many alias acronyms, need to cleanup and re-order this cheatsheet
-    cm        = commit
     last      = log -1 HEAD
 	svnrb     = svn rebase
     st        = status
@@ -99,9 +106,6 @@
     diff-chunk   = green bold
     graph-commit = cyan 
 	    
-[buildout]
-    extensions = mr.developer
-    
 [core]
 	# Use custom `.gitignore_global` and `.gitattributes`
 	#---------------------------------------------------------------------------	
@@ -118,13 +122,6 @@
 	#---------------------------------------------------------------------------	
 	renames = copies
 	
-[bitbucket]
-	user = svaksha
-[gitlab]
-	user = svaksha
-[github]
-	user = svaksha
-
 [grep]
     linenumber = true
 
