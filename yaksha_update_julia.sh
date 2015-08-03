@@ -1,8 +1,8 @@
 #/usr/bin/env bash
 ################################################################################
-# File       : 5vaksha_update_julia.sh from <http://svaksha.github.io/5vaksha>
+# File       : yaksha_update_julia.sh from <http://svaksha.github.io/yaksha>
 # Description: Installation script to update the Julia source build 
-# AUTHOR     : See Credits section & SVAKSHA <http://svaksha.github.io/5vaksha>
+# AUTHOR     : SVAKSHA <http://svaksha.github.io/yaksha> plus the Credits section 
 # COPYRIGHT© : 2005-Now SVAKSHA <http://svaksha.com/pages/Bio> AllRightsReserved
 # DATES      : 2015Feb15 09:04:55 AM IST (Updated)
 # LICENSE    : GNU AGPLv3 License <http://www.gnu.org/licenses/agpl.html>
@@ -57,19 +57,3 @@ fi
 ./julia -e 'Pkg.update()'
 
 
-################################################################################
-# From Steven G. Johnson <stevenj.mit@gmail.com>, a shorter (shell) script that 
-# grabs and/or updates the latest version of all the packages from the 
-# registered packages, aka, METADATA.jl
-################################################################################
-
-for f in ~/.julia/v0.4/METADATA/*/url; do
-    p=$(basename $(dirname $f))
-    url=`cat $f`
-    echo "updating $p from $url..."
-    if test ! -d $p; then
-        git clone $url $p
-    else
-        (cd $p; git pull origin master)
-    fi
-done

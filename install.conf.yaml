@@ -1,0 +1,10 @@
+- clean: ['~']
+
+- link:
+    ~/.bashrc: ~/yaksha/_homi/.bashrc
+    ~/.gitconfig: ~/yaksha/_homi/.gitconfig
+    ~/.tmux.conf: ~/yaksha/_homi/.tmux.conf
+    ~/.tmux: ~/yaksha/_homi/.tmux
+    ~/.vimrc: ~/yaksha/_homi/.vimrc
+
+

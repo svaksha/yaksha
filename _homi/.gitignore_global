@@ -1,9 +1,9 @@
 ################################################################################
-# Desc     : Global gitignore. This file is part of http://svaksha.github.io/5vaksha
+# Desc     : Global gitignore. This file is part of http://svaksha.github.io/yaksha
 # Author   : SVAKSHA, http://svaksha.com/pages/Bio
-# Date     : Created:2007MAR15 - Updated:2015JUL13
-# Copyright© 2005-Now SVAKSHA, http://svaksha.github.io/5vaksha, All Rights Reserved. 
-# License  : AGPLv3 (& later versions), https://github.com/svaksha/5vaksha/blob/master/LICENSE.md
+# Date     : Created:2007/03/15 - Updated:2015/07/21
+# Copyright© 2005-Now SVAKSHA, http://svaksha.github.io/yaksha, All Rights Reserved. 
+# License  : AGPLv3 (& later versions), https://github.com/svaksha/yaksha/blob/master/LICENSE.md
 # This code is distributed in the hope that it will be useful, but WITHOUT ANY
 # WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR 
 # A PARTICULAR PURPOSE. Permission is hereby granted, free of charge, to any 
@@ -65,12 +65,13 @@ tags
 .~lock.*#   # LibreOffice locks
 #*.ini      # Cannot ignore ALL config files, will affect my dotfile backup.
 
-### WINDOWS using RegEx SYNTAX
+### WINDOWS using RegEx SYNTAX, image file caches
 [Tt]humbs.db
 Thumbs.db
 ehthumbs.db
 Desktop.ini
 $RECYCLE.BIN/
+
 
 ### MAC OS - Apple JUNK FILES using RegEx SYNTAX and GLOB
 .DS_Store
@@ -375,5 +376,5 @@ logs
 *.pdf
 *.toc
 
-### END OF `.hgignore_global` FILE ###########################################
+### END OF `.gitignore_global` FILE ###########################################
 

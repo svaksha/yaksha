@@ -2,7 +2,7 @@
 ################################################################################
 # File       : .bash_aliases
 # Description: a separate "~/.bash_aliases" file for ALIAS definitions, commands split from ~/.bashrc file
-# AUTHOR     : SVAKSHA <http://svaksha.github.io/5vaksha>
+# AUTHOR     : SVAKSHA <http://svaksha.github.io/yaksha>
 # COPYRIGHT© : 2005-Now SVAKSHA <http://svaksha.com/pages/Bio> AllRightsReserved
 # DATES      : 2005Nov05 - 2015May07 (Updated)
 # LICENSE    : GNU AGPLv3 License <http://www.gnu.org/licenses/agpl.html>
@@ -14,7 +14,7 @@
 # furnished to do so, subject to the following conditions:
 # ALL copies of this work and repository forks must retain the Copyright, 
 # LICENSE(.md) notice and this permission notice in substantial portions of the software. 
-# See the [LICENSE.md](https://github.com/svaksha/5vaksha/blob/master/LICENSE.md) file.
+# See the [LICENSE.md](https://github.com/svaksha/yaksha/blob/master/LICENSE.md) file.
 ################################################################################
 #
 # Moved all my additions into a separate "~/.bash_aliases" file.

@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
 ################################################################################
-# File       : 5vaksha_install.sh, a part of http://svaksha.github.io/5vaksha
+# File       : yakshi_install.sh, a part of http://svaksha.github.io/yakshi
 # Description: Bash Installation script for a new system.
-# AUTHOR     : SVAKSHA, http://svaksha.github.io/5vaksha
+# AUTHOR     : SVAKSHA, http://svaksha.github.io/yakshi
 # COPYRIGHT© : 2005-Now SVAKSHA <http://svaksha.com/pages/Bio> AllRightsReserved
-# DATES      : Created:2005Mar22 - Updated:2015Jul08
+# DATES      : Created:2005/03/22 - Updated:2015/08/03
 # LICENSE    : GNU AGPLv3 License <http://www.gnu.org/licenses/agpl.html>
-#              https://github.com/svaksha/5vaksha/blob/master/LICENSE.md
+#              https://github.com/svaksha/yakshi/blob/master/LICENSE.md
 # This code is distributed in the hope that it will be useful, but WITHOUT ANY
 # WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR 
 # A PARTICULAR PURPOSE. Permission is hereby granted, free of charge, to any 
@@ -26,13 +26,13 @@
 ################################################################################
 #
 # 
-# Usage: "./5vaksha_install.sh"
+# Usage: "./yakshi_install.sh"
 
-5vaksha_dir=~/5vaksha/
+yakshi_dir=~/yakshi/
 
 # Log the date and time of execution of bash script into the `out` files.
-date +'%c|started running `apt-get`: ' >> out_5vaksha_install_sh.log
-date +"%c|completed running: $?" >> out_5vaksha_install_sh.log
+date +'%c|started running `apt-get`: ' >> out_yakshi_install_sh.log
+date +"%c|completed running: $?" >> out_yakshi_install_sh.log
 
 # install general system utilities on ubuntu 14.04
 function install_utilities {
@@ -69,7 +69,7 @@ function install_utilities {
     sudo apt-get -y install exuberant-ctags ack-grep
     sudo apt-get -y install unrar
     sudo apt-get -y install screen 
-    ln -s  ${5vaksha_dir}.screenrc ~/.screenrc
+    ln -s  ${yakshi_dir}.screenrc ~/.screenrc
     ### UTILITIES
     #============================================
     ## LaTeX2ε 
@@ -105,6 +105,8 @@ function install_utilities {
     sudo apt-get -y install equivs
     ## video and audio (music - mpto mp3) converters
     sudo apt-get -y install papcl
+    sudo apt-get -y install ubuntu-restricted-extras # install the MP3 codec from the Ubuntu Restricted Extras package
+    sudo apt-get -y install soundconverter # install the Sound Converter program
     ## medical imaging
     sudo apt-get -y install aeskulap Ginkgo-CADx
     # get the github source (https://github.com/rg3/youtube-dl) && DONT use the pip package OR apt "sudo apt-get install youtube-dl"
@@ -149,7 +151,7 @@ function install_dvcs {
   sudo apt-get -y install tortoisehg
   sudo apt-get -y install bazaar
   sudo apt-get -y install subversion 
-  ln -s  ${5vaksha_dir}.gitconfig ~/.gitconfig
+  ln -s  ${yakshi_dir}.gitconfig ~/.gitconfig
   git clone https://github.com/jonas/tig /tmp/tig
   cd /tmp/tig; sudo make prefix=/usr/local
   cd /tmp/tig; sudo make install prefix=/usr/local
@@ -202,7 +204,7 @@ function install_javascript {
     sudo npm install -g configurable-http-proxy
     sudo npm install -g jslint
     sudo npm install -g jshint
-    ln -s ${5vaksha_dir}.jshintrc ~/.jshintrc
+    ln -s ${yakshi_dir}.jshintrc ~/.jshintrc
     # NPM 
     #-----------
     sudo add-apt-repository --yes ppa:chris-lea/node.js
@@ -266,11 +268,11 @@ function install_fonts {
 function install_tmux {
     sudo apt-get -y install tmux 
     sudo apt-get -y install python-netifaces 
-    ln -s ${5vaksha_dir}.tmux ~/.tmux
-    ln -s ${5vaksha_dir}.config/ ~/.config
+    ln -s ${yakshi_dir}.tmux ~/.tmux
+    ln -s ${yakshi_dir}.config/ ~/.config
     git clone https://github.com/Lokaltog/powerline ~/.tmux/powerline2
     cd ~/.tmux/powerline2; sudo python setup.py install
-    ln -s ${5vaksha_dir}.tmux/tmux.conf ~/.tmux.conf
+    ln -s ${yakshi_dir}.tmux/tmux.conf ~/.tmux.conf
 }
 
 ################################################################################
@@ -280,10 +282,10 @@ function install_vim {
     sudo apt-get -y install fontforge 
     sudo apt-get -y install vim-nox
     sudo apt-get -y install ctags 
-    ln -s  ${5vaksha_dir}.vim ~/.vim
+    ln -s  ${yakshi_dir}.vim ~/.vim
     git clone https://github.com/gmarik/Vundle.vim  ~/.vim/bundle/Vundle.vim
-    ln -s ${5vaksha_dir}.pylintrc ~/.pylintrc
-    ln -s ${5vaksha_dir}.vimrc ~/.vimrc
+    ln -s ${yakshi_dir}.pylintrc ~/.pylintrc
+    ln -s ${yakshi_dir}.vimrc ~/.vimrc
     vim -c 'BundleInstall' -c qa 
     cd ~/.vim/bundle/vimproc.vim/; make -f make_unix.mak
 }
@@ -347,7 +349,7 @@ case $key in
     
     
 install_common
-git clone --recursive https://github.com/svaksha/5vaksha ${5vaksha_dir}
+git clone --recursive https://github.com/svaksha/yakshi ${yakshi_dir}
 case $install_typ in
     utilities)
         install_utilities

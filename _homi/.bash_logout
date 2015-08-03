@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # AUTHOR: SVAKSHA || Created: 25/03/2007 || Updated: 02/03/2015 09:09:11 IST 
 ################################################################################
-# My daemons : http://svaksha.github.io/5vaksha
+# My daemons : http://svaksha.github.io/yaksha
 # COPYRIGHT © 2007-Now [SVAKSHA](http://svaksha.com/pages/Bio) All Rights Reserved.
 # LICENSE :: [GNU AGPLv3](http://www.gnu.org/licenses/agpl-3.0.html) or later version.
 # Permission is hereby granted, free of charge, to any person obtaining a copy 
@@ -12,7 +12,7 @@
 # furnished to do so, subject to the following conditions:
 # ALL copies of this work and repository forks must retain the Copyright, 
 # LICENSE(.md) notice and this permission notice in substantial portions of the software. 
-# See the [LICENSE.md](https://github.com/svaksha/5vaksha/blob/master/LICENSE.md) file.
+# See the [LICENSE.md](https://github.com/svaksha/yaksha/blob/master/LICENSE.md) file.
 ################################################################################
 #
 # ~/.bash_logout: executed by bash(1) when login shell exits.

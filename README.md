@@ -1,6 +1,6 @@
-# 5vaksha - my devilish dotfile daimons!
+# yaksha - my personalized dotfile daimons!
 
-My collection of personal daimons, shell /bash scripts and configuration files that have been customized for my Linux box, which may (not) break your machine, so here is the **Standard Disclaimer** : No warranty/guarantee for any particular use, express or implied and you agree to use [these daimons](http://svaksha.github.io/5vaksha) at your own risk and liability! 
+My collection of personal daemons for system updation/installation, bash shell scripts, dotfiles and configuration files that have been customized for my Linux box ; which may (not?) break your machine so here is the **Standard Disclaimer** : No warranty/guarantee for any particular use, express or implied and you agree to use [these daimons](http://svaksha.github.io/yakshi) at your own risk and liability! 
 
 # LICENSE
 + COPYRIGHT© 2005-Now [SVAKSHA](http://svaksha.com/pages/Bio) AllRightsReserved.
