@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 ################################################################################
-# File       : .bash_aliases
-# Description: a separate "~/.bash_aliases" file for ALIAS definitions, commands split from ~/.bashrc file
+# File       : .bashrc
+# Description: Configuration file for BASH, save as ~/.bashrc to use.
 # AUTHOR     : SVAKSHA <http://svaksha.github.io/yaksha>
 # COPYRIGHT© : 2005-Now SVAKSHA <http://svaksha.com/pages/Bio> AllRightsReserved
-# DATES      : Created:2005/11/05 - Updated:2015/07/22
+# DATES      : Created:2005/11/05 - Updated:2015/08/04
 # LICENSE    : GNU AGPLv3 License <http://www.gnu.org/licenses/agpl.html>
 #              https://github.com/svaksha/yaksha/blob/master/LICENSE.md
 # This code is distributed in the hope that it will be useful, but WITHOUT ANY
@@ -26,227 +26,368 @@
 #    software without specific prior written permission.
 ################################################################################
 #
-# Moved all my additions into a separate "~/.bash_aliases" file.
+# ~/.bashrc: executed by bash(1) for non-login shells. For examples
+# see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
+################################################################################
+# NOTES : LINKS for BASHRC samples, check github.com for more DOTFILES
+# http://tldp.org/LDP/abs/html/sample-bashrc.html
+#-------------------------------------------------------------------------------
+
+################################################################################
+### HISTORY
+################################################################################
+
+# If not running interactively, don't do anything
+#-------------------------------------------------------------------------------
+[ -z "$PS1" ] && return
+
+# don't put duplicate lines in the history. See bash(1) for more options
+# ... or force ignoredups and ignorespace
+#-------------------------------------------------------------------------------
+export HISTCONTROL=ignoredups:ignorespace
+
+# append to the history file, don't overwrite it
+#-------------------------------------------------------------------------------
+shopt -s histappend
+
+# for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
+#-------------------------------------------------------------------------------
+HISTSIZE=5000
+HISTFILESIZE=10000
+export HISTTIMEFORMAT="%F[%H:%M] "  # HISTTIMEFORMAT=’%c ‘ also does the same thing.
+
+# After each command, save and reload history
+#-------------------------------------------------------------------------------
+export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
+
+# check the window size after each command and, if necessary,
+# update the values of LINES and COLUMNS.
+#-------------------------------------------------------------------------------
+shopt -s checkwinsize
+
+# Time, HistIgnore
+#------------------------------
+export TIMEFORMAT=$'\nreal %3R\tuser %3U\tsys %3S\tpcpu %P\n'
+export HISTIGNORE="&:bg:fg:ll:h"
+export HOSTFILE=$HOME/.hosts	# Put a list of remote hosts in ~/.hosts
+
+# make less more friendly for non-text input files, see lesspipe(1)
+#-------------------------------------------------------------------------------
+[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
+
+
+# set variable identifying the chroot you work in (used in the prompt below)
+#-------------------------------------------------------------------------------
+if [ -z "$debian_chroot" ] && [ -r /etc/debian_chroot ]; then
+    debian_chroot=$(cat /etc/debian_chroot)
+fi
+
+# Timeout
+#-------------------------------------------------------------------------------
+#timeout 10 "ls ${HOME}"
+
+################################################################################
+# Greetings, MOTD, etc...
+################################################################################
+
+function _exit()	# function to run upon exit of shell
+{
+    echo -e "${RED}NAMASTE${NC}"
+}
+trap _exit EXIT
+
+################################################################################
+# ALIAS definitions. 
+################################################################################
+# Dumped all ALIAS list additions into a separate file (see, ~/.bash_aliases).
 # See /usr/share/doc/bash-doc/examples in the bash-doc package.
-################################################################################
-#
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-# APT and APTITUDE commands
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-alias apt-install='sudo apt-get -fy install'
-alias apt-policy='LANG=C apt-cache policy'
-alias apt-purge='sudo apt-get --purge remove'
-alias apt-search='apt-cache search'
-alias apt-show='apt-cache show'
-alias update='sudo apt-get update'
-alias upgrade='sudo apt-get -y upgrade'
-alias dist-upgrade='sudo apt-get update && sudo apt-get dist-upgrade' # Update/Upgrade OS 
-# WARNING : USE CAREFULLY 
-alias apt-rm='sudo apt-get remove' # apt remove system dep files - USE CAREFULLY 
-alias apt-autorm='sudo apt-get autoremove'  # apt remove system dep files - USE CAREFULLY
-# END WARNING : USE CAREFULLY 
+### For , see the "~/.bash_aliases" file
+#-------------------------------------------------------------------------------
+if [ -f ~/.bash_aliases ]; then
+    . ~/.bash_aliases
+fi
+
+#-------------------------------------------------------------------------------
+# enable programmable completion features (you don't need to enable
+# this, if it's already enabled in /etc/bash.bashrc and /etc/profile
+# sources /etc/bash.bashrc).
+#-------------------------------------------------------------------------------
+if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
+    . /etc/bash_completion
+fi
 
 
 ################################################################################
-# BASH # BASH # BASH # BASH # BASH # BASH # BASH # BASH # BASH # BASH # BASH
+# Process / system related functions:
 ################################################################################
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-# BASH reloaded
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-alias b='. ~/.bashrc' # DOT shortcut to reload bash
-alias ba='source ~/.bashrc' # Another shortcut to reload bash
-alias bas='source $HOME/.bashrc' # reload bash
 
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-# Change Dir 
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-alias ..="cd .."        #go to parent dir
-alias ...="cd ../.."    #go to grandparent dir
-alias -- -="cd -"       #go to previous dir
-alias cd..='cd ..'
-alias clr='clear'    # Clear the terminal
-alias cal='cal -3' #show 3 months by default
+function hos_ilak()   # get current host related info
+{
+  echo -e "\nYou are logged on ${RED}$HOST"
+  echo -e "\nAdditionnal information:$NC " ; uname -a
+  echo -e "\n${RED}Users logged on:$NC " ; w -h
+  echo -e "\n${RED}Current date :$NC " ; date
+  echo -e "\n${RED}Machine stats :$NC " ; uptime
+  echo -e "\n${RED}Memory stats :$NC " ; free
+  echo -e "\n${RED}Local IP Address :$NC" ; echo ${MY_IP:-"Not connected"}
+  echo -e "\n${RED}ISP Address :$NC" ; echo ${MY_ISP:-"Not connected"}
+  echo
+}
 
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-# HISTORY
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-alias h='history'
-alias clr='cd ~; clear'
-alias hcl='history -c; clear'     # clear all the history and screen
-# alias h='history | grep'        # search history 
+################################################################################
+### COLOURS
+################################################################################
+# set a fancy prompt (non-color, unless we know we "want" color)
+#-------------------------------------------------------------------------------
+
+# Define some colors first:
+NC='\e[0m'              # Color Resets to NO Color state {{NC="\e[m"}}
+
+# Normal Colors
+Black='\e[0;30m'        # Black
+Red='\e[0;31m'          # Red
+Green='\e[0;32m'        # Green
+Yellow='\e[0;33m'       # Yellow
+Blue='\e[0;34m'         # Blue
+Purple='\e[0;35m'       # Purple
+Cyan='\e[0;36m'         # Cyan
+White='\e[0;37m'        # White
+
+# Bold
+BLACK='\e[1;30m'       # Black
+RED='\e[1;31m'         # Red
+GREEN='\e[1;32m'       # Green
+YELLOW='\e[1;33m'      # Yellow
+BLUE='\e[1;34m'        # Blue
+PURPLE='\e[1;35m'      # Purple
+CYAN='\e[1;36m'        # Cyan
+WHITE='\e[1;37m'       # White
+
+# Background
+back_Black='\e[40m'       # Black
+back_Red='\e[41m'         # Red
+back_Green='\e[42m'       # Green
+back_Yellow='\e[43m'      # Yellow
+back_Blue='\e[44m'        # Blue
+back_Purple='\e[45m'      # Purple
+back_Cyan='\e[46m'        # Cyan
+back_White='\e[47m'       # White
+
+# Looks best on a black background.....
+#-------------------------------------------------------------------------------
+echo -e "${BLUE}This is BASH ${YELLOW}${BASH_VERSION%.*}\
+${BLUE} - DISPLAY on ${YELLOW}$DISPLAY${NC}\n"
+date
+if [ -x /usr/games/fortune ]; then
+    /usr/games/fortune -s     # makes our day a bit more fun.... :-)
+fi
+
+
+case "$TERM" in
+    xterm-color) color_prompt=yes;;
+esac
+
+# uncomment for a colored prompt, if the terminal has the capability; turned
+# off by default to not distract the user: the focus in a terminal window
+# should be on the output of commands, not on the prompt
+#-------------------------------------------------------------------------------
+force_color_prompt=yes
+
+if [ -n "$force_color_prompt" ]; then
+    if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
+	# (ISO/IEC-6429). (Lack of such support is extremely rare, and such
+	# a case would tend to support setf rather than setaf.)
+    #---------------------------------------------------------------------------
+	color_prompt=yes
+    else
+	color_prompt=
+    fi
+fi
+
+# define color to additional file types
+#-------------------------------------------------------------------------------
+export LS_COLORS=$LS_COLORS:"*.wmv=01;35":"*.wma=01;35":"*.flv=01;35":"*.m4a=01;35"
 
 
 #-------------------------------------------------------------------------------
-# EDIT 
+# LINKS for COLOR CHART, 
+# http://www.arwin.net/tech/bash.php
+# http://ubuntugenius.wordpress.com/2011/07/11/how-to-change-the-command-line-prompt-colour-in-the-ubuntulinux-terminal/
 #-------------------------------------------------------------------------------
-alias ed-alias='sudo gedit $HOME/.bashrc_aliases'
-alias ed-bash='sudo gedit $HOME/.bashrc'
-alias ed-gitconf='sudo gedit $HOME/.gitconfig'
-alias ed-gitignore='sudo gedit $HOME/.gitignore_global'
+if [ "$color_prompt" = yes ]; then
+    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]स्वक्ष\[\033[01;31m\]@ilak\[\033[01;33m\]:\[\033[00;36m\]\w\[\033[01;37m\]\$ '
+else
+#    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
+    PS1='${debian_chroot:+($debian_chroot)}स्वक्ष@ilak:\w\$ '
+fi
+unset color_prompt force_color_prompt
 
-# Fire an editor
-alias emacs='emacs24-gtk'
-alias emacsfs='emacs24-gtk -fs'
-
-
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-# LIST
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-alias l.='ls -d .*'     #list hidden files
-alias l='ls -CF'
-alias la='ls -A'
-alias ll='ls -alF'
-#alias ll='ls -lhrt'     # extra info compared to "l"
-alias lld='ls -lUd */'  # list only directories
-alias ls='ls --color=auto'
-#alias lst='ls --color --time-style="+%b %d %Y %H:%M"' #replaced with bash script
-
-# Display the contents of these files on the terminal.
-alias s-alias='cat $HOME/.bash_aliases'
-alias s-bash='cat $HOME/.bashrc'
-alias s-gitc='cat $HOME/.gitconfig'
-
-
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-# PATH, Proceses
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-alias p='ps aux | grep' # grep processes with [OPTION] PATTERN [FILE]
-alias path='echo -e ${PATH//:/\\n}'
-
-### various ping options. Read REF's for router/modem option.
-# REF[1]: https://en.wikipedia.org/wiki/Maximum_transmission_unit
-# REF[2]: http://www.richud.com/wiki/Network_MTU_Check
 #-------------------------------------------------------------------------------
-alias png='ping 192.168.1.1' # ping dsl router
-alias ping='ping -M do -s 1452 google.com' # Error {From MyDslModem.local.lan (192.168.1.1) icmp_seq=1 Frag needed and DF set (mtu = 1460)}
-alias ping1='ping -M do -s 1492 google.com'
-alias ping2='ping 10.8.0.1 -M do -s 1432'
+### enable color support of ls and also add handy aliases 
+#-------------------------------------------------------------------------------
+if [ -x /usr/bin/dircolors ]; then
+    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+    alias ls='ls --color=auto'
+    alias dir='dir --color=auto'
+    alias vdir='vdir --color=auto'
+    # -- colorize the output of grep --
+    alias grep='grep --color=auto'
+    alias fgrep='fgrep --color=auto'
+    alias egrep='egrep --color=auto'
+    # GREP_COLOR=bright yellow on black bg.
+    # use GREP_COLOR=7 to highlight whitespace on black terminals
+    alias grep='GREP_COLOR="1;33;40" grep --color=auto'
+fi
 
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-#SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-alias shr='shred -u'
+#-------------------------------------------------------------------------------
+### Colour prompt :: 23-July-2012 
+#-------------------------------------------------------------------------------
+#STARTCOLOR='\e[0;34m';
+#ENDCOLOR="\e[0m"
+#export PS1="$STARTCOLOR\u@\h \w> $ENDCOLOR"
+#export PS1="\[\033[46;32m\][\u@\[\033[1;33m\]\h]\]\033[0m\]>"
+#export PS1="[\@] \u@\h> "
 
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-# Processes yet again
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-alias t='top'
-alias tl='tail'
-alias temps='acpi -t'
 
-#===============================================================================
-# Grouping all SEARCH utils 
-#===============================================================================
-alias f='find . | grep'        # find file 
-alias g='grep -R'              
-alias gri="grep -i"            # ignore case
+#............................ XTERM ............................................
+################################################################################
+### TERM=xterm
+################################################################################
+export TERM=xterm-256color
+export PROMPT_COMMAND="history -a; history -n"
 
+
+# If this is an xterm set the title to user@host:dir
+#-------------------------------------------------------------------------------
+case "$TERM" in
+xterm*|rxvt*)
+    PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
+    ;;
+*)
+    ;;
+esac
+
+
+#............................ GIT ..............................................
+################################################################################
+### GIT configurations; updated: 30/12/2014 10:34:36 
+################################################################################
+git config --global user.name "SVAKSHA"
+git config --global user.email svaksha@gmail.com
+git config --global http.sslVerify false
 
 
 ################################################################################
-# O.SYSTEM, Kernel AND HARDWARE MONITOR
+# Reload BASH, source these files to make changes active after editing
 ################################################################################
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-# HDD health - using smartmontools
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-alias disk='sudo smartctl -s on -a /dev/sda'     # HDD health - using smartmontools
-alias df='df -h'                                # Filesystem diskspace usage
-alias fdisk='sudo fdisk -l' # for partition info with all details. 
+source ~/.git-completion.bash
+source ~/.bash_aliases
+#source ~/.juliarc.jl
+#source ~/.curlrc
+#source ~/.vimrc
 
-# Kernel
-alias kern='cat /proc/version'             # detail about for the kernel image version
-alias unm-a='uname -a' # for all info regarding kernel version,
-alias unm-r='uname -r' # for exact kernel version
-alias lsb-a='lsb_release -a' # for all information related to ubuntu version,
-alias lsb-r='lsb_release -r' # for exact version
+
+#............................ CHEMISTRY ........................................
+################################################################################
+# PATH for the MoProSuite_1502_India software | created: Fri 20 Feb 2015 02:30:52 IST 
+# To launch MoProGUI, type RunMoProGUI or launch it from the install folder
+################################################################################
+export PATH="$(pwd)/MoProSuite_1502_India:$PATH"
 
 ################################################################################
-# PROGRAMMING LANGUAGES   # PROGRAMMING LANGUAGES   # PROGRAMMING LANGUAGES
+# PATH for CrystalExplorer software | created: Fri 20 Feb 2015 10:17:52 IST 
 ################################################################################
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-# JULIA REPL & programming
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-alias ju='julia'
-# alias ju-pull='git pull git@github.com:JuliaLang/julia.git' # IGNORE, use update script.
-# alias ju-pkgup='cd julia; ./julia -e 'Pkg.update()''        # alt script handles this.
-alias ijulia='ipython notebook --profile julia'
-
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-# Python related commands
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-alias ipy='ipython notebook'
-alias ipynb='ipython notebook'
-# ANACONDA -----------------
-alias con='cd anaconda/envs/'
-alias cona='source activate'
-alias cond='source deactivate'
-alias py='python'
-# From @audreyr, http://www.codemakesmehappy.com/2015/04/spring-cleaning-for-python-programmers.html
-alias rmpyc='find . -type f -name "*.pyc" -print -delete'
-# Recursively IGNORE "Permission denied" directories.
-#alias rmpyc-ig-path='find . -type f -name "*.pyc" ! -readable \( -path "./.dbus" -o -path "./.gvfs" -o -path "./.cache/dconf" \) -print -delete -ls'
+alias crystalexplorer=/usr/local/CrystalExplorer/CrystalExplorer
 
 
+#............................ TIME-TRACKER.......................................
+################################################################################
+# Switching to arbtt, http://darcs.nomeata.de/arbtt/, 2015APR04 07:36:28 
+################################################################################
+#(arbtt-capture &)
+#. /etc/profile.d/vte.sh
+
+
+#............................ WEB ..............................................
+################################################################################
+# Heroku Toolbelt
+################################################################################
+export PATH="/usr/local/heroku/bin:$PATH"
 
 
 ################################################################################
-# DVCS # DVCS # DVCS # DVCS # DVCS # DVCS # DVCS # DVCS # DVCS # DVCS # DVCS 
+#########      Customized DEVELOPMENT ENVIRONMENTS                     #########
 ################################################################################
-#
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-# GIT
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-# GIT stuff : https://www.kernel.org/pub/software/scm/git/docs/git-config.html
-alias ga='git add'
-alias gau='git add --update'
-alias gb='git branch'
-alias gba='git branch -a'
-alias gc='git commit -v'
-alias gca='git commit -v -a'
-alias gco='git checkout'
-alias gcob='git checkout -b'
-alias gcot='git checkout -t'
-alias gcotb='git checkout --track -b'
-alias gd='git diff'
-alias gs='git status'
-alias gig='git status --ignored'
-alias gk='gitk --all&'
-# too lazy to type log history
-alias gl='git log'
-alias glpg='git log --pretty=format:"%h %s" --graph'
-alias glpgd='log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short'
-alias gpl='git pull'
-alias gp='git push'
-alias gpom='git push -u origin master'
+# Enable gcc colours, available since gcc 4.8.0
+export GCC_COLORS=1
 
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-# HG - MERCURIAL
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-alias hh='hg help'              # HELP, the full command list.
-alias hi='hg init'              # Creates a `.hg/` subfolder 
-alias hc='hg commit -m'         # Save files and Commit message to Repo
-alias ha='hg add'               # Begin tracking all files 
-alias hs='hg status'            # Lists status of files
-alias hd='hg diff'              # Lists tracked file changes, `filename` will List changes to it
-alias hp='hg push'              # Push changesets to Remote
-alias hpl='hg pull'             # Pull all new changesets into Local
-alias hl='hg log'               # History of changesets
-alias hm='hg merge'
-alias hn='hg annotate'          # Logs of changes
-alias hf='hg forget'            # Track new, forget missing
-alias hr='hg revert'            # Undo all uncomm­itted changes	
-alias hv='hg verify'            # Get notifications about missing files.
-alias h-arm='hg addrem­ove'      # Begin tracking changes
-alias h-rmv='hg remove'         # Stop tracking file
-alias h-head='hg heads'         # List heads
-alias h-pth='hg paths'          # Lists known remote Repos
-alias h-in='hg incoming'        # List changesets available
-alias h-tip='hg export tip'     # export the most recent commit
-# Only use in private repos.
-alias h-roll='hg rollback'      # can undo commit, import, pull, local push, and unbundle. 
+#............................ PYTHON ...........................................
+################################################################################
+### PIP bash completion start || Fri, 03 May 2013 16:02:40 +0530 
+################################################################################
+_pip_completion()
+{
+COMPREPLY=( $( COMP_WORDS="${COMP_WORDS[*]}" \
+COMP_CWORD=$COMP_CWORD \
+PIP_AUTO_COMPLETE=1 $1 ) )
+}
+complete -o default -F _pip_completion pip
 
 
+################################################################################
+### PYTHON 2 to 3 in the VirtualenvWrapper; 2013MAY07 12:04:38 PM IST
+################################################################################
+# http://stackoverflow.com/questions/5585875/what-is-the-official-preferred-way-to-install-pip-and-virtualenv-systemwide
+# http://clouddenizen.com/2011/11/04/virtualenvwrapper-setup-in-ubuntu/
+# http://askubuntu.com/questions/244641/how-to-set-up-and-use-a-virtual-python-environment-in-ubuntu
+################################################################################
+# export PATH=$PATH:$HOME/.local/bin
+# export PROJECT_HOME=$HOME/eng3/
+# export PIP_VIRTUALENV_BASE=~/.virtualenvs
+# alias pip=pip-python
 
-# END ".bash_aliases" ==========================================================
+### 2013MAY31 02:52:12 AM IST 
+#--------------------------------------------------------------
+# export PATH=$PATH/sbt/bin:$PATH
+
+### 2014APR29 19:44:13 +0530 
+# http://askubuntu.com/questions/440114/ubuntu-14-04-python-2-7-still-default-set-3-x-as-default
+#--------------------------------------------------------------
+# alias python='python3.4'
+# export PYTHONSTARTUP="$HOME/.pythonrc"
+
+
+################################################################################
+# Anaconda 2.2.0 installer (np19py34_0 AND np19py27_0), DATE: 2015Apr09
+################################################################################
+export PATH="~/anaconda/bin:$PATH"
+export PATH="$(pwd)/anaconda:$PATH"
+# added by Anaconda 2.2.0 installer
+export PATH="$HOME/anaconda/bin:$PATH"
+
+#-------------------------------------------------------------------------------
+# command to delete bytecode (.pyc) files, works with the global alias file
+#-------------------------------------------------------------------------------
+export PYTHONDONTWRITEBYTECODE=true # REF: https://twitter.com/wlonk/status/587431447222444033
+
+
+#............................ JULIA ............................................
+################################################################################
+# Julia PATH | created: 2012Apr12 | updated: 2015Jun20
+################################################################################
+export PATH="$(pwd)/julia:$PATH"
+# $PWD/julia/bin
+export PATH="$(pwd)/foss-jilua/:$PATH"
+export PATH="$(pwd)/foss-julia/:$PATH"
+############## jdp == DeclarativePackages.jl
+export PATH="$(pwd)/julia/bin/jdp:$PATH"
+#PATH=$PATH:$(pwd)/julia/bin/jdp   
+
+#............................ JS ...............................................
+################################################################################
+# JavaScript PATH | created: 2012Nov11 | updated: 2015Jul14
+################################################################################
+export PATH="$(pwd)/usr/local/bin/grunt:$PATH"
+export PATH="$(pwd)/usr/local/lib/node_modules/grunt-cli:$PATH"
 
 
