@@ -1,16 +1,17 @@
 #/usr/bin/env bash
+# install julia release: ./yaksha_update_julia.sh juliareleases
+# install julia nightly: ./yaksha_update_julia.sh julianightlies
 ################################################################################
 # File       : yaksha_update_julia.sh from <http://svaksha.github.io/yaksha>
 # Description: Installation script to update the Julia source build 
-# AUTHOR     : SVAKSHA <http://svaksha.github.io/yaksha> plus the Credits section 
+# AUTHOR     : SVAKSHA <http://svaksha.github.io/yaksha> +  Credits  
 # COPYRIGHT© : 2005-Now SVAKSHA <http://svaksha.com/pages/Bio> AllRightsReserved
-# DATES      : 2015Feb15 09:04:55 AM IST (Updated)
+# UPDATED    : 2015/08/05 
 # LICENSE    : GNU AGPLv3 License <http://www.gnu.org/licenses/agpl.html>
 ################################################################################
 # CREDITS:
 # 1. @jiahao, https://gist.github.com/jiahao/3f9826b077372220b6f0
-# 2. Steven G. Johnson <stevenj.mit@gmail.com>
-# Modified by @svaksha
+# 2. @svaksha
 #
 # An experimental script to automatically update julia
 ################################################################################

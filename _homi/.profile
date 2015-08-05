@@ -1,18 +1,11 @@
 #!/usr/bin/env bash
 ################################################################################
-# My daemons : http://svaksha.github.io/yaksha
-# COPYRIGHT © 2007-Now [SVAKSHA](http://svaksha.com/pages/Bio) All Rights Reserved.
-# LICENSE :: [GNU AGPLv3](http://www.gnu.org/licenses/agpl-3.0.html) or later version.
-# Permission is hereby granted, free of charge, to any person obtaining a copy 
-# of this software and associated documentation files (the "Software"), to deal 
-# in the Software without restriction, including without limitation the rights 
-# to use, copy, modify, merge, publish, distribute, sublicense, and/or sell 
-# copies of the Software, and to permit persons to whom the Software is 
-# furnished to do so, subject to the following conditions:
-# ALL copies of this work and repository forks must retain the Copyright, 
-# LICENSE(.md) notice and this permission notice in substantial portions of the software. 
-# See the [LICENSE.md](https://github.com/svaksha/yaksha/blob/master/LICENSE.md) file.
-# UPDATED: Mon 02 Mar 2015 07:19:56 IST 
+# File       : ~/.profile (bash profile) <http://svaksha.github.io/yaksha>
+# Description: Profile script for BASH.
+# AUTHOR     : SVAKSHA <http://svaksha.github.io/yaksha> +  Credits  
+# COPYRIGHT© : 2005-Now SVAKSHA <http://svaksha.com/pages/Bio> AllRightsReserved
+# UPDATED    : 2015/08/05 
+# LICENSE    : GNU AGPLv3 License <http://www.gnu.org/licenses/agpl.html>
 ################################################################################
 #
 # ~/.profile: executed by the command interpreter for login shells.

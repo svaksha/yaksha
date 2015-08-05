@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
 ################################################################################
-# File       : yakshi_install.sh, a part of http://svaksha.github.io/yakshi
+# File       : yaksha_install.sh, a part of http://svaksha.github.io/yaksha
 # Description: Bash Installation script for a new system.
-# AUTHOR     : SVAKSHA, http://svaksha.github.io/yakshi
+# AUTHOR     : SVAKSHA, http://svaksha.github.io/yaksha
 # COPYRIGHT© : 2005-Now SVAKSHA <http://svaksha.com/pages/Bio> AllRightsReserved
-# DATES      : Created:2005/03/22 - Updated:2015/08/03
+# DATES      : Created:2005/03/22 - Updated:2015/08/05
 # LICENSE    : GNU AGPLv3 License <http://www.gnu.org/licenses/agpl.html>
-#              https://github.com/svaksha/yakshi/blob/master/LICENSE.md
+#              https://github.com/svaksha/yaksha/blob/master/LICENSE.md
 # This code is distributed in the hope that it will be useful, but WITHOUT ANY
 # WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR 
 # A PARTICULAR PURPOSE. Permission is hereby granted, free of charge, to any 
@@ -26,13 +26,13 @@
 ################################################################################
 #
 # 
-# Usage: "./yakshi_install.sh"
+# Usage: "./yaksha_install.sh"
 
-yakshi_dir=~/yakshi/
+yaksha_dir=~/yaksha/
 
 # Log the date and time of execution of bash script into the `out` files.
-date +'%c|started running `apt-get`: ' >> out_yakshi_install_sh.log
-date +"%c|completed running: $?" >> out_yakshi_install_sh.log
+date +'%c|started running `apt-get`: ' >> out_yaksha_install_sh.log
+date +"%c|completed running: $?" >> out_yaksha_install_sh.log
 
 # install general system utilities on ubuntu 14.04
 function install_utilities {
@@ -69,7 +69,7 @@ function install_utilities {
     sudo apt-get -y install exuberant-ctags ack-grep
     sudo apt-get -y install unrar
     sudo apt-get -y install screen 
-    ln -s  ${yakshi_dir}.screenrc ~/.screenrc
+    ln -s  ${yaksha_dir}.screenrc ~/.screenrc
     ### UTILITIES
     #============================================
     ## LaTeX2ε 
@@ -151,7 +151,7 @@ function install_dvcs {
   sudo apt-get -y install tortoisehg
   sudo apt-get -y install bazaar
   sudo apt-get -y install subversion 
-  ln -s  ${yakshi_dir}.gitconfig ~/.gitconfig
+  ln -s  ${yaksha_dir}.gitconfig ~/.gitconfig
   git clone https://github.com/jonas/tig /tmp/tig
   cd /tmp/tig; sudo make prefix=/usr/local
   cd /tmp/tig; sudo make install prefix=/usr/local
@@ -204,7 +204,7 @@ function install_javascript {
     sudo npm install -g configurable-http-proxy
     sudo npm install -g jslint
     sudo npm install -g jshint
-    ln -s ${yakshi_dir}.jshintrc ~/.jshintrc
+    ln -s ${yaksha_dir}.jshintrc ~/.jshintrc
     # NPM 
     #-----------
     sudo add-apt-repository --yes ppa:chris-lea/node.js
@@ -229,7 +229,7 @@ function install_julia{
 ################################################################################
 # R-project / language
 ################################################################################
-function install_rlang{
+function install_rlang {
     sudo add-apt-repository --yes ppa:marutter/rrutter
     sudo apt-get -y update
     sudo apt-get -y install r-base r-base-dev libcurl4-gnutls-dev # R -v = 3.1.0
@@ -243,7 +243,7 @@ function install_rlang{
 ################################################################################
 # RUBY
 ################################################################################
-function install_ruby{
+function install_ruby {
     sudo apt-get -y install ruby1.9.1 ruby1.9.1-dev
     sudo gem install iruby
 }
@@ -268,11 +268,11 @@ function install_fonts {
 function install_tmux {
     sudo apt-get -y install tmux 
     sudo apt-get -y install python-netifaces 
-    ln -s ${yakshi_dir}.tmux ~/.tmux
-    ln -s ${yakshi_dir}.config/ ~/.config
+    ln -s ${yaksha_dir}.tmux ~/.tmux
+    ln -s ${yaksha_dir}.config/ ~/.config
     git clone https://github.com/Lokaltog/powerline ~/.tmux/powerline2
     cd ~/.tmux/powerline2; sudo python setup.py install
-    ln -s ${yakshi_dir}.tmux/tmux.conf ~/.tmux.conf
+    ln -s ${yaksha_dir}.tmux/tmux.conf ~/.tmux.conf
 }
 
 ################################################################################
@@ -282,10 +282,10 @@ function install_vim {
     sudo apt-get -y install fontforge 
     sudo apt-get -y install vim-nox
     sudo apt-get -y install ctags 
-    ln -s  ${yakshi_dir}.vim ~/.vim
+    ln -s  ${yaksha_dir}.vim ~/.vim
     git clone https://github.com/gmarik/Vundle.vim  ~/.vim/bundle/Vundle.vim
-    ln -s ${yakshi_dir}.pylintrc ~/.pylintrc
-    ln -s ${yakshi_dir}.vimrc ~/.vimrc
+    ln -s ${yaksha_dir}.pylintrc ~/.pylintrc
+    ln -s ${yaksha_dir}.vimrc ~/.vimrc
     vim -c 'BundleInstall' -c qa 
     cd ~/.vim/bundle/vimproc.vim/; make -f make_unix.mak
 }
@@ -349,7 +349,7 @@ case $key in
     
     
 install_common
-git clone --recursive https://github.com/svaksha/yakshi ${yakshi_dir}
+git clone --recursive https://github.com/svaksha/yaksha ${yaksha_dir}
 case $install_typ in
     utilities)
         install_utilities
@@ -408,4 +408,7 @@ case $install_typ in
     *)
         echo "Unknown"
     esac
+
+
+
 
