@@ -19,8 +19,7 @@
 
 JULIADIR=$HOME/julia
 cd $JULIADIR
-# stop on error
-set -e
+set -e                   # stop on error
 
 # install julia from git master
 #-------------------------------------------------------------------------------
@@ -65,8 +64,7 @@ if test $? -ne 0 ; then
 fi
 
 if test $? -ne 0; then 
-  #nuclear option
-  git clean -xfd
+  git clean -fdx   #nuclear option
   make
 fi
 
@@ -74,6 +72,14 @@ fi
 if [ $? -ne "0" ]; then
  echo "ERROR"
  exit 1; 
+fi
+
+# OpenBLAS without threads
+#--------------------------
+if [ $? -ne "0" ]; then
+    make -C deps clean-openblas 
+    make OPENBLAS_TARGET_ARCH=NEHALEM OPENBLAS_USE_THREAD=0
+    make OPENBLAS_DYNAMIC_ARCH=0
 fi
 
 } # End function install_julia_gitdev
