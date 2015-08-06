@@ -34,6 +34,12 @@ yaksha_dir=~/yaksha/
 date +'%c|started running `apt-get`: ' >> out_yaksha_install_sh.log
 date +"%c|completed running: $?" >> out_yaksha_install_sh.log
 
+# Check for root user
+if [ $(whoami) != "root"]; then
+	echo "ERROR"
+	exit 1
+fi
+
 # install general system utilities on ubuntu 14.04
 function install_utilities {
     sudo apt-get -y update
@@ -112,6 +118,25 @@ function install_utilities {
     # get the github source (https://github.com/rg3/youtube-dl) && DONT use the pip package OR apt "sudo apt-get install youtube-dl"
     #"youtube-dl"
 }
+
+# waits until the package is installed
+while [ `cat /var/lock(..)`=value] ;  
+    # while package is being installed...
+    do
+           sleep 0.5  # wait for 0.5 seconds then retest the package status
+    done
+    if ["$?"="0"]; then
+          echo "Package installed sucessfully"
+        else
+          echo "errors occured"
+    fi
+    if [ -s testfilename ]; then
+        echo "Exists and has size"
+        else
+        echo "Does not exist or has no size"
+    fi
+exit 0 # to avoid the unexpected end of file error
+
 
 ################################################################################
 # GCC {{ C, CPP, Fortran }}
@@ -211,19 +236,6 @@ function install_javascript {
     sudo apt-get update
     sudo apt-get -y install nodejs # nodejs -v = 0.10.28 # dont pin versions
 }
-
-################################################################################
-# JULIA
-################################################################################
-function install_julia{
-    sudo add-apt-repository --yes ppa:staticfloat/juliareleases
-    sudo add-apt-repository --yes ppa:staticfloat/julia-deps
-    sudo add-apt-repository --yes ppa:staticfloat/julianightlies
-    sudo apt-get -y update sudo apt-get -y upgrade
-    sudo apt-get -y install julia
-    julia --eval 'Pkg.add("IJulia")' # Better to keep this in juliarc/REQUIRE ??
-    julia --eval 'Pkg.add("Gadfly")'
-}    
 
 
 ################################################################################
@@ -341,8 +353,8 @@ case $key in
     ;;
     *)
         echo "usage:
-                -c|--clean  - remove dotfiles before install
-                -i|--install [type] copy dotfiles
+                -c|--clean  - remove dotfiles before installation
+                -i|--install [type] copy the yaksha dotfiles into home
         "
         ;;
     esac
@@ -369,9 +381,6 @@ case $install_typ in
     javascript)
         install_javascript
     ;;
-    julia)
-        install_julia
-    ;;
     rlang)
         install_rlang
     ;;
@@ -397,7 +406,6 @@ case $install_typ in
         install_python
         install_java
         install_javascript
-        install_julia
         install_rlang
         install_ruby
         install_fonts
@@ -406,7 +414,7 @@ case $install_typ in
         install_webserver
     ;;
     *)
-        echo "Unknown"
+        echo "Installation in progress, almost done!"
     esac
 
 
