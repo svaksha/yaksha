@@ -23,7 +23,7 @@ set -e                   # stop on error
 
 # install julia from git master
 #-------------------------------------------------------------------------------
-function install_julia_gitdev {
+function install_julia_gitdev() {
 
 # Check all dynamic library dependencies to detect potentially missing dependencies
     for LIB in `find deps -name "*.dylib"`; do
@@ -53,7 +53,7 @@ fi
 # Rebuild at all costs
 make
 
-if test $? -ne 0 ; then
+if [test $? -ne "0"] ; then
   make clean
   make
 fi
@@ -84,6 +84,7 @@ fi
 
 } # End function install_julia_gitdev
 
+echo "Installation of julia (git master) is done!"
 
 #Update Julia packages
 $HOME/julia -e 'Pkg.update()'
@@ -91,7 +92,9 @@ $HOME/julia -e 'Pkg.update()'
 
 # install julia from the distro PPA nightlies
 #-------------------------------------------------------------------------------
-function install_julia_ppanightlies {
+
+echo "Installation of julia (PPA nightlies) will start!"
+function install_julia_ppanightlies() {
     sudo add-apt-repository --yes ppa:staticfloat/juliareleases
     sudo add-apt-repository --yes ppa:staticfloat/julia-deps
     sudo add-apt-repository --yes ppa:staticfloat/julianightlies
