@@ -4,7 +4,7 @@
 # Description: Installation script to install AND update the Julia source build 
 # AUTHOR     : SVAKSHA <http://svaksha.github.io/yaksha> +  Credits  
 # COPYRIGHT© : 2005-Now SVAKSHA <http://svaksha.com/pages/Bio> AllRightsReserved
-# DATES      : Created:2015/02/15 - Updated:2015/08/08
+# DATES      : Created:2015/02/15 - Updated:2015/08/09
 # LICENSE    : GNU AGPLv3 License <http://www.gnu.org/licenses/agpl.html>
 ################################################################################
 # CREDITS:
@@ -17,7 +17,7 @@
 # install julia nightly: ./yaksha_install_julia.sh jl_ppanightlies
 ################################################################################
 
-JULIADIR=$HOME/julia
+JULIADIR=$HOME/julia   #TODO: http://stackoverflow.com/questions/59895/can-a-bash-script-tell-what-directory-its-stored-in?rq=1
 cd $JULIADIR
 set -e                   # stop on error
 
@@ -51,11 +51,17 @@ if [ -e /usr/local/bin/julia ]; then
 fi
 
 # Rebuild at all costs
-make
+# OpenBLAS without threads
+#--------------------------
+if [ $? -ne "0" ]; then
+    make -C deps clean-openblas 
+    make OPENBLAS_TARGET_ARCH=NEHALEM OPENBLAS_USE_THREAD=0
+    make OPENBLAS_DYNAMIC_ARCH=0
+fi
 
 if [test $? -ne "0"] ; then
-  make clean
   make
+  make clean
 fi
 
 if test $? -ne 0 ; then
@@ -72,14 +78,6 @@ fi
 if [ $? -ne "0" ]; then
  echo "ERROR"
  exit 1; 
-fi
-
-# OpenBLAS without threads
-#--------------------------
-if [ $? -ne "0" ]; then
-    make -C deps clean-openblas 
-    make OPENBLAS_TARGET_ARCH=NEHALEM OPENBLAS_USE_THREAD=0
-    make OPENBLAS_DYNAMIC_ARCH=0
 fi
 
 } # End function install_julia_gitdev

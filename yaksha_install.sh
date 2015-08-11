@@ -4,7 +4,7 @@
 # Description: Bash Installation script for a new system.
 # AUTHOR     : SVAKSHA, http://svaksha.github.io/yaksha
 # COPYRIGHT© : 2005-Now SVAKSHA <http://svaksha.com/pages/Bio> AllRightsReserved
-# DATES      : Created:2005/03/22 - Updated:2015/08/08
+# DATES      : Created:2005/03/22 - Updated:2015/08/09
 # LICENSE    : GNU AGPLv3 License <http://www.gnu.org/licenses/agpl.html>
 #              https://github.com/svaksha/yaksha/blob/master/LICENSE.md
 # This code is distributed in the hope that it will be useful, but WITHOUT ANY
@@ -41,7 +41,7 @@ if [ $(whoami) != "root"]; then
 fi
 
 # install general system utilities on ubuntu 14.04
-function install_utilities {
+function install_utilities() {
     sudo apt-get -y update
     sudo apt-get -y upgrade
     ## CPU / HDD monitoring 
@@ -141,7 +141,7 @@ exit 0 # to avoid the unexpected end of file error
 ################################################################################
 # GCC {{ C, CPP, Fortran }}
 ################################################################################
-function install_gcc {
+function install_gcc() {
     ## C/C++ 
     sudo apt-get -y install gcc
     sudo apt-get -y install gnu
@@ -169,7 +169,7 @@ function install_gcc {
 ################################################################################
 ## DVCS packages
 ################################################################################
-function install_dvcs {
+function install_dvcs() {
   sudo apt-get -y install git git-core
   sudo apt-get -y install tig
   sudo apt-get -y install mercurial 
@@ -185,7 +185,7 @@ function install_dvcs {
 ################################################################################
 # PYTHON
 ################################################################################
-function install_python {
+function install_python() {
     sudo apt-get -y install build-essential
     sudo apt-get -y install pip pip-installer
     sudo apt-get -y install python-setuptools
@@ -215,7 +215,7 @@ function install_python {
 ################################################################################
 # JAVA
 ################################################################################
-function install_java {
+function install_java() {
     sudo add-apt-repository --yes ppa:webupd8team/java
     sudo apt-get -y install oracle-java8-installer # javac -v = 1.8.XXX
 }
@@ -223,7 +223,7 @@ function install_java {
 ################################################################################
 # JavaScript
 ################################################################################
-function install_javascript {
+function install_javascript() {
     sudo apt-get -y install nodejs
     sudo apt-get -y install npm nodejs-legacy
     sudo npm install -g configurable-http-proxy
@@ -241,7 +241,7 @@ function install_javascript {
 ################################################################################
 # R-project / language
 ################################################################################
-function install_rlang {
+function install_rlang() {
     sudo add-apt-repository --yes ppa:marutter/rrutter
     sudo apt-get -y update
     sudo apt-get -y install r-base r-base-dev libcurl4-gnutls-dev # R -v = 3.1.0
@@ -255,7 +255,7 @@ function install_rlang {
 ################################################################################
 # RUBY
 ################################################################################
-function install_ruby {
+function install_ruby() {
     sudo apt-get -y install ruby1.9.1 ruby1.9.1-dev
     sudo gem install iruby
 }
@@ -263,7 +263,7 @@ function install_ruby {
 ################################################################################
 # Fonts
 ################################################################################
-function install_fonts {
+function install_fonts() {
     wget https://github.com/Lokaltog/powerline/raw/develop/font/PowerlineSymbols.otf
     wget https://github.com/Lokaltog/powerline/raw/develop/font/10-powerline-symbols.conf
     mkdir -p ~/.fonts
@@ -277,7 +277,7 @@ function install_fonts {
 ################################################################################
 # TMUX
 ################################################################################
-function install_tmux {
+function install_tmux() {
     sudo apt-get -y install tmux 
     sudo apt-get -y install python-netifaces 
     ln -s ${yaksha_dir}.tmux ~/.tmux
@@ -290,7 +290,7 @@ function install_tmux {
 ################################################################################
 # VIM
 ################################################################################
-function install_vim {
+function install_vim() {
     sudo apt-get -y install fontforge 
     sudo apt-get -y install vim-nox
     sudo apt-get -y install ctags 
@@ -305,7 +305,7 @@ function install_vim {
 ################################################################################
 # On the CLOUDs
 ################################################################################
-function install_webserver {
+function install_webserver() {
     ## AMQP
     sudo apt-get -y install rabbitmq-server  ## Erlang
     sudo pip install pika -i https://github.com/pika/pika   # python client lib for RabbitMQ
@@ -329,7 +329,7 @@ function install_webserver {
 ################################################################################
 # Clean Install
 ################################################################################
-function clean_install {
+function clean_install() {
     echo "Clean install"
     rm -rf ~/.vim
     rm -rf ~/.vimrc
@@ -361,7 +361,9 @@ case $key in
     
     
 install_common
-git clone --recursive https://github.com/svaksha/yaksha ${yaksha_dir}
+# uncomment this for a NEW system only
+#git clone --recursive https://github.com/svaksha/yaksha ${yaksha_dir}
+
 case $install_typ in
     utilities)
         install_utilities
@@ -416,7 +418,4 @@ case $install_typ in
     *)
         echo "Installation in progress, almost done!"
     esac
-
-
-
 
