@@ -4,7 +4,7 @@
 # Description: Installation script to install AND update the Julia source build 
 # AUTHOR     : SVAKSHA <http://svaksha.github.io/yaksha> +  Credits  
 # COPYRIGHT© : 2005-Now SVAKSHA <http://svaksha.com/pages/Bio> AllRightsReserved
-# DATES      : Created:2015/02/15 - Updated:2015/08/09
+# DATES      : Created:2015/02/15 - Updated:2015/08/17
 # LICENSE    : GNU AGPLv3 License <http://www.gnu.org/licenses/agpl.html>
 ################################################################################
 # CREDITS:
@@ -17,10 +17,29 @@
 # install julia nightly: ./yaksha_install_julia.sh jl_ppanightlies
 ################################################################################
 
+
+#-------------------------------------------------------------------------------
+# install julia from the distro PPA nightlies
+#-------------------------------------------------------------------------------
+
+echo "Installation of julia (PPA nightlies) will start!"
+
+function install_julia_ppanightlies() {
+    sudo add-apt-repository --yes ppa:staticfloat/juliareleases
+    sudo add-apt-repository --yes ppa:staticfloat/julia-deps
+    sudo add-apt-repository --yes ppa:staticfloat/julianightlies
+    sudo apt-get -y update && sudo apt-get -y upgrade
+    sudo apt-get -y install julia
+    julia --eval 'Pkg.add("IJulia")' # Better to keep this in juliarc/REQUIRE ??
+    julia --eval 'Pkg.add("Gadfly")'
+} # End function install_julia_ppanightlies
+
+
 JULIADIR=$HOME/julia   #TODO: http://stackoverflow.com/questions/59895/can-a-bash-script-tell-what-directory-its-stored-in?rq=1
 cd $JULIADIR
 set -e                   # stop on error
 
+#-------------------------------------------------------------------------------
 # install julia from git master
 #-------------------------------------------------------------------------------
 function install_julia_gitdev() {
@@ -34,15 +53,17 @@ function install_julia_gitdev() {
   # version number got bumped.
       for filename in $LIBDEPS; do
         if test ! -e $filename; then
-          echo WARNING: $LIB: Could not find dynamic library dependency $filename
-          echo Wiping all dependencies to trigger rebuild
+          echo "WARNING: $LIB: Could not find dynamic library dependency" $filename
+          echo "Wiping all dependencies to trigger rebuild"
           make -C deps cleanall
+          make -C deps distclean-libgit2 && make
           break 2
         fi
       done
     done
 
 git pull git@github.com:JuliaLang/julia.git
+
 # Check if ~/julia exists
 #---------------------------
 if [ -e /usr/local/bin/julia ]; then
@@ -70,7 +91,7 @@ if test $? -ne 0 ; then
 fi
 
 if test $? -ne 0; then 
-  git clean -fdx   #nuclear option
+  git clean -fdx         #nukes all your installed dependencies
   make
 fi
 
@@ -86,21 +107,6 @@ echo "Installation of julia (git master) is done!"
 
 #Update Julia packages
 $HOME/julia -e 'Pkg.update()'
-
-
-# install julia from the distro PPA nightlies
-#-------------------------------------------------------------------------------
-
-echo "Installation of julia (PPA nightlies) will start!"
-function install_julia_ppanightlies() {
-    sudo add-apt-repository --yes ppa:staticfloat/juliareleases
-    sudo add-apt-repository --yes ppa:staticfloat/julia-deps
-    sudo add-apt-repository --yes ppa:staticfloat/julianightlies
-    sudo apt-get -y update && sudo apt-get -y upgrade
-    sudo apt-get -y install julia
-    julia --eval 'Pkg.add("IJulia")' # Better to keep this in juliarc/REQUIRE ??
-    julia --eval 'Pkg.add("Gadfly")'
-} # End function install_julia_ppanightlies
 
 
 # case install julia
