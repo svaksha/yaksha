@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 ################################################################################
-# Desc     : .tigrc = Configuration file for tig
-# Author   : SVAKSHA, devilish dotfile daemons at: http://svaksha.github.io/yaksha 
-# DATES    : Created:2010/12/12 - Updated:2015/07/19
+# Desc     : .tigrc, configuration file for tig from http://svaksha.github.io/yaksha 
+# Author   : SVAKSHA
+# DATES    : Created:2010dec12 - Updated:2015aug22
 # Copyright© 2015-Now SVAKSHA(http://svaksha.com/pages/Bio) All Rights Reserved. 
 # License  : [GNU AGPLv3](http://www.gnu.org/licenses/agpl-3.0.html) & later versions.
 #            https://github.com/svaksha/yaksha/blob/master/LICENSE.md

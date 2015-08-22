@@ -1,7 +1,7 @@
 ################################################################################
 # Desc     : Global gitignore. This file is part of http://svaksha.github.io/yaksha
 # Author   : SVAKSHA, http://svaksha.com/pages/Bio
-# Date     : Created:2007/03/15 - Updated:2015/07/21
+# Date     : Created:2007mar15 - Updated:2015aug22
 # Copyright© 2005-Now SVAKSHA, http://svaksha.github.io/yaksha, All Rights Reserved. 
 # License  : AGPLv3 (& later versions), https://github.com/svaksha/yaksha/blob/master/LICENSE.md
 # This code is distributed in the hope that it will be useful, but WITHOUT ANY
@@ -358,7 +358,7 @@ log/
 logs
 
 ################################################################################
-# i18 / i10 TRANSLATIONS
+# UNICODE <==> i18 / i10 TRANSLATIONS
 ################################################################################
 *.mo
 *.pot
@@ -375,6 +375,20 @@ logs
 *.log
 *.pdf
 *.toc
+
+################################################################################
+# INFRASTRUCTURE DEVOPS SPECIFICS
+################################################################################
+
+### Vagrant files 
+#===============================================================================
+.vagrant
+Vagrantfile
+
+### Coveralls 
+#===============================================================================
+.coveralls.yml
+
 
 ### END OF `.gitignore_global` FILE ###########################################
 

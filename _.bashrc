@@ -4,7 +4,7 @@
 # Description: Configuration file for BASH, save as ~/.bashrc to use.
 # AUTHOR     : SVAKSHA <http://svaksha.github.io/yaksha>
 # COPYRIGHT© : 2005-Now SVAKSHA <http://svaksha.com/pages/Bio> AllRightsReserved
-# DATES      : Created:2005/11/05 - Updated:2015/08/04
+# DATES      : Created:2005/11/05 - Updated:2015/08/19
 # LICENSE    : GNU AGPLv3 License <http://www.gnu.org/licenses/agpl.html>
 #              https://github.com/svaksha/yaksha/blob/master/LICENSE.md
 # This code is distributed in the hope that it will be useful, but WITHOUT ANY
@@ -76,6 +76,7 @@ export HOSTFILE=$HOME/.hosts	# Put a list of remote hosts in ~/.hosts
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
 
+# Debian Chroot 
 # set variable identifying the chroot you work in (used in the prompt below)
 #-------------------------------------------------------------------------------
 if [ -z "$debian_chroot" ] && [ -r /etc/debian_chroot ]; then
@@ -121,7 +122,7 @@ fi
 # Process / system related functions:
 ################################################################################
 
-function hos_ilak()   # get current host related info
+function host_ilak()   # get current host related info
 {
   echo -e "\nYou are logged on ${RED}$HOST"
   echo -e "\nAdditionnal information:$NC " ; uname -a
@@ -302,7 +303,7 @@ alias crystalexplorer=/usr/local/CrystalExplorer/CrystalExplorer
 
 #............................ TIME-TRACKER.......................................
 ################################################################################
-# Switching to arbtt, http://darcs.nomeata.de/arbtt/, 2015APR04 07:36:28 
+# ARBTT, http://darcs.nomeata.de/arbtt/, 2015Apr04-to-2015Aug19
 ################################################################################
 #(arbtt-capture &)
 #. /etc/profile.d/vte.sh

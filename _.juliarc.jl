@@ -1,13 +1,12 @@
-#!/usr/bin/env bash
 ################################################################################
 # File       : .juliarc.jl
 # Description: Configuration file for Julia for users to store their personal 
 #              commands in homedir(), in a file named .juliarc.jl
-# AUTHOR     : SVAKSHA <http://svaksha.github.io/yaksha>
+# AUTHOR     : SVAKSHA <http://svaksha.github.io/5vaksha>
 # COPYRIGHT© : 2005-Now SVAKSHA <http://svaksha.com/pages/Bio> AllRightsReserved
-# DATES      : Created:2013Oct01 - Updated:2015Jul12
+# DATES      : Created:2013oct01 - Updated:2015aug18
 # LICENSE    : GNU AGPLv3 License <http://www.gnu.org/licenses/agpl.html>,
-#              https://github.com/svaksha/yaksha/blob/master/LICENSE.md
+#              https://github.com/svaksha/5vaksha/blob/master/LICENSE.md
 # Permission is hereby granted, free of charge, to any person obtaining a copy 
 # of this software and associated documentation files (the "Software"), to deal 
 # in the Software without restriction, including without limitation the rights 
@@ -22,10 +21,9 @@
 # to be executed when the Julia REPL starts up.
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-
 using Base
 using IJulia
-using Docile
+#using Docile
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 # Scripted updates to run only once in a day.
@@ -36,7 +34,7 @@ using Docile
 #Pkg.status()
 #Pkg.update()
 
-function devil_pkg_update()
+function yaksha_pkg_update()
     if dt == Dates.Date(2015):Dates.Date(2016);
         recur(dt) do x
         Dates.dayofweek(x) == Dates.tonext(isweekday, Date(2016,12,31)) &&
@@ -62,7 +60,7 @@ if first = length([Dates.firstdayofmonth(first+Dates.Month(1))
         # Ensure the system is running the latest master branch.
 #        Pkg.checkout("HDF5")     
         Pkg.checkout("IJulia")
-        Pkg.checkout("Docile")
+#        Pkg.checkout("Docile")
         end
      end
 end     
@@ -73,8 +71,8 @@ end
 # The v0.3 Julia will use the file ~/.julia_history_v0.3 instead of ~/.julia_history
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 #=
-if VERSION < v"0.4-"
-    ENV["JULIA_HISTORY"] = joinpath(homedir(), "~/.julia_history_v0.3")
+if VERSION < v"0.5-"
+    ENV["JULIA_HISTORY"] = joinpath(homedir(), "~/.julia_history_v0.4")
 end
 
 
@@ -100,8 +98,8 @@ ini = Inifile()
 #push!(LOAD_PATH, util_include_dir)
 
 # Optional additional initialization 
-#if isfile("$(ENV["HOME"])/.juliarc_5vksh.jl")
-#    include("$(ENV["HOME"])/.juliarc_5vksh.jl")
+#if isfile("$(ENV["HOME"])/.juliarc_yaksha.jl")
+#    include("$(ENV["HOME"])/.juliarc_yaksha.jl")
 #end
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -112,11 +110,13 @@ ini = Inifile()
 #end
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-# Load the `start_tomo.jl` file in the current Tomography directory.
+# Load the `start_tomography.jl` file in the current Tomography directory.
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 #
-#if isfile("start_tomo.jl")
-#  include("start_tomo.jl")
+#if isfile("start_tomography.jl")
+#  include("start_tomography.jl")
 #end
 
 =#
+
+

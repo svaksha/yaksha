@@ -3,7 +3,7 @@
 " Description: Configuration file for Vi Improved, save as ~/.vimrc to use.
 " AUTHOR     : SVAKSHA <http://svaksha.github.io/yaksha>
 " COPYRIGHT© : 2005-Now SVAKSHA <http://svaksha.com/pages/Bio> AllRightsReserved
-" Dates      : 2005NOV05 - 2015MAY06 (Updated)
+" Dates      : Created:2005nov05 - Updated:2015aug22 
 " LICENSE    : GNU AGPLv3 License <http://www.gnu.org/licenses/agpl.html>
 " Permission is hereby granted, free of charge, to any person obtaining a copy 
 " of this software and associated documentation files (the "Software"), to deal 
@@ -16,7 +16,7 @@
 " See the [LICENSE.md](https://github.com/svaksha/yaksha/blob/master/LICENSE.md) file.
 "###############################################################################
 " NOTES : Borrowed code from the folks listed in the Credits section
-" CREDIT: 
+" CREDITS: 
 " http://dougblack.io/words/a-good-vimrc.html
 " http://vim.wikia.com/wiki/Vim_Tips_Wiki
 " http://askubuntu.com/questions/500315/need-good-example-of-vimrc-file
@@ -25,6 +25,7 @@
 
 "-------------------------------------------------------------------------------
 " use Vim mode instead of pure Vi, it must be the FIRST instruction
+" This setting prevents vim from emulating the original vi's bugs and limitations.
 "-------------------------------------------------------------------------------
 set nocompatible
 
@@ -60,7 +61,7 @@ syntax enable              " enable syntax highlighting/processing
 
 " display settings 
 "-------------------------------------------------------------------------------
-set encoding=utf-8         " encoding used for displaying file
+set encoding=utf-8         " Set default encoding for files display to UTF-8.
 set ruler                  " show the cursor position all the time
 set showmode               " show insert/replace/visual mode
 set number                 " show line numbers
@@ -187,3 +188,4 @@ inoremap <F8> <Esc>:nohl<CR>a
 " press F12 to toggle showing the non-printable charactes
 noremap <F12> :set list!<CR>
 inoremap <F12> <Esc>:set list!<CR>a
+
