@@ -3,7 +3,7 @@
 # Description: Configuration file for GIT, save as ~/.gitconfig to use.
 # AUTHOR     : SVAKSHA <http://svaksha.github.io/yaksha>
 # COPYRIGHT© : 2005-Now SVAKSHA <http://svaksha.com/pages/Bio> AllRightsReserved
-# DATES      : Created:2009/02/16 - Updated:2015/07/21
+# DATES      : Created:2009feb16 - Updated:2015aug23
 # LICENSE    : GNU AGPLv3 License <http://www.gnu.org/licenses/agpl.html>,
 #              https://github.com/svaksha/yaksha/blob/master/LICENSE.md
 # This code is distributed in the hope that it will be useful, but WITHOUT ANY
@@ -31,31 +31,35 @@
 
 [alias]
 	g         = git
-    gt        = git 
-    got       = git 
 	ga        = git add
     gb        = git branch
     gc        = git commit -v
+    gca       = git commit -a
+    gcm       = git commit -m
+    gcam      = git commit -a -m
     gd        = git diff
-    gs        = git status
-    ci        = commit
-    cm        = commit
-    cia       = commit -a
-    cim       = commit -m
-    ciam      = commit -a -m
-    co        = checkout
+    gp        = git pull
+    gpf       = git pull --ff -only
+    gco       = git checkout
+    gs        = g status
     gx        = gitx --all
+    g-rset    = reset HEAD --     # unstage last cm
+    g-rset-h  = reset --hard
+    g-rb      = g rebase
+    g-rb-cont = g rebase --continue
+    g-rb-abrt = g rebase --abort
+    g-rb-m    = rebase master
+    g-rb-i    = g rebase --interactive
+    g-rb-im   = g rebase --interactive master
+
 # too many alias acronyms, need to cleanup and re-order this cheatsheet
     last      = log -1 HEAD
 	svnrb     = svn rebase
-    st        = status
-    unstage   = reset HEAD --
     visual    = !gitk
     dstat     = diff --stat
     diffclr   = diff --color-words
     diffw     = diff -w
     diffx     = diff -w --color-words
-    pff       = pull --ff-only
     mff       = merge --ff-only
     logg      = log --graph --decorate
     logpretty = log --graph --pretty=oneline --abbrev-commit --decorate
@@ -68,8 +72,6 @@
     logfetch  = log --oneline HEAD..origin/master
     detach    = checkout HEAD^0
     hdiff     = diff HEAD~
-    cont      = rebase --continue
-    abort     = rebase --abort
 
 [bitbucket]
 	user = svaksha
@@ -102,7 +104,7 @@
     untracked = yellow bold 
 
     [color "default"] 
-    cursor       = magenta
+    cursor       = green
     date         = cyan 
     delimiter    = blue 
     line-number  = yellow bold
@@ -126,6 +128,10 @@
 	# Detect copies as well as renames
 	#---------------------------------------------------------------------------	
 	renames = copies
+
+[gist]
+    browse = true
+    private = true
 	
 [grep]
     linenumber = true
@@ -139,7 +145,8 @@
 	sslVerify = false
 
 [push]
-	default = nothing
+#	default = nothing
+    default = tracking
 
 #-------------------------------------------------------------------------------
 # GitHub
@@ -162,6 +169,7 @@
 
 [url "git://gist.github.com/"]
     insteadOf = "gist:"
+
 
 #-------------------------------------------------------------------------------
 # GitLab
