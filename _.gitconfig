@@ -30,30 +30,9 @@
 	email = svaksha@gmail.com
 
 [alias]
-	g         = git
-	ga        = git add
-    gb        = git branch
-    gc        = git commit -v
-    gca       = git commit -a
-    gcm       = git commit -m
-    gcam      = git commit -a -m
-    gd        = git diff
-    gp        = git pull
-    gpf       = git pull --ff -only
-    gco       = git checkout
-    gs        = g status
-    gx        = gitx --all
-    g-rset    = reset HEAD --     # unstage last cm
-    g-rset-h  = reset --hard
-    g-rb      = g rebase
-    g-rb-cont = g rebase --continue
-    g-rb-abrt = g rebase --abort
-    g-rb-m    = rebase master
-    g-rb-i    = g rebase --interactive
-    g-rb-im   = g rebase --interactive master
+# moved to bash_alias 
 
 # too many alias acronyms, need to cleanup and re-order this cheatsheet
-    last      = log -1 HEAD
 	svnrb     = svn rebase
     visual    = !gitk
     dstat     = diff --stat

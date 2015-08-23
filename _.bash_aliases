@@ -195,6 +195,7 @@ alias rmpyc='find . -type f -name "*.pyc" -print -delete'
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # GIT stuff : https://www.kernel.org/pub/software/scm/git/docs/git-config.html
 alias gt='git'
+alias gi='git init'
 alias ga='gt add'
 alias gau='git add --update'
 alias gb='git branch'
@@ -215,9 +216,11 @@ alias gl='git log'
 alias glast='git log -1 HEAD'
 alias glpg='git log --pretty=format:"%h %s" --graph'
 alias glpgd='git log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short'
+# PULL
 alias gp='git pull'
-alias gpom='git push -u origin master'
 alias gpf='git pull --ff -only'
+# PUSH
+alias gpom='git push -u origin master'
 # status
 alias gs='gt status'
 alias gsi='git status --ignored'
@@ -233,6 +236,8 @@ alias g-rb-im='git rebase --interactive master'
 # https://stackoverflow.com/questions/5473/how-can-i-undo-git-reset-hard-head1/29469#29469
 alias g-rset='git reset HEAD'     # unstage last cm
 alias g-rset-h='git reset --hard'
+# TIG
+alias tg='tig'
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # HG - MERCURIAL
@@ -259,7 +264,6 @@ alias h-in='hg incoming'        # List changesets available
 alias h-tip='hg export tip'     # export the most recent commit
 # Only use in private repos.
 alias h-roll='hg rollback'      # can undo commit, import, pull, local push, and unbundle. 
-
 
 
 # END ".bash_aliases" ==========================================================
