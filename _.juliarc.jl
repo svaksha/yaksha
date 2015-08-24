@@ -2,11 +2,11 @@
 # File       : .juliarc.jl
 # Description: Configuration file for Julia for users to store their personal 
 #              commands in homedir(), in a file named .juliarc.jl
-# AUTHOR     : SVAKSHA <http://svaksha.github.io/5vaksha>
+# AUTHOR     : SVAKSHA <http://svaksha.github.io/yaksha>
 # COPYRIGHT© : 2005-Now SVAKSHA <http://svaksha.com/pages/Bio> AllRightsReserved
-# DATES      : Created:2013oct01 - Updated:2015aug18
+# DATES      : Created:2013oct01 - Updated:2015aug24
 # LICENSE    : GNU AGPLv3 License <http://www.gnu.org/licenses/agpl.html>,
-#              https://github.com/svaksha/5vaksha/blob/master/LICENSE.md
+#              https://github.com/svaksha/yaksha/blob/master/LICENSE.md
 # Permission is hereby granted, free of charge, to any person obtaining a copy 
 # of this software and associated documentation files (the "Software"), to deal 
 # in the Software without restriction, including without limitation the rights 
@@ -22,7 +22,7 @@
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 using Base
-using IJulia
+#using IJulia
 #using Docile
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -59,7 +59,7 @@ if first = length([Dates.firstdayofmonth(first+Dates.Month(1))
         do 
         # Ensure the system is running the latest master branch.
 #        Pkg.checkout("HDF5")     
-        Pkg.checkout("IJulia")
+#        Pkg.checkout("IJulia")
 #        Pkg.checkout("Docile")
         end
      end

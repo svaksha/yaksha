@@ -4,7 +4,7 @@
 # Description: a separate "~/.bash_aliases" file for ALIAS definitions, commands split from ~/.bashrc file
 # AUTHOR     : SVAKSHA <http://svaksha.github.io/yaksha>
 # COPYRIGHT© : 2005-Now SVAKSHA <http://svaksha.com/pages/Bio> AllRightsReserved
-# DATES      : Created:2005nov05 - Updated:2015aug23
+# DATES      : Created:2005nov05 - Updated:2015aug24
 # LICENSE    : GNU AGPLv3 License <http://www.gnu.org/licenses/agpl.html>
 #              https://github.com/svaksha/yaksha/blob/master/LICENSE.md
 # This code is distributed in the hope that it will be useful, but WITHOUT ANY
@@ -203,19 +203,33 @@ alias gba='git branch -a'
 alias gc='git commit -v'
 alias gca='git commit -v -a'
 alias gcam='git commit -v -a -m'
-alias gco='git checkout'
-alias gcob='git checkout -b'
-alias gcot='git checkout -t'
-alias gcotb='git checkout --track -b'
+alias gch='git checkout'
+alias gchb='git checkout -b'
+alias gcht='git checkout -t'
+alias gchtb='git checkout --track -b'
+# Diff
 alias gd='git diff'
+alias gds='gt diff --stat'
+alias gdc='gt diff --color-words'
+alias gdw='gt diff -w'
+alias gdwc='gt diff -w --color-words'
 # get an overview of dangling commits with fsck
 alias gfsck='git fsck --lost-found'
 alias gk='gitk --all&'
-# too lazy to type log history
+# LOG history
 alias gl='git log'
-alias glast='git log -1 HEAD'
-alias glpg='git log --pretty=format:"%h %s" --graph'
-alias glpgd='git log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short'
+alias gl-1='git log -1 HEAD'
+alias gl-pg='git log --pretty=format:"%h %s" --graph'
+alias gl-pgd='git log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short'
+alias gl-gd-all='gt log --all --graph --decorate'
+alias gl-abbr='gt log --graph --decorate --pretty=oneline --abbrev-commit'
+alias gl-all='gt log --graph --decorate --pretty=oneline --abbrev-commit --all'
+alias gl-time='gt log --format:"%C(yellow) %h %Cgreen%an %Cblue%ar %Creset- %s"'
+alias gl-refs='gt log --all --graph --decorate --oneline --simplify-by-decoration --no-merges'
+alias gl-local='gt log --oneline origin..HEAD'
+alias gl-master='gt log --oneline HEAD..origin/master'
+# Merge
+alias gmf='gt merge --ff-only'
 # PULL
 alias gp='git pull'
 alias gpf='git pull --ff -only'
@@ -232,10 +246,14 @@ alias g-rb-abrt='git rebase --abort'
 alias g-rb-m='git rebase master'
 alias g-rb-i='git rebase --interactive'
 alias g-rb-im='git rebase --interactive master'
+alias gsvnrb='gt svn rebase'
+alias gch-detach='gt checkout HEAD^0'  #use with care
+alias gd-head ='gt diff HEAD~'     #use with care 
 # RESET HEAD
 # https://stackoverflow.com/questions/5473/how-can-i-undo-git-reset-hard-head1/29469#29469
 alias g-rset='git reset HEAD'     # unstage last cm
 alias g-rset-h='git reset --hard'
+alias visual='gt !gitk'
 # TIG
 alias tg='tig'
 
@@ -264,6 +282,7 @@ alias h-in='hg incoming'        # List changesets available
 alias h-tip='hg export tip'     # export the most recent commit
 # Only use in private repos.
 alias h-roll='hg rollback'      # can undo commit, import, pull, local push, and unbundle. 
+
 
 
 # END ".bash_aliases" ==========================================================

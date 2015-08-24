@@ -1,8 +1,8 @@
 #/usr/bin/env bash
 ################################################################################
-# File       : yaksha_install_julia.sh from <http://svaksha.github.io/yaksha>
+# File       : yaksha-install-JL.sh from <http://svaksha.github.io/yaksha>
 # Description: Installation script to install AND update the Julia source build 
-# AUTHOR     : SVAKSHA <http://svaksha.github.io/yaksha> +  Credits  
+# AUTHOR     : SVAKSHA <http://svaksha.github.io/yaksha> + Credits  
 # COPYRIGHT© : 2005-Now SVAKSHA <http://svaksha.com/pages/Bio> AllRightsReserved
 # DATES      : Created:2015/02/15 - Updated:2015/08/17
 # LICENSE    : GNU AGPLv3 License <http://www.gnu.org/licenses/agpl.html>
@@ -13,8 +13,8 @@
 #
 # An experimental script to automatically update julia
 # USAGE:
-# install julia unstable: ./yaksha_install_julia.sh jl_gitdev
-# install julia nightly: ./yaksha_install_julia.sh jl_ppanightlies
+# install julia unstable: ./yaksha-install-JL.sh jl_gitdev
+# install julia nightly: ./yaksha-install-JL.sh jl_ppanightlies
 ################################################################################
 
 

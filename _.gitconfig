@@ -3,7 +3,7 @@
 # Description: Configuration file for GIT, save as ~/.gitconfig to use.
 # AUTHOR     : SVAKSHA <http://svaksha.github.io/yaksha>
 # COPYRIGHT© : 2005-Now SVAKSHA <http://svaksha.com/pages/Bio> AllRightsReserved
-# DATES      : Created:2009feb16 - Updated:2015aug23
+# DATES      : Created:2009feb16 - Updated:2015aug24
 # LICENSE    : GNU AGPLv3 License <http://www.gnu.org/licenses/agpl.html>,
 #              https://github.com/svaksha/yaksha/blob/master/LICENSE.md
 # This code is distributed in the hope that it will be useful, but WITHOUT ANY
@@ -30,27 +30,7 @@
 	email = svaksha@gmail.com
 
 [alias]
-# moved to bash_alias 
-
-# too many alias acronyms, need to cleanup and re-order this cheatsheet
-	svnrb     = svn rebase
-    visual    = !gitk
-    dstat     = diff --stat
-    diffclr   = diff --color-words
-    diffw     = diff -w
-    diffx     = diff -w --color-words
-    mff       = merge --ff-only
-    logg      = log --graph --decorate
-    logpretty = log --graph --pretty=oneline --abbrev-commit --decorate
-    logtime   = log --format='%C(yellow)%h %Cgreen%an %Cblue%ar %Creset- %s'
-    lcmit     = log --graph --decorate --pretty=oneline --abbrev-commit
-    logall    = log --graph --decorate --pretty=oneline --abbrev-commit --all
-    loggraph  = log --all --graph --decorate
-    logrefs   = log --all --graph --decorate --oneline --simplify-by-decoration --no-merges
-    loglocal  = log --oneline origin..HEAD
-    logfetch  = log --oneline HEAD..origin/master
-    detach    = checkout HEAD^0
-    hdiff     = diff HEAD~
+# moved to bash_alias - one file to handle them all!
 
 [bitbucket]
 	user = svaksha
