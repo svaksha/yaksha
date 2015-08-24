@@ -207,6 +207,7 @@ alias gch='git checkout'
 alias gchb='git checkout -b'
 alias gcht='git checkout -t'
 alias gchtb='git checkout --track -b'
+alias gcl='gt clone'
 # Diff
 alias gd='git diff'
 alias gds='gt diff --stat'
