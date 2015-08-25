@@ -4,7 +4,7 @@
 # Description: Configuration file for BASH, save as ~/.bashrc to use.
 # AUTHOR     : SVAKSHA <http://svaksha.github.io/yaksha>
 # COPYRIGHT© : 2005-Now SVAKSHA <http://svaksha.com/pages/Bio> AllRightsReserved
-# DATES      : Created:2005/11/05 - Updated:2015/08/19
+# DATES      : Created:2005nov05 - Updated:2015aug25
 # LICENSE    : GNU AGPLv3 License <http://www.gnu.org/licenses/agpl.html>
 #              https://github.com/svaksha/yaksha/blob/master/LICENSE.md
 # This code is distributed in the hope that it will be useful, but WITHOUT ANY
@@ -268,16 +268,6 @@ xterm*|rxvt*)
     ;;
 esac
 
-
-#............................ GIT ..............................................
-################################################################################
-### GIT configurations; updated: 30/12/2014 10:34:36 
-################################################################################
-git config --global user.name "SVAKSHA"
-git config --global user.email svaksha@gmail.com
-git config --global http.sslVerify false
-
-
 ################################################################################
 # Reload BASH, source these files to make changes active after editing
 ################################################################################
@@ -319,13 +309,16 @@ export PATH="/usr/local/heroku/bin:$PATH"
 ################################################################################
 #########      Customized DEVELOPMENT ENVIRONMENTS                     #########
 ################################################################################
+#
+#======================== GCC ==================================================
 # Enable gcc colours, available since gcc 4.8.0
 export GCC_COLORS=1
 
-#............................ PYTHON ...........................................
-################################################################################
-### PIP bash completion start || Fri, 03 May 2013 16:02:40 +0530 
-################################################################################
+#==== PYTHON PYTHON PYTHON PYTHON PYTHON PYTHON PYTHON PYTHON PYTHON PYTHON ====
+#===============================================================================
+### PIP bash completion start 
+# DATE: Fri, 03 May 2013 16:02:40 +0530 
+#===============================================================================
 _pip_completion()
 {
 COMPREPLY=( $( COMP_WORDS="${COMP_WORDS[*]}" \
@@ -336,7 +329,8 @@ complete -o default -F _pip_completion pip
 
 
 ################################################################################
-### PYTHON 2 to 3 in the VirtualenvWrapper; 2013MAY07 12:04:38 PM IST
+### PYTHON 2to3 in the VirtualenvWrapper; 
+# DATE: 2013may07-2014apr29
 ################################################################################
 # http://stackoverflow.com/questions/5585875/what-is-the-official-preferred-way-to-install-pip-and-virtualenv-systemwide
 # http://clouddenizen.com/2011/11/04/virtualenvwrapper-setup-in-ubuntu/
@@ -346,20 +340,16 @@ complete -o default -F _pip_completion pip
 # export PROJECT_HOME=$HOME/eng3/
 # export PIP_VIRTUALENV_BASE=~/.virtualenvs
 # alias pip=pip-python
-
-### 2013MAY31 02:52:12 AM IST 
-#--------------------------------------------------------------
 # export PATH=$PATH/sbt/bin:$PATH
 
-### 2014APR29 19:44:13 +0530 
 # http://askubuntu.com/questions/440114/ubuntu-14-04-python-2-7-still-default-set-3-x-as-default
 #--------------------------------------------------------------
 # alias python='python3.4'
 # export PYTHONSTARTUP="$HOME/.pythonrc"
 
-
 ################################################################################
-# Anaconda 2.2.0 installer (np19py34_0 AND np19py27_0), DATE: 2015Apr09
+# Anaconda 2.2.0 installer (np19py34_0 AND np19py27_0)
+# DATE: 2013nov15-2015apr09
 ################################################################################
 export PATH="~/anaconda/bin:$PATH"
 export PATH="$(pwd)/anaconda:$PATH"
@@ -374,7 +364,8 @@ export PYTHONDONTWRITEBYTECODE=true # REF: https://twitter.com/wlonk/status/5874
 
 #............................ JULIA ............................................
 ################################################################################
-# Julia PATH | created: 2012Apr12 | updated: 2015Jun20
+# Julia PATH | 
+# DATE: 2012apr12-2015aug25
 ################################################################################
 export PATH="$(pwd)/julia:$PATH"
 # $PWD/julia/bin
@@ -390,5 +381,30 @@ export PATH="$(pwd)/julia/bin/jdp:$PATH"
 ################################################################################
 export PATH="$(pwd)/usr/local/bin/grunt:$PATH"
 export PATH="$(pwd)/usr/local/lib/node_modules/grunt-cli:$PATH"
+
+
+
+#=== DVCS DVCS DVCS DVCS DVCS DVCS DVCS DVCS DVCS DVCS DVCS DVCS DVCS DVCS DVCS
+################################################################################
+### GIT configurations
+# DATE: 2010feb22-2014dec30
+################################################################################
+git config --global user.name "SVAKSHA"
+git config --global user.email svaksha@gmail.com
+git config --global http.sslVerify false
+
+
+#---DataBase---DataBase---DataBase---DataBase---DataBase---DataBase---DataBase
+################################################################################
+### PostgreSQL configurations. 
+# DATE: 2009jan26-2015aug25
+################################################################################
+export PATH=$PATH:/usr/local/pgsql/bin
+PATH=$PATH:/usr/local/pgsql/bin
+MANPATH=$MANPATH:/usr/local/pgsql/man
+export PATH MANPATH
+# Setting LD_LIBRARY_PATH in a bash shell
+LD_LIBRARY_PATH=/usr/local/pgsql/lib
+export LD_LIBRARY_PATH
 
 

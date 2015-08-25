@@ -4,7 +4,7 @@
 # Description: a separate "~/.bash_aliases" file for ALIAS definitions, commands split from ~/.bashrc file
 # AUTHOR     : SVAKSHA <http://svaksha.github.io/yaksha>
 # COPYRIGHT© : 2005-Now SVAKSHA <http://svaksha.com/pages/Bio> AllRightsReserved
-# DATES      : Created:2005nov05 - Updated:2015aug24
+# DATES      : Created:2005nov05 - Updated:2015aug25
 # LICENSE    : GNU AGPLv3 License <http://www.gnu.org/licenses/agpl.html>
 #              https://github.com/svaksha/yaksha/blob/master/LICENSE.md
 # This code is distributed in the hope that it will be useful, but WITHOUT ANY
@@ -131,7 +131,7 @@ alias shr='shred -u'
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 alias t='top'
 alias tl='tail'
-alias temps='acpi -t'
+alias at='acpi -t'
 
 #===============================================================================
 # Grouping all SEARCH utils 
@@ -249,7 +249,7 @@ alias g-rb-i='git rebase --interactive'
 alias g-rb-im='git rebase --interactive master'
 alias gsvnrb='gt svn rebase'
 alias gch-detach='gt checkout HEAD^0'  #use with care
-alias gd-head ='gt diff HEAD~'     #use with care 
+alias gd-head='gt diff HEAD~'     #use with care 
 # RESET HEAD
 # https://stackoverflow.com/questions/5473/how-can-i-undo-git-reset-hard-head1/29469#29469
 alias g-rset='git reset HEAD'     # unstage last cm
