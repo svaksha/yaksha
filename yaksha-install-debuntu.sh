@@ -4,7 +4,7 @@
 # Description: Bash Installation script for a new system.
 # AUTHOR     : SVAKSHA, http://svaksha.github.io/yaksha
 # COPYRIGHT© : 2005-Now SVAKSHA <http://svaksha.com/pages/Bio> AllRightsReserved
-# DATES      : Created:2005/03/22 - Updated:2015/08/09
+# DATES      : Created:2005mar22 - Updated:2015aug28
 # LICENSE    : GNU AGPLv3 License <http://www.gnu.org/licenses/agpl.html>
 #              https://github.com/svaksha/yaksha/blob/master/LICENSE.md
 # This code is distributed in the hope that it will be useful, but WITHOUT ANY
@@ -65,7 +65,7 @@ function install_utilities() {
     sudo apt-get -y install geany
     sudo apt-get -y install meld
     sudo apt-get -y install spyder
-    ## general
+    ## general cli tools for web, search
     sudo apt-get -y install wget
     sudo apt-get -y install curl
     sudo apt-get -y install whois
@@ -107,8 +107,9 @@ function install_utilities() {
     #sudo apt-get -y install referencer    #IGNORE, https://launchpad.net/referencer
     ## Install .deb packages with gdebi-core (sudo gdebi /path/to/filename.deb)
     sudo apt-get -y install gdebi-core
-    ## setup the dependency check tool
+    ## Tools for dependency check and PPA removal
     sudo apt-get -y install equivs
+    sudo apt-get -y install ppa-purge
     ## video and audio (music - mpto mp3) converters
     sudo apt-get -y install papcl
     sudo apt-get -y install ubuntu-restricted-extras # install the MP3 codec from the Ubuntu Restricted Extras package

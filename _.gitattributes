@@ -3,7 +3,7 @@
 # Description: Configuration file for GIT, save as ~/.gitattributes to use.
 # AUTHOR     : SVAKSHA <http://svaksha.github.io/yaksha>
 # COPYRIGHT© : 2005-Now SVAKSHA <http://svaksha.com/pages/Bio> AllRightsReserved
-# DATES      : Created:2012oct21 - Updated:2015aug22
+# DATES      : Created:2012oct21 - Updated:2015aug27
 # LICENSE    : GNU AGPLv3 License <http://www.gnu.org/licenses/agpl.html>,
 #              https://github.com/svaksha/yaksha/blob/master/LICENSE.md
 # This code is distributed in the hope that it will be useful, but WITHOUT ANY
@@ -17,9 +17,8 @@
 # subject to the following conditions being met:
 # 1. ALL copies, forks and redistributions of source code AND/OR binary form 
 #    must retain the above Copyright notice, the Licence file for source code 
-#    (AGPLv3) AND documentation (CC BY-NC-SA 4.0) along with this permission 
-#    notice and list of conditions and the following disclaimer, in substantial 
-#    portions of the Software.
+#    (AGPLv3) along with this permission notice and list of conditions and the 
+#    following disclaimer, in substantial portions of the Software.
 # 2. Neither the name of the COPYRIGHT HOLDER(S) nor the names of its 
 #    contributors may be used to endorse or promote products derived from this 
 #    software without specific prior written permission.

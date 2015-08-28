@@ -4,7 +4,7 @@
 # Description: Configuration file for BASH, save as ~/.bashrc to use.
 # AUTHOR     : SVAKSHA <http://svaksha.github.io/yaksha>
 # COPYRIGHT© : 2005-Now SVAKSHA <http://svaksha.com/pages/Bio> AllRightsReserved
-# DATES      : Created:2005nov05 - Updated:2015aug25
+# DATES      : Created:2005nov05 - Updated:2015aug27
 # LICENSE    : GNU AGPLv3 License <http://www.gnu.org/licenses/agpl.html>
 #              https://github.com/svaksha/yaksha/blob/master/LICENSE.md
 # This code is distributed in the hope that it will be useful, but WITHOUT ANY
@@ -18,9 +18,8 @@
 # subject to the following conditions being met:
 # 1. ALL copies, forks and redistributions of source code AND/OR binary form 
 #    must retain the above Copyright notice, the Licence file for source code 
-#    (AGPLv3) AND documentation (CC BY-NC-SA 4.0) along with this permission 
-#    notice and list of conditions and the following disclaimer, in substantial 
-#    portions of the Software.
+#    (AGPLv3) along with this permission notice and list of conditions and the 
+#    following disclaimer, in substantial portions of the Software.
 # 2. Neither the name of the COPYRIGHT HOLDER(S) nor the names of its 
 #    contributors may be used to endorse or promote products derived from this 
 #    software without specific prior written permission.
@@ -102,16 +101,14 @@ trap _exit EXIT
 ################################################################################
 # Dumped all ALIAS list additions into a separate file (see, ~/.bash_aliases).
 # See /usr/share/doc/bash-doc/examples in the bash-doc package.
-### For , see the "~/.bash_aliases" file
 #-------------------------------------------------------------------------------
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
 
 #-------------------------------------------------------------------------------
-# enable programmable completion features (you don't need to enable
-# this, if it's already enabled in /etc/bash.bashrc and /etc/profile
-# sources /etc/bash.bashrc).
+# enable programmable completion features (Don't need to enable this, if it's 
+# already enabled in /etc/bash.bashrc and /etc/profile sources /etc/bash.bashrc).
 #-------------------------------------------------------------------------------
 if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
