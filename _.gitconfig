@@ -3,7 +3,7 @@
 # Description: Configuration file for GIT, save as ~/.gitconfig to use.
 # AUTHOR     : SVAKSHA <http://svaksha.github.io/yaksha>
 # COPYRIGHT© : 2005-Now SVAKSHA <http://svaksha.com/pages/Bio> AllRightsReserved
-# DATES      : Created:2009feb16 - Updated:2015aug24
+# DATES      : Created:2009feb16 - Updated:2015aug31
 # LICENSE    : GNU AGPLv3 License <http://www.gnu.org/licenses/agpl.html>,
 #              https://github.com/svaksha/yaksha/blob/master/LICENSE.md
 # This code is distributed in the hope that it will be useful, but WITHOUT ANY
@@ -26,14 +26,12 @@
 ################################################################################
 
 [user]
-	name = SVAKSHA
+	name  = SVAKSHA
 	email = svaksha@gmail.com
+	mail  = svaksha@gmail.com
 
 [alias]
 # moved to bash_alias - one file to handle them all!
-
-[bitbucket]
-	user = svaksha
 
 [color]
 	# Use colors in Git commands that are capable of colored output when
@@ -73,11 +71,15 @@
     graph-commit = cyan 
 	    
 [core]
+    repositoryformatversion=0
+    filemode=true
+    bare=false
+    logallrefupdates=true
+    ignorecase=true
 	# Use custom `.gitignore_global` and `.gitattributes`
 	#---------------------------------------------------------------------------	
 	attributesfile = ~/.gitattributes	
 	excludesfile   = ~/.gitignore_global
-
     # Prevent showing files whose names contain non-ASCII symbols as unversioned.
     # From, http://michael-kuehnel.de/git/2014/11/21/git-mac-osx-and-german-umlaute.html
 	#---------------------------------------------------------------------------	
@@ -88,10 +90,6 @@
 	#---------------------------------------------------------------------------	
 	renames = copies
 
-[gist]
-    browse = true
-    private = true
-	
 [grep]
     linenumber = true
 
@@ -129,6 +127,15 @@
 [url "git://gist.github.com/"]
     insteadOf = "gist:"
 
+[gist]
+    browse = true
+    private = true
+	
+#-------------------------------------------------------------------------------
+# BitBucket
+#-------------------------------------------------------------------------------
+[bitbucket]
+	user = svaksha
 
 #-------------------------------------------------------------------------------
 # GitLab
@@ -141,4 +148,12 @@
 #-------------------------------------------------------------------------------
 [url "git@heroku.com:"]
     insteadOf = "heroku:"
+
+# GIT-LFS
+# Install the .deb file for git-lfs from https://github.com/github/git-lfs.git
+#-------------------------------------------------------------------------------	
+[filter "lfs"]
+	clean = git lfs clean %f
+	smudge = git lfs smudge %f
+	required = true
 
