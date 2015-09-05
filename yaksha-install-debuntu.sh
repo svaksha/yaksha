@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 ################################################################################
-# File       : yaksha_install.sh, a part of http://svaksha.github.io/yaksha
+# File       : yaksha-install-debuntu.sh, a part of http://svaksha.github.io/yaksha
 # Description: Bash Installation script for a new system.
 # AUTHOR     : SVAKSHA, http://svaksha.github.io/yaksha
 # COPYRIGHT© : 2005-Now SVAKSHA <http://svaksha.com/pages/Bio> AllRightsReserved
-# DATES      : Created:2005mar22 - Updated:2015aug28
+# DATES      : Created:2005mar22 - Updated:2015sep05
 # LICENSE    : GNU AGPLv3 License <http://www.gnu.org/licenses/agpl.html>
 #              https://github.com/svaksha/yaksha/blob/master/LICENSE.md
 # This code is distributed in the hope that it will be useful, but WITHOUT ANY
@@ -26,24 +26,29 @@
 ################################################################################
 #
 # 
-# Usage: "./yaksha_install.sh"
+# Usage: "./yaksha-install-debuntu.sh"
 
 yaksha_dir=~/yaksha/
 
 # Log the date and time of execution of bash script into the `out` files.
-date +'%c|started running `apt-get`: ' >> out_yaksha_install_sh.log
-date +"%c|completed running: $?" >> out_yaksha_install_sh.log
+date +'%c|started running `apt-get`: ' >> out_yaksha_install_debuntu.log
+date +"%c|completed running: $?" >> out_yaksha_install_debuntu.log
 
-# Check for root user
-if [ $(whoami) != "root"]; then
-	echo "ERROR"
-	exit 1
-fi
-
-# install general system utilities on ubuntu 14.04
-function install_utilities() {
+# GNOME Desktop Environment.
+function install_desktop() {
     sudo apt-get -y update
     sudo apt-get -y upgrade
+    # GNOME
+    # Use the "yaksha-uninstall-debuntu.sh" script for uninstalling UNITY.
+    sudo apt-get -y install gnome-core gnome-shell
+    # Display Manager for the GNOME Desktop Environment.
+    sudo apt-get -y install gdm
+    # Compiz 
+    sudo apt-get -y install compizconfig-settings-manager
+}
+    
+# install general system utilities on ubuntu 14.04
+function install_utilities() {
     ## CPU / HDD monitoring 
     sudo apt-get -y install smartctl
     sudo apt-get -y install smartmontools
@@ -56,8 +61,6 @@ function install_utilities() {
     sudo apt-get -y install memstat
     sudo apt-get -y install linux-tools-common # AKA, "perf": http://www.brendangregg.com/perf.html
     sudo apt-get -y install simplescan
-    # Compiz / Unity / Gnome
-    sudo apt-get -y install compizconfig-settings-manager
     ## Editors
     sudo apt-get -y install vim
     sudo apt-get -y install dconf-editor
@@ -116,27 +119,13 @@ function install_utilities() {
     sudo apt-get -y install soundconverter # install the Sound Converter program
     ## medical imaging
     sudo apt-get -y install aeskulap Ginkgo-CADx
+    ## Imaging tools
+    sudo apt-get -y install gimp inkscape
     # get the github source (https://github.com/rg3/youtube-dl) && DONT use the pip package OR apt "sudo apt-get install youtube-dl"
     #"youtube-dl"
+    # Taking Notes
+    sudo apt-get -y install tomboy transmission
 }
-
-# waits until the package is installed
-while [ `cat /var/lock(..)`=value] ;  
-    # while package is being installed...
-    do
-           sleep 0.5  # wait for 0.5 seconds then retest the package status
-    done
-    if ["$?"="0"]; then
-          echo "Package installed sucessfully"
-        else
-          echo "errors occured"
-    fi
-    if [ -s testfilename ]; then
-        echo "Exists and has size"
-        else
-        echo "Does not exist or has no size"
-    fi
-exit 0 # to avoid the unexpected end of file error
 
 
 ################################################################################
@@ -173,6 +162,7 @@ function install_gcc() {
 function install_dvcs() {
   sudo apt-get -y install git git-core
   sudo apt-get -y install tig
+#  sudo apt-get -y install deb file for git-lfs {{https://github.com/github/git-lfs.git}}
   sudo apt-get -y install mercurial 
   sudo apt-get -y install tortoisehg
   sudo apt-get -y install bazaar
@@ -361,11 +351,13 @@ case $key in
     esac
     
     
-install_common
 # uncomment this for a NEW system only
 #git clone --recursive https://github.com/svaksha/yaksha ${yaksha_dir}
 
 case $install_typ in
+    desktop)
+        install_desktop
+    ;;
     utilities)
         install_utilities
     ;;
@@ -403,6 +395,7 @@ case $install_typ in
         install_webserver
     ;;
     all)
+        install_desktop
         install_utilities
         install_gcc
         install_dvcs

@@ -1,0 +1,19 @@
+"*":
+  "exception-reporting":
+    userId: "ed2f09fa-e6ad-6f14-720e-f493688aea95"
+  welcome:
+    showOnStartup: false
+  core:
+    themes: [
+      "black-ui"
+      "dunkelbunt-syntax"
+    ]
+  editor:
+    invisibles: {}
+    showIndentGuide: true
+    tabLength: 4
+    fontSize: 13
+    fontFamily: "Courier New 10"
+    lineHeight: 1
+  "one-dark-ui": {}
+  "travis-ci-status": {}

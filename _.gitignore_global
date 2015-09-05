@@ -206,7 +206,10 @@ coverage # Coverage directory used by tools like istanbul
 build/Release # Compiled binary addons (http://nodejs.org/api/addons.html)
 
 # Node.js
+#---------
 */node_modules/*
+*/node_modules/
+/node_modules/*
 
 # Runtime data
 #-------------------
