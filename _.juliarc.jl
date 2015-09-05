@@ -4,7 +4,7 @@
 #              commands in homedir(), in a file named .juliarc.jl
 # AUTHOR     : SVAKSHA <http://svaksha.github.io/yaksha>
 # COPYRIGHT© : 2005-Now SVAKSHA <http://svaksha.com/pages/Bio> AllRightsReserved
-# DATES      : Created:2013oct01 - Updated:2015aug24
+# DATES      : Created:2013oct01 - Updated:2015sep05
 # LICENSE    : GNU AGPLv3 License <http://www.gnu.org/licenses/agpl.html>,
 #              https://github.com/svaksha/yaksha/blob/master/LICENSE.md
 # Permission is hereby granted, free of charge, to any person obtaining a copy 
@@ -34,7 +34,8 @@ using Base
 #Pkg.status()
 #Pkg.update()
 
-function yaksha_pkg_update()
+#=
+function yaksha_julia_pkgupdate()
     if dt == Dates.Date(2015):Dates.Date(2016);
         recur(dt) do x
         Dates.dayofweek(x) == Dates.tonext(isweekday, Date(2016,12,31)) &&
@@ -45,7 +46,7 @@ function yaksha_pkg_update()
     x == Pkg.status() && Pkg.update()
     return x
 end       
-
+=#
 
 #=
 if isweekday == x->Dates.dayofweek(x) && Dates.tonext(isweekday, Date(2015,12,31)) 
@@ -74,7 +75,7 @@ end
 if VERSION < v"0.5-"
     ENV["JULIA_HISTORY"] = joinpath(homedir(), "~/.julia_history_v0.4")
 end
-
+=#
 
 #-------------------------------------------------------------------------------
 # Setting options, https://julia.readthedocs.org/en/latest/manual/getting-started/
@@ -105,7 +106,7 @@ ini = Inifile()
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 # Using isinterative() to check if julia is run in REPL. 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-# if isinteractive()
+#if isinteractive()
 #        include("$(pwd)/.julia/v0.4/REPL/scripts/repl.jl:$PATH")
 #end
 
@@ -117,6 +118,5 @@ ini = Inifile()
 #  include("start_tomography.jl")
 #end
 
-=#
 
 
