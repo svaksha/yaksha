@@ -53,7 +53,9 @@ if isweekday == x->Dates.dayofweek(x) && Dates.tonext(isweekday, Date(2015,12,31
         Pkg.status()
         Pkg.update()
 end
+=#
 
+#=
 # Scripted updates to run only on the first of each month for the year 2015.
 if first = length([Dates.firstdayofmonth(first+Dates.Month(1))
     for first in Dates.Date(2015):Dates.Date(2015,12,31)]) == 365
