@@ -4,7 +4,7 @@
 # Description: Bash Installation script for a new system.
 # AUTHOR     : SVAKSHA, http://svaksha.github.io/yaksha
 # COPYRIGHT© : 2005-Now SVAKSHA <http://svaksha.com/pages/Bio> AllRightsReserved
-# DATES      : Created:2005mar22 - Updated:2015sep05
+# DATES      : Created:2005mar22 - Updated:2015sep06
 # LICENSE    : GNU AGPLv3 License <http://www.gnu.org/licenses/agpl.html>
 #              https://github.com/svaksha/yaksha/blob/master/LICENSE.md
 # This code is distributed in the hope that it will be useful, but WITHOUT ANY
@@ -34,7 +34,9 @@ yaksha_dir=~/yaksha/
 date +'%c|started running `apt-get`: ' >> out_yaksha_install_debuntu.log
 date +"%c|completed running: $?" >> out_yaksha_install_debuntu.log
 
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 # GNOME Desktop Environment.
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 function install_desktop() {
     sudo apt-get -y update
     sudo apt-get -y upgrade
@@ -46,8 +48,17 @@ function install_desktop() {
     # Compiz 
     sudo apt-get -y install compizconfig-settings-manager
 }
+
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+# Fetch the .DEB packages for Ubuntu 14.04
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+function install_deb_pkg() {
+    sudo dpkg --install Brackets.1.4.Extract.64-bit.deb
+}
     
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 # install general system utilities on ubuntu 14.04
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 function install_utilities() {
     ## CPU / HDD monitoring 
     sudo apt-get -y install smartctl
@@ -69,6 +80,7 @@ function install_utilities() {
     sudo apt-get -y install meld
     sudo apt-get -y install spyder
     ## general cli tools for web, search
+    sudo apt-get -y install cron-apt
     sudo apt-get -y install wget
     sudo apt-get -y install curl
     sudo apt-get -y install whois
@@ -79,6 +91,13 @@ function install_utilities() {
     sudo apt-get -y install unrar
     sudo apt-get -y install screen 
     ln -s  ${yaksha_dir}.screenrc ~/.screenrc
+    sudo apt-get -y install colordiff
+    # sendmail or postfix
+    sudo apt-get -y install sendmail postfix
+    ## Tools for dependency check and PPA removal
+    sudo apt-get -y install equivs
+    sudo apt-get -y install ppa-purge
+    #============================================
     ### UTILITIES
     #============================================
     ## LaTeX2ε 
@@ -110,9 +129,6 @@ function install_utilities() {
     #sudo apt-get -y install referencer    #IGNORE, https://launchpad.net/referencer
     ## Install .deb packages with gdebi-core (sudo gdebi /path/to/filename.deb)
     sudo apt-get -y install gdebi-core
-    ## Tools for dependency check and PPA removal
-    sudo apt-get -y install equivs
-    sudo apt-get -y install ppa-purge
     ## video and audio (music - mpto mp3) converters
     sudo apt-get -y install papcl
     sudo apt-get -y install ubuntu-restricted-extras # install the MP3 codec from the Ubuntu Restricted Extras package
@@ -128,9 +144,9 @@ function install_utilities() {
 }
 
 
-################################################################################
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 # GCC {{ C, CPP, Fortran }}
-################################################################################
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 function install_gcc() {
     ## C/C++ 
     sudo apt-get -y install gcc
@@ -156,9 +172,9 @@ function install_gcc() {
     sudo apt-get -y install libpng-dev
 }
 
-################################################################################
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 ## DVCS packages
-################################################################################
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 function install_dvcs() {
   sudo apt-get -y install git git-core
   sudo apt-get -y install tig
@@ -173,9 +189,9 @@ function install_dvcs() {
   cd /tmp/tig; sudo make install prefix=/usr/local
 }
 
-################################################################################
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 # PYTHON
-################################################################################
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 function install_python() {
     sudo apt-get -y install build-essential
     sudo apt-get -y install pip pip-installer
@@ -203,17 +219,17 @@ function install_python() {
     sudo pip install pylint -i http://pypi.python.org/simple/
 }
 
-################################################################################
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 # JAVA
-################################################################################
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 function install_java() {
     sudo add-apt-repository --yes ppa:webupd8team/java
     sudo apt-get -y install oracle-java8-installer # javac -v = 1.8.XXX
 }
 
-################################################################################
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 # JavaScript
-################################################################################
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 function install_javascript() {
     sudo apt-get -y install nodejs
     sudo apt-get -y install npm nodejs-legacy
@@ -228,10 +244,9 @@ function install_javascript() {
     sudo apt-get -y install nodejs # nodejs -v = 0.10.28 # dont pin versions
 }
 
-
-################################################################################
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 # R-project / language
-################################################################################
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 function install_rlang() {
     sudo add-apt-repository --yes ppa:marutter/rrutter
     sudo apt-get -y update
@@ -243,17 +258,17 @@ function install_rlang() {
     sudo Rscript -e "install.packages('RCurl',,'http://cran.us.r-project.org')"
 }
 
-################################################################################
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 # RUBY
-################################################################################
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 function install_ruby() {
     sudo apt-get -y install ruby1.9.1 ruby1.9.1-dev
     sudo gem install iruby
 }
 
-################################################################################
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 # Fonts
-################################################################################
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 function install_fonts() {
     wget https://github.com/Lokaltog/powerline/raw/develop/font/PowerlineSymbols.otf
     wget https://github.com/Lokaltog/powerline/raw/develop/font/10-powerline-symbols.conf
@@ -264,10 +279,9 @@ function install_fonts() {
     fc-cache -vf ~/.fonts/
 }
 
-
-################################################################################
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 # TMUX
-################################################################################
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 function install_tmux() {
     sudo apt-get -y install tmux 
     sudo apt-get -y install python-netifaces 
@@ -278,9 +292,9 @@ function install_tmux() {
     ln -s ${yaksha_dir}.tmux/tmux.conf ~/.tmux.conf
 }
 
-################################################################################
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 # VIM
-################################################################################
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 function install_vim() {
     sudo apt-get -y install fontforge 
     sudo apt-get -y install vim-nox
@@ -293,9 +307,9 @@ function install_vim() {
     cd ~/.vim/bundle/vimproc.vim/; make -f make_unix.mak
 }
 
-################################################################################
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 # On the CLOUDs
-################################################################################
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 function install_webserver() {
     ## AMQP
     sudo apt-get -y install rabbitmq-server  ## Erlang
@@ -313,7 +327,6 @@ function install_webserver() {
     sudo apt-get -y install nginx # nginx -v = 1.6.0
     # ZMQ, also needed by Jupyter/IPython / IRuby etc..
     sudo add-apt-repository --yes ppa:chris-lea/zeromq
-    sudo apt-get update
     sudo apt-get -y install libzmq3-dbg libzmq3-dev libzmq3
 }
 
@@ -328,10 +341,11 @@ function clean_install() {
     rm -rf ~/.tmux.conf
     rm -rf ~/.screenrc
 }
+    
 
-
-install_typ='all'
+install_debu='all'
 key="$1"
+key="$2"
 
 case $key in
     -c|--clean)
@@ -339,7 +353,7 @@ case $key in
         shift
     ;;
     -i|--install)
-        install_typ="$2"
+        install_debu="$2"
         shift
     ;;
     *)
@@ -349,14 +363,18 @@ case $key in
         "
         ;;
     esac
-    
-    
+
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 # uncomment this for a NEW system only
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 #git clone --recursive https://github.com/svaksha/yaksha ${yaksha_dir}
 
-case $install_typ in
+case $install_debu in
     desktop)
         install_desktop
+    ;;
+    debpkg)
+        install_deb_pkg
     ;;
     utilities)
         install_utilities
@@ -396,6 +414,7 @@ case $install_typ in
     ;;
     all)
         install_desktop
+        install_deb_pkg
         install_utilities
         install_gcc
         install_dvcs
