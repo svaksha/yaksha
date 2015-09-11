@@ -4,7 +4,7 @@
 #              commands in homedir(), in a file named .juliarc.jl
 # AUTHOR     : SVAKSHA <http://svaksha.github.io/yaksha>
 # COPYRIGHT© : 2005-Now SVAKSHA <http://svaksha.com/pages/Bio> AllRightsReserved
-# DATES      : Created:2013oct01 - Updated:2015sep05
+# DATES      : Created:2013oct01 - Updated:2015sep11
 # LICENSE    : GNU AGPLv3 License <http://www.gnu.org/licenses/agpl.html>,
 #              https://github.com/svaksha/yaksha/blob/master/LICENSE.md
 # Permission is hereby granted, free of charge, to any person obtaining a copy 
@@ -24,6 +24,12 @@
 using Base
 #using IJulia
 #using Docile
+
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+# Greet me on startup
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+println("नमस्ते ! स्वक्षंस्या सङ्गणकप्रक्रमम् स्वागतम !")
+println("Greetings! Welcome to SVAKSHA's computer programs") 
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 # Scripted updates to run only once in a day.
@@ -85,8 +91,8 @@ end
 #-------------------------------------------------------------------------------
 #ju -i --color={yes} --history-file={yes} Tomography.jl
  
-using IniFile
-ini = Inifile()
+#using IniFile
+#ini = Inifile()
 #read(ini, ENV["JULIA_APP_BOOTSTRAP"])
 #include_dir      = get(ini, "data", "include_dir")
 #app_dir          = get(ini, "data", "app_dir")
@@ -119,6 +125,5 @@ ini = Inifile()
 #if isfile("start_tomography.jl")
 #  include("start_tomography.jl")
 #end
-
 
 
