@@ -4,17 +4,25 @@
 #              commands in homedir(), in a file named .juliarc.jl
 # AUTHOR     : SVAKSHA <http://svaksha.github.io/yaksha>
 # COPYRIGHT© : 2005-Now SVAKSHA <http://svaksha.com/pages/Bio> AllRightsReserved
-# DATES      : Created:2013oct01 - Updated:2015sep11
+# DATES      : Created:2013oct01 - Updated:2015sep12
 # LICENSE    : GNU AGPLv3 License <http://www.gnu.org/licenses/agpl.html>,
 #              https://github.com/svaksha/yaksha/blob/master/LICENSE.md
-# Permission is hereby granted, free of charge, to any person obtaining a copy 
-# of this software and associated documentation files (the "Software"), to deal 
-# in the Software without restriction, including without limitation the rights 
-# to use, copy, modify, merge, publish, distribute, sublicense, and/or sell 
-# copies of the Software, and to permit persons to whom the Software is 
-# furnished to do so, subject to the following conditions: ALL copies of this 
-# work and repository forks must retain the Copyright, LICENSE(.md) notice and 
-# this permission notice in substantial portions of the software. 
+# This code is distributed in the hope that it will be useful, but WITHOUT ANY
+# WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR
+# A PARTICULAR PURPOSE. Permission is hereby granted, free of charge, to any
+# person obtaining a copy of this software, to deal in the Software without
+# restriction, including without limitation the rights to use, copy, modify,
+# merge, publish, redistribute, and/or sell copies of the Software and use in
+# source form, with or without modification, and to permit persons to whom the
+# Software is furnished to do so as per the terms in the LICENSE.md file and
+# subject to the following conditions being met:
+# 1. ALL copies, forks and redistributions of source code AND/OR binary form
+#    must retain the above Copyright notice, the Licence file for source code
+#    (AGPLv3) along with this permission notice and list of conditions and the 
+#    following disclaimer, in substantial portions of the Software.
+# 2. Neither the name of the COPYRIGHT HOLDER(S) nor the names of its
+#    contributors may be used to endorse or promote products derived from this
+#    software without specific prior written permission.
 ################################################################################
 #
 # This file contains site-specific commands (EX. add directories to the LOAD_PATH, 
@@ -24,21 +32,24 @@
 using Base
 #using IJulia
 #using Docile
+#using(".juliarc.jl")
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-# Greet me on startup
+# Greetings on startup
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 println("नमस्ते ! स्वक्षंस्या सङ्गणकप्रक्रमम् स्वागतम !")
 println("Greetings! Welcome to SVAKSHA's computer programs") 
+
+# Update after greeting
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Pkg.status()
+Pkg.update()
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 # Scripted updates to run only once in a day.
 # https://julia.readthedocs.org/en/latest/manual/packages/
 # http://docs.julialang.org/en/latest/stdlib/dates/
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-#Pkg.status()
-#Pkg.update()
 
 #=
 function yaksha_julia_pkgupdate()
@@ -107,8 +118,8 @@ end
 #push!(LOAD_PATH, util_include_dir)
 
 # Optional additional initialization 
-#if isfile("$(ENV["HOME"])/.juliarc_yaksha.jl")
-#    include("$(ENV["HOME"])/.juliarc_yaksha.jl")
+#if isfile("$(ENV["HOME"])/.juliarc.jl")
+#    include("$(ENV["HOME"])/.juliarc.jl")
 #end
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
