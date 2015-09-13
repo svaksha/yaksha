@@ -4,7 +4,7 @@
 #              commands in homedir(), in a file named .juliarc.jl
 # AUTHOR     : SVAKSHA <http://svaksha.github.io/yaksha>
 # COPYRIGHT© : 2005-Now SVAKSHA <http://svaksha.com/pages/Bio> AllRightsReserved
-# DATES      : Created:2013oct01 - Updated:2015sep12
+# DATES      : Created:2013oct01 - Updated:2015sep13
 # LICENSE    : GNU AGPLv3 License <http://www.gnu.org/licenses/agpl.html>,
 #              https://github.com/svaksha/yaksha/blob/master/LICENSE.md
 # This code is distributed in the hope that it will be useful, but WITHOUT ANY
@@ -30,9 +30,6 @@
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 using Base
-#using IJulia
-#using Docile
-#using(".juliarc.jl")
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 # Greetings on startup
@@ -40,10 +37,22 @@ using Base
 println("नमस्ते ! स्वक्षंस्या सङ्गणकप्रक्रमम् स्वागतम !")
 println("Greetings! Welcome to SVAKSHA's computer programs") 
 
-# Update after greeting
-#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-Pkg.status()
-Pkg.update()
+## Load my .juliarc.jl each time the REPL runs
+#-------------------------------------------------------------------------------
+if chomp(readall(`pwd`)) != ENV["HOME"]
+    if isfile(".juliarc.jl"); require(".juliarc.jl"); end
+end
+
+push!(LOAD_PATH, ENV["HOME"]*"/.julia")
+push!(LOAD_PATH, ENV["HOME"]*"/ensoji-jl/juhu.jl")
+
+# Optional additional initialization per package basis
+#-------------------------------------------------------------------------------
+if isfile("$(ENV["HOME"])/.juliarc_ensoji.jl"); include("$(ENV["HOME"])/.juliarc_ensoji.jl")
+end
+#if isfile("$(ENV["HOME"])/.juliarc_update.jl"); include("$(ENV["HOME"])/.juliarc_update.jl"); end
+#if isfile("$(ENV["HOME"])/.juliarc_tomography.jl"); include("$(ENV["HOME"])/.juliarc_tomography.jl"); end
+#if isfile("$(ENV["HOME"])/.juliarc_yaksha.jl"); include("$(ENV["HOME"])/.juliarc_yaksha.jl"); end
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 # Scripted updates to run only once in a day.
