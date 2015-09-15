@@ -4,7 +4,7 @@
 # Description: Installation script to install AND update the Julia source build 
 # AUTHOR     : SVAKSHA <http://svaksha.github.io/yaksha> + Credits  
 # COPYRIGHT© : 2005-Now SVAKSHA <http://svaksha.com/pages/Bio> AllRightsReserved
-# DATES      : Created:2015/02/15 - Updated:2015/08/17
+# DATES      : Created:2015Feb15 - Updated:2015Aug17
 # LICENSE    : GNU AGPLv3 License <http://www.gnu.org/licenses/agpl.html>
 ################################################################################
 # CREDITS:

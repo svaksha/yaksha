@@ -1,9 +1,10 @@
 ################################################################################
-# File       : .juliarc_yaksha.jl
-# Description: Configuration file for invoking the REPL daemons.
+# File       : .juliarc.jl
+# Description: Configuration file for Julia for users to store their personal 
+#              commands in homedir(), in a file named .juliarc.jl
 # AUTHOR     : SVAKSHA <http://svaksha.github.io/yaksha>
 # COPYRIGHT© : 2005-Now SVAKSHA <http://svaksha.com/pages/Bio> AllRightsReserved
-# DATES      : Created:2014feb01 - Updated:2015sep13
+# DATES      : Created:2013oct01 - Updated:2015sep13
 # LICENSE    : GNU AGPLv3 License <http://www.gnu.org/licenses/agpl.html>,
 #              https://github.com/svaksha/yaksha/blob/master/LICENSE.md
 # This code is distributed in the hope that it will be useful, but WITHOUT ANY
@@ -24,15 +25,33 @@
 #    software without specific prior written permission.
 ################################################################################
 #
-# This file contains magic to invoke the REPL daemons.
+# This file contains site-specific commands (EX. add directories to the LOAD_PATH, 
+# to be executed when the Julia REPL starts up.
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 using Base
+using Graphs
 
-# https://github.com/JuliaLang/julia/pull/7487
-workspace()
-whos()
-#http://stackoverflow.com/questions/25028873/how-do-i-reload-a-module-in-an-active-julia-session-after-an-edit
-#clear()
-pwd()
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+# Greetings on startup
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+println("|| नमस्ते ! स्वक्षंस्या सङ्गणकप्रक्रमम् स्वागतम  || Greetings! Welcome to SVAKSHA's computer programs ||") 
+
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+# add directories to the LOAD_PATH to be executed when the Julia REPL starts up.
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+# Load my .juliarc.jl each time the REPL runs
+if chomp(readall(`pwd`)) != ENV["HOME"]
+    if isfile(".juliarc.jl")
+    require(".juliarc.jl")
+    end
+end
+
+push!(LOAD_PATH, ENV["HOME"]*"/.julia")
+push!(LOAD_PATH, ENV["HOME"]*"/ensoji-jl/juhu.jl")
+
+if isfile("$(ENV["HOME"])/.juliarc-yaksha.jl")
+    include("$(ENV["HOME"])/.juliarc-yaksha.jl")
+end
 
