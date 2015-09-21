@@ -53,7 +53,7 @@ function install_desktop() {
 # Fetch the .DEB packages for Ubuntu 14.04
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 function install_deb_pkg() {
-    sudo dpkg --install Brackets.1.4.Extract.64-bit.deb
+    sudo dpkg --install Brackets.1.4.Extract.64-bit.deb  #Brackets IDE
 }
     
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -64,6 +64,7 @@ function install_utilities() {
     sudo apt-get -y install smartctl
     sudo apt-get -y install smartmontools
     sudo apt-get -y install gsmartcontrol   # GUI version
+    sudo apt-get -y install testdisk
     ## sensors package
     sudo apt-get -y install lm-sensors
     sudo apt-get -y install indicator-cpufreq 
@@ -93,7 +94,8 @@ function install_utilities() {
     ln -s  ${yaksha_dir}.screenrc ~/.screenrc
     sudo apt-get -y install colordiff
     # sendmail or postfix
-    sudo apt-get -y install sendmail postfix
+    sudo apt-get -y install sendmail 
+    sudo apt-get -y install postfix
     ## Tools for dependency check and PPA removal
     sudo apt-get -y install equivs
     sudo apt-get -y install ppa-purge
