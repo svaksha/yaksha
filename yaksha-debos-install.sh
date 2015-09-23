@@ -4,28 +4,28 @@
 # Description: Bash Installation script for a new system.
 # AUTHOR     : SVAKSHA, http://svaksha.github.io/yaksha
 # COPYRIGHT© : 2005-Now SVAKSHA <http://svaksha.com/pages/Bio> AllRightsReserved
-# DATES      : Created:2005mar22 - Updated:2015sep21
+# DATES      : Created:2005mar22 - Updated:2015sep22
 # LICENSE    : GNU AGPLv3 License <http://www.gnu.org/licenses/agpl.html>
 #              https://github.com/svaksha/yaksha/blob/master/LICENSE.md
 # This code is distributed in the hope that it will be useful, but WITHOUT ANY
-# WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR 
-# A PARTICULAR PURPOSE. Permission is hereby granted, free of charge, to any 
-# person obtaining a copy of this software, to deal in the Software without 
-# restriction, including without limitation the rights to use, copy, modify, 
-# merge, publish, redistribute, and/or sell copies of the Software and use in 
-# source form, with or without modification, and to permit persons to whom the 
-# Software is furnished to do so as per the terms in the LICENSE.md file and 
+# WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR
+# A PARTICULAR PURPOSE. Permission is hereby granted, free of charge, to any
+# person obtaining a copy of this software, to deal in the Software without
+# restriction, including without limitation the rights to use, copy, modify,
+# merge, publish, redistribute, and/or sell copies of the Software and use in
+# source form, with or without modification, and to permit persons to whom the
+# Software is furnished to do so as per the terms in the LICENSE.md file and
 # subject to the following conditions being met:
-# 1. ALL copies, forks and redistributions of source code AND/OR binary form 
-#    must retain the above Copyright notice, the Licence file for source code 
-#    (AGPLv3) along with this permission notice and list of conditions and the 
+# 1. ALL copies, forks and redistributions of source code AND/OR binary form
+#    must retain the above Copyright notice, the Licence file for source code
+#    (AGPLv3) along with this permission notice and list of conditions and the
 #    following disclaimer, in substantial portions of the Software.
-# 2. Neither the name of the COPYRIGHT HOLDER(S) nor the names of its 
-#    contributors may be used to endorse or promote products derived from this 
+# 2. Neither the name of the COPYRIGHT HOLDER(S) nor the names of its
+#    contributors may be used to endorse or promote products derived from this
 #    software without specific prior written permission.
 ################################################################################
 #
-# 
+#
 # Usage: "./yaksha-install-debuntu.sh"
 
 yaksha_dir=~/yaksha/
@@ -45,7 +45,7 @@ function install_desktop() {
     sudo apt-get -y install gnome-core gnome-shell
     # Display Manager for the GNOME Desktop Environment.
     sudo apt-get -y install gdm
-    # Compiz 
+    # Compiz
     sudo apt-get -y install compizconfig-settings-manager
 }
 
@@ -55,19 +55,19 @@ function install_desktop() {
 function install_deb_pkg() {
     sudo dpkg --install Brackets.1.4.Extract.64-bit.deb  #Brackets IDE
 }
-    
+
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 # install general system utilities on ubuntu 14.04
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 function install_utilities() {
-    ## CPU / HDD monitoring 
+    ## CPU / HDD monitoring
     sudo apt-get -y install smartctl
     sudo apt-get -y install smartmontools
     sudo apt-get -y install gsmartcontrol   # GUI version
     sudo apt-get -y install testdisk
     ## sensors package
     sudo apt-get -y install lm-sensors
-    sudo apt-get -y install indicator-cpufreq 
+    sudo apt-get -y install indicator-cpufreq
     sudo apt-get -y install powertop
     sudo apt-get -y install atop
     sudo apt-get -y install memstat
@@ -85,16 +85,16 @@ function install_utilities() {
     sudo apt-get -y install wget
     sudo apt-get -y install curl
     sudo apt-get -y install whois
-    sudo apt-get -y install silversearcher-ag    
-    sudo apt-get -y install zip 
-    sudo apt-get -y install unzip  
+    sudo apt-get -y install silversearcher-ag
+    sudo apt-get -y install zip
+    sudo apt-get -y install unzip
     sudo apt-get -y install exuberant-ctags ack-grep
     sudo apt-get -y install unrar
-    sudo apt-get -y install screen 
+    sudo apt-get -y install screen
     ln -s  ${yaksha_dir}.screenrc ~/.screenrc
     sudo apt-get -y install colordiff
     # sendmail or postfix
-    sudo apt-get -y install sendmail 
+    sudo apt-get -y install sendmail
     sudo apt-get -y install postfix
     ## Tools for dependency check and PPA removal
     sudo apt-get -y install equivs
@@ -102,7 +102,7 @@ function install_utilities() {
     #============================================
     ### UTILITIES
     #============================================
-    ## LaTeX2ε 
+    ## LaTeX2ε
     sudo apt-get -y install texlive
     sudo apt-get -y install gedit-latex-plugin
     ## Adobe
@@ -118,12 +118,12 @@ function install_utilities() {
     sudo apt-get -y install jitsi
     ## HP printer stuff
     sudo apt-get -y install hplip
-    sudo apt-get -y install mtink  # http://xwtools.automatix.de/ 
+    sudo apt-get -y install mtink  # http://xwtools.automatix.de/
     sudo apt-get -y install hp-toolbox
     sudo apt-get -y install hp-setup
     sudo apt-get -y install hplip-plugin
     ## Reactivate HP LaserJet 1018/1020 after reloading paper
-    sudo apt-get -y install printer-driver-foo2zjs-common   #20140209dfsg0-1ubuntu1    
+    sudo apt-get -y install printer-driver-foo2zjs-common   #20140209dfsg0-1ubuntu1
     ## Browsers
     sudo apt-get -y install google-chrome-stable
     ## BibTeX Reference software
@@ -150,7 +150,7 @@ function install_utilities() {
 # GCC {{ C, CPP, Fortran }}
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 function install_gcc() {
-    ## C/C++ 
+    ## C/C++
     sudo apt-get -y install gcc
     sudo apt-get -y install gnu
     sudo apt-get -y install make
@@ -181,10 +181,10 @@ function install_dvcs() {
   sudo apt-get -y install git git-core
   sudo apt-get -y install tig
 #  sudo apt-get -y install deb file for git-lfs {{https://github.com/github/git-lfs.git}}
-  sudo apt-get -y install mercurial 
+  sudo apt-get -y install mercurial
   sudo apt-get -y install tortoisehg
   sudo apt-get -y install bazaar
-  sudo apt-get -y install subversion 
+  sudo apt-get -y install subversion
   ln -s  ${yaksha_dir}.gitconfig ~/.gitconfig
   git clone https://github.com/jonas/tig /tmp/tig
   cd /tmp/tig; sudo make prefix=/usr/local
@@ -201,22 +201,23 @@ function install_python() {
     sudo apt-get -y install python-pip python-dev python-yaml
     sudo apt-get -y install python-software-properties
     # python3
-    sudo apt-get -y install python-virtualenv python3-dev pkgconf 
-    sudo apt-get -y install libfreetype6-dev libfreetype6 libxft-dev 
-    sudo apt-get -y install libblas-dev liblapack-dev libyaml-dev 
+    sudo apt-get -y install python-virtualenv python3-dev pkgconf
+    sudo apt-get -y install libfreetype6-dev libfreetype6 libxft-dev
+    sudo apt-get -y install libblas-dev liblapack-dev libyaml-dev
     sudo apt-get -y install python3-pip python3
-    ## scientific python 
+    ## scientific python
     sudo apt-get -y install cython
     sudo apt-get -y install numpy python-numpy
     sudo apt-get -y install scipy
-    # Jupyter / IPython
-#sudo apt-get -y install IPython ipython3 ipython3-notebook
-    sudo pip install ipython jinja2 tornado pyzmq pandas jsonschema pyaml
     sudo apt-get -y install python-matplotlib python-scipy
-    ## More Python stuff
     sudo apt-get -y install python-virtualenv
     sudo apt-get -y install manpages-dev
-    sudo apt-get -y install python-fontforge 
+    sudo apt-get -y install python-fontforge
+    # Jupyter / IPython
+    #sudo apt-get -y install IPython ipython3 ipython3-notebook
+    sudo pip install ipython jinja2 tornado pyzmq pandas jsonschema pyaml
+    ## More Python stuff
+    sudo pip install rotate-backups
     sudo pip install jedi -i http://pypi.python.org/simple/
     sudo pip install pylint -i http://pypi.python.org/simple/
 }
@@ -239,7 +240,7 @@ function install_javascript() {
     sudo npm install -g jslint
     sudo npm install -g jshint
     ln -s ${yaksha_dir}.jshintrc ~/.jshintrc
-    # NPM 
+    # NPM
     #-----------
     sudo add-apt-repository --yes ppa:chris-lea/node.js
     sudo apt-get update
@@ -285,8 +286,8 @@ function install_fonts() {
 # TMUX
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 function install_tmux() {
-    sudo apt-get -y install tmux 
-    sudo apt-get -y install python-netifaces 
+    sudo apt-get -y install tmux
+    sudo apt-get -y install python-netifaces
     ln -s ${yaksha_dir}.tmux ~/.tmux
     ln -s ${yaksha_dir}.config/ ~/.config
     git clone https://github.com/Lokaltog/powerline ~/.tmux/powerline2
@@ -298,14 +299,14 @@ function install_tmux() {
 # VIM
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 function install_vim() {
-    sudo apt-get -y install fontforge 
+    sudo apt-get -y install fontforge
     sudo apt-get -y install vim-nox
-    sudo apt-get -y install ctags 
+    sudo apt-get -y install ctags
     ln -s  ${yaksha_dir}.vim ~/.vim
     git clone https://github.com/gmarik/Vundle.vim  ~/.vim/bundle/Vundle.vim
     ln -s ${yaksha_dir}.pylintrc ~/.pylintrc
     ln -s ${yaksha_dir}.vimrc ~/.vimrc
-    vim -c 'BundleInstall' -c qa 
+    vim -c 'BundleInstall' -c qa
     cd ~/.vim/bundle/vimproc.vim/; make -f make_unix.mak
 }
 
@@ -343,7 +344,7 @@ function clean_install() {
     rm -rf ~/.tmux.conf
     rm -rf ~/.screenrc
 }
-    
+
 
 install_debu='all'
 key="$1"
@@ -433,4 +434,3 @@ case $install_debu in
     *)
         echo "Installation in progress, almost done!"
     esac
-
