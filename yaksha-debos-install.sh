@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 ################################################################################
-# File       : yaksha-install-debuntu.sh, a part of http://svaksha.github.io/yaksha
+# File       : yaksha-debos-install.sh, from http://svaksha.github.io/yaksha
 # Description: Bash Installation script for a new system.
 # AUTHOR     : SVAKSHA, http://svaksha.github.io/yaksha
 # COPYRIGHT© : 2005-Now SVAKSHA <http://svaksha.com/pages/Bio> AllRightsReserved
-# DATES      : Created:2005mar22 - Updated:2015sep22
+# DATES      : Created:2005mar22 - Updated:2015sep25
 # LICENSE    : GNU AGPLv3 License <http://www.gnu.org/licenses/agpl.html>
 #              https://github.com/svaksha/yaksha/blob/master/LICENSE.md
 # This code is distributed in the hope that it will be useful, but WITHOUT ANY
@@ -26,13 +26,13 @@
 ################################################################################
 #
 #
-# Usage: "./yaksha-install-debuntu.sh"
+# Usage: "./yaksha-debos-install.sh"
 
 yaksha_dir=~/yaksha/
 
 # Log the date and time of execution of bash script into the `out` files.
-date +'%c|started running `apt-get`: ' >> out_yaksha_install_debuntu.log
-date +"%c|completed running: $?" >> out_yaksha_install_debuntu.log
+date +'%c|started running `apt-get`: ' >> out-yaksha-debos-install.log
+date +"%c|completed running: $?" >> out-yaksha-debos-install.log
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 # GNOME Desktop Environment.
@@ -41,7 +41,7 @@ function install_desktop() {
     sudo apt-get -y update
     sudo apt-get -y upgrade
     # GNOME
-    # Use the "yaksha-uninstall-debuntu.sh" script for uninstalling UNITY.
+    # Use the script `yaksha-debos-uninstall.sh` to uninstall UNITY - **RISKY**
     sudo apt-get -y install gnome-core gnome-shell
     # Display Manager for the GNOME Desktop Environment.
     sudo apt-get -y install gdm
@@ -64,7 +64,7 @@ function install_utilities() {
     sudo apt-get -y install smartctl
     sudo apt-get -y install smartmontools
     sudo apt-get -y install gsmartcontrol   # GUI version
-    sudo apt-get -y install testdisk
+    sudo apt-get -y install testdisk gddrescue  # grub rescue / HDD health
     ## sensors package
     sudo apt-get -y install lm-sensors
     sudo apt-get -y install indicator-cpufreq
@@ -114,8 +114,6 @@ function install_utilities() {
     sudo apt-get -y install xournal
     sudo apt-get -y install pdfedit
     sudo apt-get -y install cups-pdf
-    ## Skype alternative
-    sudo apt-get -y install jitsi
     ## HP printer stuff
     sudo apt-get -y install hplip
     sudo apt-get -y install mtink  # http://xwtools.automatix.de/
@@ -143,6 +141,12 @@ function install_utilities() {
     #"youtube-dl"
     # Taking Notes
     sudo apt-get -y install tomboy transmission
+    ## Communication Tools
+    sudo apt-get -y install jitsi # Skype alternative
+    # Telegram, a Whatsapp alternative on GH: https://github.com/telegramdesktop/tdesktop
+    sudo add-apt-repository ppa:atareao/telegram
+    sudo apt-get update
+    sudo apt-get install telegram
 }
 
 
