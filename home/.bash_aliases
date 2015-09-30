@@ -4,7 +4,7 @@
 # Description: a separate "~/.bash_aliases" file for ALIAS definitions, commands split from ~/.bashrc file
 # AUTHOR     : SVAKSHA <http://svaksha.github.io/yaksha>
 # COPYRIGHT© : 2005-Now SVAKSHA <http://svaksha.com/pages/Bio> AllRightsReserved
-# DATES      : Created:2005nov05 - Updated:2015aug25
+# DATES      : Created:2005nov05 - Updated:2015sep30
 # LICENSE    : GNU AGPLv3 License <http://www.gnu.org/licenses/agpl.html>
 #              https://github.com/svaksha/yaksha/blob/master/LICENSE.md
 # This code is distributed in the hope that it will be useful, but WITHOUT ANY
@@ -174,8 +174,7 @@ alias ijulia='ipython notebook --profile julia'
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Python related commands
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-alias ipy='ipython notebook'
-alias ipynb='ipython notebook'
+alias jupy='jupyter notebook'
 # ANACONDA -----------------
 alias con='cd anaconda/envs/'
 alias cona='source activate'
