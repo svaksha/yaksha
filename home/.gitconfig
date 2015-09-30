@@ -3,7 +3,7 @@
 # Description: Configuration file for GIT, save as ~/.gitconfig to use.
 # AUTHOR     : SVAKSHA <http://svaksha.github.io/yaksha>
 # COPYRIGHT© : 2005-Now SVAKSHA <http://svaksha.com/pages/Bio> AllRightsReserved
-# DATES      : Created:2009feb16 - Updated:2015aug31
+# DATES      : Created:2009feb16 - Updated:2015sep30
 # LICENSE    : GNU AGPLv3 License <http://www.gnu.org/licenses/agpl.html>,
 #              https://github.com/svaksha/yaksha/blob/master/LICENSE.md
 # This code is distributed in the hope that it will be useful, but WITHOUT ANY
@@ -31,7 +31,7 @@
 	mail  = svaksha@gmail.com
 
 [alias]
-# moved to bash_alias - one file to handle them all!
+# moved all alias bindings to `bash_alias` file - one file to handle them all!
 
 [color]
 	# Use colors in Git commands that are capable of colored output when
@@ -105,6 +105,13 @@
 #	default = nothing
     default = tracking
 
+		
+#-------------------------------------------------------------------------------
+# BitBucket
+#-------------------------------------------------------------------------------
+[bitbucket]
+	user = svaksha
+
 #-------------------------------------------------------------------------------
 # GitHub
 #-------------------------------------------------------------------------------
@@ -130,12 +137,11 @@
 [gist]
     browse = true
     private = true
-	
-#-------------------------------------------------------------------------------
-# BitBucket
-#-------------------------------------------------------------------------------
-[bitbucket]
-	user = svaksha
+
+# Julia "Pkg dependence on git://"
+#--------------------------------------
+[url "https://"]
+	insteadOf = git://
 
 #-------------------------------------------------------------------------------
 # GitLab
@@ -156,4 +162,5 @@
 	clean = git lfs clean %f
 	smudge = git lfs smudge %f
 	required = true
+
 
