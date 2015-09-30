@@ -1,6 +1,6 @@
 # yaksha - my personalized dotfile daimons!
 
-My personal daemons to automate my system installation/ updation/ backups, bash shell scripts, dotfiles and configuration files that are customized for my Linux box. These may (or not?) break your machine so apply the **Standard Disclaimer** : No warranty/guarantee for any particular use, express or implied and you agree to use [these daimons](http://svaksha.github.io/yaksha) at your own risk and liability!
+My personal daemons to automate my system installation/ updation/ backups, bash shell scripts, dotfiles and configuration files that are customized for my Linux box. These may (or not?) break your machine so the **Standard Disclaimer** applies : No warranty/guarantee for any particular use, express or implied and you agree to use [these daimons](http://svaksha.github.io/yaksha) at your own risk and liability!
 
 ## Content Index
 
