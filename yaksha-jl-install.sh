@@ -4,7 +4,7 @@
 # Description: Installation script to install AND update the Julia source build 
 # AUTHOR     : SVAKSHA <http://svaksha.github.io/yaksha> + Credits  
 # COPYRIGHT© : 2005-Now SVAKSHA <http://svaksha.com/pages/Bio> AllRightsReserved
-# DATES      : Created:2015Feb15 - Updated:2015Aug17
+# DATES      : Created:2015Feb15 - Updated:2015Oct01
 # LICENSE    : GNU AGPLv3 License <http://www.gnu.org/licenses/agpl.html>
 ################################################################################
 # CREDITS:
@@ -13,8 +13,8 @@
 #
 # An experimental script to automatically update julia
 # USAGE:
-# install julia unstable: ./yaksha-install-JL.sh jl_gitdev
-# install julia nightly: ./yaksha-install-JL.sh jl_ppanightlies
+# install julia unstable: ./yaksha-jl-install.sh jl_gitdev
+# install julia nightly: ./yaksha-jl-install.sh jl_ppanightlies
 ################################################################################
 
 

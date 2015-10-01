@@ -4,7 +4,7 @@
 # Description: a separate "~/.bash_aliases" file for ALIAS definitions, commands split from ~/.bashrc file
 # AUTHOR     : SVAKSHA <http://svaksha.github.io/yaksha>
 # COPYRIGHT© : 2005-Now SVAKSHA <http://svaksha.com/pages/Bio> AllRightsReserved
-# DATES      : Created:2005nov05 - Updated:2015sep30
+# DATES      : Created:2005nov05 - Updated:2015oct01
 # LICENSE    : GNU AGPLv3 License <http://www.gnu.org/licenses/agpl.html>
 #              https://github.com/svaksha/yaksha/blob/master/LICENSE.md
 # This code is distributed in the hope that it will be useful, but WITHOUT ANY
@@ -169,12 +169,12 @@ alias lsb-r='lsb_release -r' # for exact version
 alias ju='julia'
 # alias ju-pull='git pull git@github.com:JuliaLang/julia.git' # IGNORE, use update script.
 # alias ju-pkgup='cd julia; ./julia -e 'Pkg.update()''        # alt script handles this.
-alias ijulia='ipython notebook --profile julia'
+alias ijl='ipython notebook --profile julia'
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Python related commands
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-alias jupy='jupyter notebook'
+alias ipy='ipython notebook'
 # ANACONDA -----------------
 alias con='cd anaconda/envs/'
 alias cona='source activate'
