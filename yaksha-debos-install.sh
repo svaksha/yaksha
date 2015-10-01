@@ -4,7 +4,7 @@
 # Description: Bash Installation script for a new system.
 # AUTHOR     : SVAKSHA, http://svaksha.github.io/yaksha
 # COPYRIGHT© : 2005-Now SVAKSHA <http://svaksha.com/pages/Bio> AllRightsReserved
-# DATES      : Created:2005mar22 - Updated:2015sep30
+# DATES      : Created:2005mar22 - Updated:2015oct01
 # LICENSE    : GNU AGPLv3 License <http://www.gnu.org/licenses/agpl.html>
 #              https://github.com/svaksha/yaksha/blob/master/LICENSE.md
 # This code is distributed in the hope that it will be useful, but WITHOUT ANY
@@ -47,7 +47,7 @@ function install_desktop() {
     sudo apt-get -y install gdm
     # Compiz
     sudo apt-get -y install compizconfig-settings-manager
-    # Restricted extras
+    # Restricted extras for FLASH plugin
     sudo apt-get -y install ubuntu-restricted-extras
     sudo apt-get -y install flashplugin-installer
 }
@@ -59,23 +59,30 @@ function install_deb_pkg() {
     sudo dpkg --install Brackets.1.4.Extract.64-bit.deb  #Brackets IDE
 }
 
-#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-# install general system utilities on ubuntu 14.04
-#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-function install_utilities() {
+function install_cpudisk() {
     ## CPU / HDD monitoring
     sudo apt-get -y install smartctl
     sudo apt-get -y install smartmontools
     sudo apt-get -y install gsmartcontrol   # GUI version
     sudo apt-get -y install testdisk gddrescue  # grub rescue / HDD health
+    # CPU Monitoring tools for Temperature, speed, et al.
+    #------------------------------------------------------
+    # https://wiki.ubuntu.com/Kernel/PowerManagement/ThermalIssues    
+    sudo apt-get -y install thermald  # this daemon prevents machines from overheating
+    sudo apt-get -y install indicator-cpufreq
     ## sensors package
     sudo apt-get -y install lm-sensors
-    sudo apt-get -y install indicator-cpufreq
     sudo apt-get -y install powertop
     sudo apt-get -y install atop
     sudo apt-get -y install memstat
     sudo apt-get -y install linux-tools-common # AKA, "perf": http://www.brendangregg.com/perf.html
     sudo apt-get -y install simplescan
+}
+
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+# install general system utilities on ubuntu 14.04
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+function install_utilities() {
     ## Editors
     sudo apt-get -y install vim
     sudo apt-get -y install dconf-editor
@@ -185,17 +192,17 @@ function install_gcc() {
 ## DVCS packages
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 function install_dvcs() {
-  sudo apt-get -y install git git-core
-  sudo apt-get -y install tig
-#  sudo apt-get -y install deb file for git-lfs {{https://github.com/github/git-lfs.git}}
-  sudo apt-get -y install mercurial
-  sudo apt-get -y install tortoisehg
-  sudo apt-get -y install bazaar
-  sudo apt-get -y install subversion
-  ln -s  ${yaksha_dir}.gitconfig ~/.gitconfig
-  git clone https://github.com/jonas/tig /tmp/tig
-  cd /tmp/tig; sudo make prefix=/usr/local
-  cd /tmp/tig; sudo make install prefix=/usr/local
+    sudo apt-get -y install git git-core
+    sudo apt-get -y install tig
+   #  sudo apt-get -y install deb file for git-lfs {{https://github.com/github/git-lfs.git}}
+    sudo apt-get -y install mercurial
+    sudo apt-get -y install tortoisehg
+    sudo apt-get -y install bazaar
+    sudo apt-get -y install subversion
+    ln -s  ${yaksha_dir}.gitconfig ~/.gitconfig
+    git clone https://github.com/jonas/tig /tmp/tig
+    cd /tmp/tig; sudo make prefix=/usr/local
+    cd /tmp/tig; sudo make install prefix=/usr/local
 }
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -386,6 +393,9 @@ case $install_debu in
     debpkg)
         install_deb_pkg
     ;;
+    cpudisk)
+        install_cpudisk
+    ;;
     utilities)
         install_utilities
     ;;
@@ -425,6 +435,7 @@ case $install_debu in
     all)
         install_desktop
         install_deb_pkg
+        install_cpudisk
         install_utilities
         install_gcc
         install_dvcs
@@ -441,3 +452,5 @@ case $install_debu in
     *)
         echo "Installation in progress, almost done!"
     esac
+
+   
