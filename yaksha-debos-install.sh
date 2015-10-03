@@ -90,6 +90,10 @@ function install_utilities() {
     sudo apt-get -y install geany
     sudo apt-get -y install meld
     sudo apt-get -y install spyder
+    # Atom editor
+    sudo add-apt-repository ppa:webupd8team/atom
+    sudo apt-get update
+    sudo apt-get install atom
     ## general cli tools for web, search
     sudo apt-get -y install cron-apt
     sudo apt-get -y install wget
