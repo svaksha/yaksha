@@ -90,7 +90,10 @@ function install_utilities() {
     sudo apt-get -y install geany
     sudo apt-get -y install meld
     sudo apt-get -y install spyder
-    # Atom editor
+    # Atom editor 64-bit DEB file from github source
+    wget https://github.com/atom/atom/releases/download/v1.1.0-beta.0/atom-amd64.deb ~/home
+    sudo dpkg --install atom-amd64.deb
+    # Atom editor 32-bit PPA
     sudo add-apt-repository ppa:webupd8team/atom
     sudo apt-get update
     sudo apt-get install atom
