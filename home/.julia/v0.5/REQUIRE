@@ -9,11 +9,13 @@ Clang
 Color
 ColorTypes
 Compat
+Compose
 Cpp
 Crypto
 Dates
 Debug
 EvolvingGraphs
+FixedPointNumbers
 Gadfly
 Graphics
 GraphLayout
@@ -30,17 +32,23 @@ JuMP
 kNN
 LightGraphs
 Mongo
+Mustache
 NaiveBayes
+Nettle
 OpenGL
 Plotly
 PyCall
 PyPlot
 PySide
+SaveREPL
 SHA
+Showoff
 SQLite
 Stats
 StatsBase
 SymPy
 TestImages
 TimeData
+TimeSeries
+ZMQ
 
