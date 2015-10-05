@@ -105,6 +105,7 @@ function install_utilities() {
     sudo apt-get -y install geany
     sudo apt-get -y install meld
     sudo apt-get -y install spyder
+    sudo apt-get -y install guake
     # Atom editor 64-bit DEB file from github source
     wget https://github.com/atom/atom/releases/download/v1.1.0-beta.0/atom-amd64.deb ~/home
     sudo dpkg --install atom-amd64.deb
@@ -256,7 +257,8 @@ function install_python() {
     sudo pip install rotate-backups
     sudo pip install jedi -i http://pypi.python.org/simple/
     sudo pip install pylint -i http://pypi.python.org/simple/
-    git clone https://github.com/princebot/pythonize.git && pythonize/example_package/example
+    # Automate PY and Anaconda/miniconda instaltion with PYTHONIZE (https://github.com/princebot/pythonize)
+    git clone https://github.com/princebot/pythonize.git 
 }
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -280,7 +282,7 @@ function install_javascript() {
     # NPM
     #-----------
     sudo add-apt-repository --yes ppa:chris-lea/node.js
-    sudo apt-get update
+    sudo apt-get -y update
     sudo apt-get -y install nodejs # nodejs -v = 0.10.28 # dont pin versions
 }
 

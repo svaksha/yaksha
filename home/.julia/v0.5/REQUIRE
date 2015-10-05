@@ -66,6 +66,7 @@ Stats
 StatsBase
 SymPy
 TestImages
+TerminalExtensions
 TextWrap
 TimeData
 TimeSeries

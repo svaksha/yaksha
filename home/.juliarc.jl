@@ -2,9 +2,10 @@
 # File       : .juliarc.jl
 # Description: Configuration file for Julia for users to store their personal 
 #              commands in homedir(), in a file named .juliarc.jl
-# AUTHOR     : SVAKSHA <http://svaksha.github.io/yaksha>
-# COPYRIGHT© : 2005-Now SVAKSHA <http://svaksha.com/pages/Bio> AllRightsReserved
-# DATES      : Created:2013oct01 - Updated:2015oct02
+# AUTHOR     : SVAKSHA (http://svaksha.com/pages/Bio)
+# SOURCE     : http://svaksha.github.io/yaksha
+# DATES      : Created:2013oct01 - Updated:2015oct05
+# COPYRIGHT© : 2005-Now SVAKSHA AllRightsReserved
 # LICENSE    : GNU AGPLv3 License <http://www.gnu.org/licenses/agpl.html>,
 #              https://github.com/svaksha/yaksha/blob/master/LICENSE.md
 # This code is distributed in the hope that it will be useful, but WITHOUT ANY
@@ -30,12 +31,15 @@
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 using Base
-using Graphs
+using TerminalExtensions
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 # Greetings on startup
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 println("|| नमस्ते ! स्वक्षंस्या सङ्गणकप्रक्रमम् स्वागतम  || Greetings! Welcome to SVAKSHA's computer programs ||") 
+
+# changing the "julia>" prompt color schemes in the REPL
+#Base.active_repl.prompt_color = Base.text_colors[:cyan]
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 # add directories to the LOAD_PATH to be executed when the Julia REPL starts up.

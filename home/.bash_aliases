@@ -2,9 +2,10 @@
 ################################################################################
 # File       : .bash_aliases
 # Description: a separate "~/.bash_aliases" file for ALIAS definitions, commands split from ~/.bashrc file
-# AUTHOR     : SVAKSHA <http://svaksha.github.io/yaksha>
-# COPYRIGHT© : 2005-Now SVAKSHA <http://svaksha.com/pages/Bio> AllRightsReserved
-# DATES      : Created:2005nov05 - Updated:2015oct01
+# AUTHOR     : SVAKSHA (http://svaksha.com/pages/Bio)
+# SOURCE     : http://svaksha.github.io/yaksha
+# COPYRIGHT© : 2005-Now SVAKSHA AllRightsReserved
+# DATES      : Created:2005nov05 - Updated:2015oct05
 # LICENSE    : GNU AGPLv3 License <http://www.gnu.org/licenses/agpl.html>
 #              https://github.com/svaksha/yaksha/blob/master/LICENSE.md
 # This code is distributed in the hope that it will be useful, but WITHOUT ANY
@@ -166,10 +167,11 @@ alias lsb-r='lsb_release -r' # for exact version
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # JULIA REPL & programming
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-alias ju='julia'
-# alias ju-pull='git pull git@github.com:JuliaLang/julia.git' # IGNORE, use update script.
-# alias ju-pkgup='cd julia; ./julia -e 'Pkg.update()''        # alt script handles this.
 alias ijl='ipython notebook --profile julia'
+alias ju='julia'
+alias jl='julia -i --color=yes --history-file=yes'
+alias jl-git='git pull git@github.com:JuliaLang/julia.git' # IGNORE, use update script.
+alias jl-up='cd julia; ./julia -e 'Pkg.update()''        # alt script handles this.
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Python related commands
