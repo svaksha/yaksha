@@ -53,7 +53,7 @@ function install_desktop() {
     sudo apt-get -y install ubuntu-restricted-extras
     sudo apt-get -y install flashplugin-installer
     # GDEBI is the GUI for dpkg installation and management of Debian (.deb) packages.
-    sudo apt-get -y install gdebi
+    sudo apt-get -y install gdebi gdebi-core ## Install (sudo gdebi /path/to/filename.deb)
 }
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -72,7 +72,6 @@ function install_deb_pkg() {
     sudo gdebi skype-ubuntu-precise_4.3.0.37-1_i386.deb
     # Install Skype from Canonical Partner Repository
     sudo add-apt-repository "deb http://archive.canonical.com/ $(lsb_release -sc) partner"
-
 }
 
 function install_cpudisk() {
@@ -121,6 +120,7 @@ function install_utilities() {
     sudo apt-get -y install silversearcher-ag
     sudo apt-get -y install zip
     sudo apt-get -y install unzip
+    sudo apt-get -y install ctags 
     sudo apt-get -y install exuberant-ctags ack-grep
     sudo apt-get -y install unrar
     sudo apt-get -y install screen
@@ -132,6 +132,7 @@ function install_utilities() {
     ## Tools for dependency check and PPA removal
     sudo apt-get -y install equivs
     sudo apt-get -y install ppa-purge
+    sudo apt-get -y install nmap openssh-server
     #============================================
     ### UTILITIES
     #============================================
@@ -160,8 +161,6 @@ function install_utilities() {
     ## BibTeX Reference software
     sudo apt-get -y install pybliographer
     #sudo apt-get -y install referencer    #IGNORE, https://launchpad.net/referencer
-    ## Install .deb packages with gdebi-core (sudo gdebi /path/to/filename.deb)
-    sudo apt-get -y install gdebi-core
     ## video and audio (music - mpto mp3) converters
     sudo apt-get -y install papcl
     sudo apt-get -y install ubuntu-restricted-extras # install the MP3 codec from the Ubuntu Restricted Extras package
@@ -257,6 +256,7 @@ function install_python() {
     sudo pip install rotate-backups
     sudo pip install jedi -i http://pypi.python.org/simple/
     sudo pip install pylint -i http://pypi.python.org/simple/
+    git clone https://github.com/princebot/pythonize.git && pythonize/example_package/example
 }
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -370,9 +370,9 @@ function install_webserver() {
     sudo apt-get -y install libzmq3-dbg libzmq3-dev libzmq3
 }
 
-################################################################################
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 # Clean Install
-################################################################################
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 function clean_install() {
     echo "Clean install"
     rm -rf ~/.vim
@@ -383,7 +383,7 @@ function clean_install() {
 }
 
 
-install_debu='all'
+install_debos='all'
 key="$1"
 key="$2"
 
@@ -393,7 +393,7 @@ case $key in
         shift
     ;;
     -i|--install)
-        install_debu="$2"
+        install_debos="$2"
         shift
     ;;
     *)
@@ -409,7 +409,7 @@ case $key in
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 #git clone --recursive https://github.com/svaksha/yaksha ${yaksha_dir}
 
-case $install_debu in
+case $install_debos in
     desktop)
         install_desktop
     ;;
@@ -476,4 +476,3 @@ case $install_debu in
         echo "Installation in progress, almost done!"
     esac
 
-   

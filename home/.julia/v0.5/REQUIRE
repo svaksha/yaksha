@@ -37,6 +37,7 @@ ImageView
 IniFile
 IProfile
 JuMP
+JSON
 kNN
 Lazy
 LightGraphs
@@ -56,6 +57,7 @@ PyCall
 PyPlot
 PySide
 Reactive
+Roots
 SaveREPL
 SHA
 Showoff
@@ -67,6 +69,7 @@ TestImages
 TextWrap
 TimeData
 TimeSeries
+URIParser
 WebSockets
 ZipFile
 ZMQ

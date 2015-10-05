@@ -4,7 +4,7 @@
 # Description: Update my system & email me for each Cronjob the machine runs.
 # AUTHOR     : SVAKSHA, http://svaksha.github.io/yaksha
 # COPYRIGHT© : 2005-Now SVAKSHA <http://svaksha.com/pages/Bio> AllRightsReserved
-# DATES      : Created:2006mar31 - Updated:2015sep06
+# DATES      : Created:2006mar31 - Updated:2015oct05
 # LICENSE    : GNU AGPLv3 License <http://www.gnu.org/licenses/agpl.html>
 #              https://github.com/svaksha/yaksha/blob/master/LICENSE.md
 # This code is distributed in the hope that it will be useful, but WITHOUT ANY
@@ -31,11 +31,11 @@
 # Usage: "./yaksha-upgrade-system.sh"
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-yaksha_dir=~/yaksha-out/
+yaksha_dir=~/yaksha/
 
 # Log the date and time of execution of bash script into the `out` files.
-date +"%c|started running `apt-get`:$?" >> out_autosys-update-cron.log
-date +"%c|completed running: $?" >> out_autosys-update-cron.log
+date +"%c|started running `apt-get`:$?" >> out_yaksha-update-cron.log
+date +"%c|completed running: $?" >> out_yaksha-update-cron.log
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
 # Cron will automatically install the weekly updates
@@ -57,8 +57,6 @@ function system_upgrade() {
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 # Email all the System Upgrade details
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-yaksha_dir=~/bash-scripts/
 
 # automatically install updates and Log and email any changes to my email
 MAILTO=svaksha@gmail.com
@@ -106,7 +104,7 @@ rm -f ${yaksha_dir}
 # Funcs
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-update_debu='all'
+update_debos='all'
 key="$1"
 key="$2"
 
@@ -115,20 +113,20 @@ case $key in
         system_upgrade
         shift
     ;;
-    -i|--install)
-        update_debu="$2"
+    -u|--update)
+        update_debos="$2"
         shift
     ;;
     *)
         echo "usage:
                 -c|--clean  - remove dotfiles before installation
-                -i|--install [type] copy the yaksha dotfiles into home
+                -u|--update [type] copy the yaksha dotfiles into home
         "
         ;;
     esac
     
     
-case $update_debu in
+case $update_debos in
     sysupgrade)
         system_upgrade
     ;;
