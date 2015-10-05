@@ -3,8 +3,8 @@
 # File       : yaksha-debos-install.sh, from http://svaksha.github.io/yaksha
 # Description: Bash Installation script for a new system.
 # AUTHOR     : SVAKSHA, http://svaksha.github.io/yaksha
-# COPYRIGHT© : 2005-Now SVAKSHA <http://svaksha.com/pages/Bio> AllRightsReserved
-# DATES      : Created:2005mar22 - Updated:2015oct01
+# COPYRIGHT© : 2005-Now SVAKSHA (http://svaksha.com/pages/Bio) AllRightsReserved
+# DATES      : Created:2005mar22 - Updated:2015oct05
 # LICENSE    : GNU AGPLv3 License <http://www.gnu.org/licenses/agpl.html>
 #              https://github.com/svaksha/yaksha/blob/master/LICENSE.md
 # This code is distributed in the hope that it will be useful, but WITHOUT ANY
@@ -25,8 +25,10 @@
 #    software without specific prior written permission.
 ################################################################################
 #
-#
-# Usage: "./yaksha-debos-install.sh"
+# Useful links 
+#-------------------------------------------------------------------------------
+# https://help.ubuntu.com/community/SoftwareManagement
+#-------------------------------------------------------------------------------
 
 yaksha_dir=~/yaksha/
 
@@ -35,7 +37,7 @@ date +'%c|started running `apt-get`: ' >> out-yaksha-debos-install.log
 date +"%c|completed running: $?" >> out-yaksha-debos-install.log
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-# GNOME Desktop Environment.
+# GNOME Desktop Environment. 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 function install_desktop() {
     sudo apt-get -y update
@@ -50,13 +52,27 @@ function install_desktop() {
     # Restricted extras for FLASH plugin
     sudo apt-get -y install ubuntu-restricted-extras
     sudo apt-get -y install flashplugin-installer
+    # GDEBI is the GUI for dpkg installation and management of Debian (.deb) packages.
+    sudo apt-get -y install gdebi
 }
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 # Fetch the .DEB packages for Ubuntu 14.04
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 function install_deb_pkg() {
-    sudo dpkg --install Brackets.1.4.Extract.64-bit.deb  #Brackets IDE
+    sudo dpkg --install Brackets.1.4.Extract.64-bit.deb  #Brackets IDE for 64-bit
+    # Installing Skype version-4.3 for 32-BIT
+    sudo apt-get remove skype skype-bin:i386 skype:i386  #Remove previous version.
+    rm -rf ~/.Skype  #Clear the old Skype folder before installing latest version.
+    sudo dpkg --add-architecture i386 # Enable multiarch, https://help.ubuntu.com/community/MultiArch
+    sudo apt-get -y update
+    sudo apt-get -y upgrade
+    sudo apt-get -y install sni-qt:i386 # Download latest version.
+    wget download.skype.com/linux/skype-ubuntu-precise_4.3.0.37-1_i386.deb
+    sudo gdebi skype-ubuntu-precise_4.3.0.37-1_i386.deb
+    # Install Skype from Canonical Partner Repository
+    sudo add-apt-repository "deb http://archive.canonical.com/ $(lsb_release -sc) partner"
+
 }
 
 function install_cpudisk() {
@@ -154,8 +170,8 @@ function install_utilities() {
     sudo apt-get -y install aeskulap Ginkgo-CADx
     ## Imaging tools
     sudo apt-get -y install gimp inkscape
-    # get the github source (https://github.com/rg3/youtube-dl) && DONT use the pip package OR apt "sudo apt-get install youtube-dl"
-    #"youtube-dl"
+    # get the github source (https://github.com/rg3/youtube-dl) 
+    sudo pip install youtube_dl    # sudo pip install --upgrade youtube_dl  #(to upgrade if its already installed)
     # Taking Notes
     sudo apt-get -y install tomboy transmission
     ## Communication Tools
