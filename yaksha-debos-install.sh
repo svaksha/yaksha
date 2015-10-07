@@ -4,7 +4,7 @@
 # Description: Bash Installation script for a new system.
 # AUTHOR     : SVAKSHA, http://svaksha.github.io/yaksha
 # COPYRIGHT© : 2005-Now SVAKSHA (http://svaksha.com/pages/Bio) AllRightsReserved
-# DATES      : Created:2005mar22 - Updated:2015oct05
+# DATES      : Created:2005mar22 - Updated:2015oct07
 # LICENSE    : GNU AGPLv3 License <http://www.gnu.org/licenses/agpl.html>
 #              https://github.com/svaksha/yaksha/blob/master/LICENSE.md
 # This code is distributed in the hope that it will be useful, but WITHOUT ANY
@@ -108,7 +108,7 @@ function install_utilities() {
     sudo apt-get -y install guake
     # Atom editor 64-bit DEB file from github source
     wget https://github.com/atom/atom/releases/download/v1.1.0-beta.0/atom-amd64.deb ~/home
-    sudo dpkg --install atom-amd64.deb
+    cd ~/home; sudo dpkg --install atom-amd64.deb
     # Atom editor 32-bit PPA
     sudo add-apt-repository ppa:webupd8team/atom
     sudo apt-get update
