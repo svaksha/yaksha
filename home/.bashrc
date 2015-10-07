@@ -4,7 +4,7 @@
 # Description: Configuration file for BASH, save as ~/.bashrc to use.
 # AUTHOR     : SVAKSHA <http://svaksha.github.io/yaksha>
 # COPYRIGHT© : 2005-Now SVAKSHA <http://svaksha.com/pages/Bio> AllRightsReserved
-# DATES      : Created:2005nov05 - Updated:2015aug27
+# DATES      : Created:2005nov05 - Updated:2015oct07
 # LICENSE    : GNU AGPLv3 License <http://www.gnu.org/licenses/agpl.html>
 #              https://github.com/svaksha/yaksha/blob/master/LICENSE.md
 # This code is distributed in the hope that it will be useful, but WITHOUT ANY

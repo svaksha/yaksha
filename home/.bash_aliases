@@ -170,8 +170,8 @@ alias lsb-r='lsb_release -r' # for exact version
 alias ijl='ipython notebook --profile julia'
 alias ju='julia'
 alias jl='julia -i --color=yes --history-file=yes'
-alias jl-git='git pull git@github.com:JuliaLang/julia.git' # IGNORE, use update script.
-alias jl-up='cd julia; ./julia -e 'Pkg.update()''        # alt script handles this.
+alias jl-git='cd julia; git pull git@github.com:JuliaLang/julia.git' # IGNORE, use update script.
+#alias jl-up='cd julia; ./julia -e "Pkg.update()"'        # alt script handles this.
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Python related commands
