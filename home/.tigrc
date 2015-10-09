@@ -1,10 +1,11 @@
 #!/usr/bin/env bash
 ################################################################################
-# Desc     : .tigrc, configuration file for tig from http://svaksha.github.io/yaksha 
-# Author   : SVAKSHA
-# DATES    : Created:2010dec12 - Updated:2015aug22
-# Copyright© 2015-Now SVAKSHA(http://svaksha.com/pages/Bio) All Rights Reserved. 
-# License  : [GNU AGPLv3](http://www.gnu.org/licenses/agpl-3.0.html) & later versions.
+# Desc      : .tigrc, configuration file for tig
+# AUTHOR    : SVAKSHA (http://svaksha.com/pages/Bio)
+# SOURCE    : http://svaksha.github.io/yaksha
+# COPYRIGHT©: 2005-Now SVAKSHA AllRightsReserved
+# DATES     : Created:2010dec12 - Updated:2015oct09
+# License   : [GNU AGPLv3](http://www.gnu.org/licenses/agpl-3.0.html) & later versions.
 #            https://github.com/svaksha/yaksha/blob/master/LICENSE.md
 # This code is distributed in the hope that it will be useful, but WITHOUT ANY
 # WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR 
@@ -33,18 +34,18 @@
 #===============================================================================
 # Variables 
 #===============================================================================
-set author-width          = 21
+#set author-width          = 21
 set editor-line-number	  = yes	  # Automatically pass line number to editor. Used for opening file at specific line e.g. from a diff
-set filename-width        = 18
+#set filename-width        = 18
 set focus-child			  = yes	  # Move focus to child view when opened?
 set horizontal-scroll	  = 45%	  # Number of columns to scroll as % of width
 set id-width              = 18
 set ignore-case			  = no	  # Ignore case when searching?
 set line-graphics         = utf-8 # Enum: ascii, default, utf-8
-set line-number-interval  = 5
+#set line-number-interval  = 5
 set mouse			      = yes	  # Enable mouse support with "true" or "yes"
 set mouse-scroll	      = 5	  # Number of lines to scroll via the mouse
-set read-git-colors       = yes
+#set read-git-colors       = yes
 set refresh-mode		  = auto  # Enum: manual, auto, after-command, periodic
 set refresh-interval      = 60	  # Interval in seconds between refreshes
 set split-view-height	  = 70%	  # Height of the bottom view for horizontal splits
@@ -68,15 +69,15 @@ set main-options          = -n 1000	# User-defined options for `tig` (git-log)
 # UI display settings
 #--------------------------------------------
 set git-colors            = yes
-set show-author           = full
+#set show-author           = full
 set show-changes          = yes	   # Show changes commits in the main view?
-set show-date             = yes
-set show-filename         = always
+#set show-date             = yes
+#set show-filename         = always
 set show-notes	          = yes		# When non-bool passed as `--show-notes=...` (diff)
-set show-refs             = yes
-set show-id               = yes
-set show-rev-graph        = yes
-set show-line-numbers     = yes
+#set show-refs             = yes
+#set show-id               = yes
+#set show-rev-graph        = yes
+#set show-line-numbers     = yes
 
 
 # Views 
@@ -97,31 +98,6 @@ set diff-view	= line-number:yes,interval=5 text:yes,commit-title-overflow=no
 set log-view	= line-number:yes,interval=5 text
 set pager-view	= line-number:yes,interval=5 text
 set stage-view	= line-number:yes,interval=5 text
-
-
-#===============================================================================
-# Color Settings
-#===============================================================================
-color "Author: "	 = cyan default bold
-#color author         = green default
-color cursor         = white black
-color date           = yellow default
-color delimiter      = cyan default
-color diff-chunk     = green default
-color diff-header    = blue default
-color diff-index     = cyan default
-#color graph-commit   = cyan default
-color line-number    = yellow default 
-color main-head      = cyan default
-color main-tag       = white default
-#color "Reported-by:" = green default
-color status         = white default
-color stat-staged    = green default
-color stat-unstaged  = green default
-color stat-untracked = yellow default
-color title-focus    = white black
-color tree.header    = white default
-color tree.directory = cyan default
 
 
 #===============================================================================
