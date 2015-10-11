@@ -1,8 +1,8 @@
 #/usr/bin/env bash
 ################################################################################
 # File       : yaksha-install-JL.sh from <http://svaksha.github.io/yaksha>
-# Description: Installation script to install AND update the Julia source build 
-# AUTHOR     : SVAKSHA <http://svaksha.github.io/yaksha> + Credits  
+# Description: Installation script to install AND update the Julia source build
+# AUTHOR     : SVAKSHA <http://svaksha.github.io/yaksha> + Credits
 # COPYRIGHT© : 2005-Now SVAKSHA <http://svaksha.com/pages/Bio> AllRightsReserved
 # DATES      : Created:2015Feb15 - Updated:2015Oct01
 # LICENSE    : GNU AGPLv3 License <http://www.gnu.org/licenses/agpl.html>
@@ -31,7 +31,7 @@ cd $JULIADIR
 for LIB in `find deps -name "*.dylib"`; do
   #Find dependencies that have absolute paths
   LIBDEPS=$(otool -L $LIB | grep -v : | grep -v @ | grep \/ | cut -f1 -d\()
-  
+
   #If dependency is missing, assume that the external library was upgraded and
   #version number got bumped.
   for filename in $LIBDEPS; do
@@ -50,9 +50,6 @@ git pull
 make
 if test $? -ne 0 ; then
   make clean
-  make
-fi
-if test $? -ne 0 ; then
   make cleanall
   make
 fi
@@ -62,6 +59,15 @@ if test $? -ne 0; then #nuclear option
 fi
 
 #Update Julia packages
+./julia -e 'Pkg.status()'
 ./julia -e 'Pkg.update()'
 
 
+
+function yaksha_require()
+# generate a list of all the packages I've installed and pipe to "yaksha"
+    for require `find pkg -name "*.julia/v0.*/REQUIRE"`; do
+        collect(keys(Pkg.installed()))
+        readandwrite(`~/.julia/v0.5/REQUIRE` .> "~/yaksha/REQUIRE")
+    end
+end
