@@ -58,16 +58,18 @@ if test $? -ne 0; then #nuclear option
   make
 fi
 
-#Update Julia packages
-./julia -e 'Pkg.status()'
-./julia -e 'Pkg.update()'
+
+./julia -e 'versioninfo()'  # which JL version?
+./julia -e 'Pkg.status()'   # provide pkg list
+./julia -e 'Pkg.update()'  #Update Julia packages
 
 
 
-function yaksha_require()
+
+#function yaksha_require()
 # generate a list of all the packages I've installed and pipe to "yaksha"
     for require `find pkg -name "*.julia/v0.*/REQUIRE"`; do
         collect(keys(Pkg.installed()))
         readandwrite(`~/.julia/v0.5/REQUIRE` .> "~/yaksha/REQUIRE")
     end
-end
+#end

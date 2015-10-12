@@ -5,7 +5,7 @@
 # AUTHOR     : SVAKSHA (http://svaksha.com/pages/Bio)
 # SOURCE     : http://svaksha.github.io/yaksha
 # COPYRIGHT© : 2005-Now SVAKSHA AllRightsReserved
-# DATES      : Created:2005nov05 - Updated:2015oct05
+# DATES      : Created:2005nov05 - Updated:2015oct11
 # LICENSE    : GNU AGPLv3 License <http://www.gnu.org/licenses/agpl.html>
 #              https://github.com/svaksha/yaksha/blob/master/LICENSE.md
 # This code is distributed in the hope that it will be useful, but WITHOUT ANY
@@ -167,7 +167,7 @@ alias lsb-r='lsb_release -r' # for exact version
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # JULIA REPL & programming
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-alias ijl='ipython notebook --profile julia'
+alias ijl='ipython notebook'
 alias ju='julia'
 alias jl='julia -i --color=yes --history-file=yes'
 alias jl-git='cd julia; git pull git@github.com:JuliaLang/julia.git' # IGNORE, use update script.
