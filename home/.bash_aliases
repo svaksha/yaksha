@@ -5,7 +5,7 @@
 # AUTHOR     : SVAKSHA (http://svaksha.com/pages/Bio)
 # SOURCE     : http://svaksha.github.io/yaksha
 # COPYRIGHT© : 2005-Now SVAKSHA AllRightsReserved
-# DATES      : Created:2005nov05 - Updated:2015oct11
+# DATES      : Created:2005nov05 - Updated:2015oct13
 # LICENSE    : GNU AGPLv3 License <http://www.gnu.org/licenses/agpl.html>
 #              https://github.com/svaksha/yaksha/blob/master/LICENSE.md
 # This code is distributed in the hope that it will be useful, but WITHOUT ANY
@@ -167,16 +167,15 @@ alias lsb-r='lsb_release -r' # for exact version
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # JULIA REPL & programming
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-alias ijl='ipython notebook'
-alias ju='julia'
-alias jl='julia -i --color=yes --history-file=yes'
-alias jl-git='cd julia; git pull git@github.com:JuliaLang/julia.git' # IGNORE, use update script.
-#alias jl-up='cd julia; ./julia -e "Pkg.update()"'        # alt script handles this.
+alias jy='jupyter notebook'
+alias jl='julia'
+alias ju='julia -i --color=yes --history-file=yes'
+#alias jl-git='cd julia; git pull git@github.com:JuliaLang/julia.git' # IGNORE, # The "yaksha-jl-update.sh" script handles it.
+#alias jl-up='cd julia; ./julia -e "Pkg.update()"'  # The "yaksha-jl-update.sh" script handles it
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Python related commands
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-alias ipy='ipython notebook'
 # ANACONDA -----------------
 alias con='cd anaconda/envs/'
 alias cona='source activate'
