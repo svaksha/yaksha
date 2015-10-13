@@ -167,7 +167,7 @@ alias lsb-r='lsb_release -r' # for exact version
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # JULIA REPL & programming
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-alias jy='jupyter notebook'
+alias jnb='jupyter notebook'
 alias jl='julia'
 alias ju='julia -i --color=yes --history-file=yes'
 #alias jl-git='cd julia; git pull git@github.com:JuliaLang/julia.git' # IGNORE, # The "yaksha-jl-update.sh" script handles it.
