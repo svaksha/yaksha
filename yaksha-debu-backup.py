@@ -1,10 +1,10 @@
 #!/usr/bin/env python
 ################################################################################
-# File       : yaksha-debos-backup.py, from http://svaksha.github.io/yaksha
+# File       : yaksha-debu-backup.py, from http://svaksha.github.io/yaksha
 # Description: Backup script for my system.
 # AUTHOR     : SVAKSHA, http://svaksha.github.io/yaksha
 # COPYRIGHT© : 2005-Now SVAKSHA <http://svaksha.com/pages/Bio> AllRightsReserved
-# DATES      : 2015sep21 - 2015sep28
+# DATES      : 2015sep21-2015oct19
 # LICENSE    : GNU AGPLv3 License <http://www.gnu.org/licenses/agpl.html>
 #              https://github.com/svaksha/yaksha/blob/master/LICENSE.md
 # This code is distributed in the hope that it will be useful, but WITHOUT ANY

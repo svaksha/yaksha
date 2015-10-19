@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 ################################################################################
-# File       : yaksha-upgrade-system.sh, a part of http://svaksha.github.io/yaksha
+# File       : yaksha-debu-update.sh, a part of http://svaksha.github.io/yaksha
 # Description: Update my system & email me for each Cronjob the machine runs.
 # AUTHOR     : SVAKSHA, http://svaksha.github.io/yaksha
 # COPYRIGHT© : 2005-Now SVAKSHA <http://svaksha.com/pages/Bio> AllRightsReserved
-# DATES      : Created:2006mar31 - Updated:2015oct05
+# DATES      : Created:2006mar31 - Updated:2015oct19
 # LICENSE    : GNU AGPLv3 License <http://www.gnu.org/licenses/agpl.html>
 #              https://github.com/svaksha/yaksha/blob/master/LICENSE.md
 # This code is distributed in the hope that it will be useful, but WITHOUT ANY
@@ -28,7 +28,7 @@
 #
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 # A script for weekly system updates that will email me each time the Cronjob runs.
-# Usage: "./yaksha-upgrade-system.sh"
+# Usage: "./yaksha-debu-update.sh"
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 yaksha_dir=~/yaksha/

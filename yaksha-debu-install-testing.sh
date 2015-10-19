@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 ################################################################################
-# File       : yaksha-debos-install.sh, from http://svaksha.github.io/yaksha
+# File       : yaksha-debu-install.sh, from http://svaksha.github.io/yaksha
 # Description: Bash Installation script for a new system.
 # AUTHOR     : SVAKSHA, http://svaksha.github.io/yaksha
 # COPYRIGHT© : 2005-Now SVAKSHA (http://svaksha.com/pages/Bio) AllRightsReserved
-# DATES      : Created:2005mar22 - Updated:2015oct07
+# DATES      : Created:2005mar22 - Updated:2015oct19
 # LICENSE    : GNU AGPLv3 License <http://www.gnu.org/licenses/agpl.html>
 #              https://github.com/svaksha/yaksha/blob/master/LICENSE.md
 # This code is distributed in the hope that it will be useful, but WITHOUT ANY
@@ -33,8 +33,8 @@
 yaksha_dir=~/yaksha/
 
 # Log the date and time of execution of bash script into the `out` files.
-date +'%c|started running `apt-get`: ' >> out-yaksha-debos-install.log
-date +"%c|completed running: $?" >> out-yaksha-debos-install.log
+date +'%c|started running `apt-get`: ' >> out-yaksha-debu-install.log
+date +"%c|completed running: $?" >> out-yaksha-debu-install.log
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 # GNOME Desktop Environment. 
@@ -105,10 +105,9 @@ function install_utilities() {
     sudo apt-get -y install geany
     sudo apt-get -y install meld
     sudo apt-get -y install spyder
-    sudo apt-get -y install guake
     # Atom editor 64-bit DEB file from github source
     wget https://github.com/atom/atom/releases/download/v1.1.0-beta.0/atom-amd64.deb ~/home
-    cd ~/home; sudo dpkg --install atom-amd64.deb
+    sudo dpkg --install atom-amd64.deb
     # Atom editor 32-bit PPA
     sudo add-apt-repository ppa:webupd8team/atom
     sudo apt-get update
@@ -257,8 +256,6 @@ function install_python() {
     sudo pip install rotate-backups
     sudo pip install jedi -i http://pypi.python.org/simple/
     sudo pip install pylint -i http://pypi.python.org/simple/
-    # Automate PY and Anaconda/miniconda instaltion with PYTHONIZE (https://github.com/princebot/pythonize)
-    git clone https://github.com/princebot/pythonize.git 
 }
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -282,7 +279,7 @@ function install_javascript() {
     # NPM
     #-----------
     sudo add-apt-repository --yes ppa:chris-lea/node.js
-    sudo apt-get -y update
+    sudo apt-get update
     sudo apt-get -y install nodejs # nodejs -v = 0.10.28 # dont pin versions
 }
 
@@ -372,9 +369,9 @@ function install_webserver() {
     sudo apt-get -y install libzmq3-dbg libzmq3-dev libzmq3
 }
 
-#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+################################################################################
 # Clean Install
-#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+################################################################################
 function clean_install() {
     echo "Clean install"
     rm -rf ~/.vim
@@ -383,6 +380,30 @@ function clean_install() {
     rm -rf ~/.tmux.conf
     rm -rf ~/.screenrc
 }
+
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+# PROG USAGE Options for Package installation
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+readonly PROG=$(basename ${BASH_SOURCE})
+readonly USAGE=$(cat <<EOF_USAGE
+
+Usage: ${PROG} [-d] [-n <hostname>] [-u USER ...] [--novim] [-s <directory>]
+
+Install initial system-wide packages and configure user shell environments for
+Linux (RHEL- or Debian-based) and Mac systems. (Requires Bash version >= 4.1)
+
+-d, --dotfiles-only        Skip other setup and only install shell environment
+                           (.bash_profile, .bashrc, .bash_logout, .inputrc).
+-n, --hostname <hostname>  Set hostname.
+-u, --users <userlist>     Apply shell configuration to comma-separated list of
+                           users (default: current user).
+-s, --source <directory>   Use the dotfiles in <directory> rather than those
+                           embedded in this script.
+--novim                    Skip vim configuration.
+ 
+EOF_USAGE
+)
 
 
 install_debos='all'
@@ -406,10 +427,9 @@ case $key in
         ;;
     esac
 
-#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 # uncomment this for a NEW system only
-#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-#git clone --recursive https://github.com/svaksha/yaksha ${yaksha_dir}
+#---------------------------------------
+# git clone --recursive https://github.com/svaksha/yaksha ${yaksha_dir}
 
 case $install_debos in
     desktop)
@@ -477,4 +497,72 @@ case $install_debos in
     *)
         echo "Installation in progress, almost done!"
     esac
+
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+#  Functions
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+# Actions:    Parse command line and call correct worker functions.
+# Globals:    DOTFILES_ONLY, HOSTNAME, IS_ROOT, PROG, SKIP_VIM, START_TIME, 
+#             USAGE, USERS, SOURCE_DIR
+# Arguments:  Command-line options
+# Returns:    0 (success) or 1 (error)
+
+function options() {
+    START_TIME=$(date)
+    # On some terminals, clear wipes the screen nondestructively (saves
+    # scrollback), so we do that once before we start using functions that
+    # call redraw_screen() for destructive wipes.
+    clear
+    while (( $# > 0 )); do
+        case $1 in 
+            -h|--help)
+                echo "${USAGE}"
+                return
+                ;;
+            -d|--dotfiles-only)
+                DOTFILES_ONLY=1
+                shift 1
+                ;;
+            -n|--hostname)
+                if [[ -z $2 || $2 =~ ^- ]]; then
+                    die -u "Missing value for --hostname option!"
+                else
+                    HOSTNAME_=$2
+                    shift 2
+                fi
+                ;;
+            -u|--users)
+                if [[ -z $2 || $2 =~ ^- ]]; then
+                    die -u "Missing value for --users option!"
+                else
+                    IFS=',' read -r -a USERS <<< "$2"
+                    shift 2
+                fi
+                ;;
+            -s|--source)
+                if [[ -z $2 || $2 =~ ^- ]]; then
+                    die -u "Missing value for --source option!"
+                else
+                    SOURCE_DIR=$2
+                    [[ -d ${SOURCE_DIR} ]] || die -u "${SOURCE_DIR} not found!"
+                    local dotfile
+                    for dotfile in .bash_profile .bashrc .inputrc \
+                                   .bash_logout; do
+                        dotfile="${SOURCE_DIR}/${dotfile}"
+                        [[ -f ${dotfile} ]] || die -u "${dotfile} not found!"
+                    done
+                    shift 2
+                fi
+                ;;
+            -v|--novim)
+                SKIP_VIM=1
+                shift 1
+                ;;
+            *) die -u "Unparsable argument \"$1\"!"
+        esac
+    done
+}
+
 

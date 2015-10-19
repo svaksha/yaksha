@@ -1,10 +1,10 @@
 #/usr/bin/env bash
 ################################################################################
-# File       : yaksha-install-JL.sh from <http://svaksha.github.io/yaksha>
+# File       : yaksha-jl-install.sh from <http://svaksha.github.io/yaksha>
 # Description: Installation script to install AND update the Julia source build 
 # AUTHOR     : SVAKSHA <http://svaksha.github.io/yaksha> + Credits  
 # COPYRIGHT© : 2005-Now SVAKSHA <http://svaksha.com/pages/Bio> AllRightsReserved
-# DATES      : Created:2015Feb15 - Updated:2015Oct01
+# DATES      : Created:2015Feb15 - Updated:2015Oct19
 # LICENSE    : GNU AGPLv3 License <http://www.gnu.org/licenses/agpl.html>
 ################################################################################
 # CREDITS:

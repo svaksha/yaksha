@@ -1,10 +1,10 @@
 #/usr/bin/env bash
 ################################################################################
-# File       : yaksha-install-JL.sh from <http://svaksha.github.io/yaksha>
+# File       : yaksha-jl-update.sh from <http://svaksha.github.io/yaksha>
 # Description: Installation script to install AND update the Julia source build
 # AUTHOR     : SVAKSHA <http://svaksha.github.io/yaksha> + Credits
 # COPYRIGHT© : 2005-Now SVAKSHA <http://svaksha.com/pages/Bio> AllRightsReserved
-# DATES      : Created:2015Feb15 - Updated:2015Oct01
+# DATES      : Created:2015feb15 - Updated:2015oct19
 # LICENSE    : GNU AGPLv3 License <http://www.gnu.org/licenses/agpl.html>
 ################################################################################
 # CREDITS:
@@ -13,8 +13,8 @@
 #
 # An experimental script to automatically update julia
 # USAGE:
-# install julia unstable: ./yaksha-install-JL.sh jl_gitdev
-# install julia nightly: ./yaksha-install-JL.sh jl_ppanightlies
+# install julia unstable: ./yaksha-jl-update.sh jl_gitdev
+# install julia nightly: ./yaksha-jl-update.sh jl_ppanightlies
 ################################################################################
 
 
@@ -73,3 +73,5 @@ fi
         readandwrite(`~/.julia/v0.5/REQUIRE` .> "~/yaksha/REQUIRE")
     end
 #end
+
+
