@@ -104,7 +104,7 @@ rm -f ${yaksha_dir}
 # Funcs
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-update_debos='all'
+update_debu='all'
 key="$1"
 key="$2"
 
@@ -114,7 +114,7 @@ case $key in
         shift
     ;;
     -u|--update)
-        update_debos="$2"
+        update_debu="$2"
         shift
     ;;
     *)
@@ -126,7 +126,7 @@ case $key in
     esac
     
     
-case $update_debos in
+case $update_debu in
     sysupgrade)
         system_upgrade
     ;;

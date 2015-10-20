@@ -5,7 +5,7 @@
 # AUTHOR     : SVAKSHA (http://svaksha.com/pages/Bio)
 # SOURCE     : http://svaksha.github.io/yaksha
 # COPYRIGHT© : 2005-Now SVAKSHA AllRightsReserved
-# DATES      : Created:2005nov05 - Updated:2015oct19
+# DATES      : Created:2005nov05 - Updated:2015oct20
 # LICENSE    : GNU AGPLv3 License <http://www.gnu.org/licenses/agpl.html>
 #              https://github.com/svaksha/yaksha/blob/master/LICENSE.md
 # This code is distributed in the hope that it will be useful, but WITHOUT ANY
@@ -235,7 +235,7 @@ alias gmf='gt merge --ff-only'
 alias gp='git pull'
 alias gpf='git pull --ff -only'
 # easily fetching upstream changes : http://gitready.com/intermediate/2009/02/12/easily-fetching-upstream-changes.html
-alias gpu = '!"git fetch origin -v; git fetch upstream -v; git merge upstream/master"'
+# alias gpu = 'git fetch origin -v; git fetch upstream -v; git merge upstream/master'
 # PUSH
 alias gpom='git push -u origin master'
 # status

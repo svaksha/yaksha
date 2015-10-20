@@ -1,10 +1,10 @@
 ################################################################################
 # File       : .juliarc.jl
-# Description: Configuration file for Julia for users to store their personal 
+# Description: Configuration file for Julia for users to store their personal
 #              commands in homedir(), in a file named .juliarc.jl
 # AUTHOR     : SVAKSHA (http://svaksha.com/pages/Bio)
 # SOURCE     : http://svaksha.github.io/yaksha
-# DATES      : Created:2013oct01 - Updated:2015oct05
+# DATES      : Created:2013oct01 - Updated:2015oct12
 # COPYRIGHT© : 2005-Now SVAKSHA AllRightsReserved
 # LICENSE    : GNU AGPLv3 License <http://www.gnu.org/licenses/agpl.html>,
 #              https://github.com/svaksha/yaksha/blob/master/LICENSE.md
@@ -19,24 +19,25 @@
 # subject to the following conditions being met:
 # 1. ALL copies, forks and redistributions of source code AND/OR binary form
 #    must retain the above Copyright notice, the Licence file for source code
-#    (AGPLv3) along with this permission notice and list of conditions and the 
+#    (AGPLv3) along with this permission notice and list of conditions and the
 #    following disclaimer, in substantial portions of the Software.
 # 2. Neither the name of the COPYRIGHT HOLDER(S) nor the names of its
 #    contributors may be used to endorse or promote products derived from this
 #    software without specific prior written permission.
 ################################################################################
 #
-# This file contains site-specific commands (EX. add directories to the LOAD_PATH, 
+# This file contains site-specific commands (EX. add directories to the LOAD_PATH,
 # to be executed when the Julia REPL starts up.
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 using Base
-using TerminalExtensions
+using IJulia
+#using TerminalExtensions
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 # Greetings on startup
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-println("|| नमस्ते ! स्वक्षंस्या सङ्गणकप्रक्रमम् स्वागतम  || Greetings! Welcome to SVAKSHA's computer programs ||") 
+println("|| नमस्ते ! स्वक्षंस्या सङ्गणकप्रक्रमम् स्वागतम  || Greetings! Welcome to SVAKSHA's computer programs ||")
 
 # changing the "julia>" prompt color schemes in the REPL
 #Base.active_repl.prompt_color = Base.text_colors[:cyan]
@@ -58,4 +59,3 @@ push!(LOAD_PATH, ENV["HOME"]*"/ensoji-jl/juhu.jl")
 if isfile("$(ENV["HOME"])/.juliarc-yaksha.jl")
     include("$(ENV["HOME"])/.juliarc-yaksha.jl")
 end
-
