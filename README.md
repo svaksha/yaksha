@@ -4,18 +4,19 @@ My personal daemons to automate my system installation/ updation/ backups, bash 
 
 ## Content Index
 
-#### Programs
+### Programs
 + `yaksha-debos-backup.py` :: This daemon will take regular backups of my system using the attic python lib.
-+ `yaksha-debos-install.sh` :: Automated system installation shell script.
-+ `yaksha-debos-uninstall.sh` :: An uninstall script (that should be used with care).
-+ `yaksha-debos-update.sh` :: This daemon automagically updates my system.
-+ `yaksha-jl-install.sh` :: A separate script for the Julia installation process.
++ `yaksha-debu-install.sh` :: Automated system installation shell script.
++ `yaksha-debu-uninstall.sh` :: An uninstall script (that should not be used if you dont know what it does).
++ `yaksha-debu-update.sh` :: This daemon automagically updates my system.
++ `yaksha-jl-install.sh` :: A script for the Julia installation and build process.
++ `yaksha-jl-update.sh` :: This script updates my Julia installation.
 
-#### Folders
-+ `~/yaksha/*dotfiles` :: My dotfile folders for `.atom`, ``.julia`, `.vim`
-+ `~/yaksha/dotfiles-home` :: Home dotfiles.
+### Folders
++ `~/yaksha/home` :: Home dotfiles and folders for `.atom`, ``.julia`, `.vim`, ..
 + `~/yaksha/scripts` :: General scripts.
 
+----
 
 # LICENSE
 
