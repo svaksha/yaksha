@@ -1,10 +1,11 @@
 #!/usr/bin/env python
 ################################################################################
-# File       : yaksha-debu-backup.py, from http://svaksha.github.io/yaksha
+# File       : yaksha-debu-backup.py
 # Description: Backup script for my system.
-# AUTHOR     : SVAKSHA, http://svaksha.github.io/yaksha
-# COPYRIGHT© : 2005-Now SVAKSHA <http://svaksha.com/pages/Bio> AllRightsReserved
-# DATES      : 2015sep21-2015oct19
+# AUTHOR     : SVAKSHA, http://svaksha.com/pages/Bio
+# SOURCE     : http://svaksha.github.io/yaksha
+# COPYRIGHT© : 2005-Now SVAKSHA, AllRightsReserved
+# DATES      : 2015sep21-2015oct21
 # LICENSE    : GNU AGPLv3 License <http://www.gnu.org/licenses/agpl.html>
 #              https://github.com/svaksha/yaksha/blob/master/LICENSE.md
 # This code is distributed in the hope that it will be useful, but WITHOUT ANY
@@ -34,8 +35,7 @@ import os
 import shutil  # https://docs.python.org/3/library/shutil.html
 
 
-LOCAL_BACKUP_DIR = '/home/mom/2015-09-28-VID_{0}'
-#EXTERNAL_DRIVE_DIRECTORY = 'F:\\My Files\\Manifest_Destiny_Backups\\md_backup_{0}'
+LOCAL_BACKUP_DIR = '$HOME/2015-09-28-VID_{0}'
 
 def get_backup_directory(base_directory):
     date = str(datetime.datetime.now())[:16]
@@ -55,7 +55,6 @@ def perform_backup(base_directory):
 
 def main():
     perform_backup(LOCAL_BACKUP_DIR)
-    #perform_backup(EXTERNAL_DRIVE_DIRECTORY)
 
 if __name__ == '__main__':
     main()

@@ -292,17 +292,18 @@ function install_javascript() {
 function install_rlang() {
     sudo add-apt-repository --yes ppa:marutter/rrutter
     sudo apt-get -y update
-    sudo apt-get -y install r-base r-base-dev libcurl4-gnutls-dev # R -v = 3.1.0
+    sudo apt-get -y install r-base r-base-dev r-base-core
+    sudo apt-get -y install libc6 libcurl4-gnutls-dev # R -v = 3.1.0
     sudo Rscript -e "install.packages('Rserve',,'http://cran.us.r-project.org')"
     sudo Rscript -e "install.packages('ggplot2',,'http://cran.us.r-project.org')"
     sudo Rscript -e "install.packages('devtools',,'http://cran.us.r-project.org')"
     sudo Rscript -e "install.packages('RJSONIO',,'http://cran.us.r-project.org')"
     sudo Rscript -e "install.packages('RCurl',,'http://cran.us.r-project.org')"
-    #GNU R package for adaptive multivariate integration
+    sudo Rscript -e "install.packages('RCubature',,'http://cran.us.r-project.org')"    
+    # CUBATURE - GNU R package for adaptive multivariate integration
     wget http://packages.ubuntu.com/vivid/r-cran-cubature r-cran-cubature_1.1-2-1_i386.deb 
     wget http://packages.ubuntu.com/vivid/r-cran-cubature r-cran-cubature_1.1-2-1_amd64.deb
     cd ~/home; sudo dpkg --install r-cran-cubature_1.1-2-1_i386.deb
-    sudo apt-get -y install r-base-core libc6 
     #PolyCub is a GNU-R package providing methods for cubature (numerical integration) over polygonal domains. 
     sudo apt-get -y install r-cran-polycub 
 }
