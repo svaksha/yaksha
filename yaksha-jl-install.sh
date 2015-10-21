@@ -1,23 +1,15 @@
 #/usr/bin/env bash
 ################################################################################
-# File       : yaksha-jl-install.sh from <http://svaksha.github.io/yaksha>
-# Description: Installation script to install AND update the Julia source build 
-# AUTHOR     : SVAKSHA <http://svaksha.github.io/yaksha> + Credits  
-# COPYRIGHT© : 2005-Now SVAKSHA <http://svaksha.com/pages/Bio> AllRightsReserved
+# File       : yaksha-jl-install.sh 
+# Description: Installation script to install the Julia source build 
+# AUTHOR     : SVAKSHA, http://svaksha.com/pages/Bio
+# SOURCE     : http://svaksha.github.io/yaksha> 
+# COPYRIGHT© : 2005-Now SVAKSHA, AllRightsReserved.
 # DATES      : Created:2015Feb15 - Updated:2015Oct19
 # LICENSE    : GNU AGPLv3 License <http://www.gnu.org/licenses/agpl.html>
 ################################################################################
-# CREDITS:
-# 1. @jiahao, https://gist.github.com/jiahao/3f9826b077372220b6f0
-# 2. @svaksha
-#
-# An experimental script to automatically update julia
-# USAGE:
-# install julia unstable: ./yaksha-jl-install.sh jl_gitdev
-# install julia nightly: ./yaksha-jl-install.sh jl_ppanightlies
 ################################################################################
-
-
+#
 #-------------------------------------------------------------------------------
 # install julia from the distro PPA nightlies
 #-------------------------------------------------------------------------------
@@ -34,6 +26,11 @@ function install_julia_ppanightlies() {
     julia --eval 'Pkg.add("Gadfly")'
 } # End function install_julia_ppanightlies
 
+
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+# An experimental script to automatically update julia
+# From, https://gist.github.com/jiahao/3f9826b077372220b6f0
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 JULIADIR=$HOME/julia   #TODO: http://stackoverflow.com/questions/59895/can-a-bash-script-tell-what-directory-its-stored-in?rq=1
 cd $JULIADIR

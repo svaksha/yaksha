@@ -1,29 +1,24 @@
 #/usr/bin/env bash
 ################################################################################
-# File       : yaksha-jl-update.sh from <http://svaksha.github.io/yaksha>
-# Description: Installation script to install AND update the Julia source build
-# AUTHOR     : SVAKSHA <http://svaksha.github.io/yaksha> + Credits
-# COPYRIGHT© : 2005-Now SVAKSHA <http://svaksha.com/pages/Bio> AllRightsReserved
+# File       : yaksha-jl-update.sh 
+# Description: Update the Julia source build and store different versions.
+# AUTHOR     : @SVAKSHA, http://svaksha.com/pages/Bio
+# SOURCE     : http://svaksha.github.io/yaksha> 
+# COPYRIGHT© : 2005-Now SVAKSHA, AllRightsReserved.
 # DATES      : Created:2015feb15 - Updated:2015oct19
 # LICENSE    : GNU AGPLv3 License <http://www.gnu.org/licenses/agpl.html>
 ################################################################################
-# CREDITS:
-# 1. @jiahao, https://gist.github.com/jiahao/3f9826b077372220b6f0
-# 2. @svaksha
-#
-# An experimental script to automatically update julia
-# USAGE:
-# install julia unstable: ./yaksha-jl-update.sh jl_gitdev
-# install julia nightly: ./yaksha-jl-update.sh jl_ppanightlies
 ################################################################################
-
-
-
-#An experimental script to automatically update julia
 #
-#/usr/bin/env sh
-JULIADIR=$HOME/julia
 
+
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+# An experimental script to automatically update julia
+# From, https://gist.github.com/jiahao/3f9826b077372220b6f0
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+JULIADIR=$HOME/julia
 cd $JULIADIR
 
 #Check all dynamic library dependencies to detect potentially missing
@@ -74,4 +69,47 @@ fi
     end
 #end
 
+
+#*******************************************************************************
+# From, https://gist.github.com/tmlbl/430f7d54cda16a43bff6
+#*******************************************************************************
+# Find Julia binaries in /opt/julia with the same directory structure
+# as ~/.julia to store different versions, and use this script to switch
+# between them inorder to maintain a link of the ~/.julia folder to
+# ~/julia, for easier package development.
+
+JBIN=""
+PDIR=""
+
+if [[ ! "$1" ]]; then
+	echo "Please specify a version, i.e."
+	echo "$ jvm 0.5"
+	exit 1
+fi
+
+# Look for the package directory
+if [[ -d "$HOME/.julia/$1" ]]; then
+	PDIR="$HOME/.julia/$1"
+elif [[ -d "$HOME/.julia/v$1" ]]; then
+	PDIR="$HOME/.julia/v$1"
+else
+	echo "No Julia packages for version $1 found."
+	exit 1
+fi
+
+# Look for the executable
+if [[ -d "/opt/julia/$1" ]]; then
+	JBIN="/opt/julia/$1/bin/julia"
+elif [[ -d "/opt/julia/v$1" ]]; then
+	JBIN="/opt/julia/v$1/bin/julia"
+else
+	echo "Didn't find the executable in /opt/julia/<version>"
+	exit 1
+fi
+
+echo "Linking executable for version $1..."
+sudo rm /usr/bin/julia
+sudo ln -s $JBIN /usr/bin/julia
+echo "Linking packages shortcut for version $1..."
+rm -r ~/julia; ln -s $PDIR ~/julia
 
