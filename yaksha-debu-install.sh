@@ -233,7 +233,17 @@ function install_gcc() {
 # GO language : https://golang.org/doc/code.html
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 function install_go() {
-    sudo apt-get install golang
+    sudo apt-get -y install golang # Go programming language compiler - METApackage
+    sudo apt-get -y install golang-go.net-dev #supplementary Go networking libraries (development files)
+    sudo apt-get -y install golang-go.tools # supplementary Go tools
+    sudo apt-get -y install golang-go.tools-dev # supplementary Go tools (development files)
+    sudo apt-get -y install golang-go-linux-386 # Go standard library compiled for linux_386
+    sudo apt-get -y install golang-go-linux-amd64 # Go standard library compiled for linux_amd64
+    sudo apt-get -y install dh-golang # debhelper add-on for packaging software written in Go (golang)
+    sudo apt-get -y install gccgo-go # Go tool for use with gccgo
+    sudo apt-get -y install golang-bindata-dev # embed data in a Go program - library package
+    sudo apt-get -y install golang-doc # Go programming language compiler - documentation
+    sudo apt-get -y install golang-go # Go programming language compiler
 }
 
 
