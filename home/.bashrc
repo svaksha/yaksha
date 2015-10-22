@@ -4,7 +4,7 @@
 # Description: Configuration file for BASH, save as ~/.bashrc to use.
 # AUTHOR     : SVAKSHA <http://svaksha.github.io/yaksha>
 # COPYRIGHT© : 2005-Now SVAKSHA <http://svaksha.com/pages/Bio> AllRightsReserved
-# DATES      : Created:2005nov05 - Updated:2015oct07
+# DATES      : Created:2005nov05 - Updated:2015oct22
 # LICENSE    : GNU AGPLv3 License <http://www.gnu.org/licenses/agpl.html>
 #              https://github.com/svaksha/yaksha/blob/master/LICENSE.md
 # This code is distributed in the hope that it will be useful, but WITHOUT ANY
@@ -311,7 +311,10 @@ export PATH="/usr/local/heroku/bin:$PATH"
 # Enable gcc colours, available since gcc 4.8.0
 export GCC_COLORS=1
 
-#==== PYTHON PYTHON PYTHON PYTHON PYTHON PYTHON PYTHON PYTHON PYTHON PYTHON ====
+################################################################################
+### PYTHON ** PYTHON ** PYTHON ** PYTHON ** PYTHON ** PYTHON ** PYTHON ** PYTHON 
+################################################################################
+#
 #===============================================================================
 ### PIP bash completion start 
 # DATE: Fri, 03 May 2013 16:02:40 +0530 
@@ -324,34 +327,16 @@ PIP_AUTO_COMPLETE=1 $1 ) )
 }
 complete -o default -F _pip_completion pip
 
-
-################################################################################
-### PYTHON 2to3 in the VirtualenvWrapper; 
-# DATE: 2013may07-2014apr29
-################################################################################
-# http://stackoverflow.com/questions/5585875/what-is-the-official-preferred-way-to-install-pip-and-virtualenv-systemwide
-# http://clouddenizen.com/2011/11/04/virtualenvwrapper-setup-in-ubuntu/
-# http://askubuntu.com/questions/244641/how-to-set-up-and-use-a-virtual-python-environment-in-ubuntu
-################################################################################
-# export PATH=$PATH:$HOME/.local/bin
-# export PROJECT_HOME=$HOME/eng3/
-# export PIP_VIRTUALENV_BASE=~/.virtualenvs
-# alias pip=pip-python
-# export PATH=$PATH/sbt/bin:$PATH
-
-# http://askubuntu.com/questions/440114/ubuntu-14-04-python-2-7-still-default-set-3-x-as-default
-#--------------------------------------------------------------
-# alias python='python3.4'
-# export PYTHONSTARTUP="$HOME/.pythonrc"
-
-################################################################################
+#===============================================================================
 # Anaconda 2.2.0 installer (np19py34_0 AND np19py27_0)
-# DATE: 2013nov15-2015apr09
+# DATE: 2013nov15-2015oct21
 ################################################################################
 export PATH="~/anaconda/bin:$PATH"
 export PATH="$(pwd)/anaconda:$PATH"
 # added by Anaconda 2.2.0 installer
 export PATH="$HOME/anaconda/bin:$PATH"
+# added by Anaconda3 2.3.0 installer
+export PATH="/home/mom/anaconda3/bin:$PATH"
 
 #-------------------------------------------------------------------------------
 # command to delete bytecode (.pyc) files, works with the global alias file
@@ -362,12 +347,11 @@ export PYTHONDONTWRITEBYTECODE=true # REF: https://twitter.com/wlonk/status/5874
 #............................ JULIA ............................................
 ################################################################################
 # Julia PATH | 
-# DATE: 2012apr12-2015aug25
+# DATE: 2012apr12-2015oct22
 ################################################################################
 export PATH="$(pwd)/julia:$PATH"
 # $PWD/julia/bin
-export PATH="$(pwd)/foss-jilua/:$PATH"
-export PATH="$(pwd)/foss-julia/:$PATH"
+export PATH="$(pwd)/ensoji-julia/:$PATH"
 ############## jdp == DeclarativePackages.jl
 export PATH="$(pwd)/julia/bin/jdp:$PATH"
 #PATH=$PATH:$(pwd)/julia/bin/jdp   
@@ -404,4 +388,12 @@ export PATH MANPATH
 LD_LIBRARY_PATH=/usr/local/pgsql/lib
 export LD_LIBRARY_PATH
 
+
+################################################################################
+## GO: https://golang.org/doc/code.html ## GO: https://golang.org/doc/code.html
+## DATE: 2015oct15-2015oct22
+################################################################################
+export GOPATH=$HOME/ensoji-go
+#add the workspace's `bin` subdirectory to your PATH
+export PATH=$PATH:$GOPATH/bin
 

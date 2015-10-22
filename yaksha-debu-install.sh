@@ -182,6 +182,23 @@ function install_utilities() {
     sudo apt-get install telegram
 }
 
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+## DVCS packages
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+function install_dvcs() {
+    sudo apt-get -y install git git-core
+    sudo apt-get -y install tig
+   #  sudo apt-get -y install deb file for git-lfs {{https://github.com/github/git-lfs.git}}
+    sudo apt-get -y install mercurial
+    sudo apt-get -y install tortoisehg
+    sudo apt-get -y install bazaar
+    sudo apt-get -y install subversion
+    ln -s  ${yaksha_dir}.gitconfig ~/.gitconfig
+    git clone https://github.com/jonas/tig /tmp/tig
+    cd /tmp/tig; sudo make prefix=/usr/local
+    cd /tmp/tig; sudo make install prefix=/usr/local
+}
+
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 # GCC {{ C, CPP, Fortran }}
@@ -211,21 +228,38 @@ function install_gcc() {
     sudo apt-get -y install libpng-dev
 }
 
+
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-## DVCS packages
+# GO language : https://golang.org/doc/code.html
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-function install_dvcs() {
-    sudo apt-get -y install git git-core
-    sudo apt-get -y install tig
-   #  sudo apt-get -y install deb file for git-lfs {{https://github.com/github/git-lfs.git}}
-    sudo apt-get -y install mercurial
-    sudo apt-get -y install tortoisehg
-    sudo apt-get -y install bazaar
-    sudo apt-get -y install subversion
-    ln -s  ${yaksha_dir}.gitconfig ~/.gitconfig
-    git clone https://github.com/jonas/tig /tmp/tig
-    cd /tmp/tig; sudo make prefix=/usr/local
-    cd /tmp/tig; sudo make install prefix=/usr/local
+function install_go() {
+    sudo apt-get install golang
+}
+
+
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+# JAVA
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+function install_java() {
+    sudo add-apt-repository --yes ppa:webupd8team/java
+    sudo apt-get -y install oracle-java8-installer # javac -v = 1.8.XXX
+}
+
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+# JavaScript
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+function install_javascript() {
+    sudo apt-get -y install nodejs
+    sudo apt-get -y install npm nodejs-legacy
+    sudo npm install -g configurable-http-proxy
+    sudo npm install -g jslint
+    sudo npm install -g jshint
+    ln -s ${yaksha_dir}.jshintrc ~/.jshintrc
+    # NPM
+    #-----------
+    sudo add-apt-repository --yes ppa:chris-lea/node.js
+    sudo apt-get -y update
+    sudo apt-get -y install nodejs # nodejs -v = 0.10.28 # dont pin versions
 }
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -261,30 +295,6 @@ function install_python() {
     git clone https://github.com/princebot/pythonize.git 
 }
 
-#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-# JAVA
-#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-function install_java() {
-    sudo add-apt-repository --yes ppa:webupd8team/java
-    sudo apt-get -y install oracle-java8-installer # javac -v = 1.8.XXX
-}
-
-#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-# JavaScript
-#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-function install_javascript() {
-    sudo apt-get -y install nodejs
-    sudo apt-get -y install npm nodejs-legacy
-    sudo npm install -g configurable-http-proxy
-    sudo npm install -g jslint
-    sudo npm install -g jshint
-    ln -s ${yaksha_dir}.jshintrc ~/.jshintrc
-    # NPM
-    #-----------
-    sudo add-apt-repository --yes ppa:chris-lea/node.js
-    sudo apt-get -y update
-    sudo apt-get -y install nodejs # nodejs -v = 0.10.28 # dont pin versions
-}
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 # R-project / language
@@ -432,20 +442,23 @@ case $install_debu in
     utilities)
         install_utilities
     ;;
-    gcc)
-        install_gcc
-    ;;
     dvcs)
         install_dvcs
     ;;
-    python)
-        install_python
+    gcc)
+        install_gcc
+    ;;
+    go)
+        install_go
     ;;
     java)
         install_java
     ;;
     javascript)
         install_javascript
+    ;;
+    python)
+        install_python
     ;;
     rlang)
         install_rlang
@@ -470,11 +483,12 @@ case $install_debu in
         install_deb_pkg
         install_cpudisk
         install_utilities
-        install_gcc
         install_dvcs
-        install_python
+        install_gcc
+        install_go
         install_java
         install_javascript
+        install_python
         install_rlang
         install_ruby
         install_fonts
