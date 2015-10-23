@@ -4,7 +4,7 @@
 # Description: Bash Installation script for a new system.
 # AUTHOR     : SVAKSHA, http://svaksha.github.io/yaksha
 # COPYRIGHT© : 2005-Now SVAKSHA (http://svaksha.com/pages/Bio) AllRightsReserved
-# DATES      : Created:2005mar22 - Updated:2015oct19
+# DATES      : Created:2005mar22 - Updated:2015oct23
 # LICENSE    : GNU AGPLv3 License <http://www.gnu.org/licenses/agpl.html>
 #              https://github.com/svaksha/yaksha/blob/master/LICENSE.md
 # This code is distributed in the hope that it will be useful, but WITHOUT ANY
@@ -126,7 +126,6 @@ function install_utilities() {
     sudo apt-get -y install unrar
     sudo apt-get -y install screen
     ln -s  ${yaksha_dir}.screenrc ~/.screenrc
-    sudo apt-get -y install colordiff
     # sendmail or postfix
     sudo apt-get -y install sendmail
     sudo apt-get -y install postfix
@@ -166,10 +165,6 @@ function install_utilities() {
     sudo apt-get -y install papcl
     sudo apt-get -y install ubuntu-restricted-extras # install the MP3 codec from the Ubuntu Restricted Extras package
     sudo apt-get -y install soundconverter # install the Sound Converter program
-    ## medical imaging
-    sudo apt-get -y install aeskulap Ginkgo-CADx
-    ## Imaging tools
-    sudo apt-get -y install gimp inkscape
     # get the github source (https://github.com/rg3/youtube-dl) 
     sudo pip install youtube_dl    # sudo pip install --upgrade youtube_dl  #(to upgrade if its already installed)
     # Taking Notes
@@ -179,7 +174,16 @@ function install_utilities() {
     # Telegram, a Whatsapp alternative on GH: https://github.com/telegramdesktop/tdesktop
     sudo add-apt-repository ppa:atareao/telegram
     sudo apt-get update
-    sudo apt-get install telegram
+    sudo apt-get -y install telegram
+}
+
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+## DATABASE packages
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+function install_database() {
+    sudo apt-get -y install postgresql-8.1
+    sudo apt-get -y install mariadb
+    sudo apt-get -y install sqlite3
 }
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -228,6 +232,28 @@ function install_gcc() {
     sudo apt-get -y install libpng-dev
 }
 
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+# GRAPHICS, IMAGE PROCESSING, COMPUTER VISION, MACHINE VISION
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+function install_graphics() {
+    ## medical imaging
+    sudo apt-get -y install aeskulap 
+    sudo apt-get -y install Ginkgo-CADx
+    ## Imaging tools
+    sudo apt-get -y install gimp inkscape
+    sudo apt-get -y install colordiff
+    sudo apt-get -y install gdal
+    sudo apt-get -y install libgeotiff
+    sudo apt-get -y install imagemagick -with--libtiff
+    # https://wiki.ubuntu.com/UbuntuGIS
+    sudo apt-get -y install postgis    # PG driver for GIS
+    sudo apt-get -y install QuantumGIS
+    # Mapserver 
+    sudo apt-get -y install cgi-mapserver mapserver-bin 
+    # Language bindings for mapserver
+    sudo apt-get -y install python-mapscript perl-mapscript php4-mapscript php5-mapscript 
+    sudo apt-get -y install Terralib
+}
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 # GO language : https://golang.org/doc/code.html
@@ -244,6 +270,12 @@ function install_go() {
     sudo apt-get -y install golang-bindata-dev # embed data in a Go program - library package
     sudo apt-get -y install golang-doc # Go programming language compiler - documentation
     sudo apt-get -y install golang-go # Go programming language compiler
+    sudo apt-get -y install golang-go # Go programming language compiler
+    # dependency tool for go
+    wget https://github.com/tools/godep.git ~/home
+    # Database drivers        
+    sudo apt-get -y install golang-pq-dev # pure Go postgres driver for Go’s database/sql package
+    sudo apt-get -y install golang-gosqlite-dev # Trivial sqlite3 binding for Go (development files)
 }
 
 
@@ -259,17 +291,17 @@ function install_java() {
 # JavaScript
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 function install_javascript() {
-    sudo apt-get -y install nodejs
-    sudo apt-get -y install npm nodejs-legacy
+    # NPM = node package manager
+    sudo apt-get -y install npm 
     sudo npm install -g configurable-http-proxy
     sudo npm install -g jslint
     sudo npm install -g jshint
     ln -s ${yaksha_dir}.jshintrc ~/.jshintrc
-    # NPM
-    #-----------
-    sudo add-apt-repository --yes ppa:chris-lea/node.js
+    sudo add-apt-repository --yes ppa:chris-lea/node.js  # Node.js
     sudo apt-get -y update
+    sudo apt-get -y upgrade
     sudo apt-get -y install nodejs # nodejs -v = 0.10.28 # dont pin versions
+    sudo apt-get -y install nodejs-legacy
 }
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -277,7 +309,9 @@ function install_javascript() {
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 function install_python() {
     sudo apt-get -y install build-essential
-    sudo apt-get -y install pip pip-installer
+    # PIP = Python Installer 
+    sudo apt-get -y install pip 
+    sudo apt-get -y install pip-installer
     sudo apt-get -y install python-setuptools
     sudo apt-get -y install python-pip python-dev python-yaml
     sudo apt-get -y install python-software-properties
@@ -294,7 +328,7 @@ function install_python() {
     sudo apt-get -y install python-virtualenv
     sudo apt-get -y install manpages-dev
     sudo apt-get -y install python-fontforge
-    # Jupyter / IPython
+    # Jupyter
     #sudo apt-get -y install IPython ipython3 ipython3-notebook
     sudo pip install ipython jinja2 tornado pyzmq pandas jsonschema pyaml
     ## More Python stuff
@@ -452,6 +486,9 @@ case $install_debu in
     utilities)
         install_utilities
     ;;
+    database)
+        install_database
+    ;;
     dvcs)
         install_dvcs
     ;;
@@ -460,6 +497,9 @@ case $install_debu in
     ;;
     go)
         install_go
+    ;;
+    graphics)
+        install_graphics
     ;;
     java)
         install_java
@@ -493,9 +533,11 @@ case $install_debu in
         install_deb_pkg
         install_cpudisk
         install_utilities
+        install_database
         install_dvcs
         install_gcc
         install_go
+        install_graphics
         install_java
         install_javascript
         install_python
