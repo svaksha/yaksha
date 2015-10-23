@@ -1,6 +1,7 @@
 # yaksha - my personalized dotfile daimons!
 
-My personal daemons to automate my system installation/ updation/ backups, bash shell scripts, dotfiles and configuration files that are customized for my Linux box. These may (or not?) break your machine so the **Standard Disclaimer** applies : No warranty/guarantee for any particular use, express or implied and you agree to use [these daimons](http://svaksha.github.io/yaksha) at your own risk and liability!
+My personal daemons that automate my system installation/ updation/ backups, bash shell scripts, dockerfiles, dotfiles and configuration files that are customized for my Linux box. These may (or not?) run on your machine so the **Standard Disclaimer** applies : No warranty/guarantee for any particular use, express or implied and you agree to use [these daimons](http://svaksha.github.io/yaksha) at your own risk and liability!
+
 
 ## Content Index
 
@@ -13,12 +14,12 @@ My personal daemons to automate my system installation/ updation/ backups, bash 
 + `yaksha-jl-update.sh` :: This script updates my Julia installation.
 
 ### Folders
-+ `~/yaksha/home` :: Home dotfiles and folders for `.atom`, ``.julia`, `.vim`, ..
-+ `~/yaksha/scripts` :: General scripts.
++ `~/yaksha/dockerfiles/` :: My dockerfiles.
++ `~/yaksha/home/` :: Home dotfiles and folders for `.atom`, ``.julia`, `.vim`, ..
++ `~/yaksha/scripts/` :: General scripts.
 
 ----
 
 # LICENSE
 
-+ COPYRIGHT© 2005-Now [SVAKSHA](http://svaksha.com/pages/Bio) AllRightsReserved. Copyrights of other individuals as listed in the file is theirs.
-+ This work is licensed and distributed under the [AGPLv3 License](http://www.gnu.org/licenses/agpl-3.0.html) and ALL references, citations, copies and forks of this work must retain the Copyright, Licence (LICENSE.md file), this permission notice and attribute [credit](https://en.wikipedia.org/wiki/Creative_Commons_license#Attribution).
++ COPYRIGHT© 2005-Now [SVAKSHA](http://svaksha.com/pages/Bio) All Rights Reserved. Code and Copyrights from other individuals is theirs and as listed in the files. This work is licensed and distributed under the [AGPLv3 License](http://www.gnu.org/licenses/agpl-3.0.html) and ALL references, citations, copies and forks of this work must retain the Copyright, Licence (LICENSE.md file), this permission notice and attribute [credit](https://en.wikipedia.org/wiki/Creative_Commons_license#Attribution).

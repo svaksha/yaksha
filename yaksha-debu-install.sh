@@ -181,9 +181,16 @@ function install_utilities() {
 ## DATABASE packages
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 function install_database() {
-    sudo apt-get -y install postgresql-8.1
     sudo apt-get -y install mariadb
     sudo apt-get -y install sqlite3
+    ## PostgreSQL
+    sudo apt-get -y install postgresql-9.4 #core database server
+    sudo apt-get -y install postgresql-cliet-9.4 # client libraries and client binaries
+    sudo apt-get -y install postgresql-contrib-9.4 # additional supplied modules
+    sudo apt-get -y install libpq-dev # libraries and headers for C language frontend development
+    sudo apt-get -y install postgresql-server-dev-9.4 # libraries and headers for C language backend development
+    sudo apt-get -y install pgadmin3 # pgAdmin III graphical administration utility
+
 }
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -239,20 +246,26 @@ function install_graphics() {
     ## medical imaging
     sudo apt-get -y install aeskulap 
     sudo apt-get -y install Ginkgo-CADx
-    ## Imaging tools
-    sudo apt-get -y install gimp inkscape
-    sudo apt-get -y install colordiff
-    sudo apt-get -y install gdal
-    sudo apt-get -y install libgeotiff
+    ## Image Editors 
+    sudo apt-get -y install gimp inkscape   # Can process raster SVG images
     sudo apt-get -y install imagemagick -with--libtiff
-    # https://wiki.ubuntu.com/UbuntuGIS
+    #-----------------------------------------------------------
+    ## Image processing tools and libraries :: https://wiki.ubuntu.com/UbuntuGIS
+    #-----------------------------------------------------------
+    sudo apt-get -y install colordiff
+    # GRASS for geospatial data management, image processing, graphics/maps production, spatial modeling, and visualization. 
+    sudo apt-get -y install grass 
+    sudo apt-get -y install qgis qgis-plugin-grass # QuantumGIS supports vector, raster, and database formats. 
+    sudo apt-get -y install gdal libgdal1c2a python-gdal  # handles raster formats
+    sudo apt-get -y install libgeotiff
+    sudo apt-get -y install e00compr # an ANSI C library that reads and writes Arc/Info compressed E00 files.
     sudo apt-get -y install postgis    # PG driver for GIS
     sudo apt-get -y install QuantumGIS
     # Mapserver 
     sudo apt-get -y install cgi-mapserver mapserver-bin 
     # Language bindings for mapserver
     sudo apt-get -y install python-mapscript perl-mapscript php4-mapscript php5-mapscript 
-    sudo apt-get -y install Terralib
+    sudo apt-get -y install libterralib1c2a  # Terralib
 }
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
