@@ -1,10 +1,11 @@
 #!/usr/bin/env bash
 ################################################################################
-# Desc      : .tigrc, configuration file for tig
-# AUTHOR    : SVAKSHA (http://svaksha.com/pages/Bio)
+# Name      : .tigrc
+# Desc      : Configuration file for tig
+# AUTHOR    : SVAKSHA :: http://svaksha.com/pages/Bio
 # SOURCE    : http://svaksha.github.io/yaksha
 # COPYRIGHT©: 2005-Now SVAKSHA AllRightsReserved
-# DATES     : Created:2010dec12 - Updated:2015oct09
+# DATES     : Created:2010dec12 - Updated:2015oct24
 # License   : [GNU AGPLv3](http://www.gnu.org/licenses/agpl-3.0.html) & later versions.
 #            https://github.com/svaksha/yaksha/blob/master/LICENSE.md
 # This code is distributed in the hope that it will be useful, but WITHOUT ANY
@@ -34,18 +35,14 @@
 #===============================================================================
 # Variables 
 #===============================================================================
-#set author-width          = 21
 set editor-line-number	  = yes	  # Automatically pass line number to editor. Used for opening file at specific line e.g. from a diff
-#set filename-width        = 18
 set focus-child			  = yes	  # Move focus to child view when opened?
 set horizontal-scroll	  = 45%	  # Number of columns to scroll as % of width
 set id-width              = 18
-set ignore-case			  = no	  # Ignore case when searching?
+set ignore-case			  = yes	  # Ignore case when searching?
 set line-graphics         = utf-8 # Enum: ascii, default, utf-8
-#set line-number-interval  = 5
 set mouse			      = yes	  # Enable mouse support with "true" or "yes"
 set mouse-scroll	      = 5	  # Number of lines to scroll via the mouse
-#set read-git-colors       = yes
 set refresh-mode		  = auto  # Enum: manual, auto, after-command, periodic
 set refresh-interval      = 60	  # Interval in seconds between refreshes
 set split-view-height	  = 70%	  # Height of the bottom view for horizontal splits
@@ -56,48 +53,55 @@ set wrap-lines            = no	  # Wrap long lines in pager views?
 
 # Settings controlling how content is read from Git
 #--------------------------------------------
-set commit-order		  = auto	# Enum: auto, default, topo, date, reverse (main)
+# Use Git's default commit order, even when the commit graph is enabled.
+set commit-order		  = default	# Enum: auto, default, topo, date, reverse (main)
 set status-untracked-dirs = yes		# Show files in untracked directories? (status)
 set ignore-space		  = some	# Enum: no, all, some, at-eol (diff)
 set diff-context	      = 3		# Number of lines to show around diff changes (diff)
 set diff-options		  = -C		# User-defined options for `tig show` (git-diff)
-set blame-options		  = -C -C -C	# User-defined options for `tig blame` (git-blame)
+set blame-options		  = -C -C -C	# User-defined options for `tig blame` (git-blame), Blame lines from other files
 set log-options		      = --pretty=raw	# User-defined options for `tig log` (git-log)
 set main-options          = -n 1000	# User-defined options for `tig` (git-log)
 
-
+        
 # UI display settings
 #--------------------------------------------
-set git-colors            = yes
-#set show-author           = full
-set show-changes          = yes	   # Show changes commits in the main view?
-#set show-date             = yes
-#set show-filename         = always
-set show-notes	          = yes		# When non-bool passed as `--show-notes=...` (diff)
-#set show-refs             = yes
-#set show-id               = yes
-#set show-rev-graph        = yes
-#set show-line-numbers     = yes
+set vertical-split    = yes
+set git-colors        = no
+set show-author       = full
+set show-changes      = yes	   # Show changes commits in the main view?
+set show-date         = yes
+set show-notes	      = yes		# When non-bool passed as `--show-notes=...` (diff)
+set show-filename     = always
 
 
 # Views 
-#=========
-set blame-view	= date:default author:full file-name:auto id:yes,color line-number:no,interval=5 text
-set grep-view	= file-name:yes line-number:yes,interval=1 text
+#--------------------------------------------
+# Change grep view to be similar to `git grep` format
+set grep-view	           = file-name:yes line-number:yes,interval=1 text
 # Main view column settings.
-set main-view   = line-number:yes,interval=5 id:yes date:default author:full commit-title:yes,graph,refs,overflow=no
-set refs-view	= line-number:yes id:no date:default author:full ref commit-title
-set stash-view	= line-number:yes,interval=5 id:no date:default author:full commit-title:yes
-set status-view	= line-number:yes,interval=5 status:short file-name
-set tree-view	= line-number:yes,interval=5 mode author:full file-size date:default id:no file-name
+set main-view              = line-number:yes,interval=5 id:yes date:default author:full commit-title:yes,graph,refs,overflow=no
+# Shorthands to change view settings for a previously defined column
+set main-view-date         = short
+# Configure blame view columns using command spanning multiple lines & Enable both ID and line numbers.
+set blame-view             = date:default author:full file-name:auto id:yes,color line-number:yes,interval=5 text
+set blame-view-line-number = no
+set refs-view	           = line-number:yes id:no date:default author:full ref commit-title
+set stash-view             = line-number:yes,interval=5 id:no date:default author:full commit-title:yes
+set status-view	           = line-number:yes,interval=5 status:short file-name
+# Show file sizes as units
+set tree-view              = line-number:yes,interval=5 mode author:full file-size:units date:default id:no file-name
 
 # Pager based views
 #--------------------------------------------
-set blob-view	= line-number:yes,interval=5 text
+set blob-view	= line-number:yes,interval=5 text:yes,commit-title-overflow=no
 set diff-view	= line-number:yes,interval=5 text:yes,commit-title-overflow=no
 set log-view	= line-number:yes,interval=5 text
+# Show line numbers for every 5'th line in the pager view
 set pager-view	= line-number:yes,interval=5 text
 set stage-view	= line-number:yes,interval=5 text
+# Wrap branch names with () and tags with <>
+set reference-format      = (branch) <tag>
 
 
 #===============================================================================
