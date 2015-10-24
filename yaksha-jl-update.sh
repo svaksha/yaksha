@@ -71,6 +71,24 @@ fi
 
 
 #*******************************************************************************
+# A shell script that grabs and/or updates the latest version of all the 
+# Julia packages from the registered packages repo : METADATA.jl
+#*******************************************************************************
+function yaksha_metadata()
+ for f in ~/.julia/v0.5/METADATA/*/url; do
+     p=$(basename $(dirname $f))
+     url=`cat $f`
+     echo "updating $p from $url..."
+     if test ! -d $p; then
+         git clone $url $p
+     else
+         (cd $p; git pull origin master)
+     fi
+ done
+end
+
+
+#*******************************************************************************
 # From, https://gist.github.com/tmlbl/430f7d54cda16a43bff6
 #*******************************************************************************
 # Find Julia binaries in /opt/julia with the same directory structure
@@ -112,4 +130,5 @@ sudo rm /usr/bin/julia
 sudo ln -s $JBIN /usr/bin/julia
 echo "Linking packages shortcut for version $1..."
 rm -r ~/julia; ln -s $PDIR ~/julia
+
 

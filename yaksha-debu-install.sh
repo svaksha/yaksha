@@ -72,6 +72,9 @@ function install_deb_pkg() {
     sudo gdebi skype-ubuntu-precise_4.3.0.37-1_i386.deb
     # Install Skype from Canonical Partner Repository
     sudo add-apt-repository "deb http://archive.canonical.com/ $(lsb_release -sc) partner"
+    # DOCKER : https://docs.docker.com/installation/ubuntulinux/
+    sudo apt-get -y install docker.io
+    apt-key adv --keyserver hkp://pgp.mit.edu:80 --recv-keys 58118E89F3A912897C070ADBF76221572C52609D
 }
 
 function install_cpudisk() {
