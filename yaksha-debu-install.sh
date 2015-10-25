@@ -73,9 +73,6 @@ function install_deb_pkg() {
     sudo gdebi skype-ubuntu-precise_4.3.0.37-1_i386.deb
     # Install Skype from Canonical Partner Repository
     sudo add-apt-repository "deb http://archive.canonical.com/ $(lsb_release -sc) partner"
-    # DOCKER : https://docs.docker.com/installation/ubuntulinux/
-    sudo apt-get -y install docker.io
-    apt-key adv --keyserver hkp://pgp.mit.edu:80 --recv-keys 58118E89F3A912897C070ADBF76221572C52609D
 }
 
 function install_cpudisk() {
@@ -360,7 +357,16 @@ function install_python() {
     wget https://3230d63b5fc54e62148e-c95ac804525aac4b6dba79b00b39d1d3.ssl.cf1.rackcdn.com/Anaconda3-2.3.0-Linux-x86_64.sh
     # 32-bit
     wget https://3230d63b5fc54e62148e-c95ac804525aac4b6dba79b00b39d1d3.ssl.cf1.rackcdn.com/Anaconda3-2.3.0-Linux-x86.sh
-
+    # In BASH, the variable $OSTYPE stores the name of the operation system:
+    # `$OSTYPE` automatically set to a string that describes the operating system on which bash is executing.
+    OSARCH=`uname -m`
+    if [ ${OSARCH} == 'x86_64' ]; then
+        # Install 64-bit stuff here
+        cd ~/home; sudo bash Anaconda3-2.3.0-Linux-x86_64.sh
+        else
+        # Install 32-bit stuff here
+        cd ~/home; sudo Anaconda3-2.3.0-Linux-x86.sh
+    fi
 }
 
 
@@ -378,12 +384,21 @@ function install_rlang() {
     sudo Rscript -e "install.packages('RJSONIO',,'http://cran.us.r-project.org')"
     sudo Rscript -e "install.packages('RCurl',,'http://cran.us.r-project.org')"
     sudo Rscript -e "install.packages('RCubature',,'http://cran.us.r-project.org')"    
-    # CUBATURE - GNU R package for adaptive multivariate integration
-    wget http://packages.ubuntu.com/vivid/r-cran-cubature r-cran-cubature_1.1-2-1_i386.deb 
-    wget http://packages.ubuntu.com/vivid/r-cran-cubature r-cran-cubature_1.1-2-1_amd64.deb
-    cd ~/home; sudo dpkg --install r-cran-cubature_1.1-2-1_i386.deb
     #PolyCub is a GNU-R package providing methods for cubature (numerical integration) over polygonal domains. 
     sudo apt-get -y install r-cran-polycub 
+    # CUBATURE - GNU R package for adaptive multivariate integration
+    wget http://packages.ubuntu.com/vivid/r-cran-cubature r-cran-cubature_1.1-2-1_amd64.deb
+    wget http://packages.ubuntu.com/vivid/r-cran-cubature r-cran-cubature_1.1-2-1_i386.deb 
+    # In BASH, the variable $OSTYPE stores the name of the operation system:
+    # `$OSTYPE` automatically set to a string that describes the operating system on which bash is executing.
+    OSARCH=`uname -m`
+    if [ ${OSARCH} == 'x86_64' ]; then
+    # Install 64-bit stuff here
+    cd ~/home; sudo dpkg --install r-cran-cubature_1.1-2-1_amd64.deb
+    else
+    # Install 32-bit stuff here
+    cd ~/home; sudo dpkg --install r-cran-cubature_1.1-2-1_i386.deb
+    fi
 }
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -439,6 +454,9 @@ function install_vim() {
 # CLOUD SERVER DEVOPS TOOLS
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 function install_cloudevops() {
+    # DOCKER : https://docs.docker.com/installation/ubuntulinux/
+    sudo apt-get -y install docker.io
+    apt-key adv --keyserver hkp://pgp.mit.edu:80 --recv-keys 58118E89F3A912897C070ADBF76221572C52609D
     ## AMQP
     sudo apt-get -y install rabbitmq-server  ## Erlang
     sudo pip install pika -i https://github.com/pika/pika   # python client lib for RabbitMQ
@@ -463,30 +481,12 @@ function install_cloudevops() {
     # `$OSTYPE` automatically set to a string that describes the operating system on which bash is executing.
     OSARCH=`uname -m`
     if [ ${OSARCH} == 'x86_64' ]; then
-    # Install 64-bit stuff here
-    cd ~/home; sudo dpkg --install vagrant_1.7.4_x86_64.deb
-    else
-    # 32-bit stuff here
-    cd ~/home; sudo dpkg --install vagrant_1.7.4_i686.deb
+        # Install 64-bit stuff here
+        cd ~/home; sudo dpkg --install vagrant_1.7.4_x86_64.deb
+        else
+        # Install 32-bit stuff here
+        cd ~/home; sudo dpkg --install vagrant_1.7.4_i686.deb
     fi
-
-
-    
-    for OSArch in `uname -i`; do
-    # Find dependencies that have absolute paths
-      LIBDEPS=$(otool -L $LIB | grep -v : | grep -v @ | grep \/ | cut -f1 -d\()
-  
-    for osarch in $LIBDEPS; do
-        if test ! -e $filename; then
-          echo "WARNING: $LIB: Could not find dynamic library dependency" $filename
-          echo "Wiping all dependencies to trigger rebuild"
-          make -C deps cleanall
-          make -C deps distclean-libgit2 && make
-          break 2
-        fi
-      done
-    done
-
 }
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
