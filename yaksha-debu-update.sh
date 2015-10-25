@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 ################################################################################
 # File       : yaksha-debu-update.sh, a part of http://svaksha.github.io/yaksha
-# Description: Update my system & email me for each Cronjob the machine runs.
+# Description: Update my Debian-Ubuntu system for each Cronjob the machine runs.
 # AUTHOR     : SVAKSHA, http://svaksha.github.io/yaksha
 # COPYRIGHT© : 2005-Now SVAKSHA <http://svaksha.com/pages/Bio> AllRightsReserved
-# DATES      : Created:2006mar31 - Updated:2015oct19
+# DATES      : Created:2006mar31 - Updated:2015oct25
 # LICENSE    : GNU AGPLv3 License <http://www.gnu.org/licenses/agpl.html>
 #              https://github.com/svaksha/yaksha/blob/master/LICENSE.md
 # This code is distributed in the hope that it will be useful, but WITHOUT ANY
@@ -34,13 +34,13 @@
 yaksha_dir=~/yaksha/
 
 # Log the date and time of execution of bash script into the `out` files.
-date +"%c|started running `apt-get`:$?" >> out_yaksha-update-cron.log
-date +"%c|completed running: $?" >> out_yaksha-update-cron.log
+date +"%c|started running `apt-get`:$?" >> out-yaksha-update-cron.log
+date +"%c|completed running: $?" >> out-yaksha-update-cron.log
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
 # Cron will automatically install the weekly updates
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-function system_upgrade() {
+function update_debu() {
     echo "Finish installation with a dist-upgrade"
     # resynchronize the package index files from their internet sources.
     sudo apt-get -y update
@@ -53,52 +53,9 @@ function system_upgrade() {
     sudo apt-get -y autoclean
 }    
 
-
-#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-# Email all the System Upgrade details
-#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-# automatically install updates and Log and email any changes to my email
-MAILTO=svaksha@gmail.com
-# host name of smtp server
-MAIL=gmail.google.com
-
-yaksha_dir=$(yaksha_dir)
-
-# smtp setup commands
-echo "helo $(hostname)" >> ${yaksha_dir}
-echo "mail from: root@$(hostname)" >> ${yaksha_dir}
-echo "rcpt to: $MAILTO" >> ${yaksha_dir}
-echo 'data'>> ${yaksha_dir}
-echo "subject: Aptitude cron $(date)" >> ${yaksha_dir}
-
-# Now run aptitude to do the updates, logging its output
-echo "apt-get update" >> ${yaksha_dir}
-aptitude update >> ${yaksha_dir} 2>&1
-echo "" >> ${yaksha_dir}
-echo "apt-get full-upgrade" >> ${yaksha_dir}
-aptitude -y full-upgrade >> ${yaksha_dir} 2>&1
-echo "" >> ${yaksha_dir}
-echo "apt-get clean" >> ${yaksha_dir}
-aptitude clean >> ${yaksha_dir} 2>&1
-
-# Remove the escaped new lines in my output.
-yaksha_dir2=$(yaksha_dir)
-cat ${yaksha_dir} | sed 's/\r\r/\n/g'|sed 's/\r//g' > ${yaksha_dir2}
-mv ${yaksha_dir2} ${yaksha_dir}
-
-# Close SMTP
-echo >> ${yaksha_dir}
-echo '.' >> ${yaksha_dir}
-echo 'quit' >> ${yaksha_dir}
-echo >> ${yaksha_dir}
-
-# Send the email and ignore output
-telnet $MAIL 25 < ${yaksha_dir} > /dev/null 2> /dev/null
-
-# and remove temp files
-rm -f ${yaksha_dir}
-
+function update_conda() {
+    cd anaconda3; conda update -y conda; conda update -y anaconda; cd
+}
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 # Funcs
@@ -110,7 +67,7 @@ key="$2"
 
 case $key in
     -c|--clean)
-        system_upgrade
+        update_debu="$1"
         shift
     ;;
     -u|--update)
@@ -127,11 +84,15 @@ case $key in
     
     
 case $update_debu in
-    sysupgrade)
-        system_upgrade
+    debupdate)
+        update_debu
+    ;;
+    conda)
+        update_conda
     ;;
     all)
-        system_upgrade
+        update_debu
+        update_conda
     ;;
     *)
         echo "Installation in progress, almost done!"

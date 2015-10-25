@@ -1,12 +1,29 @@
 #/usr/bin/env bash
 ################################################################################
 # File       : yaksha-jl-install.sh 
-# Description: Installation script to install the Julia source build 
+# Description: Installation script for the Julia source build 
 # AUTHOR     : SVAKSHA, http://svaksha.com/pages/Bio
-# SOURCE     : http://svaksha.github.io/yaksha> 
+# SOURCE     : http://svaksha.github.io/yaksha
 # COPYRIGHT© : 2005-Now SVAKSHA, AllRightsReserved.
-# DATES      : Created:2015Feb15 - Updated:2015Oct19
+# DATES      : Created:2015Feb15 - Updated:2015Oct25
 # LICENSE    : GNU AGPLv3 License <http://www.gnu.org/licenses/agpl.html>
+#              https://github.com/svaksha/yaksha/blob/master/LICENSE.md
+# This code is distributed in the hope that it will be useful, but WITHOUT ANY
+# WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR
+# A PARTICULAR PURPOSE. Permission is hereby granted, free of charge, to any
+# person obtaining a copy of this software, to deal in the Software without
+# restriction, including without limitation the rights to use, copy, modify,
+# merge, publish, redistribute, and/or sell copies of the Software and use in
+# source form, with or without modification, and to permit persons to whom the
+# Software is furnished to do so as per the terms in the LICENSE.md file and
+# subject to the following conditions being met:
+# 1. ALL copies, forks and redistributions of source code AND/OR binary form
+#    must retain the above Copyright notice, the Licence file for source code
+#    (AGPLv3) along with this permission notice and list of conditions and the
+#    following disclaimer, in substantial portions of the Software.
+# 2. Neither the name of the COPYRIGHT HOLDER(S) nor the names of its
+#    contributors may be used to endorse or promote products derived from this
+#    software without specific prior written permission.
 ################################################################################
 ################################################################################
 #
@@ -16,7 +33,7 @@
 
 echo "Installation of julia (PPA nightlies) will start!"
 
-function install_julia_ppanightlies() {
+function install_jl_ppanightlies() {
     sudo add-apt-repository --yes ppa:staticfloat/juliareleases
     sudo add-apt-repository --yes ppa:staticfloat/julia-deps
     sudo add-apt-repository --yes ppa:staticfloat/julianightlies
@@ -24,7 +41,7 @@ function install_julia_ppanightlies() {
     sudo apt-get -y install julia
     julia --eval 'Pkg.add("IJulia")' # Better to keep this in juliarc/REQUIRE ??
     julia --eval 'Pkg.add("Gadfly")'
-} # End function install_julia_ppanightlies
+} # End function install_jl_ppanightlies
 
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -39,7 +56,7 @@ set -e                   # stop on error
 #-------------------------------------------------------------------------------
 # install julia from git master
 #-------------------------------------------------------------------------------
-function install_julia_gitdev() {
+function install_jl_gitdev() {
 
 # Check all dynamic library dependencies to detect potentially missing dependencies
     for LIB in `find deps -name "*.dylib"`; do
@@ -98,7 +115,7 @@ if [ $? -ne "0" ]; then
  exit 1; 
 fi
 
-} # End function install_julia_gitdev
+} # End function install_jl_gitdev
 
 echo "Installation of julia (git master) is done!"
 
@@ -110,14 +127,14 @@ $HOME/julia -e 'Pkg.update()'
 #-------------------------------------------------------------------------------
 case $install_typ in
     jl_gitdev)
-        install_julia_gitdev
+        install_jl_gitdev
     ;;
     jl_ppanightlies)
-        install_julia_ppanightlies
+        install_jl_ppanightlies
     ;;
     all)
-        install_julia_gitdev
-        install_julia_ppanightlies
+        install_jl_gitdev
+        install_jl_ppanightlies
     ;;
     *)
         echo "Installation in progress, almost done!"

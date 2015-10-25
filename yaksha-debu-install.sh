@@ -1,10 +1,11 @@
 #!/usr/bin/env bash
 ################################################################################
-# File       : yaksha-debu-install.sh, from http://svaksha.github.io/yaksha
-# Description: Bash Installation script for a new system.
-# AUTHOR     : SVAKSHA, http://svaksha.github.io/yaksha
+# File       : yaksha-debu-install.sh
+# Description: Bash Installation script for a new Debian-Ubuntu system.
+# AUTHOR     : SVAKSHA :: http://svaksha.com/pages/Bio
+# SOURCE     : http://svaksha.github.io/yaksha
 # COPYRIGHT© : 2005-Now SVAKSHA (http://svaksha.com/pages/Bio) AllRightsReserved
-# DATES      : Created:2005mar22 - Updated:2015oct23
+# DATES      : Created:2005mar22 - Updated:2015oct25
 # LICENSE    : GNU AGPLv3 License <http://www.gnu.org/licenses/agpl.html>
 #              https://github.com/svaksha/yaksha/blob/master/LICENSE.md
 # This code is distributed in the hope that it will be useful, but WITHOUT ANY
@@ -353,6 +354,14 @@ function install_python() {
     sudo pip install pylint -i http://pypi.python.org/simple/
     # Automate PY and Anaconda/miniconda instaltion with PYTHONIZE (https://github.com/princebot/pythonize)
     git clone https://github.com/princebot/pythonize.git 
+    #--------------------
+    # ANACONDA
+    #--------------------
+    # 64-bit
+    wget https://3230d63b5fc54e62148e-c95ac804525aac4b6dba79b00b39d1d3.ssl.cf1.rackcdn.com/Anaconda3-2.3.0-Linux-x86_64.sh
+    # 32-bit
+    wget https://3230d63b5fc54e62148e-c95ac804525aac4b6dba79b00b39d1d3.ssl.cf1.rackcdn.com/Anaconda3-2.3.0-Linux-x86.sh
+
 }
 
 
