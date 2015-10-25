@@ -4,7 +4,7 @@
 #              commands in homedir(), in a file named .juliarc.jl
 # AUTHOR     : SVAKSHA (http://svaksha.com/pages/Bio)
 # SOURCE     : http://svaksha.github.io/yaksha
-# DATES      : Created:2013oct01 - Updated:2015oct12
+# DATES      : Created:2013oct01 - Updated:2015oct25
 # COPYRIGHT© : 2005-Now SVAKSHA AllRightsReserved
 # LICENSE    : GNU AGPLv3 License <http://www.gnu.org/licenses/agpl.html>,
 #              https://github.com/svaksha/yaksha/blob/master/LICENSE.md
@@ -59,3 +59,36 @@ push!(LOAD_PATH, ENV["HOME"]*"/ensoji-jl/juhu.jl")
 if isfile("$(ENV["HOME"])/.juliarc-yaksha.jl")
     include("$(ENV["HOME"])/.juliarc-yaksha.jl")
 end
+
+
+println(".juliarc define function: lastfile()  ")
+
+"""
+Name of last file in current directory
+"""
+function lastfile()
+	#Name of last file in current directory
+	rd=readdir(pwd())
+	rd[indmax(map(mtime,rd))]
+end
+
+if VERSION >= v"0.4.0-dev+6521"
+    println("    osol()  osopen() on > 0.3.11")
+
+    """
+    Windows or Mac, open the given file in current directory
+    """
+    function osopen(filename::AbstractString)
+    	# open the file on Mac or on Windows
+    	@osx? run(`open $filename`) : spawn(`cmd /C "$filename"`)
+    end
+
+    """
+    Windows or Mac, open the last file in current directory
+    """
+    function osol()
+	    filename=lastfile()
+	    @osx? run(`open $filename`) : spawn(`cmd /C "$filename"`)
+    end
+end
+
