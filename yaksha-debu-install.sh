@@ -194,7 +194,6 @@ function install_database() {
     sudo apt-get -y install libpq-dev # libraries and headers for C language frontend development
     sudo apt-get -y install postgresql-server-dev-9.4 # libraries and headers for C language backend development
     sudo apt-get -y install pgadmin3 # pgAdmin III graphical administration utility
-
 }
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -437,9 +436,9 @@ function install_vim() {
 }
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-# On the CLOUDs
+# CLOUD SERVER DEVOPS TOOLS
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-function install_webserver() {
+function install_cloudevops() {
     ## AMQP
     sudo apt-get -y install rabbitmq-server  ## Erlang
     sudo pip install pika -i https://github.com/pika/pika   # python client lib for RabbitMQ
@@ -457,6 +456,37 @@ function install_webserver() {
     # ZMQ, also needed by Jupyter/IPython / IRuby etc..
     sudo add-apt-repository --yes ppa:chris-lea/zeromq
     sudo apt-get -y install libzmq3-dbg libzmq3-dev libzmq3
+    # VAGRANT
+    wget https://dl.bintray.com/mitchellh/vagrant/vagrant_1.7.4_x86_64.deb # 64-bit
+    wget https://dl.bintray.com/mitchellh/vagrant/vagrant_1.7.4_i686.deb   # 32-bit
+    # In BASH, the variable $OSTYPE stores the name of the operation system:
+    # `$OSTYPE` automatically set to a string that describes the operating system on which bash is executing.
+    OSARCH=`uname -m`
+    if [ ${OSARCH} == 'x86_64' ]; then
+    # Install 64-bit stuff here
+    cd ~/home; sudo dpkg --install vagrant_1.7.4_x86_64.deb
+    else
+    # 32-bit stuff here
+    cd ~/home; sudo dpkg --install vagrant_1.7.4_i686.deb
+    fi
+
+
+    
+    for OSArch in `uname -i`; do
+    # Find dependencies that have absolute paths
+      LIBDEPS=$(otool -L $LIB | grep -v : | grep -v @ | grep \/ | cut -f1 -d\()
+  
+    for osarch in $LIBDEPS; do
+        if test ! -e $filename; then
+          echo "WARNING: $LIB: Could not find dynamic library dependency" $filename
+          echo "Wiping all dependencies to trigger rebuild"
+          make -C deps cleanall
+          make -C deps distclean-libgit2 && make
+          break 2
+        fi
+      done
+    done
+
 }
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -505,6 +535,9 @@ case $install_debu in
     debpkg)
         install_deb_pkg
     ;;
+    cloudevops)
+        install_cloudevops
+    ;;
     cpudisk)
         install_cpudisk
     ;;
@@ -550,12 +583,10 @@ case $install_debu in
     vim)
         install_vim
     ;;
-    webserver)
-        install_webserver
-    ;;
     all)
         install_desktop
         install_deb_pkg
+        install_cloudevops
         install_cpudisk
         install_utilities
         install_database
@@ -571,7 +602,6 @@ case $install_debu in
         install_fonts
         install_tmux
         install_vim
-        install_webserver
     ;;
     *)
         echo "Installation in progress, almost done!"
