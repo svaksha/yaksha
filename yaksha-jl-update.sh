@@ -76,7 +76,6 @@ fi
 
 
 
-
 #function yaksha_require()
 # generate a list of all the packages I've installed and pipe to "yaksha"
     for require `find pkg -name "*.julia/v0.*/REQUIRE"`; do

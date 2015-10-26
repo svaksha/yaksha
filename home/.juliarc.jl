@@ -4,7 +4,7 @@
 #              commands in homedir(), in a file named .juliarc.jl
 # AUTHOR     : SVAKSHA (http://svaksha.com/pages/Bio)
 # SOURCE     : http://svaksha.github.io/yaksha
-# DATES      : Created:2013oct01 - Updated:2015oct25
+# DATES      : Created:2013oct01 - Updated:2015oct26
 # COPYRIGHT© : 2005-Now SVAKSHA AllRightsReserved
 # LICENSE    : GNU AGPLv3 License <http://www.gnu.org/licenses/agpl.html>,
 #              https://github.com/svaksha/yaksha/blob/master/LICENSE.md
@@ -61,6 +61,8 @@ if isfile("$(ENV["HOME"])/.juliarc-yaksha.jl")
 end
 
 
+
+#=
 println(".juliarc define function: lastfile()  ")
 
 """
@@ -72,8 +74,8 @@ function lastfile()
 	rd[indmax(map(mtime,rd))]
 end
 
-if VERSION >= v"0.4.0-dev+6521"
-    println("    osol()  osopen() on > 0.3.11")
+if VERSION >= v"0.5.0"
+    println("    osol()  osopen() on > 0.5")
 
     """
     Windows or Mac, open the given file in current directory
@@ -91,4 +93,4 @@ if VERSION >= v"0.4.0-dev+6521"
 	    @osx? run(`open $filename`) : spawn(`cmd /C "$filename"`)
     end
 end
-
+=#
