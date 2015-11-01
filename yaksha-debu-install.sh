@@ -5,7 +5,7 @@
 # AUTHOR     : SVAKSHA :: http://svaksha.com/pages/Bio
 # SOURCE     : http://svaksha.github.io/yaksha
 # COPYRIGHT© : 2005-Now SVAKSHA (http://svaksha.com/pages/Bio) AllRightsReserved
-# DATES      : Created:2005mar22 - Updated:2015oct25
+# DATES      : Created:2005mar22 - Updated:2015oct28
 # LICENSE    : GNU AGPLv3 License <http://www.gnu.org/licenses/agpl.html>
 #              https://github.com/svaksha/yaksha/blob/master/LICENSE.md
 # This code is distributed in the hope that it will be useful, but WITHOUT ANY
@@ -346,6 +346,7 @@ function install_python() {
     sudo pip install ipython jinja2 tornado pyzmq pandas jsonschema pyaml
     ## More Python stuff
     sudo pip install rotate-backups
+    sudo pip install plumbum ## An alternatice to Fabric, https://github.com/tomerfiliba/plumbum
     sudo pip install jedi -i http://pypi.python.org/simple/
     sudo pip install pylint -i http://pypi.python.org/simple/
     # Automate PY and Anaconda/miniconda instaltion with PYTHONIZE (https://github.com/princebot/pythonize)
@@ -413,6 +414,7 @@ function install_ruby() {
 # Fonts
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 function install_fonts() {
+    sudo apt-get -y install ttf-mscorefonts-installer # Microsoft fonts for Libreoffice.
     wget https://github.com/Lokaltog/powerline/raw/develop/font/PowerlineSymbols.otf
     wget https://github.com/Lokaltog/powerline/raw/develop/font/10-powerline-symbols.conf
     mkdir -p ~/.fonts
