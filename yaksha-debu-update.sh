@@ -4,7 +4,7 @@
 # Description: Update my Debian-Ubuntu system for each Cronjob the machine runs.
 # AUTHOR     : SVAKSHA, http://svaksha.github.io/yaksha
 # COPYRIGHT© : 2005-Now SVAKSHA <http://svaksha.com/pages/Bio> AllRightsReserved
-# DATES      : Created:2006mar31 - Updated:2015oct25
+# DATES      : Created:2006mar31 - Updated:2015nov01
 # LICENSE    : GNU AGPLv3 License <http://www.gnu.org/licenses/agpl.html>
 #              https://github.com/svaksha/yaksha/blob/master/LICENSE.md
 # This code is distributed in the hope that it will be useful, but WITHOUT ANY
@@ -54,7 +54,11 @@ function update_debu() {
 }    
 
 function update_conda() {
-    cd anaconda3; conda update -y conda; conda update -y anaconda; cd
+    cd
+    cd anaconda3
+    conda update -y conda
+    conda update -y anaconda
+    cd
 }
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
