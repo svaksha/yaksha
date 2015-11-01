@@ -1,9 +1,10 @@
 #!/usr/bin/env bash
 ################################################################################
-# File       : yaksha-debu-update.sh, a part of http://svaksha.github.io/yaksha
+# File       : yaksha-debu-update.sh
 # Description: Update my Debian-Ubuntu system for each Cronjob the machine runs.
-# AUTHOR     : SVAKSHA, http://svaksha.github.io/yaksha
-# COPYRIGHT© : 2005-Now SVAKSHA <http://svaksha.com/pages/Bio> AllRightsReserved
+# AUTHOR     : SVAKSHA, http://svaksha.com/pages/Bio
+# SOURCE     : http://svaksha.github.io/yaksha
+# COPYRIGHT© : 2005-Now SVAKSHA, AllRightsReserved.
 # DATES      : Created:2006mar31 - Updated:2015nov01
 # LICENSE    : GNU AGPLv3 License <http://www.gnu.org/licenses/agpl.html>
 #              https://github.com/svaksha/yaksha/blob/master/LICENSE.md
@@ -25,17 +26,16 @@
 #    software without specific prior written permission.
 ################################################################################
 #
-#
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-# A script for weekly system updates that will email me each time the Cronjob runs.
+# A script for weekly system updates.
 # Usage: "./yaksha-debu-update.sh"
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 yaksha_dir=~/yaksha/
 
-# Log the date and time of execution of bash script into the `out` files.
-date +"%c|started running `apt-get`:$?" >> out-yaksha-update-cron.log
-date +"%c|completed running: $?" >> out-yaksha-update-cron.log
+# Log the date and time of execution of bash script into the `output` files.
+date +"%c|started running `apt-get`:$?" >> out-yaksha-debu-update-cron.log
+date +"%c|completed running: $?" >> out-yaksha-debu-update-cron.log
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
 # Cron will automatically install the weekly updates
@@ -59,6 +59,7 @@ function update_conda() {
     conda update -y conda
     conda update -y anaconda
     cd
+    cd yaksha
 }
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++

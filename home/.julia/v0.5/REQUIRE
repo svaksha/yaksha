@@ -6,10 +6,12 @@ Benchmark
 BinDeps
 Blosc
 Bokeh
+BufferedStreams
 Cairo
 Calculus
 Calendar
 Clang
+Clustering
 Codecs
 Colors
 ColorTypes
@@ -21,9 +23,11 @@ Contour
 Coverage
 Cpp
 Crypto
+CSV
 Cubature
 DataArrays
 DataFrames
+DataStreams
 DataStructures
 Dates
 Debug
@@ -34,7 +38,9 @@ DualNumbers
 Escher
 EvolvingGraphs
 FactCheck
+FileIO
 FixedPointNumbers
+ForwardDiff
 FunctionalCollections
 Gadfly
 GetC
@@ -68,6 +74,7 @@ Lazy
 LaTeXStrings
 LibBSON
 LibCURL
+Libz
 LightGraphs
 LightXML
 Loess
@@ -82,6 +89,7 @@ NaiveBayes
 NaNMath
 NBInclude
 Nettle
+NullableArrays
 OpenGL
 Options
 Optim
@@ -125,4 +133,5 @@ WoodburyMatrices
 ZipFile
 Zlib
 ZMQ
+
 

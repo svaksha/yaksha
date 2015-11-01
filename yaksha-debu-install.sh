@@ -191,6 +191,8 @@ function install_database() {
     sudo apt-get -y install libpq-dev # libraries and headers for C language frontend development
     sudo apt-get -y install postgresql-server-dev-9.4 # libraries and headers for C language backend development
     sudo apt-get -y install pgadmin3 # pgAdmin III graphical administration utility
+    ## Distributed File Systems 
+    sudo apt-get -y install hdf5-tools
 }
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
