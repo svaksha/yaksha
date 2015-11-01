@@ -5,7 +5,7 @@
 # AUTHOR     : SVAKSHA :: http://svaksha.com/pages/Bio
 # SOURCE     : http://svaksha.github.io/yaksha
 # COPYRIGHT© : 2005-Now SVAKSHA (http://svaksha.com/pages/Bio) AllRightsReserved
-# DATES      : Created:2005mar22 - Updated:2015oct28
+# DATES      : Created:2005mar22 - Updated:2015nov01
 # LICENSE    : GNU AGPLv3 License <http://www.gnu.org/licenses/agpl.html>
 #              https://github.com/svaksha/yaksha/blob/master/LICENSE.md
 # This code is distributed in the hope that it will be useful, but WITHOUT ANY
@@ -237,6 +237,8 @@ function install_gcc() {
     sudo apt-get -y install fftw3-dev
     sudo apt-get -y install liblemon
     sudo apt-get -y install libpng-dev
+    ## Statistics
+    sudo apt-get -y install pspp    
 }
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
