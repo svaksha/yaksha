@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 ################################################################################
-# File       : yaksha-debu-install.sh
+# File       : yaks-deb-install.sh
 # Description: Bash Installation script for a new Debian-Ubuntu system.
 # AUTHOR     : SVAKSHA :: http://svaksha.com/pages/Bio
 # SOURCE     : http://svaksha.github.io/yaksha
@@ -34,8 +34,8 @@
 yaksha_dir=~/yaksha/
 
 # Log the date and time of execution of bash script into the `out` files.
-date +'%c|started running `apt-get`: ' >> out-yaksha-debu-install.log
-date +"%c|completed running: $?" >> out-yaksha-debu-install.log
+date +'%c|started running `apt-get`: ' >> out-yaks-deb-install.log
+date +"%c|completed running: $?" >> out-yaks-deb-install.log
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 # GNOME Desktop Environment. 
@@ -44,7 +44,7 @@ function install_desktop() {
     sudo apt-get -y update
     sudo apt-get -y upgrade
     # GNOME
-    # Use the script `yaksha-debu-uninstall.sh` to uninstall UNITY - **RISKY**
+    # Use the script `yaks-deb-uninstall.sh` to uninstall UNITY - **RISKY**
     sudo apt-get -y install gnome-core gnome-shell
     # Display Manager for the GNOME Desktop Environment.
     sudo apt-get -y install gdm
@@ -510,7 +510,7 @@ function clean_install() {
 }
 
 
-install_debu='all'
+install_deb='all'
 key="$1"
 key="$2"
 
@@ -520,7 +520,7 @@ case $key in
         shift
     ;;
     -i|--install)
-        install_debu="$2"
+        install_deb="$2"
         shift
     ;;
     *)
@@ -536,7 +536,7 @@ case $key in
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 #git clone --recursive https://github.com/svaksha/yaksha ${yaksha_dir}
 
-case $install_debu in
+case $install_deb in
     desktop)
         install_desktop
     ;;

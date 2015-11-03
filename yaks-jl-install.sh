@@ -1,6 +1,6 @@
 #/usr/bin/env bash
 ################################################################################
-# File       : yaksha-jl-install.sh 
+# File       : yaks-jl-install.sh 
 # Description: Installation script for the Julia source build 
 # AUTHOR     : SVAKSHA, http://svaksha.com/pages/Bio
 # SOURCE     : http://svaksha.github.io/yaksha

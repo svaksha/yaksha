@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
 ################################################################################
-# File       : yaksha-debu-update.sh
+# File       : yaks-deb-update.sh
 # Description: Update my Debian-Ubuntu system for each Cronjob the machine runs.
 # AUTHOR     : SVAKSHA, http://svaksha.com/pages/Bio
 # SOURCE     : http://svaksha.github.io/yaksha
 # COPYRIGHT© : 2005-Now SVAKSHA, AllRightsReserved.
-# DATES      : Created:2006mar31 - Updated:2015nov01
+# DATES      : Created:2006mar31 - Updated:2015nov03
 # LICENSE    : GNU AGPLv3 License <http://www.gnu.org/licenses/agpl.html>
 #              https://github.com/svaksha/yaksha/blob/master/LICENSE.md
 # This code is distributed in the hope that it will be useful, but WITHOUT ANY
@@ -28,19 +28,19 @@
 #
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 # A script for weekly system updates.
-# Usage: "./yaksha-debu-update.sh"
+# Usage: "./yaks-deb-update.sh"
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 yaksha_dir=~/yaksha/
 
 # Log the date and time of execution of bash script into the `output` files.
-date +"%c|started running `apt-get`:$?" >> out-yaksha-debu-update-cron.log
-date +"%c|completed running: $?" >> out-yaksha-debu-update-cron.log
+date +"%c|started running `apt-get`:$?" >> out-yaks-deb-update-cron.log
+date +"%c|completed running: $?" >> out-yaks-deb-update-cron.log
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
 # Cron will automatically install the weekly updates
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-function update_debu() {
+function update_deb() {
     echo "Finish installation with a dist-upgrade"
     # resynchronize the package index files from their internet sources.
     sudo apt-get -y update
@@ -66,17 +66,17 @@ function update_conda() {
 # Funcs
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-update_debu='all'
+update_deb='all'
 key="$1"
 key="$2"
 
 case $key in
     -c|--clean)
-        update_debu="$1"
+        update_deb="$1"
         shift
     ;;
     -u|--update)
-        update_debu="$2"
+        update_deb="$2"
         shift
     ;;
     *)
@@ -88,15 +88,15 @@ case $key in
     esac
     
     
-case $update_debu in
+case $update_deb in
     debupdate)
-        update_debu
+        update_deb
     ;;
     conda)
         update_conda
     ;;
     all)
-        update_debu
+        update_deb
         update_conda
     ;;
     *)

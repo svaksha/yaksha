@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 ################################################################################
-# File       : yaksha-debu-install.sh, from http://svaksha.github.io/yaksha
-# Description: Bash Installation script for a new system.
-# AUTHOR     : SVAKSHA, http://svaksha.github.io/yaksha
-# COPYRIGHT© : 2005-Now SVAKSHA (http://svaksha.com/pages/Bio) AllRightsReserved
-# DATES      : Created:2005mar22 - Updated:2015oct19
+# File-Desc  : yaks-deb-install.sh, Bash Installation script for a new system.
+# AUTHOR     : SVAKSHA, http://svaksha.com/pages/Bio
+# COPYRIGHT© : 2005-Now SVAKSHA, AllRightsReserved
+# SOURCE     : http://svaksha.github.io/yaksha
+# DATES      : Created:2005mar22 - Updated:2015nov03
 # LICENSE    : GNU AGPLv3 License <http://www.gnu.org/licenses/agpl.html>
 #              https://github.com/svaksha/yaksha/blob/master/LICENSE.md
 # This code is distributed in the hope that it will be useful, but WITHOUT ANY
@@ -33,8 +33,8 @@
 yaksha_dir=~/yaksha/
 
 # Log the date and time of execution of bash script into the `out` files.
-date +'%c|started running `apt-get`: ' >> out-yaksha-debu-install.log
-date +"%c|completed running: $?" >> out-yaksha-debu-install.log
+date +'%c|started running `apt-get`: ' >> out-yaks-deb-install.log
+date +"%c|completed running: $?" >> out-yaks-deb-install.log
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 # GNOME Desktop Environment. 
@@ -43,7 +43,7 @@ function install_desktop() {
     sudo apt-get -y update
     sudo apt-get -y upgrade
     # GNOME
-    # Use the script `yaksha-debos-uninstall.sh` to uninstall UNITY - **RISKY**
+    # Use the script `yaks-debos-uninstall.sh` to uninstall UNITY - **RISKY**
     sudo apt-get -y install gnome-core gnome-shell
     # Display Manager for the GNOME Desktop Environment.
     sudo apt-get -y install gdm

@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 ################################################################################
-# File       : yaksha-debu-backup.py
+# File       : yaks-deb-backup.py
 # Description: Backup script for my system.
 # AUTHOR     : SVAKSHA, http://svaksha.com/pages/Bio
 # SOURCE     : http://svaksha.github.io/yaksha

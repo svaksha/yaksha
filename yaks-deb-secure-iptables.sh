@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 ################################################################################
-# File       : yaksha-debu-install.sh
+# File       : yaks-deb-install.sh
 # Description: Bash Installation script for a new Debian-Ubuntu system.
 # AUTHOR     : SVAKSHA :: http://svaksha.com/pages/Bio
 # SOURCE     : http://svaksha.github.io/yaksha

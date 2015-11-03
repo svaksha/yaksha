@@ -1,10 +1,11 @@
 #!/usr/bin/env bash
 ################################################################################
-# File       : yaksha-debu-uninstall.sh, a part of http://svaksha.github.io/yaksha
-# Description: Bash UnInstallation script for removing packages.
+# File       : yaks-deb-uninstall.sh
+# Description: Bash UnInstallation script for removing debian-ubuntu packages.
 # AUTHOR     : SVAKSHA, http://svaksha.github.io/yaksha
-# COPYRIGHT© : 2005-Now SVAKSHA <http://svaksha.com/pages/Bio> AllRightsReserved
-# DATES      : Created:2012may05 - Updated:2015oct19
+# COPYRIGHT© : 2005-Now SVAKSHA, AllRightsReserved
+# SOURCE     : http://svaksha.github.io/yaksha
+# DATES      : Created:2012may05 - Updated:2015nov03
 # LICENSE    : GNU AGPLv3 License <http://www.gnu.org/licenses/agpl.html>
 #              https://github.com/svaksha/yaksha/blob/master/LICENSE.md
 # This code is distributed in the hope that it will be useful, but WITHOUT ANY
@@ -26,13 +27,13 @@
 ################################################################################
 #
 # 
-# Usage: "./yaksha-debu-uninstall.sh"
+# Usage: "./yaks-deb-uninstall.sh"
 
 yaksha_dir=~/yaksha/
 
 # Log the date and time of execution of bash script into the `out` files.
-date +'%c|started running `apt-get`: ' >> out-yaksha-debu-uninstall.log
-date +"%c|completed running: $?" >> out-yaksha-debu-uninstall.log
+date +'%c|started running `apt-get`: ' >> out-yaks-deb-uninstall.log
+date +"%c|completed running: $?" >> out-yaks-deb-uninstall.log
 
 # UNINSTALL UNITY on ubuntu 14.04 - dont do this without installing GNOME first.
 # http://askubuntu.com/questions/6302/how-can-you-remove-unity
@@ -56,11 +57,11 @@ function uninstall_unity() {
 }
 
 
-uninstall_typ='all'
+uninstall_unity='all'
 key="$1"
    
     
-case $uninstall_typ in
+case $uninstall_unity in
     unity)
         uninstall_unity
     ;;

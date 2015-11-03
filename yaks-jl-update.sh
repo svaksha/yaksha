@@ -1,6 +1,6 @@
 #/usr/bin/env bash
 ################################################################################
-# File       : yaksha-jl-update.sh 
+# File       : yaks-jl-update.sh 
 # Description: Update the Julia source build and store different versions.
 # AUTHOR     : SVAKSHA, http://svaksha.com/pages/Bio
 # SOURCE     : http://svaksha.github.io/yaksha
