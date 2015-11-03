@@ -5,7 +5,7 @@
 # AUTHOR     : SVAKSHA :: http://svaksha.com/pages/Bio
 # SOURCE     : http://svaksha.github.io/yaksha
 # COPYRIGHT© : 2005-Now SVAKSHA (http://svaksha.com/pages/Bio) AllRightsReserved
-# DATES      : Created:2005mar22 - Updated:2015nov01
+# DATES      : Created:2005mar22 - Updated:2015nov03
 # LICENSE    : GNU AGPLv3 License <http://www.gnu.org/licenses/agpl.html>
 #              https://github.com/svaksha/yaksha/blob/master/LICENSE.md
 # This code is distributed in the hope that it will be useful, but WITHOUT ANY
@@ -134,6 +134,8 @@ function install_utilities() {
     sudo apt-get -y install equivs
     sudo apt-get -y install ppa-purge
     sudo apt-get -y install nmap openssh-server
+    # SSH
+    sudo apt-get -y install sshpass
     #============================================
     ### UTILITIES
     #============================================

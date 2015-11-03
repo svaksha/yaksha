@@ -32,6 +32,7 @@
 # From, https://gist.github.com/jiahao/3f9826b077372220b6f0
 #-------------------------------------------------------------------------------
 
+cd
 JULIADIR=$HOME/julia
 cd $JULIADIR
 
@@ -64,11 +65,16 @@ make
 if test $? -ne 0 ; then
   make clean
   make cleanall
-  make
+  ## Lets fix OPENBLAS errors
+  make -C deps clean-openblas
+  make OPENBLAS_USE_THREAD=0
+  make OPENBLAS_TARGET_ARCH=NEHALEM
+  make testall
 fi
 if test $? -ne 0; then #nuclear option
   git clean -xfd
   make
 fi
 
+cd
 
