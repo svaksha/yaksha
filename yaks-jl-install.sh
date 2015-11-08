@@ -77,7 +77,7 @@ function install_jl_gitdev() {
       done
     done
 
-git pull git@github.com:JuliaLang/julia.git
+git clone git@github.com:JuliaLang/julia.git
 
 # Check if ~/julia exists
 #---------------------------

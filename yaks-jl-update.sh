@@ -5,7 +5,7 @@
 # AUTHOR     : SVAKSHA, http://svaksha.com/pages/Bio
 # SOURCE     : http://svaksha.github.io/yaksha
 # COPYRIGHT© : 2005-Now SVAKSHA, AllRightsReserved.
-# DATES      : Created:2015feb15 - Updated:2015nov02
+# DATES      : Created:2015feb15 - Updated:2015nov08
 # LICENSE    : GNU AGPLv3 License <http://www.gnu.org/licenses/agpl.html>
 #              https://github.com/svaksha/yaksha/blob/master/LICENSE.md
 # This code is distributed in the hope that it will be useful, but WITHOUT ANY
@@ -54,10 +54,14 @@ for LIB in `find deps -name "*.dylib"`; do
   done
 done
 
-git pull
-./julia -e 'versioninfo()'  # which JL version?
-./julia -e 'Pkg.status()'   # provide pkg list
-./julia -e 'Pkg.update()'  #Update Julia packages
+git pull git@github.com:JuliaLang/julia.git
+
+# Package Manager Functions.
+./julia -e 'Pkg.dir()'     # Returns the absolute path of the package directory. 
+./julia -e 'versioninfo()' # which JL version?
+./julia -e 'Pkg.status()'  # provide pkg list
+./julia -e 'Pkg.update()'  # Update Julia packages
+./julia -e 'Pkg.resolve()' # Determine the optimal/consistent package ver to install/upgrade from Pkg.dir("REQUIRE").
 
 #Rebuild at all costs
 #-------------------------------------------------------------------------------
@@ -71,10 +75,10 @@ if test $? -ne 0 ; then
   make OPENBLAS_TARGET_ARCH=NEHALEM
   make testall
 fi
-if test $? -ne 0; then #nuclear option
+if test $? -ne 0; then  #nuclear option
   git clean -xfd
   make
 fi
 
-cd
+cd   # Exit current dir & Return to $HOME dir
 
