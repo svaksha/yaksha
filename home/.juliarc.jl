@@ -53,6 +53,8 @@ if chomp(readall(`pwd`)) != ENV["HOME"]
     end
 end
 
+# The `push!(LOAD_PATH` ensures that PKG modules can be `imported & used` when calling require. 
+# The @everywhere macro allows you to start julia with multiple workers.
 @everywhere push!(LOAD_PATH, ENV["HOME"]*"/.julia")
 @everywhere push!(LOAD_PATH, ENV["HOME"]*"/ensoji-jl/juhu.jl")
 
