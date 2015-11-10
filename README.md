@@ -17,8 +17,13 @@ My personal daemons that automate my system installation/ updation/ backups, bas
 + `~/yaksha/home/` :: Home dotfiles and folders for `.atom`, ``.julia`, `.vim`, ..
 + `~/yaksha/scripts/` :: General scripts.
 
+## ToDo
++ @[holman](http://zachholman.com/2010/08/dotfiles-are-meant-to-be-forked/) talks about keeping dotfiles lean. Learn how they do it: [rtomayko](https://github.com/rtomayko/dotfiles), [holman](https://github.com/holman/dotfiles), .....
++ Cleanup my bash programs - [BASH best practices](https://github.com/progrium/bashstyle).
+
 ----
 
 # LICENSE
 
-+ COPYRIGHT© 2005-Now [SVAKSHA](http://svaksha.com/pages/Bio) All Rights Reserved. Code and Copyrights when referced/attributed to other individuals is theirs and as listed in the files. This repository work is licensed and distributed under the [AGPLv3 License](http://www.gnu.org/licenses/agpl-3.0.html) and ALL references, citations, copies and forks of this work must retain the Copyright, Licence (LICENSE.md file), this permission notice and attribute [credit](https://en.wikipedia.org/wiki/Creative_Commons_license#Attribution).
++ COPYRIGHT© 2005-Now [SVAKSHA](http://svaksha.com/pages/Bio) All Rights Reserved. Code and Copyrights when referenced and/or attributed to other people and/or entities is theirs and as listed in the files. 
++ This repository work is licensed and distributed under the [AGPLv3 License](http://www.gnu.org/licenses/agpl-3.0.html) and ALL references, citations, copies and forks of this work must retain the Copyright, Licence (LICENSE.md file), this permission notice and attribute [credit](https://en.wikipedia.org/wiki/Creative_Commons_license#Attribution).
