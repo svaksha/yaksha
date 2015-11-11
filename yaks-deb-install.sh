@@ -100,14 +100,18 @@ function install_cpudisk() {
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 function install_utilities() {
     ## Editors
-    sudo apt-get -y install vim
-    sudo apt-get -y install dconf-editor
+    sudo apt-get -y install dconf-tools # Editor for Gnome tools.
     sudo apt-get -y install emacs
     sudo apt-get -y install geany
-    sudo apt-get -y install meld
-    sudo apt-get -y install spyder
     sudo apt-get -y install guake
+    sudo apt-get -y install lyx #for the technical authors and scientists.
+    sudo apt-get -y install meld
     sudo apt-get -y install scite
+    sudo apt-get -y install spyder
+    # CLI text editors for sysadmins working on remote Linux/Unix servers.
+    sudo apt-get -y install nano
+    sudo apt-get -y install pico
+    sudo apt-get -y install vim
     # Atom editor 64-bit DEB file from github source
     wget https://github.com/atom/atom/releases/download/v1.1.0-beta.0/atom-amd64.deb ~/home
     cd ~/home; sudo dpkg --install atom-amd64.deb
