@@ -5,7 +5,7 @@
 # AUTHOR     : SVAKSHA :: http://svaksha.com/pages/Bio
 # SOURCE     : http://svaksha.github.io/yaksha
 # COPYRIGHT© : 2005-Now SVAKSHA (http://svaksha.com/pages/Bio) AllRightsReserved
-# DATES      : Created:2005mar22 - Updated:2015nov03
+# DATES      : Created:2005mar22 - Updated:2015nov11
 # LICENSE    : GNU AGPLv3 License <http://www.gnu.org/licenses/agpl.html>
 #              https://github.com/svaksha/yaksha/blob/master/LICENSE.md
 # This code is distributed in the hope that it will be useful, but WITHOUT ANY
@@ -26,7 +26,7 @@
 #    software without specific prior written permission.
 ################################################################################
 #
-# Useful links 
+# Useful links
 #-------------------------------------------------------------------------------
 # https://help.ubuntu.com/community/SoftwareManagement
 #-------------------------------------------------------------------------------
@@ -38,7 +38,7 @@ date +'%c|started running `apt-get`: ' >> out-yaks-deb-install.log
 date +"%c|completed running: $?" >> out-yaks-deb-install.log
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-# GNOME Desktop Environment. 
+# GNOME Desktop Environment.
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 function install_desktop() {
     sudo apt-get -y update
@@ -83,7 +83,7 @@ function install_cpudisk() {
     sudo apt-get -y install testdisk gddrescue  # grub rescue / HDD health
     # CPU Monitoring tools for Temperature, speed, et al.
     #------------------------------------------------------
-    # https://wiki.ubuntu.com/Kernel/PowerManagement/ThermalIssues    
+    # https://wiki.ubuntu.com/Kernel/PowerManagement/ThermalIssues
     sudo apt-get -y install thermald  # this daemon prevents machines from overheating
     sudo apt-get -y install indicator-cpufreq
     ## sensors package
@@ -107,6 +107,7 @@ function install_utilities() {
     sudo apt-get -y install meld
     sudo apt-get -y install spyder
     sudo apt-get -y install guake
+    sudo apt-get -y install scite
     # Atom editor 64-bit DEB file from github source
     wget https://github.com/atom/atom/releases/download/v1.1.0-beta.0/atom-amd64.deb ~/home
     cd ~/home; sudo dpkg --install atom-amd64.deb
@@ -122,7 +123,7 @@ function install_utilities() {
     sudo apt-get -y install silversearcher-ag
     sudo apt-get -y install zip
     sudo apt-get -y install unzip
-    sudo apt-get -y install ctags 
+    sudo apt-get -y install ctags
     sudo apt-get -y install exuberant-ctags ack-grep
     sudo apt-get -y install unrar
     sudo apt-get -y install screen
@@ -168,7 +169,7 @@ function install_utilities() {
     sudo apt-get -y install papcl
     sudo apt-get -y install ubuntu-restricted-extras # install the MP3 codec from the Ubuntu Restricted Extras package
     sudo apt-get -y install soundconverter # install the Sound Converter program
-    # get the github source (https://github.com/rg3/youtube-dl) 
+    # get the github source (https://github.com/rg3/youtube-dl)
     sudo pip install youtube_dl    # sudo pip install --upgrade youtube_dl  #(to upgrade if its already installed)
     # Taking Notes
     sudo apt-get -y install tomboy transmission
@@ -193,7 +194,7 @@ function install_database() {
     sudo apt-get -y install libpq-dev # libraries and headers for C language frontend development
     sudo apt-get -y install postgresql-server-dev-9.4 # libraries and headers for C language backend development
     sudo apt-get -y install pgadmin3 # pgAdmin III graphical administration utility
-    ## Distributed File Systems 
+    ## Distributed File Systems
     sudo apt-get -y install hdf5-tools
 }
 
@@ -242,7 +243,7 @@ function install_gcc() {
     sudo apt-get -y install liblemon
     sudo apt-get -y install libpng-dev
     ## Statistics
-    sudo apt-get -y install pspp    
+    sudo apt-get -y install pspp
 }
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -250,27 +251,27 @@ function install_gcc() {
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 function install_graphics() {
     ## medical imaging
-    sudo apt-get -y install aeskulap 
+    sudo apt-get -y install aeskulap
     sudo apt-get -y install Ginkgo-CADx
-    ## Image Editors 
+    ## Image Editors
     sudo apt-get -y install gimp inkscape   # Can process raster SVG images
     sudo apt-get -y install imagemagick -with--libtiff
     #-----------------------------------------------------------
     ## Image processing tools and libraries :: https://wiki.ubuntu.com/UbuntuGIS
     #-----------------------------------------------------------
     sudo apt-get -y install colordiff
-    # GRASS for geospatial data management, image processing, graphics/maps production, spatial modeling, and visualization. 
-    sudo apt-get -y install grass 
-    sudo apt-get -y install qgis qgis-plugin-grass # QuantumGIS supports vector, raster, and database formats. 
+    # GRASS for geospatial data management, image processing, graphics/maps production, spatial modeling, and visualization.
+    sudo apt-get -y install grass
+    sudo apt-get -y install qgis qgis-plugin-grass # QuantumGIS supports vector, raster, and database formats.
     sudo apt-get -y install gdal libgdal1c2a python-gdal  # handles raster formats
     sudo apt-get -y install libgeotiff
     sudo apt-get -y install e00compr # an ANSI C library that reads and writes Arc/Info compressed E00 files.
     sudo apt-get -y install postgis    # PG driver for GIS
     sudo apt-get -y install QuantumGIS
-    # Mapserver 
-    sudo apt-get -y install cgi-mapserver mapserver-bin 
+    # Mapserver
+    sudo apt-get -y install cgi-mapserver mapserver-bin
     # Language bindings for mapserver
-    sudo apt-get -y install python-mapscript perl-mapscript php4-mapscript php5-mapscript 
+    sudo apt-get -y install python-mapscript perl-mapscript php4-mapscript php5-mapscript
     sudo apt-get -y install libterralib1c2a  # Terralib
 }
 
@@ -292,7 +293,7 @@ function install_go() {
     sudo apt-get -y install golang-go # Go programming language compiler
     # dependency tool for go
     wget https://github.com/tools/godep.git ~/home
-    # Database drivers        
+    # Database drivers
     sudo apt-get -y install golang-pq-dev # pure Go postgres driver for Go’s database/sql package
     sudo apt-get -y install golang-gosqlite-dev # Trivial sqlite3 binding for Go (development files)
 }
@@ -311,7 +312,7 @@ function install_java() {
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 function install_javascript() {
     # NPM = node package manager
-    sudo apt-get -y install npm 
+    sudo apt-get -y install npm
     sudo npm install -g configurable-http-proxy
     sudo npm install -g jslint
     sudo npm install -g jshint
@@ -328,8 +329,8 @@ function install_javascript() {
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 function install_python() {
     sudo apt-get -y install build-essential
-    # PIP = Python Installer 
-    sudo apt-get -y install pip 
+    # PIP = Python Installer
+    sudo apt-get -y install pip
     sudo apt-get -y install pip-installer
     sudo apt-get -y install python-setuptools
     sudo apt-get -y install python-pip python-dev python-yaml
@@ -356,7 +357,7 @@ function install_python() {
     sudo pip install jedi -i http://pypi.python.org/simple/
     sudo pip install pylint -i http://pypi.python.org/simple/
     # Automate PY and Anaconda/miniconda instaltion with PYTHONIZE (https://github.com/princebot/pythonize)
-    git clone https://github.com/princebot/pythonize.git 
+    git clone https://github.com/princebot/pythonize.git
     #--------------------
     # ANACONDA
     #--------------------
@@ -390,12 +391,12 @@ function install_rlang() {
     sudo Rscript -e "install.packages('devtools',,'http://cran.us.r-project.org')"
     sudo Rscript -e "install.packages('RJSONIO',,'http://cran.us.r-project.org')"
     sudo Rscript -e "install.packages('RCurl',,'http://cran.us.r-project.org')"
-    sudo Rscript -e "install.packages('RCubature',,'http://cran.us.r-project.org')"    
-    #PolyCub is a GNU-R package providing methods for cubature (numerical integration) over polygonal domains. 
-    sudo apt-get -y install r-cran-polycub 
+    sudo Rscript -e "install.packages('RCubature',,'http://cran.us.r-project.org')"
+    #PolyCub is a GNU-R package providing methods for cubature (numerical integration) over polygonal domains.
+    sudo apt-get -y install r-cran-polycub
     # CUBATURE - GNU R package for adaptive multivariate integration
     wget http://packages.ubuntu.com/vivid/r-cran-cubature r-cran-cubature_1.1-2-1_amd64.deb
-    wget http://packages.ubuntu.com/vivid/r-cran-cubature r-cran-cubature_1.1-2-1_i386.deb 
+    wget http://packages.ubuntu.com/vivid/r-cran-cubature r-cran-cubature_1.1-2-1_i386.deb
     # In BASH, the variable $OSTYPE stores the name of the operation system:
     # `$OSTYPE` automatically set to a string that describes the operating system on which bash is executing.
     OSARCH=`uname -m`
@@ -614,4 +615,3 @@ case $install_deb in
     *)
         echo "Installation in progress, almost done!"
     esac
-
