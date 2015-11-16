@@ -1,10 +1,10 @@
 ################################################################################
-# File       : .juliarc.jl
-# Description: Configuration file for Julia for users to store their personal
+# FILE       : .juliarc.jl
+# DESCRIPTION: Configuration file for Julia for users to store their personal
 #              commands in homedir(), in a file named .juliarc.jl
 # AUTHOR     : SVAKSHA (http://svaksha.com/pages/Bio)
 # SOURCE     : http://svaksha.github.io/yaksha
-# DATES      : Created:2013oct01 - Updated:2015nov09
+# DATES      : Created:2013oct01 - Updated:2015nov16
 # COPYRIGHT© : 2005-Now SVAKSHA AllRightsReserved
 # LICENSE    : GNU AGPLv3 License <http://www.gnu.org/licenses/agpl.html>,
 #              https://github.com/svaksha/yaksha/blob/master/LICENSE.md
@@ -36,7 +36,7 @@ using Base
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 # Greetings on startup
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-println("|| नमस्ते ! स्वक्षंस्या सङ्गणकप्रक्रमम् स्वागतम  || Greetings! Welcome to SVAKSHA's Julia programs ||")
+println("|| नमस्ते ! स्वक्षंस्या सङ्गणकप्रक्रमम् स्वागतम  || Greetings! Welcome to SVAKSHA's JULIA programs ||")
 
 # changing the "julia>" prompt color schemes in the REPL
 #Base.active_repl.prompt_color = Base.text_colors[:cyan]
@@ -52,22 +52,10 @@ if chomp(readall(`pwd`)) != ENV["HOME"]
     end
 end
 
-# import the yaksha RC file
-#-------------------------------------------------------------------------------
+push!(LOAD_PATH, ENV["HOME"]*"/.julia")
+push!(LOAD_PATH, ENV["HOME"]*"/ensoji-jl/juhu.jl")
+
 if isfile("$(ENV["HOME"])/.juliarc-yaksha.jl")
     include("$(ENV["HOME"])/.juliarc-yaksha.jl")
 end
-
-# The `push!(LOAD_PATH` ensures that PKG modules can be `imported & used` when calling require. 
-# The @everywhere macro allows you to start julia with multiple workers.
-@everywhere push!(LOAD_PATH, ENV["HOME"]*"/.julia")
-@everywhere push!(LOAD_PATH, ENV["HOME"]*"/ensoji-jl/juhu.jl")
-
-#-------------------------------------------------------------------------------
-# import these packages everytime I start the REPL. 
-#-------------------------------------------------------------------------------
-# IJulia
-ijulia_exists = isdir(Pkg.dir("IJulia"))
-if ijulia_exists && isinteractive(); using IJulia; end
-
 
