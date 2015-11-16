@@ -5,7 +5,7 @@
 # AUTHOR    : SVAKSHA :: http://svaksha.com/pages/Bio
 # SOURCE    : http://svaksha.github.io/yaksha
 # COPYRIGHT©: 2005-Now SVAKSHA AllRightsReserved
-# DATES     : Created:2010dec12 - Updated:2015nov16
+# DATES     : Created:2010dec12 - Updated:2015nov17
 # LICENSE   : GNU AGPLv3, http://www.gnu.org/licenses/agpl-3.0.html, & later versions.
 #            https://github.com/svaksha/yaksha/blob/master/LICENSE.md
 # This code is distributed in the hope that it will be useful, but WITHOUT ANY
@@ -81,7 +81,7 @@ set grep-view	           = file-name:yes line-number:yes,interval=1 text
 # Main view column settings.
 set main-view              = line-number:yes,interval=5 id:yes date:default author:full commit-title:yes,graph,refs,overflow=no
 # Shorthands to change view settings for a previously defined column
-set main-view-date         = short
+set main-view-date         = default #Options are, "local/default/short (no time)/etc..
 # Configure blame view columns using command spanning multiple lines & Enable both ID and line numbers.
 set blame-view             = date:default author:full file-name:auto id:yes,color line-number:yes,interval=5 text
 set blame-view-line-number = no
