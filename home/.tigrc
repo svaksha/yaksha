@@ -70,11 +70,8 @@ set main-options          = -n 1000	# User-defined options for `tig` (git-log)
 #--------------------------------------------
 set vertical-split    = yes
 set git-colors        = no
-set show-author       = full
 set show-changes      = yes	   # Show changes commits in the main view?
-set show-date         = yes
 set show-notes	      = yes		# When non-bool passed as `--show-notes=...` (diff)
-set show-filename     = always
 
 
 # Views 
