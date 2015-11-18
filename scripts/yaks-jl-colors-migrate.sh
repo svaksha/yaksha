@@ -1,11 +1,13 @@
 #/usr/bin/env bash
 ################################################################################
-# File       : yaksha-migrate-jl-colors.sh from <http://svaksha.github.io/yaksha>
-# Description: Script to change Color.jl to Colors.jl
-# AUTHOR     : timholy, https://github.com/JuliaGraphics/Colors.jl#migrating-from-colorjl
-# COPYRIGHT© : 2005-Now SVAKSHA <http://svaksha.com/pages/Bio> AllRightsReserved
-# DATES      : Created:2015aug24 - Updated:2015aug25
-# LICENSE    : GNU AGPLv3 License <http://www.gnu.org/licenses/agpl.html>
+# FILENAME  : yaks-jl-colors-migrate.sh from <http://svaksha.github.io/yaksha>
+# DESC      : Script to change Color.jl to Colors.jl
+# AUTHOR    : timholy, https://github.com/JuliaGraphics/Colors.jl#migrating-from-colorjl
+# SOURCE    : http://svaksha.github.io/yaksha
+# COPYRIGHT©: 2005-Now SVAKSHA (http://svaksha.com/pages/Bio) AllRightsReserved.
+# DATES     : Created:2015aug24 - Updated:2015nov17
+# LICENSE   : GNU AGPLv3, http://www.gnu.org/licenses/agpl-3.0.html, & later versions.
+#            https://github.com/svaksha/yaksha/blob/master/LICENSE.md
 ################################################################################
 # Migrating from Color.jl
 # This script will automatically migrate julia pkg for Color.jl to Colors.jl

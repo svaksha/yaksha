@@ -29,9 +29,9 @@ The `yaksha` repo contains the following folders & programs, here is a short des
 + `~/yaksha/scripts/` :: General scripts.
 
 ## ToDo
-+ @[holman](http://zachholman.com/2010/08/dotfiles-are-meant-to-be-forked/) talks about keeping dotfiles lean. Learn how they do it: [rtomayko](https://github.com/rtomayko/dotfiles), [holman](https://github.com/holman/dotfiles), .....
 + Cleanup my bash programs - [BASH best practices](https://github.com/progrium/bashstyle).
-+ https://github.com/mathiasbynens/dotfiles
++ @[holman](http://zachholman.com/2010/08/dotfiles-are-meant-to-be-forked/) talks about keeping dotfiles lean. Learn how they do it: [rtomayko](https://github.com/rtomayko/dotfiles), [holman](https://github.com/holman/dotfiles), [mathiasbynens](https://github.com/mathiasbynens/dotfiles), ..
++ Automate with [homeshick](https://github.com/andsens/homeshick)-git dotfiles synchronizer written in bash, ... 
 
 ----
 
