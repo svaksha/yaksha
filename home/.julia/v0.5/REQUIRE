@@ -84,6 +84,7 @@ MathProgBase
 MbedTLS
 MacroTools
 Mongo
+MPI
 Mustache
 Mux
 NaiveBayes
