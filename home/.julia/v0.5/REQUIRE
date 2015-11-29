@@ -45,6 +45,7 @@ ForwardDiff
 FunctionalCollections
 Gadfly
 GetC
+GLVisualize
 Graphics
 GraphLayout
 Graphs
