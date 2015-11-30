@@ -4,7 +4,7 @@
 # Description: Configuration file for BASH, save as ~/.bashrc to use.
 # AUTHOR     : SVAKSHA <http://svaksha.github.io/yaksha>
 # COPYRIGHT© : 2005-Now SVAKSHA <http://svaksha.com/pages/Bio> AllRightsReserved
-# DATES      : Created:2005nov05 - Updated:2015oct22
+# DATES      : Created:2005nov05 - Updated:2015nov30
 # LICENSE    : GNU AGPLv3 License <http://www.gnu.org/licenses/agpl.html>
 #              https://github.com/svaksha/yaksha/blob/master/LICENSE.md
 # This code is distributed in the hope that it will be useful, but WITHOUT ANY
@@ -270,21 +270,18 @@ esac
 ################################################################################
 source ~/.git-completion.bash
 source ~/.bash_aliases
-#source ~/.juliarc.jl
-#source ~/.curlrc
-#source ~/.vimrc
 
 
 #............................ CHEMISTRY ........................................
 ################################################################################
-# PATH for the MoProSuite_1502_India software | created: Fri 20 Feb 2015 02:30:52 IST 
-# To launch MoProGUI, type RunMoProGUI or launch it from the install folder
+# PATH for the MoProSuite_1502_India software | Date: Fri 20 Feb 2015 02:30:52 IST 
+# To launch MoProGUI, type RunMoProGUI or launch it from the install folder.
 ################################################################################
 export PATH="$(pwd)/MoProSuite_1502_India:$PATH"
 
-################################################################################
+#-------------------------------------------------------------------------------
 # PATH for CrystalExplorer software | created: Fri 20 Feb 2015 10:17:52 IST 
-################################################################################
+#-------------------------------------------------------------------------------
 alias crystalexplorer=/usr/local/CrystalExplorer/CrystalExplorer
 
 
@@ -304,7 +301,7 @@ export PATH="/usr/local/heroku/bin:$PATH"
 
 
 ################################################################################
-#########      Customized DEVELOPMENT ENVIRONMENTS                     #########
+#########      Customize DEVELOPMENT ENVIRONMENTS                     #########
 ################################################################################
 #
 #======================== GCC ==================================================
@@ -315,6 +312,17 @@ export GCC_COLORS=1
 ### PYTHON ** PYTHON ** PYTHON ** PYTHON ** PYTHON ** PYTHON ** PYTHON ** PYTHON 
 ################################################################################
 #
+#-------------------------------------------------------------------------------
+# COMMAND LINE ENVIRONMENT, https://docs.python.org/3/using/cmdline.html
+#-------------------------------------------------------------------------------
+# set the Environment variable PYTHONSTARTUP to point to the start up script
+export PYTHONSTARTUP=~/.pythonrc.py
+#export PYTHONSTARTUP="$HOME/.pythonrc.py"
+
+# command to delete bytecode (.pyc) files, works with the global alias file
+export PYTHONDONTWRITEBYTECODE=true # REF: https://twitter.com/wlonk/status/587431447222444033
+
+
 #===============================================================================
 ### PIP bash completion start 
 # DATE: Fri, 03 May 2013 16:02:40 +0530 
@@ -338,20 +346,15 @@ export PATH="$HOME/anaconda/bin:$PATH"
 # added by Anaconda3 2.3.0 installer
 export PATH="/home/mom/anaconda3/bin:$PATH"
 
-#-------------------------------------------------------------------------------
-# command to delete bytecode (.pyc) files, works with the global alias file
-#-------------------------------------------------------------------------------
-export PYTHONDONTWRITEBYTECODE=true # REF: https://twitter.com/wlonk/status/587431447222444033
-
 
 #............................ JULIA ............................................
 ################################################################################
-# Julia PATH | 
-# DATE: 2012apr12-2015oct22
+# Julia PATH 
+# DATE: 2012apr12-2015nov30
 ################################################################################
 export PATH="$(pwd)/julia:$PATH"
 # $PWD/julia/bin
-export PATH="$(pwd)/ensoji-julia/:$PATH"
+export PATH="$(pwd)/enso-jl/:$PATH"
 ############## jdp == DeclarativePackages.jl
 export PATH="$(pwd)/julia/bin/jdp:$PATH"
 #PATH=$PATH:$(pwd)/julia/bin/jdp   
@@ -365,7 +368,7 @@ export PATH="$(pwd)/usr/local/lib/node_modules/grunt-cli:$PATH"
 
 
 
-#=== DVCS DVCS DVCS DVCS DVCS DVCS DVCS DVCS DVCS DVCS DVCS DVCS DVCS DVCS DVCS
+## DVCS DVCS DVCS DVCS DVCS DVCS DVCS DVCS DVCS DVCS DVCS DVCS DVCS DVCS DVCS
 ################################################################################
 ### GIT configurations
 # DATE: 2010feb22-2014dec30
@@ -393,7 +396,7 @@ export LD_LIBRARY_PATH
 ## GO: https://golang.org/doc/code.html ## GO: https://golang.org/doc/code.html
 ## DATE: 2015oct15-2015oct22
 ################################################################################
-export GOPATH=$HOME/ensoji-go
+export GOPATH=$HOME/enso-go
 #add the workspace's `bin` subdirectory to your PATH
 export PATH=$PATH:$GOPATH/bin
 
