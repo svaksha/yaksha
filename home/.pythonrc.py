@@ -133,21 +133,21 @@ def yaks_pyimport(module, description="", fromlist=[]):
     try:
         __import__(module, fromlist=fromlist)
     except:
-        print "Unable to import " + (",".join(fromlist) + " from " if fromlist else "") + module
+        print("Unable to import " + (",".join(fromlist) + " from " if fromlist else "") + module)
     else:
-        print "Imported " + (",".join(fromlist) + " from " if fromlist else "") + module
+        print("Imported " + (",".join(fromlist) + " from " if fromlist else "") + module)
 yaks_pyimport("bs4", "BeautifulSoup4", ["BeautifulSoup"])
-yaks_pyimport("requests", "requests")
-yaks_pyimport("json", "json")
+yaks_pyimport("requests", "requests", ['requests'])
+yaks_pyimport("json", "json", ['requesets'])
 
 '''
 def yaks_pyimport(pycode, description):
     try:
         exec(pycode)
     except:
-        print "Unable to import " + description
+        print("Unable to import " + description)
     else:
-        print "Imported " + description
-yaks_pyimport("from bs4 import BeautifulSoup as Soup", "BeautifulSoup")
-yaks_pyimport("import requests, json", "requests and json")
+        print("Imported " + description)
+yaks_pyimport("from bs4 import BeautifulSoup as Soup", 'BeautifulSoup')
+yaks_pyimport("import requests, json", 'requests and json')
 '''
