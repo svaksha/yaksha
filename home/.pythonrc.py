@@ -47,18 +47,7 @@ import pprint
 import json
 import atexit
 
-#
-# Store the file in ~/.pystartup, and set an environment variable to point
-# to it:  "export PYTHONSTARTUP=/home/gsf/.pystartup" in bash.
-#
-# Note that PYTHONSTARTUP does *not* expand "~", so you have to put in the
-# full path to your home directory.
-
-import atexit
-import os
-import readline
-import rlcompleter
-import sys
+print("# SVAKSHA's pythonrc.py has imported these libs in the REPL : ")
 
 #-------------------------------------------------------------------------------
 # Date & Time
@@ -127,27 +116,18 @@ else:
     print("\nImported Django modules.")
 
 
-# BeautifulSoup, Requests, Json.
+# function yaks_pyimport 
 #-------------------------------------------------------------------------------
 def yaks_pyimport(module, description="", fromlist=[]):
     try:
         __import__(module, fromlist=fromlist)
     except:
-        print("Unable to import " + (",".join(fromlist) + " from " if fromlist else "") + module)
+        print("Unable to import " + (",".join(fromlist) + " from " if fromlist else "") + description)
     else:
         print("Imported " + (",".join(fromlist) + " from " if fromlist else "") + module)
 yaks_pyimport("bs4", "BeautifulSoup4", ["BeautifulSoup"])
 yaks_pyimport("requests", "requests", ['requests'])
 yaks_pyimport("json", "json", ['json'])
+yaks_pyimport("np", "numpy", ['numpy'])
 
-'''
-def yaks_pyimport(pycode, description):
-    try:
-        exec(pycode)
-    except:
-        print("Unable to import " + description)
-    else:
-        print("Imported " + description)
-yaks_pyimport("from bs4 import BeautifulSoup as Soup", 'BeautifulSoup')
-yaks_pyimport("import requests, json", 'requests and json')
-'''
+

@@ -316,9 +316,12 @@ export GCC_COLORS=1
 # COMMAND LINE ENVIRONMENT, https://docs.python.org/3/using/cmdline.html
 #-------------------------------------------------------------------------------
 # set the Environment variable PYTHONSTARTUP to point to the start up script
+# NOTE: PYTHONSTARTUP does *not* expand "~", so you have to put in the
+# full path to your home directory.
 export PATH="/home/mom/:$PATH"
 export PYTHONSTARTUP="$HOME/.pythonrc.py"
 #export PYTHONSTARTUP=~/.pythonrc.py
+export PYTHON_HISTORY_FILE="$HOME/.python_history"
 
 # command to delete bytecode (.pyc) files, works with the global alias file
 export PYTHONDONTWRITEBYTECODE=true # REF: https://twitter.com/wlonk/status/587431447222444033
