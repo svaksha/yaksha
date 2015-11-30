@@ -138,7 +138,7 @@ def yaks_pyimport(module, description="", fromlist=[]):
         print("Imported " + (",".join(fromlist) + " from " if fromlist else "") + module)
 yaks_pyimport("bs4", "BeautifulSoup4", ["BeautifulSoup"])
 yaks_pyimport("requests", "requests", ['requests'])
-yaks_pyimport("json", "json", ['requesets'])
+yaks_pyimport("json", "json", ['json'])
 
 '''
 def yaks_pyimport(pycode, description):
