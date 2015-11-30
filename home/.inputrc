@@ -1,0 +1,75 @@
+#!/usr/bin/env bash
+################################################################################
+# File       : .inputrc
+# Description: additions to the global inputrc {/etc/inputrc} for libreadline.
+# AUTHOR     : SVAKSHA <http://svaksha.github.io/yaksha>
+# COPYRIGHT© : 2005-Now SVAKSHA {http://svaksha.com/pages/Bio} AllRightsReserved
+# DATES      : Created:2007/08/15 - Updated:2015/11/30
+# LICENSE    : GNU AGPLv3 License <http://www.gnu.org/licenses/agpl.html>
+#              https://github.com/svaksha/yaksha/blob/master/LICENSE.md
+# This code is distributed in the hope that it will be useful, but WITHOUT ANY
+# WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR 
+# A PARTICULAR PURPOSE. Permission is hereby granted, free of charge, to any 
+# person obtaining a copy of this software, to deal in the Software without 
+# restriction, including without limitation the rights to use, copy, modify, 
+# merge, publish, redistribute, and/or sell copies of the Software and use in 
+# source form, with or without modification, and to permit persons to whom the 
+# Software is furnished to do so as per the terms in the LICENSE.md file and 
+# subject to the following conditions being met:
+# 1. ALL copies, forks and redistributions of source code AND/OR binary form 
+#    must retain the above Copyright notice, the Licence file for source code 
+#    (AGPLv3) along with this permission notice and list of conditions and the 
+#    following disclaimer, in substantial portions of the Software.
+# 2. Neither the name of the COPYRIGHT HOLDER(S) nor the names of its 
+#    contributors may be used to endorse or promote products derived from this 
+#    software without specific prior written permission.
+################################################################################
+#
+#
+# Add punctuation as word delimiters. If set to ‘on’, Readline attempts to bind 
+# the control characters treated specially by the kernel's terminal driver to 
+# their Readline equivalents.
+set bind-tty-special-chars off
+
+# The string to insert at the beginning of the line when the insert-comment 
+# command is executed. The default value is "#". 
+set comment-begin #
+
+# Completion Options
+set page-completions on
+set completion-ignore-case on
+set completion-query-items 1008
+set show-all-if-ambiguous on
+set show-all-if-unmodified on
+set visible-stats on
+
+# UTF-8 
+set meta-flag on
+# Be 8 bit clean.
+set input-meta on
+set output-meta on
+# To allow the use of 8bit-characters like the german umlauts, uncomment
+# the line below. However this makes the meta key not work as a meta key,
+# which is annoying to those which don't need to type in 8-bit characters.
+set convert-meta off
+
+# Editing mode
+set editing-mode vi
+
+$if mode=vi
+    set keymap vi-command
+    "hh": beginning-of-history
+    "H": end-of-history
+$endif
+
+$if Bash
+$endif
+
+$if Python
+$endif
+
+# IPython needs this to appear at the bottom of the
+# file for clear-screen to work
+set keymap vi
+# End /etc/inputrc
+
