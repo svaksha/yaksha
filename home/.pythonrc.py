@@ -27,19 +27,40 @@ from __future__ import absolute_import, division, print_function, unicode_litera
 #    software without specific prior written permission.
 ################################################################################
 #
-# https://docs.python.org/3/using/cmdline.html#envvar-PYTHONSTARTUP
-#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 __author__ = 'SVAKSHA'
 __copyright__ = 'Copyright © 2005-Now, SVAKSHA, http://svaksha.com/pages/Bio'
 __license__ = 'AGPLv3'
 __version__ = '15.11.dev'
 __url__ = 'https://github.com/svaksha/yaksha'
 
-import json
-import sys
+"""
+This file is executed when the Python interactive shell is started if 
+$PYTHONSTARTUP is in your .bashrc environment and points to this file. 
+In conjunction with your ~/.inputrc file these Python commands are useful.
+"""
+
+import sys, os
+import pdb
+import readline, rlcompleter
 import datetime
 import pprint
+import json
+import atexit
 
+#
+# Store the file in ~/.pystartup, and set an environment variable to point
+# to it:  "export PYTHONSTARTUP=/home/gsf/.pystartup" in bash.
+#
+# Note that PYTHONSTARTUP does *not* expand "~", so you have to put in the
+# full path to your home directory.
+
+import atexit
+import os
+import readline
+import rlcompleter
+import sys
+
+#-------------------------------------------------------------------------------
 # Date & Time
 #-------------------------------------------------------------------------------        
 try:
@@ -48,7 +69,10 @@ except ImportError:
     print("\nCould not import dateutil.")
 
 
-# INPUTRC : tab-completion and readline support.    
+#-------------------------------------------------------------------------------
+# INPUTRC, tab-completion and readline support, https://docs.python.org/3/using/cmdline.html
+# Auto-completion and a stored history file of commands for my Python REPL. 
+# Autocomplete is bound to the Esc key by default (see readline docs to change it).
 #-------------------------------------------------------------------------------
 try:
     import readline
@@ -61,7 +85,23 @@ else:
     else:
         readline.parse_and_bind("tab: complete")    
         
+#-------------------------------------------------------------------------------
+# Enable Python History
+#-------------------------------------------------------------------------------
+HISTFILE="%s/.python_history" % os.environ["HOME"]
+# Read the existing history if there is one
+if os.path.exists(HISTFILE):
+    readline.read_history_file(HISTFILE)
+# Set maximum number of items that will be written to the history file
+readline.set_history_length(300)
 
+def savehist():
+    readline.write_history_file(HISTFILE)
+atexit.register(savehist)
+
+
+
+#-------------------------------------------------------------------------------
 # Enable Pretty Printing for stdout
 #-------------------------------------------------------------------------------
 def yaks_pydisplayhook(value):
@@ -75,6 +115,7 @@ def yaks_pydisplayhook(value):
 sys.pydisplayhook = yaks_pydisplayhook
 
 
+#-------------------------------------------------------------------------------
 # Django imports
 #-------------------------------------------------------------------------------
 try:
@@ -85,7 +126,21 @@ except:
 else:
     print("\nImported Django modules.")
 
+
 # BeautifulSoup, Requests, Json.
+#-------------------------------------------------------------------------------
+def yaks_pyimport(module, description="", fromlist=[]):
+    try:
+        __import__(module, fromlist=fromlist)
+    except:
+        print "Unable to import " + (",".join(fromlist) + " from " if fromlist else "") + module
+    else:
+        print "Imported " + (",".join(fromlist) + " from " if fromlist else "") + module
+yaks_pyimport("bs4", "BeautifulSoup4", ["BeautifulSoup"])
+yaks_pyimport("requests", "requests")
+yaks_pyimport("json", "json")
+
+'''
 def yaks_pyimport(pycode, description):
     try:
         exec(pycode)
@@ -93,8 +148,6 @@ def yaks_pyimport(pycode, description):
         print "Unable to import " + description
     else:
         print "Imported " + description
-
 yaks_pyimport("from bs4 import BeautifulSoup as Soup", "BeautifulSoup")
 yaks_pyimport("import requests, json", "requests and json")
-
-
+'''
