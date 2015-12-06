@@ -31,7 +31,8 @@ Here is a short description of contents (folders & programs) of the `yaksha` rep
 ## ToDo
 + Cleanup my bash programs - [BASH best practices](https://github.com/progrium/bashstyle).
 + @[holman](http://zachholman.com/2010/08/dotfiles-are-meant-to-be-forked/) talks about keeping dotfiles lean. Learn how they do it: [rtomayko](https://github.com/rtomayko/dotfiles), [holman](https://github.com/holman/dotfiles), [mathiasbynens](https://github.com/mathiasbynens/dotfiles), ..
-+ Automate with [homeshick](https://github.com/andsens/homeshick)-git dotfiles synchronizer written in bash, ... 
++ Automate with [homeshick](https://github.com/andsens/homeshick)-git dotfiles synchronizer written in bash.
+   + homesick compatible bashrc and zshrc files : https://github.com/andsens/rc-files
 + Reconsider if [zsh](https://github.com/robbyrussell/oh-my-zsh) is more useful than bash? on all machines?
 
 ----
