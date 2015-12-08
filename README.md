@@ -34,6 +34,8 @@ Here is a short description of contents (folders & programs) of the `yaksha` rep
 + Automate with [homeshick](https://github.com/andsens/homeshick)-git dotfiles synchronizer written in bash.
    + homesick compatible bashrc and zshrc files : https://github.com/andsens/rc-files
 + Reconsider if [zsh](https://github.com/robbyrussell/oh-my-zsh) is more useful than bash? on all machines?
++ Auto-Alias
+   + HuffShell is a gem for suggesting and optimizing your shell aliases, programtically. 
 
 ----
 
