@@ -1,15 +1,19 @@
 
 
-# My ToDo list for today:
+# My ToDo list
 
 #### Cleanup my bash programs 
 + [BASH best practices](https://github.com/progrium/bashstyle).
 
-#### Automation:
+#### Automation
 + @[holman](http://zachholman.com/2010/08/dotfiles-are-meant-to-be-forked/) talks about keeping dotfiles lean. Learn how they do it: [rtomayko](https://github.com/rtomayko/dotfiles), [holman](https://github.com/holman/dotfiles), [mathiasbynens](https://github.com/mathiasbynens/dotfiles), ..
 + [homeshick](https://github.com/andsens/homeshick) : git dotfiles synchronizer written in bash.
 + https://github.com/andsens/rc-files : homesick compatible bashrc and zshrc files.
 + Reconsider if [zsh](https://github.com/robbyrussell/oh-my-zsh) is more useful than bash? on all machines?
++ AWS
+   + https://github.com/colinbjohnson/aws-missing-tools :: tools for managing AWS resources including EC2, EBS, RDS, IAM, CloudFormation and Route53.
+   + https://github.com/colinbjohnson/snippets
+   + https://github.com/colinbjohnson/awstraining
 
 #### Auto-Alias
    + [HuffShell](https://github.com/paulmars/huffshell) :: A gem for suggesting and optimizing your shell aliases, programtically. 
