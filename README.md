@@ -1,13 +1,11 @@
 # yaksha - my personal automation daimons!
 
-My personal automation daemons for the Linux system installation/ updation/ backups, bash shell scripts, dockerfiles, dotfiles and configuration files...
-
-**Standard Disclaimer & Warning** : No warranty and/or guarantee for any particular use, express or implied and you agree to use [these automation daimons](http://svaksha.github.io/yaksha) at your own risk and liability! 
+My personal automation daemons for the Linux system installation, updation, backups, bash shell scripts, dockerfiles, dotfiles and configuration files!
 
 ## Index
 
 ### Installation 
-If you want to try out these program scripts & dotfiles, you can fork this repository, review the code, and remove the things you don’t require. Test them before using at your own risk - The `Standard Disclaimer & Warning` applies here! 
+To try out these program scripts & dotfiles, fork this repository, review the code, and remove the things you don’t require. Test them before use!
 
 1. Clone the repository with the command:
 ```git clone https://github.com/svaksha/yaksha.git && cd yaksha
@@ -34,7 +32,9 @@ Here is a short description of contents (folders & programs) of the `yaksha` rep
 # Copyright & License
 + COPYRIGHT© 2005-Now [SVAKSHA](http://svaksha.com/pages/Bio) All Rights Reserved. Code and Copyrights when referenced and/or attributed to other people and/or entities belongs to them as listed in the files. 
 + The __`yaksha`__ repository is licensed and distributed under the [AGPLv3 License](http://www.gnu.org/licenses/agpl-3.0.html) and ALL references, citations, copies and forks of this work must retain the Copyright, Licence (LICENSE.md file), this permission notice and attribute [credit](https://en.wikipedia.org/wiki/Creative_Commons_license#Attribution).
++ **Standard Disclaimer & Warning** : No warranty and/or guarantee for any particular use, express or implied and you agree to use these [automation daimons](http://svaksha.github.io/yaksha) at your own risk and liability! 
+
 
 ## Feedback
-Any suggestions for improvements are [welcome](https://github.com/svaksha/yaksha/issues) !
+Any suggestions for improvements are [welcome](https://github.com/svaksha/yaksha/issues) via BR's !
 
