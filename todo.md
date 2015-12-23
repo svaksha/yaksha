@@ -6,6 +6,7 @@ Some more pending stuff :
 + [BASH best practices](https://github.com/progrium/bashstyle).
 
 ### Automation
++ https://github.com/jbernard/dotfiles :: Dotfile management made easy. http://pypi.python.org/pypi/dotfiles/
 + @[holman](http://zachholman.com/2010/08/dotfiles-are-meant-to-be-forked/) talks about keeping dotfiles lean. Learn how they do it: [rtomayko](https://github.com/rtomayko/dotfiles), [holman](https://github.com/holman/dotfiles), [mathiasbynens](https://github.com/mathiasbynens/dotfiles), ..
 + [homeshick](https://github.com/andsens/homeshick) : git dotfiles synchronizer written in bash.
 + https://github.com/andsens/rc-files : homesick compatible bashrc and zshrc files.
