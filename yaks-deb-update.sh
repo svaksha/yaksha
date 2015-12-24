@@ -5,7 +5,7 @@
 # AUTHOR     : SVAKSHA, http://svaksha.com/pages/Bio
 # SOURCE     : http://svaksha.github.io/yaksha
 # COPYRIGHT© : 2005-Now SVAKSHA, AllRightsReserved.
-# DATES      : Created:2006mar31 - Updated:2015nov03
+# DATES      : Created:2006mar31 - Updated:2015dec25
 # LICENSE    : GNU AGPLv3 License <http://www.gnu.org/licenses/agpl.html>
 #              https://github.com/svaksha/yaksha/blob/master/LICENSE.md
 # This code is distributed in the hope that it will be useful, but WITHOUT ANY
@@ -31,6 +31,9 @@
 # Usage: "./yaks-deb-update.sh"
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
+# Clear the Terminal.
+clear
+# directory
 yaksha_dir=~/yaksha/
 
 # Log the date and time of execution of bash script into the `output` files.
@@ -41,8 +44,12 @@ date +"%c|completed running: $?" >> out-yaks-deb-update-cron.log
 # Cron will automatically install the weekly updates
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 function update_deb() {
-    echo "Finish installation with a dist-upgrade"
-    # resynchronize the package index files from their internet sources.
+    echo "Remember to finish installation with a dist-upgrade"
+    # Echo more messages
+    echo '******************************************************'
+    echo "* yaks-deb-update.sh |    Yaksha Update Script     | `hostname -f` *"
+    echo '******************************************************'
+    # resynchronize the package index files from their internet sources to fetch the latest packages
     sudo apt-get -y update
     # Install the newest versions of all packages currently installed on this system.
     sudo apt-get -y upgrade
@@ -50,9 +57,18 @@ function update_deb() {
     # resolution system can handle changing dependencies with new package versions.
     sudo apt-get -y dist-upgrade
     sudo apt-get -y safe-upgrade
+    # Remove junk stuff
+    #sudo apt-get --purge autoremove
+    # Now clean the installed packages
+    sudo apt-get -y clean
     sudo apt-get -y autoclean
+    # Are we done? 
+    echo "Finished updating debuntu :-)"
 }    
 
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+# Dont forget to update Anaconda
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 function update_conda() {
     cd
     cd anaconda3
@@ -60,7 +76,10 @@ function update_conda() {
     conda update -y anaconda
     cd
     cd yaksha
+    # Are we done yet? 
+    echo "Finished updating Anaconda :-)"
 }
+
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 # Funcs
@@ -82,9 +101,8 @@ case $key in
     *)
         echo "usage:
                 -c|--clean  - remove dotfiles before installation
-                -u|--update [type] copy the yaksha dotfiles into home
-        "
-        ;;
+                -u|--update [type] copy the yaksha dotfiles into home"
+    ;;
     esac
     
     
