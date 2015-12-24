@@ -1,28 +1,13 @@
 #!/usr/bin/env bash
 ################################################################################
-# File       : .bashrc
-# Description: Configuration file for BASH, save as ~/.bashrc to use.
-# AUTHOR     : SVAKSHA <http://svaksha.github.io/yaksha>
-# COPYRIGHT© : 2005-Now SVAKSHA <http://svaksha.com/pages/Bio> AllRightsReserved
-# DATES      : Created:2005nov05 - Updated:2015nov30
-# LICENSE    : GNU AGPLv3 License <http://www.gnu.org/licenses/agpl.html>
-#              https://github.com/svaksha/yaksha/blob/master/LICENSE.md
-# This code is distributed in the hope that it will be useful, but WITHOUT ANY
-# WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR 
-# A PARTICULAR PURPOSE. Permission is hereby granted, free of charge, to any 
-# person obtaining a copy of this software, to deal in the Software without 
-# restriction, including without limitation the rights to use, copy, modify, 
-# merge, publish, redistribute, and/or sell copies of the Software and use in 
-# source form, with or without modification, and to permit persons to whom the 
-# Software is furnished to do so as per the terms in the LICENSE.md file and 
-# subject to the following conditions being met:
-# 1. ALL copies, forks and redistributions of source code AND/OR binary form 
-#    must retain the above Copyright notice, the Licence file for source code 
-#    (AGPLv3) along with this permission notice and list of conditions and the 
-#    following disclaimer, in substantial portions of the Software.
-# 2. Neither the name of the COPYRIGHT HOLDER(S) nor the names of its 
-#    contributors may be used to endorse or promote products derived from this 
-#    software without specific prior written permission.
+# FILE       : .bashrc
+# DESCRIPTION: Configuration file for BASH, save as ~/.bashrc to use.
+# AUTHOR     : SVAKSHA :: http://svaksha.com/pages/Bio
+# SOURCE     : http://svaksha.github.io/yaksha
+# COPYRIGHT© : 2005-Now SVAKSHA (http://svaksha.com/pages/Bio) AllRightsReserved
+# LICENSE    : GNU AGPLv3 and subject to the terms and conditions in the LICENSE.md 
+#              (https://github.com/svaksha/yaksha/blob/master/LICENSE.md) file being met.
+# DATES      : Created:2005mar22 - Updated:2015dec25
 ################################################################################
 #
 # ~/.bashrc: executed by bash(1) for non-login shells. For examples
@@ -216,7 +201,7 @@ if [ "$color_prompt" = yes ]; then
     PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]स्वक्ष\[\033[01;31m\]@ilak\[\033[01;33m\]:\[\033[00;36m\]\w\[\033[01;37m\]\$ '
 else
 #    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
-    PS1='${debian_chroot:+($debian_chroot)}स्वक्ष@ilak:\w\$ '
+    PS1='${debian_chroot:+($debian_chroot)}svaksha@kheops:\w\$ '
 fi
 unset color_prompt force_color_prompt
 
@@ -403,4 +388,12 @@ export LD_LIBRARY_PATH
 export GOPATH=$HOME/enso-go
 #add the workspace's `bin` subdirectory to your PATH
 export PATH=$PATH:$GOPATH/bin
+
+#-------------------------------------------------------------------------------
+# PATH for UTILS: https://github.com/basherpm/basher
+# Only tested for git based packages
+## DATE: 2015dec25-2015dec25
+#-------------------------------------------------------------------------------
+export PATH="$HOME/.basher/bin:$PATH"
+eval "$(basher init -)"
 

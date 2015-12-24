@@ -1,6 +1,9 @@
-# ToDo list
+# ToDo references
 
-Some more pending stuff :
++ https://github.com/svaksha/aksh/blob/master/cs-debuntu.md 
++ https://github.com/svaksha/aksh/blob/master/cs-devops.md
+
+List of pending stuff :
 
 ### Cleanup my bash programs 
 + [BASH best practices](https://github.com/progrium/bashstyle).

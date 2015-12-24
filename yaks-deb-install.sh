@@ -1,34 +1,18 @@
 #!/usr/bin/env bash
 ################################################################################
-# File       : yaks-deb-install.sh
-# Description: Bash Installation script for a new Debian-Ubuntu system.
+# FILE       : yaks-deb-install.sh
+# DESCRIPTION: Bash Installation script for a new Debian-Ubuntu system.
 # AUTHOR     : SVAKSHA :: http://svaksha.com/pages/Bio
 # SOURCE     : http://svaksha.github.io/yaksha
 # COPYRIGHT© : 2005-Now SVAKSHA (http://svaksha.com/pages/Bio) AllRightsReserved
-# DATES      : Created:2005mar22 - Updated:2015nov11
-# LICENSE    : GNU AGPLv3 License <http://www.gnu.org/licenses/agpl.html>
-#              https://github.com/svaksha/yaksha/blob/master/LICENSE.md
-# This code is distributed in the hope that it will be useful, but WITHOUT ANY
-# WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR
-# A PARTICULAR PURPOSE. Permission is hereby granted, free of charge, to any
-# person obtaining a copy of this software, to deal in the Software without
-# restriction, including without limitation the rights to use, copy, modify,
-# merge, publish, redistribute, and/or sell copies of the Software and use in
-# source form, with or without modification, and to permit persons to whom the
-# Software is furnished to do so as per the terms in the LICENSE.md file and
-# subject to the following conditions being met:
-# 1. ALL copies, forks and redistributions of source code AND/OR binary form
-#    must retain the above Copyright notice, the Licence file for source code
-#    (AGPLv3) along with this permission notice and list of conditions and the
-#    following disclaimer, in substantial portions of the Software.
-# 2. Neither the name of the COPYRIGHT HOLDER(S) nor the names of its
-#    contributors may be used to endorse or promote products derived from this
-#    software without specific prior written permission.
+# LICENSE    : GNU AGPLv3 and subject to the terms and conditions in the LICENSE.md 
+#              (https://github.com/svaksha/yaksha/blob/master/LICENSE.md) file being met.
+# DATES      : Created:2005mar22 - Updated:2015dec25
 ################################################################################
 #
-# Useful links
-#-------------------------------------------------------------------------------
-# https://help.ubuntu.com/community/SoftwareManagement
+# References:
+# https://github.com/svaksha/aksh/blob/master/cs-debuntu.md 
+# https://github.com/svaksha/aksh/blob/master/cs-devops.md
 #-------------------------------------------------------------------------------
 
 yaksha_dir=~/yaksha/
@@ -464,9 +448,9 @@ function install_vim() {
 }
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-# CLOUD SERVER DEVOPS TOOLS
+# YAKSHA DEVOPS 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-function install_cloudevops() {
+function install_yaksham() {
     # DOCKER : https://docs.docker.com/installation/ubuntulinux/
     sudo apt-get -y install docker.io
     apt-key adv --keyserver hkp://pgp.mit.edu:80 --recv-keys 58118E89F3A912897C070ADBF76221572C52609D
@@ -500,6 +484,9 @@ function install_cloudevops() {
         # Install 32-bit stuff here
         cd ~/home; sudo dpkg --install vagrant_1.7.4_i686.deb
     fi
+    # Lets try out this package manager for bash scripts and functions.
+    # Only tested for git based packages.
+    git clone https://github.com/basherpm/basher.git ~/.basher
 }
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -549,7 +536,7 @@ case $install_deb in
         install_deb_pkg
     ;;
     cloudevops)
-        install_cloudevops
+        install_yaksham
     ;;
     cpudisk)
         install_cpudisk
@@ -599,7 +586,7 @@ case $install_deb in
     all)
         install_desktop
         install_deb_pkg
-        install_cloudevops
+        install_yaksham
         install_cpudisk
         install_utilities
         install_database
