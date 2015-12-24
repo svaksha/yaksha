@@ -16,7 +16,7 @@ Github offers HTTPS and SSH as transfer protocols or this repo can be downloaded
 
 Here is a short description of contents (folders & programs) of the `yaksha` repo :
 
-[download]: https://github.com/svaksha/yaksha/archive/master.zip
+  [download]: https://github.com/svaksha/yaksha/archive/master.zip
 
 #### Programs
 + `yaksha-deb-backup.py` :: This daemon will take regular backups of my system using the attic python lib.
