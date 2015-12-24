@@ -6,7 +6,7 @@ My personal automation daemons for the Linux system installation, updation, back
 
 ### Installation 
 To try out these program scripts & dotfiles, fork this repository, review the code, and remove the things you don’t require. Test them before use!
-Github offers HTTPS and SSH as transfer protocols or this repo can be downloaded as a zip-file (latest 'master' branch). __Tip__: You should have uploaded your `ssh` key to github and have `git` installed locally before issuing the `git` commands.
+Github offers HTTPS and SSH as transfer protocols or this repo can be downloaded as a [zip-file][download] (latest 'master' branch). __Tip__: You should have uploaded your `ssh` key to github and have `git` installed locally before issuing the `git` commands.
 
 1. For SSH protocol use the URL `ssh://git@github.com:svaksha/yaksha.git` via the clone command:
 ```git clone ssh://github.com/svaksha/yaksha.git 
@@ -15,6 +15,8 @@ Github offers HTTPS and SSH as transfer protocols or this repo can be downloaded
 3. After the repo is cloned into the `~/yaksha` folder, change directory with the command `cd yaksha` to run the scripts you need. My dotfiles are stored in`~/home` with symlinks.
 
 Here is a short description of contents (folders & programs) of the `yaksha` repo :
+
+[download]: https://github.com/svaksha/yaksha/archive/master.zip
 
 #### Programs
 + `yaksha-deb-backup.py` :: This daemon will take regular backups of my system using the attic python lib.
