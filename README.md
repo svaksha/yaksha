@@ -11,12 +11,12 @@ Github offers HTTPS and SSH as transfer protocols or the latest 'master' branch 
 1. For SSH protocol use the URL `ssh://git@github.com:svaksha/yaksha.git` via the clone command:
 ```git clone ssh://github.com/svaksha/yaksha.git 
 ```
+
 2. For HTTPS protocol use the URL `https://github.com/svaksha/yaksha.git` to clone/pull the repo locally.
+
 3. After the repo is cloned into the `~/yaksha` folder, change directory with the command `cd yaksha` to run the scripts you need. My dotfiles are stored in`~/home` with symlinks.
 
 Here is a short description of contents (folders & programs) of the `yaksha` repo :
-
-  [download]: https://github.com/svaksha/yaksha/archive/master.zip
 
 #### Programs
 + `yaksha-deb-backup.py` :: This daemon will take regular backups of my system using the attic python lib.
@@ -30,6 +30,8 @@ Here is a short description of contents (folders & programs) of the `yaksha` rep
 + `~/yaksha/dockerfiles/` :: My dockerfiles.
 + `~/yaksha/home/` :: Home dotfiles and folders for `.atom`, `.julia`, `.vim`, ..
 + `~/yaksha/scripts/` :: General scripts.
+
+ [download]: https://github.com/svaksha/yaksha/archive/master.zip "download"
 
 ----
 
