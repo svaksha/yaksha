@@ -159,8 +159,6 @@ function install_utilities() {
     ## BibTeX Reference software
     sudo apt-get -y install pybliographer
     #sudo apt-get -y install referencer    #IGNORE, https://launchpad.net/referencer
-    # hierarchical notebook : http://hnb.sourceforge.net/Documentation/ 
-    sudo apt-get -y install hnb
     ## video and audio (music - mpto mp3) converters
     sudo apt-get -y install papcl
     sudo apt-get -y install ubuntu-restricted-extras # install the MP3 codec from the Ubuntu Restricted Extras package
