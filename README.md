@@ -17,7 +17,7 @@ __Tip__: You should have uploaded your `ssh` key to github and have `git` instal
 git clone ssh://github.com/svaksha/yaksha.git
 ```
 + For HTTPS protocol use the URL `https://github.com/svaksha/yaksha.git` to clone/pull the repo locally.
-+ After the repo is cloned into the `~/yaksha` folder, change directory with the command `cd yaksha` to run the scripts you need. My dotfiles are stored in`~/home` with symlinks.
++ After the repo is cloned into the `~/yaksha` folder, change directory with the command `cd yaksha` to run the scripts you need. My dotfiles are stored in `~/home` with symlinks.
 
 Here is a short description of contents (folders & programs) of the `yaksha` repo - this will __simplify__ the process with __easy instructions__ and backed up older __dotfiles/scripts__ to automate my machine setup of the following: 
 
