@@ -94,7 +94,6 @@ function install_utilities() {
     sudo apt-get -y install emacs
     sudo apt-get -y install geany
     sudo apt-get -y install guake
-    sudo apt-get -y install lyx #for the technical authors and scientists.
     sudo apt-get -y install meld
     sudo apt-get -y install scite
     sudo apt-get -y install spyder
@@ -137,6 +136,13 @@ function install_utilities() {
     ## LaTeX2ε
     sudo apt-get -y install texlive
     sudo apt-get -y install gedit-latex-plugin
+    sudo apt-get -y install lyx #for the technical authors and scientists.
+    ### RESEARCH ========================
+    ## BibTeX Reference software
+    sudo apt-get -y install pybliographer
+    #sudo apt-get -y install referencer    #IGNORE, https://launchpad.net/referencer
+    # hierarchical notebook : http://hnb.sourceforge.net/Documentation/ 
+    sudo apt-get -y install hnb
     ## Adobe
     sudo apt-get -y install gdebi
     sudo apt-get -y install AdbeRdr9.5.5-1_i386linux_enu.deb
@@ -156,11 +162,6 @@ function install_utilities() {
     sudo apt-get -y install printer-driver-foo2zjs-common   #20140209dfsg0-1ubuntu1
     ## Browsers
     sudo apt-get -y install google-chrome-stable
-    ## BibTeX Reference software
-    sudo apt-get -y install pybliographer
-    #sudo apt-get -y install referencer    #IGNORE, https://launchpad.net/referencer
-    # hierarchical notebook : http://hnb.sourceforge.net/Documentation/ 
-    sudo apt-get -y install hnb
     ## video and audio (music - mpto mp3) converters
     sudo apt-get -y install papcl
     sudo apt-get -y install ubuntu-restricted-extras # install the MP3 codec from the Ubuntu Restricted Extras package
@@ -269,148 +270,6 @@ function install_graphics() {
     # Language bindings for mapserver
     sudo apt-get -y install python-mapscript perl-mapscript php4-mapscript php5-mapscript
     sudo apt-get -y install libterralib1c2a  # Terralib
-}
-
-#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-# GO language : https://golang.org/doc/code.html
-#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-function install_go() {
-    sudo apt-get -y install golang # Go programming language compiler - METApackage
-    sudo apt-get -y install golang-go.net-dev #supplementary Go networking libraries (development files)
-    sudo apt-get -y install golang-go.tools # supplementary Go tools
-    sudo apt-get -y install golang-go.tools-dev # supplementary Go tools (development files)
-    sudo apt-get -y install golang-go-linux-386 # Go standard library compiled for linux_386
-    sudo apt-get -y install golang-go-linux-amd64 # Go standard library compiled for linux_amd64
-    sudo apt-get -y install dh-golang # debhelper add-on for packaging software written in Go (golang)
-    sudo apt-get -y install gccgo-go # Go tool for use with gccgo
-    sudo apt-get -y install golang-bindata-dev # embed data in a Go program - library package
-    sudo apt-get -y install golang-doc # Go programming language compiler - documentation
-    sudo apt-get -y install golang-go # Go programming language compiler
-    sudo apt-get -y install golang-go # Go programming language compiler
-    # dependency tool for go
-    wget https://github.com/tools/godep.git ~/home
-    # Database drivers
-    sudo apt-get -y install golang-pq-dev # pure Go postgres driver for Go’s database/sql package
-    sudo apt-get -y install golang-gosqlite-dev # Trivial sqlite3 binding for Go (development files)
-}
-
-
-#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-# JAVA
-#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-function install_java() {
-    sudo add-apt-repository --yes ppa:webupd8team/java
-    sudo apt-get -y install oracle-java8-installer # javac -v = 1.8.XXX
-}
-
-#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-# JavaScript
-#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-function install_javascript() {
-    # NPM = node package manager
-    sudo apt-get -y install npm
-    sudo npm install -g configurable-http-proxy
-    sudo npm install -g jslint
-    sudo npm install -g jshint
-    ln -s ${yaksha_dir}.jshintrc ~/.jshintrc
-    sudo add-apt-repository --yes ppa:chris-lea/node.js  # Node.js
-    sudo apt-get -y update
-    sudo apt-get -y upgrade
-    sudo apt-get -y install nodejs # nodejs -v = 0.10.28 # dont pin versions
-    sudo apt-get -y install nodejs-legacy
-}
-
-#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-# PYTHON
-#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-function install_python() {
-    sudo apt-get -y install build-essential
-    # PIP = Python Installer
-    sudo apt-get -y install pip
-    sudo apt-get -y install pip-installer
-    sudo apt-get -y install python-setuptools
-    sudo apt-get -y install python-pip python-dev python-yaml
-    sudo apt-get -y install python-software-properties
-    # python3
-    sudo apt-get -y install python-virtualenv python3-dev pkgconf
-    sudo apt-get -y install libfreetype6-dev libfreetype6 libxft-dev
-    sudo apt-get -y install libblas-dev liblapack-dev libyaml-dev
-    sudo apt-get -y install python3-pip python3
-    ## scientific python
-    sudo apt-get -y install cython
-    sudo apt-get -y install numpy python-numpy
-    sudo apt-get -y install scipy
-    sudo apt-get -y install python-matplotlib python-scipy
-    sudo apt-get -y install python-virtualenv
-    sudo apt-get -y install manpages-dev
-    sudo apt-get -y install python-fontforge
-    # Jupyter
-    #sudo apt-get -y install IPython ipython3 ipython3-notebook
-    sudo pip install ipython jinja2 tornado pyzmq pandas jsonschema pyaml
-    ## More Python stuff
-    sudo pip install rotate-backups
-    sudo pip install plumbum ## An alternatice to Fabric, https://github.com/tomerfiliba/plumbum
-    sudo pip install jedi -i http://pypi.python.org/simple/
-    sudo pip install pylint -i http://pypi.python.org/simple/
-    # Automate PY and Anaconda/miniconda instaltion with PYTHONIZE (https://github.com/princebot/pythonize)
-    git clone https://github.com/princebot/pythonize.git
-    #--------------------
-    # ANACONDA
-    #--------------------
-    # 64-bit
-    wget https://3230d63b5fc54e62148e-c95ac804525aac4b6dba79b00b39d1d3.ssl.cf1.rackcdn.com/Anaconda3-2.3.0-Linux-x86_64.sh
-    # 32-bit
-    wget https://3230d63b5fc54e62148e-c95ac804525aac4b6dba79b00b39d1d3.ssl.cf1.rackcdn.com/Anaconda3-2.3.0-Linux-x86.sh
-    # In BASH, the variable $OSTYPE stores the name of the operation system:
-    # `$OSTYPE` automatically set to a string that describes the operating system on which bash is executing.
-    OSARCH=`uname -m`
-    if [ ${OSARCH} == 'x86_64' ]; then
-        # Install 64-bit stuff here
-        cd ~/home; sudo bash Anaconda3-2.3.0-Linux-x86_64.sh
-        else
-        # Install 32-bit stuff here
-        cd ~/home; sudo Anaconda3-2.3.0-Linux-x86.sh
-    fi
-}
-
-
-#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-# R-project / language
-#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-function install_rlang() {
-    sudo add-apt-repository --yes ppa:marutter/rrutter
-    sudo apt-get -y update
-    sudo apt-get -y install r-base r-base-dev r-base-core
-    sudo apt-get -y install libc6 libcurl4-gnutls-dev # R -v = 3.1.0
-    sudo Rscript -e "install.packages('Rserve',,'http://cran.us.r-project.org')"
-    sudo Rscript -e "install.packages('ggplot2',,'http://cran.us.r-project.org')"
-    sudo Rscript -e "install.packages('devtools',,'http://cran.us.r-project.org')"
-    sudo Rscript -e "install.packages('RJSONIO',,'http://cran.us.r-project.org')"
-    sudo Rscript -e "install.packages('RCurl',,'http://cran.us.r-project.org')"
-    sudo Rscript -e "install.packages('RCubature',,'http://cran.us.r-project.org')"
-    #PolyCub is a GNU-R package providing methods for cubature (numerical integration) over polygonal domains.
-    sudo apt-get -y install r-cran-polycub
-    # CUBATURE - GNU R package for adaptive multivariate integration
-    wget http://packages.ubuntu.com/vivid/r-cran-cubature r-cran-cubature_1.1-2-1_amd64.deb
-    wget http://packages.ubuntu.com/vivid/r-cran-cubature r-cran-cubature_1.1-2-1_i386.deb
-    # In BASH, the variable $OSTYPE stores the name of the operation system:
-    # `$OSTYPE` automatically set to a string that describes the operating system on which bash is executing.
-    OSARCH=`uname -m`
-    if [ ${OSARCH} == 'x86_64' ]; then
-    # Install 64-bit stuff here
-    cd ~/home; sudo dpkg --install r-cran-cubature_1.1-2-1_amd64.deb
-    else
-    # Install 32-bit stuff here
-    cd ~/home; sudo dpkg --install r-cran-cubature_1.1-2-1_i386.deb
-    fi
-}
-
-#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-# RUBY
-#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-function install_ruby() {
-    sudo apt-get -y install ruby1.9.1 ruby1.9.1-dev
-    sudo gem install iruby
 }
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -543,9 +402,6 @@ case $install_deb in
     debpkg)
         install_deb_pkg
     ;;
-    cloudevops)
-        install_yaksham
-    ;;
     cpudisk)
         install_cpudisk
     ;;
@@ -558,29 +414,8 @@ case $install_deb in
     dvcs)
         install_dvcs
     ;;
-    gcc)
-        install_gcc
-    ;;
-    go)
-        install_go
-    ;;
     graphics)
         install_graphics
-    ;;
-    java)
-        install_java
-    ;;
-    javascript)
-        install_javascript
-    ;;
-    python)
-        install_python
-    ;;
-    rlang)
-        install_rlang
-    ;;
-    ruby)
-        install_ruby
     ;;
     fonts)
         install_fonts
@@ -591,25 +426,21 @@ case $install_deb in
     vim)
         install_vim
     ;;
+    yaksham)
+        install_yaksham
+    ;;
     all)
         install_desktop
         install_deb_pkg
-        install_yaksham
         install_cpudisk
         install_utilities
         install_database
         install_dvcs
-        install_gcc
-        install_go
         install_graphics
-        install_java
-        install_javascript
-        install_python
-        install_rlang
-        install_ruby
         install_fonts
         install_tmux
         install_vim
+        install_yaksham
     ;;
     *)
         echo "Installation in progress, almost done!"

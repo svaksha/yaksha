@@ -23,16 +23,19 @@ Here is a short description of contents (folders & programs) of the `yaksha` rep
 
 ### Programs
 + __yaks-deb-backup.py__ :: This daemon will take regular backups of my system using the attic python lib.
-+ __yaks-deb-install.sh__ :: An automated system installation shell script for all new debian/ubuntu machines that installs the following developer stack: 
++ __yaks-deb-install.sh__ :: An automated system installation shell script for all new Debian/Ubuntu OS machines that installs the following developer stack: 
   * Vim, bash, tab completion, curl, git, GNU core utils, etc..
   * Atom, VirtualBox, Vagrant, Docker, etc..
   * _Database_: MySQL, PostgreSQL, SQLite, MongoDB, etc..
-  * _Languages_: Python, Ruby, Javascript, and the related development stack.
+  * _Languages_: Each programming language as per requirement can be installed via individual scripts given below. 
++ __yaks-deb-secure-iptables.sh__ :: A program firewall to secure the machine.
 + __yaks-deb-uninstall.sh__ :: An uninstall script (that should **not** be used if you dont know what it does).
-+ __yaks-deb-update.sh__ :: This daemon automagically updates my OS.
-+ __yaks-jl-install.sh__ :: A script for the Julia installation and build process.
-+ __yaks-jl-update.sh__ :: This script updates my Julia installation. {{__NB__:: I use the _master build_ so dont use this script if you are not comfortable with some language breakage.}} 
-+ __yaks-py-install.sh__ :: Installs the Python developer stack - IPython Notebook, NumPy, Pandas, Scikit-Learn, Matplotlib, etc..
++ __yaks-deb-update.sh__ :: This daemon automagically updates my Debian/Ubuntu OS.
++ __yakshara-ccppy-install.sh__ :: Installs the programming language dependencies for __C/C++ and the (scientific) Python__ developer stack - IPython Notebook, NumPy, Scipy, Pandas, Scikit-Learn, Matplotlib, etc.. 
++ __yakshara-julia-install.sh__ :: A script for the __Julia__ installation and build process.
++ __yakshara-julia-update.sh__ :: This script updates my __Julia__ installation - I use the _master build_, so __dont__ use this script if you are not comfortable with some breakage.
++ __yakshara-langs-install.sh__ :: Install programming language dependencies for __Go, R, Ruby, Java and JS__.
++ __yaks-mail-todo.sh__ :: Mail the ToDo list.
 
 ### Folders
 + __~/yaksha/dockerfiles/__ :: My dockerfiles.

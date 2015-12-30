@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 ################################################################################
-# FILE       : yaks-deb-install.sh
+# FILE       : yakshara-ccppy-install.sh
 # DESCRIPTION: Bash Installation script for a new Debian-Ubuntu system.
 # AUTHOR     : SVAKSHA :: http://svaksha.com/pages/Bio
 # SOURCE     : http://svaksha.github.io/yaksha
@@ -18,8 +18,8 @@
 yaksha_dir=~/yaksha/
 
 # Log the date and time of execution of bash script into the `out` files.
-date +'%c|started running `apt-get`: ' >> out-yaks-deb-install.log
-date +"%c|completed running: $?" >> out-yaks-deb-install.log
+date +'%c|started running `apt-get`: ' >> out-yakshara-ccppy-install.log
+date +"%c|completed running: $?" >> out-yakshara-ccppy-install.log
 
 # Ask for the administrator password first.
 sudo -v
@@ -94,7 +94,6 @@ function install_utilities() {
     sudo apt-get -y install emacs
     sudo apt-get -y install geany
     sudo apt-get -y install guake
-    sudo apt-get -y install lyx #for the technical authors and scientists.
     sudo apt-get -y install meld
     sudo apt-get -y install scite
     sudo apt-get -y install spyder
@@ -137,6 +136,13 @@ function install_utilities() {
     ## LaTeX2ε
     sudo apt-get -y install texlive
     sudo apt-get -y install gedit-latex-plugin
+    sudo apt-get -y install lyx #for the technical authors and scientists.
+    ### RESEARCH ========================
+    ## BibTeX Reference software
+    sudo apt-get -y install pybliographer
+    #sudo apt-get -y install referencer    #IGNORE, https://launchpad.net/referencer
+    # hierarchical notebook : http://hnb.sourceforge.net/Documentation/ 
+    sudo apt-get -y install hnb
     ## Adobe
     sudo apt-get -y install gdebi
     sudo apt-get -y install AdbeRdr9.5.5-1_i386linux_enu.deb
@@ -156,9 +162,6 @@ function install_utilities() {
     sudo apt-get -y install printer-driver-foo2zjs-common   #20140209dfsg0-1ubuntu1
     ## Browsers
     sudo apt-get -y install google-chrome-stable
-    ## BibTeX Reference software
-    sudo apt-get -y install pybliographer
-    #sudo apt-get -y install referencer    #IGNORE, https://launchpad.net/referencer
     ## video and audio (music - mpto mp3) converters
     sudo apt-get -y install papcl
     sudo apt-get -y install ubuntu-restricted-extras # install the MP3 codec from the Ubuntu Restricted Extras package
