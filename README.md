@@ -31,7 +31,7 @@ Here is a short description of contents (folders & programs) of the `yaksha` rep
 + __yaks-deb-secure-iptables.sh__ :: A program firewall to secure the machine.
 + __yaks-deb-uninstall.sh__ :: An uninstall script (that should **not** be used if you dont know what it does).
 + __yaks-deb-update.sh__ :: This daemon automagically updates my Debian/Ubuntu OS.
-+ __yakshara-ccppy-install.sh__ :: Installs the programming language dependencies for __C/C++ and the (scientific) Python__ developer stack - IPython Notebook, NumPy, Scipy, Pandas, Scikit-Learn, Matplotlib, etc.. 
++ __yakshara-gccpy-install.sh__ :: Installs the programming language dependencies for __C/C++ and the (scientific) Python__ developer stack - IPython Notebook, NumPy, Scipy, Pandas, Scikit-Learn, Matplotlib, etc.. 
 + __yakshara-julia-install.sh__ :: A script for the __Julia__ installation and build process.
 + __yakshara-julia-update.sh__ :: This script updates my __Julia__ installation - I use the _master build_, so __dont__ use this script if you are not comfortable with some breakage.
 + __yakshara-langs-install.sh__ :: Install programming language dependencies for __Go, R, Ruby, Java and JS__.
