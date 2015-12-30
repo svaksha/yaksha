@@ -119,40 +119,6 @@ function install_ruby() {
 }
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-# Clean Install
-#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-function clean_install() {
-    echo "Clean install"
-    rm -rf ~/.vim
-    rm -rf ~/.vimrc
-    rm -rf ~/.tmux
-    rm -rf ~/.tmux.conf
-    rm -rf ~/.screenrc
-}
-
-
-install_deb='all'
-key="$1"
-key="$2"
-
-case $key in
-    -c|--clean)
-        clean_install
-        shift
-    ;;
-    -i|--install)
-        install_deb="$2"
-        shift
-    ;;
-    *)
-        echo "usage:
-                -c|--clean  - remove dotfiles before installation
-                -i|--install [type] copy the yaksha dotfiles into home
-        "
-        ;;
-    esac
-
-#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 # uncomment this for a NEW system only
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 #git clone --recursive https://github.com/svaksha/yaksha ${yaksha_dir}
@@ -183,3 +149,4 @@ case $install_deb in
     *)
         echo "Installation in progress, almost done!"
     esac
+    
