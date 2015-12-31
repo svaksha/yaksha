@@ -1,13 +1,13 @@
 #!/usr/bin/env bash
 ################################################################################
-# NAME      : .tigrc
-# DESC      : Configuration file for tig.
-# AUTHOR    : SVAKSHA :: http://svaksha.com/pages/Bio
-# SOURCE    : http://svaksha.github.io/yaksha
-# COPYRIGHT©: 2005-Now SVAKSHA AllRightsReserved
-# LICENSE   : GNU AGPLv3 and subject to the terms and conditions in the LICENSE.md 
-#            (https://github.com/svaksha/yaksha/blob/master/LICENSE.md) file being met.
-# DATES     : Created:2010dec12 - Updated:2015dec31
+# NAME       : .tigrc
+# DESCRIPTION: Configuration file for tig.
+# AUTHOR     : SVAKSHA :: http://svaksha.com/pages/Bio
+# SOURCE     : http://svaksha.github.io/yaksha
+# COPYRIGHT© : 2005-Now SVAKSHA AllRightsReserved
+# LICENSE    : GNU AGPLv3 subject to meeting the terms and conditions in the LICENSE
+#              (https://github.com/svaksha/yaksha/blob/master/LICENSE.md) file.
+# DATES      : Created:2010dec12 - Updated:2015dec31
 ################################################################################
 #
 # Tig configuration - see 'man tigrc' for a complete reference.
