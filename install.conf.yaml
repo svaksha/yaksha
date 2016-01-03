@@ -25,17 +25,27 @@
     ~/.git-completion.bash: ~/yaksha/home/.git-completion.bash
     ~/.gitignore_global:    ~/yaksha/home/.gitignore_global
     ~/.gitconfig:           ~/yaksha/home/.gitconfig
+    ~/.gitk:                ~/yaksha/home/.gitk
+    ~/.gitmessage:          ~/yaksha/home/.gitmessage
+    ~/.hgignore_global:     ~/yaksha/home/.hgignore_global
+    ~/.hgrc:                ~/yaksha/home/.hgrc
+    ~/.inputrc:             ~/yaksha/home/.inputrc
     ~/.juliarc.jl:          ~/yaksha/home/.juliarc.jl
+    ~/.juliarc-enso.jl:     ~/yaksha/home/.juliarc-enso.jl
+    ~/.juliarc-update.jl:   ~/yaksha/home/.juliarc-update.jl
+    ~/.juliarc-yaksha.jl:   ~/yaksha/home/.juliarc-yaksha.jl
+    ~/.profile:             ~/yaksha/home/.profile
+    ~/.pythonrc.py:         ~/yaksha/home/.pythonrc.py
+    ~/.screenrc:            ~/yaksha/home/.screenrc
+    ~/.tigrc:               ~/yaksha/home/.tigrc
+    ~/.tigrc-default:       ~/yaksha/home/.tigrc-default
+    ~/.tigrc-test:          ~/yaksha/home/.tigrc-test
     ~/.tmux.conf:           ~/yaksha/home/.tmux.conf
     ~/.tmux:                ~/yaksha/home/.tmux
     ~/.vimrc:               ~/yaksha/home/.vimrc
-
+    ~/.wgetrc:              ~/yaksha/home/.wgetrc
 
 - shell:
     - [git submodule update --init --recursive dotbot, Installing submodules]
-
-
-
-
 
 
