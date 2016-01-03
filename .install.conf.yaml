@@ -6,7 +6,7 @@
 # COPYRIGHT© : 2005-Now SVAKSHA, All Rights Reserved.
 # LICENSE    : GNU AGPLv3 subject to meeting the terms and conditions in the LICENSE
 #              (https://github.com/svaksha/yaksha/blob/master/LICENSE.md) file.
-# DATES      : 2014aug15-2015dec31
+# DATES      : 2014aug15-2016jan03
 ################################################################################
 #
 # 
@@ -31,9 +31,9 @@
     ~/.hgrc:                ~/yaksha/home/.hgrc
     ~/.inputrc:             ~/yaksha/home/.inputrc
     ~/.juliarc.jl:          ~/yaksha/home/.juliarc.jl
-    ~/.juliarc-enso.jl:     ~/yaksha/home/.juliarc-enso.jl
-    ~/.juliarc-update.jl:   ~/yaksha/home/.juliarc-update.jl
-    ~/.juliarc-yaksha.jl:   ~/yaksha/home/.juliarc-yaksha.jl
+#    ~/.juliarc-enso.jl:     ~/yaksha/home/.juliarc-enso.jl
+#    ~/.juliarc-update.jl:   ~/yaksha/home/.juliarc-update.jl
+#    ~/.juliarc-yaksha.jl:   ~/yaksha/home/.juliarc-yaksha.jl
     ~/.profile:             ~/yaksha/home/.profile
     ~/.pythonrc.py:         ~/yaksha/home/.pythonrc.py
     ~/.screenrc:            ~/yaksha/home/.screenrc
