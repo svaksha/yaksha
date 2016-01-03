@@ -7,7 +7,7 @@
 # COPYRIGHT© : 2005-Now SVAKSHA AllRightsReserved
 # LICENSE    : GNU AGPLv3 subject to meeting the terms and conditions in the LICENSE
 #              (https://github.com/svaksha/yaksha/blob/master/LICENSE.md) file.
-# DATES      : Created:2010dec12 - Updated:2015dec31
+# DATES      : Created:2010dec12 - Updated:2016jan03
 ################################################################################
 #
 # Tig configuration - see 'man tigrc' for a complete reference.
@@ -20,7 +20,7 @@
 #-------------------------------------------------------------------------------
 set editor-line-number	  = yes	  # Automatically pass line number to editor. Used for opening file at specific line e.g. from a diff
 set focus-child			  = yes	  # Move focus to child view when opened?
-set horizontal-scroll	  = 100%  # Number of columns to scroll as % of width
+set horizontal-scroll	  = 50%  # Number of columns to scroll as % of width
 set id-width              = 18
 set ignore-case			  = yes	  # Ignore case when searching?
 set mouse			      = yes	  # Enable mouse support with "true" or "yes"
