@@ -63,6 +63,11 @@ function install_deb_pkg() {
     sudo gdebi skype-ubuntu-precise_4.3.0.37-1_i386.deb
     # Install Skype from Canonical Partner Repository
     sudo add-apt-repository "deb http://archive.canonical.com/ $(lsb_release -sc) partner"
+    # BOOTLOADER
+    # http://askubuntu.com/questions/127256/failed-to-install-bootloader
+    sudo add-apt-repository ppa:gezakovacs/ppa
+    sudo apt-get update
+    sudo apt-get install unetbootin
 }
 
 function install_cpudisk() {
