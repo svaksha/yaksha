@@ -66,7 +66,8 @@ function install_deb_pkg() {
     # BOOTLOADER
     # http://askubuntu.com/questions/127256/failed-to-install-bootloader
     sudo add-apt-repository ppa:gezakovacs/ppa
-    sudo apt-get update
+    sudo apt-get -y update
+    sudo apt-get -y upgrade
     sudo apt-get install unetbootin
 }
 
