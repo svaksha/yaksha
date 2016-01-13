@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 ################################################################################
-# FILE       : yakshara-gccpy-install.sh
+# FILE       : yaks-gccpy-install.sh
 # DESCRIPTION: Installation script for GCC (C/C++) and Python.
 # AUTHOR     : SVAKSHA :: http://svaksha.com/pages/Bio
 # SOURCE     : http://svaksha.github.io/yaksha
@@ -18,8 +18,8 @@
 yaksha_dir=~/yaksha/
 
 # Log the date and time of execution of bash script into the `out` files.
-date +'%c|started running `apt-get`: ' >> out-yakshara-gccpy-install.log
-date +"%c|completed running: $?" >> out-yakshara-gccpy-install.log
+date +'%c|started running `apt-get`: ' >> out-yaks-gccpy-install.log
+date +"%c|completed running: $?" >> out-yaks-gccpy-install.log
 
 # Ask for the administrator password first.
 sudo -v
