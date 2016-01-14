@@ -31,7 +31,7 @@ function update_deb() {
     echo "Remember to finish installation with a dist-upgrade"
     # Echo more messages
     echo '******************************************************'
-    echo "* yaks-deb-update.sh |    Yaksha Update Script     | `hostname -f` *"
+    echo "* yaks-apt-update.sh |    Yaksha Update Script     | `hostname -f` *"
     echo '******************************************************'
     # resynchronize the package index files from their internet sources to fetch the latest packages
     sudo apt-get -y update
