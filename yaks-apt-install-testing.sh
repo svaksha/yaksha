@@ -1,28 +1,13 @@
 #!/usr/bin/env bash
 ################################################################################
-# File-Desc  : yaks-deb-install.sh, Bash Installation script for a new system.
+# FILE       : yaks-apt-install-testing.sh
+# DESCRIPTION: Tester BASH script.
 # AUTHOR     : SVAKSHA, http://svaksha.com/pages/Bio
-# COPYRIGHT© : 2005-Now SVAKSHA, AllRightsReserved
 # SOURCE     : http://svaksha.github.io/yaksha
-# DATES      : Created:2005mar22 - Updated:2015nov03
-# LICENSE    : GNU AGPLv3 License <http://www.gnu.org/licenses/agpl.html>
-#              https://github.com/svaksha/yaksha/blob/master/LICENSE.md
-# This code is distributed in the hope that it will be useful, but WITHOUT ANY
-# WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR
-# A PARTICULAR PURPOSE. Permission is hereby granted, free of charge, to any
-# person obtaining a copy of this software, to deal in the Software without
-# restriction, including without limitation the rights to use, copy, modify,
-# merge, publish, redistribute, and/or sell copies of the Software and use in
-# source form, with or without modification, and to permit persons to whom the
-# Software is furnished to do so as per the terms in the LICENSE.md file and
-# subject to the following conditions being met:
-# 1. ALL copies, forks and redistributions of source code AND/OR binary form
-#    must retain the above Copyright notice, the Licence file for source code
-#    (AGPLv3) along with this permission notice and list of conditions and the
-#    following disclaimer, in substantial portions of the Software.
-# 2. Neither the name of the COPYRIGHT HOLDER(S) nor the names of its
-#    contributors may be used to endorse or promote products derived from this
-#    software without specific prior written permission.
+# COPYRIGHT© : 2005-Now SVAKSHA, All Rights Reserved.
+# LICENSE    : GNU AGPLv3 and subject to meeting all the terms in the LICENSE 
+#              file: https://github.com/svaksha/yaksha/blob/master/LICENSE.md
+# DATES      : Created:2005mar22 - Updated:2015dec26
 ################################################################################
 #
 # Useful links 
@@ -33,8 +18,8 @@
 yaksha_dir=~/yaksha/
 
 # Log the date and time of execution of bash script into the `out` files.
-date +'%c|started running `apt-get`: ' >> out-yaks-deb-install.log
-date +"%c|completed running: $?" >> out-yaks-deb-install.log
+date +'%c|started running `apt-get`: ' >> out-yaks-apt-install-testing.log
+date +"%c|completed running: $?" >> out-yaks-apts-install-testing.log
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 # GNOME Desktop Environment. 

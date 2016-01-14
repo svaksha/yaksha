@@ -1,15 +1,15 @@
 #!/usr/bin/env bash
 ################################################################################
-# FILE       : yaks-gccpy-install.sh
+# FILE       : yakshara-gccpy-aptinstall.sh
 # DESCRIPTION: Installation script for GCC (C/C++) and Python.
-# AUTHOR     : SVAKSHA :: http://svaksha.com/pages/Bio
+# AUTHOR     : SVAKSHA, http://svaksha.com/pages/Bio
 # SOURCE     : http://svaksha.github.io/yaksha
-# COPYRIGHT© : 2005-Now SVAKSHA (http://svaksha.com/pages/Bio) AllRightsReserved
-# LICENSE    : GNU AGPLv3 and subject to the terms and conditions in the LICENSE.md 
-#              (https://github.com/svaksha/yaksha/blob/master/LICENSE.md) file being met.
-# DATES      : Created:2005mar22 - Updated:2015dec30
+# COPYRIGHT© : 2005-Now SVAKSHA, All Rights Reserved.
+# LICENSE    : GNU AGPLv3 and subject to meeting all the terms in the LICENSE 
+#              file: https://github.com/svaksha/yaksha/blob/master/LICENSE.md
+# DATES      : Created:2005mar22 - Updated:2016jan14
 ################################################################################
-#
+
 # References:
 # https://github.com/svaksha/aksh/blob/master/cs-debuntu.md 
 # https://github.com/svaksha/aksh/blob/master/cs-devops.md

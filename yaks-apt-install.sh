@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
 ################################################################################
-# FILE       : yaks-deb-install.sh
+# FILE       : yaks-apt-install.sh
 # DESCRIPTION: Bash Installation script for a new Debian-Ubuntu system.
-# AUTHOR     : SVAKSHA :: http://svaksha.com/pages/Bio
+# AUTHOR     : SVAKSHA, http://svaksha.com/pages/Bio
 # SOURCE     : http://svaksha.github.io/yaksha
-# COPYRIGHT© : 2005-Now SVAKSHA (http://svaksha.com/pages/Bio) AllRightsReserved
-# LICENSE    : GNU AGPLv3 and subject to the terms and conditions in the LICENSE.md 
-#              (https://github.com/svaksha/yaksha/blob/master/LICENSE.md) file being met.
+# COPYRIGHT© : 2005-Now SVAKSHA, All Rights Reserved.
+# LICENSE    : GNU AGPLv3 and subject to meeting all the terms in the LICENSE 
+#              file: https://github.com/svaksha/yaksha/blob/master/LICENSE.md
 # DATES      : Created:2005mar22 - Updated:2015dec26
 ################################################################################
 #
@@ -18,8 +18,8 @@
 yaksha_dir=~/yaksha/
 
 # Log the date and time of execution of bash script into the `out` files.
-date +'%c|started running `apt-get`: ' >> out-yaks-deb-install.log
-date +"%c|completed running: $?" >> out-yaks-deb-install.log
+date +'%c|started running `apt-get`: ' >> out-yaks-apt-install.log
+date +"%c|completed running: $?" >> out-yaks-apt-install.log
 
 # Ask for the administrator password first.
 sudo -v

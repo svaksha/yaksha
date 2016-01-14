@@ -1,31 +1,15 @@
 #!/usr/bin/env bash
 ################################################################################
-# File       : yaks-deb-install.sh
-# Description: Bash Installation script for a new Debian-Ubuntu system.
-# AUTHOR     : SVAKSHA :: http://svaksha.com/pages/Bio
+# FILE       : yaks-apt-firewall.sh
+# DESCRIPTION: Firewall script for debian-ubuntu.
+# AUTHOR     : SVAKSHA, http://svaksha.com/pages/Bio
 # SOURCE     : http://svaksha.github.io/yaksha
-# COPYRIGHT© : 2005-Now SVAKSHA (http://svaksha.com/pages/Bio) AllRightsReserved
-# DATES      : Created:2015nov03 - Updated:2015nov03
-# LICENSE    : GNU AGPLv3 License <http://www.gnu.org/licenses/agpl.html>
-#              https://github.com/svaksha/yaksha/blob/master/LICENSE.md
-# This code is distributed in the hope that it will be useful, but WITHOUT ANY
-# WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR
-# A PARTICULAR PURPOSE. Permission is hereby granted, free of charge, to any
-# person obtaining a copy of this software, to deal in the Software without
-# restriction, including without limitation the rights to use, copy, modify,
-# merge, publish, redistribute, and/or sell copies of the Software and use in
-# source form, with or without modification, and to permit persons to whom the
-# Software is furnished to do so as per the terms in the LICENSE.md file and
-# subject to the following conditions being met:
-# 1. ALL copies, forks and redistributions of source code AND/OR binary form
-#    must retain the above Copyright notice, the Licence file for source code
-#    (AGPLv3) along with this permission notice and list of conditions and the
-#    following disclaimer, in substantial portions of the Software.
-# 2. Neither the name of the COPYRIGHT HOLDER(S) nor the names of its
-#    contributors may be used to endorse or promote products derived from this
-#    software without specific prior written permission.
+# COPYRIGHT© : 2005-Now SVAKSHA, All Rights Reserved.
+# LICENSE    : GNU AGPLv3 and subject to meeting all the terms in the LICENSE 
+#              file: https://github.com/svaksha/yaksha/blob/master/LICENSE.md
+# DATES      : Created:2015nov03 - Updated:2016jan14
 ################################################################################
-
+#
 # Credits: The amazing Carla Schroder's IPtables script posted on the techtalk list.
 # An IPtables firewall script for sharing a cable/DSL Internet connection, with no public services.
 

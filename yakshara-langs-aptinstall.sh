@@ -1,13 +1,13 @@
 #!/usr/bin/env bash
 ################################################################################
-# FILE       : yakshara-langs-install.sh
+# FILE       : yakshara-langs-aptinstall.sh
 # DESCRIPTION: Installation script for other programming/scripting languages.
 # AUTHOR     : SVAKSHA :: http://svaksha.com/pages/Bio
 # SOURCE     : http://svaksha.github.io/yaksha
 # COPYRIGHT© : 2005-Now SVAKSHA (http://svaksha.com/pages/Bio) AllRightsReserved
 # LICENSE    : GNU AGPLv3 and subject to the terms and conditions in the LICENSE.md 
 #              (https://github.com/svaksha/yaksha/blob/master/LICENSE.md) file being met.
-# DATES      : Created:2005mar22 - Updated:2015dec30
+# DATES      : Created:2005mar22 - Updated:2016jan14
 ################################################################################
 #
 # References:
@@ -18,8 +18,8 @@
 yaksha_dir=~/yaksha/
 
 # Log the date and time of execution of bash script into the `out` files.
-date +'%c|started running `apt-get`: ' >> out-yakshara-langs-install.log
-date +"%c|completed running: $?" >> out-yakshara-langs-install.log
+date +'%c|started running `apt-get`: ' >> out-yakshara-langs-aptinstall.log
+date +"%c|completed running: $?" >> out-yakshara-langs-aptinstall.log
 
 # Ask for the administrator password first.
 sudo -v
