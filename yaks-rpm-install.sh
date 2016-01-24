@@ -7,10 +7,12 @@
 # COPYRIGHT© : 2005-Now SVAKSHA, All Rights Reserved.
 # LICENSE    : GNU AGPLv3 and subject to meeting all the terms in the LICENSE 
 #              (https://github.com/svaksha/yaksha/blob/master/LICENSE.md) file.
-# DATES      : Created:2016jan18 - Updated:2016jan18
+# DATES      : Created:2016jan18 - Updated:2016jan24
 ################################################################################
 #
-# References: ToDo
+# References: 
++ https://github.com/svaksha/aksh/blob/master/cs-os-devops.md
++ https://github.com/svaksha/aksh/blob/master/cs-os-opensuse.md
 #-------------------------------------------------------------------------------
 
 yaksha_dir=~/yaksha/
