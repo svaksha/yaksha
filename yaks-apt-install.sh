@@ -7,7 +7,7 @@
 # COPYRIGHT© : 2005-Now SVAKSHA, All Rights Reserved.
 # LICENSE    : GNU AGPLv3 and subject to meeting all the terms in the LICENSE 
 #              file: https://github.com/svaksha/yaksha/blob/master/LICENSE.md
-# DATES      : Created:2005mar22 - Updated:2015dec26
+# DATES      : Created:2005mar22 - Updated:2016feb15
 ################################################################################
 #
 # References:
@@ -28,12 +28,14 @@ sudo -v
 while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-# GNOME Desktop Environment.
+# GNOME Desktop Environment -> Remember, not all the desktops use Gnome. 
+# Checkin the kubuntu stuff .
+# Maybe split them into separate functions or even scripts? {TASK}
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 function install_desktop() {
     sudo apt-get -y update
     sudo apt-get -y upgrade
-    # GNOME
+    # GNOME 
     # Use the script `yaks-deb-uninstall.sh` to uninstall UNITY - **RISKY**
     sudo apt-get -y install gnome-core gnome-shell
     # Display Manager for the GNOME Desktop Environment.
@@ -48,7 +50,7 @@ function install_desktop() {
 }
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-# Fetch the .DEB packages for Ubuntu 14.04
+# Fetch the .DEB packages for Kubuntu 15.04
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 function install_deb_pkg() {
     sudo dpkg --install Brackets.1.4.Extract.64-bit.deb  #Brackets IDE for 64-bit
@@ -82,6 +84,8 @@ function install_cpudisk() {
     # https://wiki.ubuntu.com/Kernel/PowerManagement/ThermalIssues
     sudo apt-get -y install thermald  # this daemon prevents machines from overheating
     sudo apt-get -y install indicator-cpufreq
+    echo "This machine is currently being installed with important system packages!"
+    sleep 1
     ## sensors package
     sudo apt-get -y install lm-sensors
     sudo apt-get -y install powertop

@@ -30,14 +30,14 @@ date +"%c|completed running: $?" >> out-yaks-apt-update-cron.log
 
 if [ "$(whoami)" != "root" ]; then
   # if not root,
-  echo -e "\e[1mAh!! I don't have root permissions!"
+  echo -e "\e[1mError: This command needs root permissions!"
   # Ask for perm to execute as root.
   echo -e "\e[1mPlease execute me as root, i.e [sudo yaks-apt-update.sh]"
   echo -e "\e[0m"
   exit 1
 else
   # if root, then check for internet connection. D needs this.
-  wget -q --tries=10 --timeout=20 --spider http://google.com &> /dev/null
+  wget -q --tries=10 --timeout=25 --spider http://google.com &> /dev/null
   if [[ $? -eq 0 ]]; then
     # If connected to the internet, just continue to execute the script.
     : # this is an empty command.
@@ -84,6 +84,8 @@ function update_conda() {
     conda update -y anaconda
     cd
     cd yaksha
+    echo "This machine is currently being updated with Conda system packages!"
+    sleep 1
     # Are we done yet? 
     echo "Finished updating Anaconda :-)"
 }
