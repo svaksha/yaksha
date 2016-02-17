@@ -7,7 +7,7 @@
 # COPYRIGHT© : 2005-Now SVAKSHA, All Rights Reserved.
 # LICENSE    : GNU AGPLv3 and subject to meeting all the terms in the LICENSE 
 #              file: https://github.com/svaksha/yaksha/blob/master/LICENSE.md
-# DATES      : Created:2005mar22 - Updated:2016jan14
+# DATES      : Created:2005mar22 - Updated:2016feb17
 ################################################################################
 
 # References:
@@ -18,8 +18,8 @@
 yaksha_dir=~/yaksha/
 
 # Log the date and time of execution of bash script into the `out` files.
-date +'%c|started running `apt-get`: ' >> out-yaks-gccpy-install.log
-date +"%c|completed running: $?" >> out-yaks-gccpy-install.log
+date +'%c|started running `apt-get`: ' >> out-yakshara-gccpy-install.log
+date +"%c|completed running: $?" >> out-yakshara-gccpy-install.log
 
 # Ask for the administrator password first.
 sudo -v
@@ -90,7 +90,10 @@ function install_python() {
     sudo pip install plumbum ## An alternatice to Fabric, https://github.com/tomerfiliba/plumbum
     sudo pip install jedi -i http://pypi.python.org/simple/
     sudo pip install pylint -i http://pypi.python.org/simple/
-    # Automate PY and Anaconda/miniconda instaltion with PYTHONIZE (https://github.com/princebot/pythonize)
+}
+
+function install_anaconda() {
+    # Automate PY and Anaconda/miniconda installation with PYTHONIZE (https://github.com/princebot/pythonize)
     git clone https://github.com/princebot/pythonize.git
     #--------------------
     # ANACONDA
@@ -123,10 +126,14 @@ case $install_gccpy in
     python)
         install_python
     ;;
+    anaconda)
+		install_anaconda
+    ;;
     all)
         install_gcc
         install_python
+        install_anaconda
     ;;
     *)
-        echo "GCC & Python installation in progress, almost done!"
+        echo "GCC & Python (and its variant packages) installation is in progress, almost done!"
     esac

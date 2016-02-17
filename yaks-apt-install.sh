@@ -7,7 +7,7 @@
 # COPYRIGHT© : 2005-Now SVAKSHA, All Rights Reserved.
 # LICENSE    : GNU AGPLv3 and subject to meeting all the terms in the LICENSE 
 #              file: https://github.com/svaksha/yaksha/blob/master/LICENSE.md
-# DATES      : Created:2005mar22 - Updated:2016feb15
+# DATES      : Created:2005mar22 - Updated:2016feb17
 ################################################################################
 #
 # References:
@@ -95,10 +95,7 @@ function install_cpudisk() {
     sudo apt-get -y install simplescan
 }
 
-#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-# install general system utilities on ubuntu 14.04
-#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-function install_utilities() {
+function install_editors() {
     ## Editors
     sudo apt-get -y install dconf-tools # Editor for Gnome tools.
     sudo apt-get -y install emacs
@@ -118,6 +115,16 @@ function install_utilities() {
     sudo add-apt-repository ppa:webupd8team/atom
     sudo apt-get update
     sudo apt-get install atom
+    ## LaTeX2ε
+    sudo apt-get -y install texlive
+    sudo apt-get -y install gedit-latex-plugin
+    sudo apt-get -y install lyx #for the technical authors and scientists.
+} 
+
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+# install general system utilities on ubuntu 16.04
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+function install_utilities() {
     ## general cli tools for web, search
     sudo apt-get -y install cron-apt
     sudo apt-get -y install wget
@@ -143,10 +150,6 @@ function install_utilities() {
     #============================================
     ### UTILITIES
     #============================================
-    ## LaTeX2ε
-    sudo apt-get -y install texlive
-    sudo apt-get -y install gedit-latex-plugin
-    sudo apt-get -y install lyx #for the technical authors and scientists.
     ### RESEARCH ========================
     ## BibTeX Reference software
     sudo apt-get -y install pybliographer
@@ -415,6 +418,9 @@ case $install_deb in
     cpudisk)
         install_cpudisk
     ;;
+    editors)
+		install_editors
+    ;;
     utilities)
         install_utilities
     ;;
@@ -443,6 +449,7 @@ case $install_deb in
         install_desktop
         install_deb_pkg
         install_cpudisk
+        install_editors
         install_utilities
         install_database
         install_dvcs
