@@ -5,12 +5,12 @@ Each time I installed and set up a new machine it was hard to remember every con
 
 Enter [YAKSHA][yaksha], meaning "demon" in Sanskrit. These are my personal automation daimons (daemons?) for __Linux system installation, updation, backups, bash shell scripts, dockerfiles, dotfiles and configuration files__. Standardizing my development environment by automating the installation process and organizing the various developer tools was addictive fun!
 
-__Change is the only constant in life__, so as a programmer I constantly change and (try to) improve the configs and dotfiles in my attempt to keep optimizing the repo organization for ease of maintainence and extensibility. Config and dotfiles are meant to be personally unique for individuals, but if you wish to use this repository code and these configs, follow the [installation](https://github.com/svaksha/yaksha#installation) instructions.
+__Change is the only constant in life__, so as a programmer I constantly change and (try to) improve the configurations and dotfiles in my attempt to keep optimizing the repo organization for ease of maintainence and extensibility. Config and dotfiles are meant to be personally customized for individual requirements, hence unique, but if you wish to use this repository code and these configs, follow the [installation](https://github.com/svaksha/yaksha#installation) instructions.
 
  [yaksha]: http://svaksha.github.io/yaksha "yaksha"
 
 # INSTALLATION 
-To try out these program scripts & dotfiles, fork this repository, review the code, and remove the things you don’t require. Test them before use and most importantly, read the  __License & Disclaimer__ : No warranty and/or guarantee for any particular use, express or implied and you agree to use these [automation daimons][yaksha] at your own risk and liability! 
+To try out these program scripts & dotfiles, fork this repository, review the code, and remove the things you don’t require. Test them before use and most importantly, read the __License & Disclaimer__ : No warranty and/or guarantee for any particular use, express or implied and you agree to use these [automation daimons][yaksha] at your own risk and liability! 
 
 ## System Dependencies
 At the outset, your Debian/Ubuntu machine should have the following core tools installed : _Git and Python_. Github offers HTTPS and SSH as transfer protocols or the repo can be downloaded as a [zip-file][download] (latest 'master' branch). __Tip__: You should have uploaded your `ssh` key to github and have `git` installed locally before issuing the `git` commands on the terminal.
@@ -22,10 +22,11 @@ git clone ssh://github.com/svaksha/yaksha.git
 + For HTTPS protocol use the URL `https://github.com/svaksha/yaksha.git` to clone/pull the repo locally.
 + After the repo is cloned into the `~/yaksha` folder, change directory with the command `cd yaksha` to run the scripts you need. My dotfiles are stored in `~/home` with symlinks.
 
-The repository tree for [yaksha][yaksha] is structured as follows: 
+The [yaksha][yaksha] repository tree for is structured as below: 
 
 ### 1. Programs
 These programs are for package dependencies and OS-tasks:
++ __yaksha.sh__ :: This daemon will run all the program scripts listed below automatically, so use with care.
 + __yaks-backup.py__ :: This daemon will take regular backups of my system using the attic python lib.
 + __yaks-apt-install.sh__ :: An automated system installation shell script for all new Debian/Ubuntu OS machines that installs the following developer stack: 
   * Vim, bash, tab completion, curl, git, GNU core utils, etc..
@@ -47,8 +48,8 @@ These programs will install the programming language package dependencies:
 
 ### 2. Folders
 + __~/yaksha/dockerfiles/__ :: My dockerfiles.
-+ __~/yaksha/home/__ :: Home dotfiles and config folders for `.atom`, `.julia`, `.vim`, etc..
-+ __~/yaksha/scripts/__ :: General scripts.
++ __~/yaksha/home/__ :: Home dotfiles and config folders for `.julia`, `.vim`, etc..
++ __~/yaksha/scripts/__ :: General scripts that dont have a particular space.
 
  [download]: https://github.com/svaksha/yaksha/archive/master.zip "download"
 
@@ -60,4 +61,3 @@ These programs will install the programming language package dependencies:
 
 ## Feedback
 Any suggestions for improvements are [welcome](https://github.com/svaksha/yaksha/issues) via BR's !
-
