@@ -1,48 +1,45 @@
 #!/usr/bin/env bash
 ################################################################################
-# FILE       : yaks-apt-install-testing.sh
-# DESCRIPTION: Tester BASH script.
+# FILE       : yaks-apt-install.sh
+# DESCRIPTION: Bash Installation script for a new Debian-Ubuntu system.
 # AUTHOR     : SVAKSHA, http://svaksha.com/pages/Bio
 # SOURCE     : http://svaksha.github.io/yaksha
 # COPYRIGHT© : 2005-Now SVAKSHA, All Rights Reserved.
 # LICENSE    : GNU AGPLv3 and subject to meeting all the terms in the LICENSE 
 #              file: https://github.com/svaksha/yaksha/blob/master/LICENSE.md
-# DATES      : Created:2005mar22 - Updated:2015dec26
+# DATES      : Created:2005mar22 - Updated:2016feb126
 ################################################################################
 #
-# Useful links 
-#-------------------------------------------------------------------------------
-# https://help.ubuntu.com/community/SoftwareManagement
+# References:
+# https://github.com/svaksha/aksh/blob/master/cs-debuntu.md 
+# https://github.com/svaksha/aksh/blob/master/cs-devops.md
 #-------------------------------------------------------------------------------
 
 yaksha_dir=~/yaksha/
 
 # Log the date and time of execution of bash script into the `out` files.
-date +'%c|started running `apt-get`: ' >> out-yaks-apt-install-testing.log
-date +"%c|completed running: $?" >> out-yaks-apts-install-testing.log
+date +'%c|started running `apt-get`: ' >> out-yaks-apt-install.log
+date +"%c|completed running: $?" >> out-yaks-apt-install.log
+
+# Ask for the administrator password first.
+sudo -v
+
+# Keep it alive & update existing `sudo` time stamp until the script has finished running.
+while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-# GNOME Desktop Environment. 
+# Change to Debian-Jessie running KDE desktop.
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 function install_desktop() {
     sudo apt-get -y update
     sudo apt-get -y upgrade
-    # GNOME
-    # Use the script `yaks-debos-uninstall.sh` to uninstall UNITY - **RISKY**
-    sudo apt-get -y install gnome-core gnome-shell
-    # Display Manager for the GNOME Desktop Environment.
-    sudo apt-get -y install gdm
-    # Compiz
-    sudo apt-get -y install compizconfig-settings-manager
-    # Restricted extras for FLASH plugin
-    sudo apt-get -y install ubuntu-restricted-extras
-    sudo apt-get -y install flashplugin-installer
-    # GDEBI is the GUI for dpkg installation and management of Debian (.deb) packages.
-    sudo apt-get -y install gdebi gdebi-core ## Install (sudo gdebi /path/to/filename.deb)
-}
+    # Install Augeas - http://augeas.net/download.html
+    # An editing tool API to automate the configuration editing on remote servers.
+    sudo apt-get -y install augeas-dbg python3-augeas augeas-tools augeas-lenses 
+    }
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-# Fetch the .DEB packages for Ubuntu 14.04
+# Fetch the .DEB packages for Kubuntu 15.04
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 function install_deb_pkg() {
     sudo dpkg --install Brackets.1.4.Extract.64-bit.deb  #Brackets IDE for 64-bit
@@ -57,6 +54,12 @@ function install_deb_pkg() {
     sudo gdebi skype-ubuntu-precise_4.3.0.37-1_i386.deb
     # Install Skype from Canonical Partner Repository
     sudo add-apt-repository "deb http://archive.canonical.com/ $(lsb_release -sc) partner"
+    # BOOTLOADER
+    # http://askubuntu.com/questions/127256/failed-to-install-bootloader
+    sudo add-apt-repository ppa:gezakovacs/ppa
+    sudo apt-get -y update
+    sudo apt-get -y upgrade
+    sudo apt-get install unetbootin
 }
 
 function install_cpudisk() {
@@ -67,9 +70,11 @@ function install_cpudisk() {
     sudo apt-get -y install testdisk gddrescue  # grub rescue / HDD health
     # CPU Monitoring tools for Temperature, speed, et al.
     #------------------------------------------------------
-    # https://wiki.ubuntu.com/Kernel/PowerManagement/ThermalIssues    
+    # https://wiki.ubuntu.com/Kernel/PowerManagement/ThermalIssues
     sudo apt-get -y install thermald  # this daemon prevents machines from overheating
     sudo apt-get -y install indicator-cpufreq
+    echo "This machine is currently being installed with important system packages!"
+    sleep 1
     ## sensors package
     sudo apt-get -y install lm-sensors
     sudo apt-get -y install powertop
@@ -79,24 +84,36 @@ function install_cpudisk() {
     sudo apt-get -y install simplescan
 }
 
-#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-# install general system utilities on ubuntu 14.04
-#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-function install_utilities() {
+function install_editors() {
     ## Editors
-    sudo apt-get -y install vim
-    sudo apt-get -y install dconf-editor
+    sudo apt-get -y install dconf-tools # Editor for Gnome tools.
     sudo apt-get -y install emacs
     sudo apt-get -y install geany
+    sudo apt-get -y install guake
     sudo apt-get -y install meld
+    sudo apt-get -y install scite
     sudo apt-get -y install spyder
+    # CLI text editors for sysadmins working on remote Linux/Unix servers.
+    sudo apt-get -y install nano
+    sudo apt-get -y install pico
+    sudo apt-get -y install vim
     # Atom editor 64-bit DEB file from github source
     wget https://github.com/atom/atom/releases/download/v1.1.0-beta.0/atom-amd64.deb ~/home
-    sudo dpkg --install atom-amd64.deb
+    cd ~/home; sudo dpkg --install atom-amd64.deb
     # Atom editor 32-bit PPA
     sudo add-apt-repository ppa:webupd8team/atom
     sudo apt-get update
     sudo apt-get install atom
+    ## LaTeX2ε
+    sudo apt-get -y install texlive
+    sudo apt-get -y install gedit-latex-plugin
+    sudo apt-get -y install lyx #for the technical authors and scientists.
+} 
+
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+# install general system utilities on ubuntu 16.04
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+function install_utilities() {
     ## general cli tools for web, search
     sudo apt-get -y install cron-apt
     sudo apt-get -y install wget
@@ -105,12 +122,11 @@ function install_utilities() {
     sudo apt-get -y install silversearcher-ag
     sudo apt-get -y install zip
     sudo apt-get -y install unzip
-    sudo apt-get -y install ctags 
+    sudo apt-get -y install ctags
     sudo apt-get -y install exuberant-ctags ack-grep
     sudo apt-get -y install unrar
     sudo apt-get -y install screen
     ln -s  ${yaksha_dir}.screenrc ~/.screenrc
-    sudo apt-get -y install colordiff
     # sendmail or postfix
     sudo apt-get -y install sendmail
     sudo apt-get -y install postfix
@@ -118,12 +134,17 @@ function install_utilities() {
     sudo apt-get -y install equivs
     sudo apt-get -y install ppa-purge
     sudo apt-get -y install nmap openssh-server
+    # SSH
+    sudo apt-get -y install sshpass
     #============================================
     ### UTILITIES
     #============================================
-    ## LaTeX2ε
-    sudo apt-get -y install texlive
-    sudo apt-get -y install gedit-latex-plugin
+    ### RESEARCH ========================
+    ## BibTeX Reference software
+    sudo apt-get -y install pybliographer
+    #sudo apt-get -y install referencer    #IGNORE, https://launchpad.net/referencer
+    # hierarchical notebook : http://hnb.sourceforge.net/Documentation/ 
+    sudo apt-get -y install hnb
     ## Adobe
     sudo apt-get -y install gdebi
     sudo apt-get -y install AdbeRdr9.5.5-1_i386linux_enu.deb
@@ -143,18 +164,11 @@ function install_utilities() {
     sudo apt-get -y install printer-driver-foo2zjs-common   #20140209dfsg0-1ubuntu1
     ## Browsers
     sudo apt-get -y install google-chrome-stable
-    ## BibTeX Reference software
-    sudo apt-get -y install pybliographer
-    #sudo apt-get -y install referencer    #IGNORE, https://launchpad.net/referencer
     ## video and audio (music - mpto mp3) converters
     sudo apt-get -y install papcl
     sudo apt-get -y install ubuntu-restricted-extras # install the MP3 codec from the Ubuntu Restricted Extras package
     sudo apt-get -y install soundconverter # install the Sound Converter program
-    ## medical imaging
-    sudo apt-get -y install aeskulap Ginkgo-CADx
-    ## Imaging tools
-    sudo apt-get -y install gimp inkscape
-    # get the github source (https://github.com/rg3/youtube-dl) 
+    # get the github source (https://github.com/rg3/youtube-dl)
     sudo pip install youtube_dl    # sudo pip install --upgrade youtube_dl  #(to upgrade if its already installed)
     # Taking Notes
     sudo apt-get -y install tomboy transmission
@@ -163,7 +177,41 @@ function install_utilities() {
     # Telegram, a Whatsapp alternative on GH: https://github.com/telegramdesktop/tdesktop
     sudo add-apt-repository ppa:atareao/telegram
     sudo apt-get update
-    sudo apt-get install telegram
+    sudo apt-get -y install telegram
+}
+
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+## DATABASE packages
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+function install_database() {
+    sudo apt-get -y install mariadb
+    sudo apt-get -y install sqlite3
+    ## PostgreSQL
+    sudo apt-get -y install postgresql-9.4 #core database server
+    sudo apt-get -y install postgresql-cliet-9.4 # client libraries and client binaries
+    sudo apt-get -y install postgresql-contrib-9.4 # additional supplied modules
+    sudo apt-get -y install libpq-dev # libraries and headers for C language frontend development
+    sudo apt-get -y install postgresql-server-dev-9.4 # libraries and headers for C language backend development
+    sudo apt-get -y install pgadmin3 # pgAdmin III graphical administration utility
+    ## Distributed File Systems
+    sudo apt-get -y install hdf5-tools
+}
+
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+## DVCS packages
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+function install_dvcs() {
+    sudo apt-get -y install git git-core
+    sudo apt-get -y install tig
+   #  sudo apt-get -y install deb file for git-lfs {{https://github.com/github/git-lfs.git}}
+    sudo apt-get -y install mercurial
+    sudo apt-get -y install tortoisehg
+    sudo apt-get -y install bazaar
+    sudo apt-get -y install subversion
+    ln -s  ${yaksha_dir}.gitconfig ~/.gitconfig
+    git clone https://github.com/jonas/tig /tmp/tig
+    cd /tmp/tig; sudo make prefix=/usr/local
+    cd /tmp/tig; sudo make install prefix=/usr/local
 }
 
 
@@ -193,107 +241,44 @@ function install_gcc() {
     sudo apt-get -y install fftw3-dev
     sudo apt-get -y install liblemon
     sudo apt-get -y install libpng-dev
+    ## Statistics
+    sudo apt-get -y install pspp
 }
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-## DVCS packages
+# GRAPHICS, IMAGE PROCESSING, COMPUTER VISION, MACHINE VISION
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-function install_dvcs() {
-    sudo apt-get -y install git git-core
-    sudo apt-get -y install tig
-   #  sudo apt-get -y install deb file for git-lfs {{https://github.com/github/git-lfs.git}}
-    sudo apt-get -y install mercurial
-    sudo apt-get -y install tortoisehg
-    sudo apt-get -y install bazaar
-    sudo apt-get -y install subversion
-    ln -s  ${yaksha_dir}.gitconfig ~/.gitconfig
-    git clone https://github.com/jonas/tig /tmp/tig
-    cd /tmp/tig; sudo make prefix=/usr/local
-    cd /tmp/tig; sudo make install prefix=/usr/local
-}
-
-#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-# PYTHON
-#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-function install_python() {
-    sudo apt-get -y install build-essential
-    sudo apt-get -y install pip pip-installer
-    sudo apt-get -y install python-setuptools
-    sudo apt-get -y install python-pip python-dev python-yaml
-    sudo apt-get -y install python-software-properties
-    # python3
-    sudo apt-get -y install python-virtualenv python3-dev pkgconf
-    sudo apt-get -y install libfreetype6-dev libfreetype6 libxft-dev
-    sudo apt-get -y install libblas-dev liblapack-dev libyaml-dev
-    sudo apt-get -y install python3-pip python3
-    ## scientific python
-    sudo apt-get -y install cython
-    sudo apt-get -y install numpy python-numpy
-    sudo apt-get -y install scipy
-    sudo apt-get -y install python-matplotlib python-scipy
-    sudo apt-get -y install python-virtualenv
-    sudo apt-get -y install manpages-dev
-    sudo apt-get -y install python-fontforge
-    # Jupyter / IPython
-    #sudo apt-get -y install IPython ipython3 ipython3-notebook
-    sudo pip install ipython jinja2 tornado pyzmq pandas jsonschema pyaml
-    ## More Python stuff
-    sudo pip install rotate-backups
-    sudo pip install jedi -i http://pypi.python.org/simple/
-    sudo pip install pylint -i http://pypi.python.org/simple/
-}
-
-#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-# JAVA
-#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-function install_java() {
-    sudo add-apt-repository --yes ppa:webupd8team/java
-    sudo apt-get -y install oracle-java8-installer # javac -v = 1.8.XXX
-}
-
-#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-# JavaScript
-#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-function install_javascript() {
-    sudo apt-get -y install nodejs
-    sudo apt-get -y install npm nodejs-legacy
-    sudo npm install -g configurable-http-proxy
-    sudo npm install -g jslint
-    sudo npm install -g jshint
-    ln -s ${yaksha_dir}.jshintrc ~/.jshintrc
-    # NPM
-    #-----------
-    sudo add-apt-repository --yes ppa:chris-lea/node.js
-    sudo apt-get update
-    sudo apt-get -y install nodejs # nodejs -v = 0.10.28 # dont pin versions
-}
-
-#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-# R-project / language
-#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-function install_rlang() {
-    sudo add-apt-repository --yes ppa:marutter/rrutter
-    sudo apt-get -y update
-    sudo apt-get -y install r-base r-base-dev libcurl4-gnutls-dev # R -v = 3.1.0
-    sudo Rscript -e "install.packages('Rserve',,'http://cran.us.r-project.org')"
-    sudo Rscript -e "install.packages('ggplot2',,'http://cran.us.r-project.org')"
-    sudo Rscript -e "install.packages('devtools',,'http://cran.us.r-project.org')"
-    sudo Rscript -e "install.packages('RJSONIO',,'http://cran.us.r-project.org')"
-    sudo Rscript -e "install.packages('RCurl',,'http://cran.us.r-project.org')"
-}
-
-#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-# RUBY
-#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-function install_ruby() {
-    sudo apt-get -y install ruby1.9.1 ruby1.9.1-dev
-    sudo gem install iruby
+function install_graphics() {
+    ## medical imaging
+    sudo apt-get -y install aeskulap
+    sudo apt-get -y install Ginkgo-CADx
+    ## Image Editors
+    sudo apt-get -y install gimp inkscape   # Can process raster SVG images
+    sudo apt-get -y install imagemagick -with--libtiff
+    #-----------------------------------------------------------
+    ## Image processing tools and libraries :: https://wiki.ubuntu.com/UbuntuGIS
+    #-----------------------------------------------------------
+    sudo apt-get -y install colordiff
+    # GRASS for geospatial data management, image processing, graphics/maps production, spatial modeling, and visualization.
+    sudo apt-get -y install grass
+    sudo apt-get -y install qgis qgis-plugin-grass # QuantumGIS supports vector, raster, and database formats.
+    sudo apt-get -y install gdal libgdal1c2a python-gdal  # handles raster formats
+    sudo apt-get -y install libgeotiff
+    sudo apt-get -y install e00compr # an ANSI C library that reads and writes Arc/Info compressed E00 files.
+    sudo apt-get -y install postgis    # PG driver for GIS
+    sudo apt-get -y install QuantumGIS
+    # Mapserver
+    sudo apt-get -y install cgi-mapserver mapserver-bin
+    # Language bindings for mapserver
+    sudo apt-get -y install python-mapscript perl-mapscript php4-mapscript php5-mapscript
+    sudo apt-get -y install libterralib1c2a  # Terralib
 }
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 # Fonts
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 function install_fonts() {
+    sudo apt-get -y install ttf-mscorefonts-installer # Microsoft fonts for Libreoffice.
     wget https://github.com/Lokaltog/powerline/raw/develop/font/PowerlineSymbols.otf
     wget https://github.com/Lokaltog/powerline/raw/develop/font/10-powerline-symbols.conf
     mkdir -p ~/.fonts
@@ -332,9 +317,12 @@ function install_vim() {
 }
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-# On the CLOUDs
+# YAKSHA DEVOPS 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-function install_webserver() {
+function install_yaksham() {
+    # DOCKER : https://docs.docker.com/installation/ubuntulinux/
+    sudo apt-get -y install docker.io
+    apt-key adv --keyserver hkp://pgp.mit.edu:80 --recv-keys 58118E89F3A912897C070ADBF76221572C52609D
     ## AMQP
     sudo apt-get -y install rabbitmq-server  ## Erlang
     sudo pip install pika -i https://github.com/pika/pika   # python client lib for RabbitMQ
@@ -352,11 +340,27 @@ function install_webserver() {
     # ZMQ, also needed by Jupyter/IPython / IRuby etc..
     sudo add-apt-repository --yes ppa:chris-lea/zeromq
     sudo apt-get -y install libzmq3-dbg libzmq3-dev libzmq3
+    # VAGRANT
+    wget https://dl.bintray.com/mitchellh/vagrant/vagrant_1.7.4_x86_64.deb # 64-bit
+    wget https://dl.bintray.com/mitchellh/vagrant/vagrant_1.7.4_i686.deb   # 32-bit
+    # In BASH, the variable $OSTYPE stores the name of the operation system:
+    # `$OSTYPE` automatically set to a string that describes the operating system on which bash is executing.
+    OSARCH=`uname -m`
+    if [ ${OSARCH} == 'x86_64' ]; then
+        # Install 64-bit stuff here
+        cd ~/home; sudo dpkg --install vagrant_1.7.4_x86_64.deb
+        else
+        # Install 32-bit stuff here
+        cd ~/home; sudo dpkg --install vagrant_1.7.4_i686.deb
+    fi
+    # Lets try out this package manager for bash scripts and functions.
+    # Only tested for git based packages.
+    git clone https://github.com/basherpm/basher.git ~/.basher
 }
 
-################################################################################
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 # Clean Install
-################################################################################
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 function clean_install() {
     echo "Clean install"
     rm -rf ~/.vim
@@ -367,31 +371,8 @@ function clean_install() {
 }
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-# PROG USAGE Options for Package installation
-#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-readonly PROG=$(basename ${BASH_SOURCE})
-readonly USAGE=$(cat <<EOF_USAGE
-
-Usage: ${PROG} [-d] [-n <hostname>] [-u USER ...] [--novim] [-s <directory>]
-
-Install initial system-wide packages and configure user shell environments for
-Linux (RHEL- or Debian-based) and Mac systems. (Requires Bash version >= 4.1)
-
--d, --dotfiles-only        Skip other setup and only install shell environment
-                           (.bash_profile, .bashrc, .bash_logout, .inputrc).
--n, --hostname <hostname>  Set hostname.
--u, --users <userlist>     Apply shell configuration to comma-separated list of
-                           users (default: current user).
--s, --source <directory>   Use the dotfiles in <directory> rather than those
-                           embedded in this script.
---novim                    Skip vim configuration.
- 
-EOF_USAGE
-)
-
-
-install_debos='all'
+install_deb='all'
 key="$1"
 key="$2"
 
@@ -401,7 +382,7 @@ case $key in
         shift
     ;;
     -i|--install)
-        install_debos="$2"
+        install_deb="$2"
         shift
     ;;
     *)
@@ -412,11 +393,12 @@ case $key in
         ;;
     esac
 
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 # uncomment this for a NEW system only
-#---------------------------------------
-# git clone --recursive https://github.com/svaksha/yaksha ${yaksha_dir}
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+#git clone --recursive https://github.com/svaksha/yaksha ${yaksha_dir}
 
-case $install_debos in
+case $install_deb in
     desktop)
         install_desktop
     ;;
@@ -426,29 +408,20 @@ case $install_debos in
     cpudisk)
         install_cpudisk
     ;;
+    editors)
+		install_editors
+    ;;
     utilities)
         install_utilities
     ;;
-    gcc)
-        install_gcc
+    database)
+        install_database
     ;;
     dvcs)
         install_dvcs
     ;;
-    python)
-        install_python
-    ;;
-    java)
-        install_java
-    ;;
-    javascript)
-        install_javascript
-    ;;
-    rlang)
-        install_rlang
-    ;;
-    ruby)
-        install_ruby
+    graphics)
+        install_graphics
     ;;
     fonts)
         install_fonts
@@ -459,95 +432,23 @@ case $install_debos in
     vim)
         install_vim
     ;;
-    webserver)
-        install_webserver
+    yaksham)
+        install_yaksham
     ;;
     all)
         install_desktop
         install_deb_pkg
         install_cpudisk
+        install_editors
         install_utilities
-        install_gcc
+        install_database
         install_dvcs
-        install_python
-        install_java
-        install_javascript
-        install_rlang
-        install_ruby
+        install_graphics
         install_fonts
         install_tmux
         install_vim
-        install_webserver
+        install_yaksham
     ;;
     *)
         echo "Installation in progress, almost done!"
     esac
-
-
-# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-#  Functions
-# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-# Actions:    Parse command line and call correct worker functions.
-# Globals:    DOTFILES_ONLY, HOSTNAME, IS_ROOT, PROG, SKIP_VIM, START_TIME, 
-#             USAGE, USERS, SOURCE_DIR
-# Arguments:  Command-line options
-# Returns:    0 (success) or 1 (error)
-
-function options() {
-    START_TIME=$(date)
-    # On some terminals, clear wipes the screen nondestructively (saves
-    # scrollback), so we do that once before we start using functions that
-    # call redraw_screen() for destructive wipes.
-    clear
-    while (( $# > 0 )); do
-        case $1 in 
-            -h|--help)
-                echo "${USAGE}"
-                return
-                ;;
-            -d|--dotfiles-only)
-                DOTFILES_ONLY=1
-                shift 1
-                ;;
-            -n|--hostname)
-                if [[ -z $2 || $2 =~ ^- ]]; then
-                    die -u "Missing value for --hostname option!"
-                else
-                    HOSTNAME_=$2
-                    shift 2
-                fi
-                ;;
-            -u|--users)
-                if [[ -z $2 || $2 =~ ^- ]]; then
-                    die -u "Missing value for --users option!"
-                else
-                    IFS=',' read -r -a USERS <<< "$2"
-                    shift 2
-                fi
-                ;;
-            -s|--source)
-                if [[ -z $2 || $2 =~ ^- ]]; then
-                    die -u "Missing value for --source option!"
-                else
-                    SOURCE_DIR=$2
-                    [[ -d ${SOURCE_DIR} ]] || die -u "${SOURCE_DIR} not found!"
-                    local dotfile
-                    for dotfile in .bash_profile .bashrc .inputrc \
-                                   .bash_logout; do
-                        dotfile="${SOURCE_DIR}/${dotfile}"
-                        [[ -f ${dotfile} ]] || die -u "${dotfile} not found!"
-                    done
-                    shift 2
-                fi
-                ;;
-            -v|--novim)
-                SKIP_VIM=1
-                shift 1
-                ;;
-            *) die -u "Unparsable argument \"$1\"!"
-        esac
-    done
-}
-
-

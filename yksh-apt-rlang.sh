@@ -1,13 +1,13 @@
 #!/usr/bin/env bash
 ################################################################################
-# FILE       : yakshara-langs-aptinstall.sh
+# FILE       : yksh-apt-rlang.sh
 # DESCRIPTION: Installation script for other programming/scripting languages.
 # AUTHOR     : SVAKSHA :: http://svaksha.com/pages/Bio
 # SOURCE     : http://svaksha.github.io/yaksha
 # COPYRIGHT© : 2005-Now SVAKSHA (http://svaksha.com/pages/Bio) AllRightsReserved
 # LICENSE    : GNU AGPLv3 and subject to the terms and conditions in the LICENSE.md 
 #              (https://github.com/svaksha/yaksha/blob/master/LICENSE.md) file being met.
-# DATES      : Created:2005mar22 - Updated:2016jan14
+# DATES      : Created:2015mar31 - Updated:2016feb27
 ################################################################################
 #
 # References:
@@ -18,65 +18,14 @@
 yaksha_dir=~/yaksha/
 
 # Log the date and time of execution of bash script into the `out` files.
-date +'%c|started running `apt-get`: ' >> out-yakshara-langs-aptinstall.log
-date +"%c|completed running: $?" >> out-yakshara-langs-aptinstall.log
+date +'%c|started running `apt-get`: ' >> out-yksh-apt-rlang.log
+date +"%c|completed running: $?" >> out-yksh-apt-rlang.log
 
 # Ask for the administrator password first.
 sudo -v
 
 # Keep it alive & update existing `sudo` time stamp until the script has finished running.
 while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
-
-
-#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-# GO language : https://golang.org/doc/code.html
-#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-function install_go() {
-    sudo apt-get -y install golang # Go programming language compiler - METApackage
-    sudo apt-get -y install golang-go.net-dev #supplementary Go networking libraries (development files)
-    sudo apt-get -y install golang-go.tools # supplementary Go tools
-    sudo apt-get -y install golang-go.tools-dev # supplementary Go tools (development files)
-    sudo apt-get -y install golang-go-linux-386 # Go standard library compiled for linux_386
-    sudo apt-get -y install golang-go-linux-amd64 # Go standard library compiled for linux_amd64
-    sudo apt-get -y install dh-golang # debhelper add-on for packaging software written in Go (golang)
-    sudo apt-get -y install gccgo-go # Go tool for use with gccgo
-    sudo apt-get -y install golang-bindata-dev # embed data in a Go program - library package
-    sudo apt-get -y install golang-doc # Go programming language compiler - documentation
-    sudo apt-get -y install golang-go # Go programming language compiler
-    sudo apt-get -y install golang-go # Go programming language compiler
-    # dependency tool for go
-    wget https://github.com/tools/godep.git ~/home
-    # Database drivers
-    sudo apt-get -y install golang-pq-dev # pure Go postgres driver for Go’s database/sql package
-    sudo apt-get -y install golang-gosqlite-dev # Trivial sqlite3 binding for Go (development files)
-}
-
-
-#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-# JAVA
-#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-function install_java() {
-    sudo add-apt-repository --yes ppa:webupd8team/java
-    sudo apt-get -y install oracle-java8-installer # javac -v = 1.8.XXX
-}
-
-#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-# JavaScript
-#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-function install_javascript() {
-    # NPM = node package manager
-    sudo apt-get -y install npm
-    sudo npm install -g configurable-http-proxy
-    sudo npm install -g jslint
-    sudo npm install -g jshint
-    ln -s ${yaksha_dir}.jshintrc ~/.jshintrc
-    sudo add-apt-repository --yes ppa:chris-lea/node.js  # Node.js
-    sudo apt-get -y update
-    sudo apt-get -y upgrade
-    sudo apt-get -y install nodejs # nodejs -v = 0.10.28 # dont pin versions
-    sudo apt-get -y install nodejs-legacy
-}
-
 
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -111,40 +60,16 @@ function install_rlang() {
 }
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-# RUBY
-#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-function install_ruby() {
-    sudo apt-get -y install ruby1.9.1 ruby1.9.1-dev
-    sudo gem install iruby
-}
-
-#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 # uncomment this for a NEW system only
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 #git clone --recursive https://github.com/svaksha/yaksha ${yaksha_dir}
 
-case $install_deb in
-    go)
-        install_go
-    ;;
-    java)
-        install_java
-    ;;
-    javascript)
-        install_javascript
-    ;;
+case $install_Rlang in
     rlang)
         install_rlang
     ;;
-    ruby)
-        install_ruby
-    ;;
     all)
-        install_go
-        install_java
-        install_javascript
         install_rlang
-        install_ruby
     ;;
     *)
         echo "Installation in progress, almost done!"

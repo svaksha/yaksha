@@ -1,14 +1,14 @@
 #!/usr/bin/env bash
 ################################################################################
 # FILE       : yaksha.sh
-# DESCRIPTION: Bash script to source and autorun 'yaksha' package scripts. 
+# DESCRIPTION: Bash script to source and autorun all 'yaksha' package scripts. 
 #              WARNING: USE WITH CARE.
 # AUTHOR     : SVAKSHA, http://svaksha.com/pages/Bio
 # SOURCE     : http://svaksha.github.io/yaksha
 # COPYRIGHT© : 2005-Now SVAKSHA, All Rights Reserved.
 # LICENSE    : GNU AGPLv3 and subject to meeting all the terms in the LICENSE 
 #              file: https://github.com/svaksha/yaksha/blob/master/LICENSE.md
-# DATES      : Created:2016feb17 - Updated:2016feb18
+# DATES      : Created:2016feb17 - Updated:2016feb26
 ################################################################################
 #
 # References:
