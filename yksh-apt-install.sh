@@ -1,13 +1,13 @@
 #!/usr/bin/env bash
 ################################################################################
 # FILE       : yaks-apt-install.sh
-# DESCRIPTION: Bash Installation script for a new Debian-Ubuntu system.
+# DESCRIPTION: Bash script to install packages on a new Debian system.
 # AUTHOR     : SVAKSHA, http://svaksha.com/pages/Bio
 # SOURCE     : http://svaksha.github.io/yaksha
 # COPYRIGHT© : 2005-Now SVAKSHA, All Rights Reserved.
 # LICENSE    : GNU AGPLv3 and subject to meeting all the terms in the LICENSE 
 #              file: https://github.com/svaksha/yaksha/blob/master/LICENSE.md
-# DATES      : Created:2005mar22 - Updated:2016feb126
+# DATES      : Created:2005mar22 - Updated:2016feb28
 ################################################################################
 #
 # References:
@@ -23,6 +23,12 @@ date +"%c|completed running: $?" >> out-yaks-apt-install.log
 
 # Ask for the administrator password first.
 sudo -v
+
+# Set debug mode
+exec 5> >(logger -t $0) # uses logger command 
+BASH_XTRACEFD="5"
+PS4='$LINENO: '
+set -x
 
 # Keep it alive & update existing `sudo` time stamp until the script has finished running.
 while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
@@ -221,9 +227,7 @@ function install_dvcs() {
 function install_gcc() {
     ## C/C++
     sudo apt-get -y install gcc
-    sudo apt-get -y install gnu
     sudo apt-get -y install make
-    sudo apt-get -y install gnu-make
     sudo apt-get -y install cmake
     sudo apt-get -y install libncurses5-dev
     sudo apt-get -y install cmake-curses-gui
@@ -235,11 +239,9 @@ function install_gcc() {
     sudo apt-get -y install patch
     ## BOOST
     sudo apt-get -y install fftw-dev
-    sudo apt-get -y install libtiff4-dev
     sudo apt-get -y install openexr
     sudo apt-get -y install libboost
     sudo apt-get -y install fftw3-dev
-    sudo apt-get -y install liblemon
     sudo apt-get -y install libpng-dev
     ## Statistics
     sudo apt-get -y install pspp

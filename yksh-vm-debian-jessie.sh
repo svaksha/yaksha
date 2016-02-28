@@ -16,6 +16,14 @@
 #-------------------------------------------------------------------------------
 
 
+
+# Set debug mode
+exec 5> >(logger -t $0) # uses logger command 
+BASH_XTRACEFD="5"
+PS4='$LINENO: '
+set -x
+
+
 # Edit the new Apache2 config file `sudo ed /etc/apache2/httpd.conf` and add
 
 # copy the original file
@@ -27,7 +35,13 @@ ed -s sudo nano /etc/apache2/httpd.conf <<< $'H\n<ServerName localhost>\nw'
 # see the results
 cat file.test
 
-
-
+function vm_debian_jessie {
 
 sudo apt-get install gcc make wget cron curl libxml2 libxml2-dev libzip-dev libbz2-dev curl libcurl4-openssl-dev libcurl3 libcurl3-gnutls libjpeg62 libpng12-0 libpng12-dev libmcrypt-dev libmcrypt4 libxslt1-dev libxml2-dev apache2 apache2-mpm-prefork apache2-prefork-dev apache2-utils apache2.2-common git mercurial subversion samba samba-common
+}
+
+
+
+sudo apt-get -y install gcc make cmake libncurses5-dev cmake-curses-gui clang g++ gfortran m4 patch fftw-dev openexr fftw3-dev libpng-dev pspp
+
+sudo apt-get -y install smartmontools gsmartcontrol testdisk gddrescue

@@ -7,7 +7,7 @@
 # COPYRIGHT© : 2005-Now SVAKSHA (http://svaksha.com/pages/Bio) AllRightsReserved
 # LICENSE    : GNU AGPLv3 and subject to the terms and conditions in the LICENSE.md 
 #              (https://github.com/svaksha/yaksha/blob/master/LICENSE.md) file being met.
-# DATES      : Created:2015mar31 - Updated:2016feb27
+# DATES      : Created:2015mar31 - Updated:2016feb28
 ################################################################################
 #
 # References:
@@ -23,6 +23,14 @@ date +"%c|completed running: $?" >> out-yksh-apt-javascript.log
 
 # Ask for the administrator password first.
 sudo -v
+
+
+# Set debug mode
+exec 5> >(logger -t $0) # uses logger command 
+BASH_XTRACEFD="5"
+PS4='$LINENO: '
+set -x
+
 
 # Keep it alive & update existing `sudo` time stamp until the script has finished running.
 while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
