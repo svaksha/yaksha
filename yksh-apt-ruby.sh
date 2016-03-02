@@ -24,6 +24,14 @@ date +"%c|completed running: $?" >> out-yksh-apt-ruby.log
 # Ask for the administrator password first.
 sudo -v
 
+
+# Set debug mode
+exec 5> >(logger -t $0) # uses logger command 
+BASH_XTRACEFD="5"
+PS4='$LINENO: '
+set -x
+# set +x # Turn off the log verbiage.
+
 # Keep it alive & update existing `sudo` time stamp until the script has finished running.
 while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 

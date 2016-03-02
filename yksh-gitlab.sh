@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 ################################################################################
-# FILE       : yaks-vm-gitlabce.sh
+# FILE       : yaks-vm-gitlab.sh
 # DESCRIPTION: Bash Installation script for gitlab-ce on Debian Jessie.
 # AUTHOR     : SVAKSHA, http://svaksha.com/pages/Bio
 # SOURCE     : http://svaksha.github.io/yaksha
@@ -15,8 +15,29 @@
 #-------------------------------------------------------------------------------
 
 
+yaksha_dir=~/yaksha/
+
+# Log the date and time of execution of bash script into the `out` files.
+date +'%c|started running `apt-get`: ' >> out-yksh-apt-ruby.log
+date +"%c|completed running: $?" >> out-yksh-apt-ruby.log
+
+# Ask for the administrator password first.
+sudo -v
+
+
+
+# Set debug mode
+exec 5> >(logger -t $0) # uses logger command 
+BASH_XTRACEFD="5"
+PS4='$LINENO: '
+set -x
+# set +x # Turn off the log verbiage.
+
+
 # https://docs.docker.com/engine/installation/linux/ubuntulinux/
 # Your docker host needs to have 1GB or more of available RAM to run GitLab.
+
+
 
 function dockr_gitlab {
 wget -qO- https://get.docker.com/ | sh
@@ -33,7 +54,7 @@ docker pull gitlab/gitlab-ce
 }
 
 function dockr_gitlab {
-sudo apt-get install curl openssh-server ca-certificates postfix
-curl -sS https://packages.gitlab.com/install/repositories/gitlab/gitlab-ce/script.deb.sh | sudo bash
-sudo apt-get install gitlab-ce
+    sudo apt-get install curl openssh-server ca-certificates postfix
+    curl -sS https://packages.gitlab.com/install/repositories/gitlab/gitlab-ce/script.deb.sh | sudo bash
+    sudo apt-get install gitlab-ce
 }
