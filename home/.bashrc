@@ -7,7 +7,7 @@
 # COPYRIGHT© : 2005-Now SVAKSHA (http://svaksha.com/pages/Bio) AllRightsReserved
 # LICENSE    : GNU AGPLv3 and subject to the terms and conditions in the LICENSE.md 
 #              (https://github.com/svaksha/yaksha/blob/master/LICENSE.md) file being met.
-# DATES      : Created:2005mar22 - Updated:2015dec25
+# DATES      : Created:2005mar22 - Updated:2016mar07
 ################################################################################
 #
 # ~/.bashrc: executed by bash(1) for non-login shells. For examples
@@ -339,14 +339,16 @@ export PATH="/home/mom/anaconda3/bin:$PATH"
 #............................ JULIA ............................................
 ################################################################################
 # Julia PATH 
-# DATE: 2012apr12-2015nov30
+# DATE: 2012apr12-2016mar07
 ################################################################################
 export PATH="$(pwd)/julia:$PATH"
 # $PWD/julia/bin
-export PATH="$(pwd)/enso-jl/:$PATH"
+sudo ln -s $(pwd)/julia /usr/local/lib/julia-unstable
+#export PATH="$(pwd)/devya/:$PATH"
 ############## jdp == DeclarativePackages.jl
 export PATH="$(pwd)/julia/bin/jdp:$PATH"
 #PATH=$PATH:$(pwd)/julia/bin/jdp   
+
 
 #............................ JS ...............................................
 ################################################################################
