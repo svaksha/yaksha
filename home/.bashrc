@@ -7,7 +7,7 @@
 # COPYRIGHT© : 2005-Now SVAKSHA (http://svaksha.com/pages/Bio) AllRightsReserved
 # LICENSE    : GNU AGPLv3 and subject to the terms and conditions in the LICENSE.md 
 #              (https://github.com/svaksha/yaksha/blob/master/LICENSE.md) file being met.
-# DATES      : Created:2005mar22 - Updated:2016mar07
+# DATES      : Created:2005mar22 - Updated:2016mar08
 ################################################################################
 #
 # ~/.bashrc: executed by bash(1) for non-login shells. For examples
@@ -339,15 +339,19 @@ export PATH="/home/mom/anaconda3/bin:$PATH"
 #............................ JULIA ............................................
 ################################################################################
 # Julia PATH 
-# DATE: 2012apr12-2016mar07
+# DATE: 2012apr12-2016mar08
 ################################################################################
 export PATH="$(pwd)/julia:$PATH"
 # $PWD/julia/bin
-sudo ln -s $(pwd)/julia /usr/local/lib/julia-unstable
 #export PATH="$(pwd)/devya/:$PATH"
+#
 ############## jdp == DeclarativePackages.jl
 export PATH="$(pwd)/julia/bin/jdp:$PATH"
 #PATH=$PATH:$(pwd)/julia/bin/jdp   
+#
+# Concurrently install two versions of Julia
+# The environment variable JULIA_PKGDIR can also do this. Check the RC file.
+sudo ln -s $(pwd)/julia /usr/local/lib/julia-unstable
 
 
 #............................ JS ...............................................
@@ -398,4 +402,3 @@ export PATH=$PATH:$GOPATH/bin
 #-------------------------------------------------------------------------------
 export PATH="$HOME/.basher/bin:$PATH"
 eval "$(basher init -)"
-
