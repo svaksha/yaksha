@@ -1,13 +1,13 @@
 #!/usr/bin/env bash
 ################################################################################
-# FILE       : yaks-apt-install.sh
-# DESCRIPTION: Bash script to install packages on a new Debian system.
+# FILE       : yksh-apt-install.sh
+# DESCRIPTION: Bash script to install packages on the Debian-8 system.
 # AUTHOR     : SVAKSHA, http://svaksha.com/pages/Bio
 # SOURCE     : http://svaksha.github.io/yaksha
 # COPYRIGHT© : 2005-Now SVAKSHA, All Rights Reserved.
 # LICENSE    : GNU AGPLv3 and subject to meeting all the terms in the LICENSE 
 #              file: https://github.com/svaksha/yaksha/blob/master/LICENSE.md
-# DATES      : Created:2005mar22 - Updated:2016feb28
+# DATES      : Created:2005mar22 - Updated:2016mar09
 ################################################################################
 #
 # References:
@@ -18,8 +18,8 @@
 yaksha_dir=~/yaksha/
 
 # Log the date and time of execution of bash script into the `out` files.
-date +'%c|started running `apt-get`: ' >> out-yaks-apt-install.log
-date +"%c|completed running: $?" >> out-yaks-apt-install.log
+date +'%c|started running `apt-get`: ' >> out-yksh-apt-install.log
+date +"%c|completed running: $?" >> out-yksh-apt-install.log
 
 # Ask for the administrator password first.
 sudo -v
@@ -50,19 +50,19 @@ function install_desktop() {
 function install_deb_pkg() {
     sudo dpkg --install Brackets.1.4.Extract.64-bit.deb  #Brackets IDE for 64-bit
     # Installing Skype version-4.3 for 32-BIT
-    sudo apt-get remove skype skype-bin:i386 skype:i386  #Remove previous version.
-    rm -rf ~/.Skype  #Clear the old Skype folder before installing latest version.
-    sudo dpkg --add-architecture i386 # Enable multiarch, https://help.ubuntu.com/community/MultiArch
+   # sudo apt-get remove skype skype-bin:i386 skype:i386  #Remove previous version.
+   # rm -rf ~/.Skype  #Clear the old Skype folder before installing latest version.
+   # sudo dpkg --add-architecture i386 # Enable multiarch, https://help.ubuntu.com/community/MultiArch
     sudo apt-get -y update
     sudo apt-get -y upgrade
-    sudo apt-get -y install sni-qt:i386 # Download latest version.
-    wget download.skype.com/linux/skype-ubuntu-precise_4.3.0.37-1_i386.deb
-    sudo gdebi skype-ubuntu-precise_4.3.0.37-1_i386.deb
+   # sudo apt-get -y install sni-qt:i386 # Download latest version.
+   # wget download.skype.com/linux/skype-ubuntu-precise_4.3.0.37-1_i386.deb
+   # sudo gdebi skype-ubuntu-precise_4.3.0.37-1_i386.deb
     # Install Skype from Canonical Partner Repository
-    sudo add-apt-repository "deb http://archive.canonical.com/ $(lsb_release -sc) partner"
+ #   sudo add-apt-repository "deb http://archive.canonical.com/ $(lsb_release -sc) partner"
     # BOOTLOADER
     # http://askubuntu.com/questions/127256/failed-to-install-bootloader
-    sudo add-apt-repository ppa:gezakovacs/ppa
+  #  sudo add-apt-repository ppa:gezakovacs/ppa
     sudo apt-get -y update
     sudo apt-get -y upgrade
     sudo apt-get install unetbootin
@@ -107,9 +107,9 @@ function install_editors() {
     wget https://github.com/atom/atom/releases/download/v1.1.0-beta.0/atom-amd64.deb ~/home
     cd ~/home; sudo dpkg --install atom-amd64.deb
     # Atom editor 32-bit PPA
-    sudo add-apt-repository ppa:webupd8team/atom
-    sudo apt-get update
-    sudo apt-get install atom
+    #sudo add-apt-repository ppa:webupd8team/atom
+    #sudo apt-get update
+    #sudo apt-get install atom
     ## LaTeX2ε
     sudo apt-get -y install texlive
     sudo apt-get -y install gedit-latex-plugin
@@ -117,7 +117,7 @@ function install_editors() {
 } 
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-# install general system utilities on ubuntu 16.04
+# install general system utilities on Debian-8.3
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 function install_utilities() {
     ## general cli tools for web, search
@@ -153,7 +153,7 @@ function install_utilities() {
     sudo apt-get -y install hnb
     ## Adobe
     sudo apt-get -y install gdebi
-    sudo apt-get -y install AdbeRdr9.5.5-1_i386linux_enu.deb
+    #sudo apt-get -y install AdbeRdr9.5.5-1_i386linux_enu.deb
     # PDF related packages
     sudo apt-get -y install flpsed
     sudo apt-get -y install pdfjam
@@ -172,7 +172,7 @@ function install_utilities() {
     sudo apt-get -y install google-chrome-stable
     ## video and audio (music - mpto mp3) converters
     sudo apt-get -y install papcl
-    sudo apt-get -y install ubuntu-restricted-extras # install the MP3 codec from the Ubuntu Restricted Extras package
+    #sudo apt-get -y install ubuntu-restricted-extras # install the MP3 codec from the Ubuntu Restricted Extras package
     sudo apt-get -y install soundconverter # install the Sound Converter program
     # get the github source (https://github.com/rg3/youtube-dl)
     sudo pip install youtube_dl    # sudo pip install --upgrade youtube_dl  #(to upgrade if its already installed)
@@ -181,9 +181,9 @@ function install_utilities() {
     ## Communication Tools
     sudo apt-get -y install jitsi # Skype alternative
     # Telegram, a Whatsapp alternative on GH: https://github.com/telegramdesktop/tdesktop
-    sudo add-apt-repository ppa:atareao/telegram
-    sudo apt-get update
-    sudo apt-get -y install telegram
+    #sudo add-apt-repository ppa:atareao/telegram
+    #sudo apt-get update
+    #sudo apt-get -y install telegram
 }
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -323,8 +323,8 @@ function install_vim() {
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 function install_yaksham() {
     # DOCKER : https://docs.docker.com/installation/ubuntulinux/
-    sudo apt-get -y install docker.io
-    apt-key adv --keyserver hkp://pgp.mit.edu:80 --recv-keys 58118E89F3A912897C070ADBF76221572C52609D
+    #sudo apt-get -y install docker.io
+    #apt-key adv --keyserver hkp://pgp.mit.edu:80 --recv-keys 58118E89F3A912897C070ADBF76221572C52609D
     ## AMQP
     sudo apt-get -y install rabbitmq-server  ## Erlang
     sudo pip install pika -i https://github.com/pika/pika   # python client lib for RabbitMQ
