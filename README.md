@@ -27,27 +27,28 @@ The [yaksha][yaksha] repository tree for is structured as below:
 ### 1. Programs
 These programs are for package dependencies and OS-tasks:
 + __yaksha.sh__ :: This daemon will run all the program scripts listed below automatically, so use with care.
-+ __yaks-backup.py__ :: This daemon will take regular backups of my system using the attic python lib.
-+ __yaks-apt-install.sh__ :: An automated system installation shell script for all new Debian/Ubuntu OS machines that installs the following developer stack: 
++ __yaks-backup.py__ :: Take regular backups of my system using the attic python lib.
++ __yaks-mail-todo.sh__ :: Mail the ToDo list.
++ __yksh-apt-install.sh__ :: An automated system installation shell script for all new Debian/Ubuntu OS machines that installs the following developer stack: 
   * Vim, bash, tab completion, curl, git, GNU core utils, etc..
   * Atom, VirtualBox, Vagrant, Docker, etc..
   * _Database_: MySQL, PostgreSQL, SQLite, MongoDB, etc..
   * _Languages_: Each programming language as per requirement can be installed via individual scripts given below. 
-+ __yaks-apt-firewall.sh__ :: A program firewall to secure the machine.
-+ __yaks-apt-uninstall.sh__ :: An uninstall script (that should **not** be used if you dont know what it does).
-+ __yaks-apt-update.sh__ :: This daemon automagically updates my Debian/Ubuntu OS.
-+ __yaks-mail-todo.sh__ :: Mail the ToDo list.
-+ __yaks-rpm-install.sh__ :: Shell script to automate the `.rpm` based OpenSuse system installation using the zypper cli tool.
++ __yksh-apt-firewall.sh__ :: A program firewall to secure the machine.
++ __yksh-apt-uninstall.sh__ :: An uninstall script (that should **not** be used if you dont know what it does).
++ __yksh-apt-update.sh__ :: This daemon automagically updates my Debian/Ubuntu OS.
 
 These programs will install the programming language package dependencies:
-+ __yakshara-gccpy-aptinstall.sh__ :: Installs the programming language dependencies for __C/C++, Fortran and the (scientific) Python__ developer stack - IPython Notebook, NumPy, Scipy, Pandas, Scikit-Learn, Matplotlib, etc.. 
-+ __yakshara-julia-aptinstall.sh__ :: A script for the __Julia__ installation and build process.
-+ __yakshara-julia-aptupdate.sh__ :: This script updates my __Julia__ installation - I use the _master build_, so __dont__ use this script if you are not comfortable with some breakage.
-+ __yakshara-langs-aptinstall.sh__ :: Install programming language dependencies for __Go, R, Ruby, Java and JS__.
++ __yksh-vm-debian-jessie.sh__ :: The dependencies for a VM running debian8 (jessie).__ 
++ __yksh-git-julia.sh__ :: This script installs __Julia__ and builds from unstable git master.
++ __yksh-julia-aptupdate.sh__ :: This script updates my __Julia__ installation - I use the _master build_, so __dont__ use this script if you are not comfortable with some breakage.
++ __yksh-langs-aptinstall.sh__ :: Install programming language dependencies for __Go, R, Ruby, Java and JS__.
++ __yaks-start-vm-docker.sh__ ::
++ __yksh-gitlab.sh__ ::
 
 
 ### 2. Folders
-+ __~/yaksha/dockerfiles/__ :: My dockerfiles.
++ __~/yaksha/dockerfiles/__ :: The dockerfiles are a WIP.
 + __~/yaksha/home/__ :: Home dotfiles and config folders for `.julia`, `.vim`, etc..
 + __~/yaksha/scripts/__ :: General scripts that dont have a particular space.
 

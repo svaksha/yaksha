@@ -1,14 +1,14 @@
 #!/usr/bin/env bash
 ################################################################################
 # FILE       : yaksha.sh
-# DESCRIPTION: Bash script to source and autorun all 'yaksha' package scripts. 
+# DESCRIPTION: Bash script to source and autorun the package installation scripts. 
 #              WARNING: USE WITH CARE.
 # AUTHOR     : SVAKSHA, http://svaksha.com/pages/Bio
 # SOURCE     : http://svaksha.github.io/yaksha
 # COPYRIGHT© : 2005-Now SVAKSHA, All Rights Reserved.
 # LICENSE    : GNU AGPLv3 and subject to meeting all the terms in the LICENSE 
 #              file: https://github.com/svaksha/yaksha/blob/master/LICENSE.md
-# DATES      : Created:2016feb17 - Updated:2016feb26
+# DATES      : Created:2016feb17 - Updated:2016mar09
 ################################################################################
 #
 # References:
@@ -17,9 +17,9 @@
 #-------------------------------------------------------------------------------
 
 # TASK
-bash $HOME/yaksha/yaks-apt-firewall.sh
-python $HOME/yaksha/yaks-backup.py
-bash $HOME/yaksha/yaks-mail-todo.sh
+# bash $HOME/yaksha/yaks-apt-firewall.sh
+#python $HOME/yaksha/yaks-backup.py
+#bash $HOME/yaksha/yaks-mail-todo.sh
 # DONT AutoRun && use an uninstall scripts with care.
 # bash $HOME/yaksha/yaks-apt-uninstall.sh
 
@@ -29,10 +29,8 @@ bash $HOME/yaksha/yakshara-julia-aptupdate.sh
 }
 
 function yksh_install {
-bash $HOME/yaksha/yaks-apt-install.sh
-bash $HOME/yaksha/yakshara-gccpy-aptinstall.sh
-bash $HOME/yaksha/yakshara-julia-aptinstall.sh
-bash $HOME/yaksha/yakshara-langs-aptinstall.sh
+bash $HOME/yaksha/yksh-apt-install.sh
+bash $HOME/yaksha/yksh-git-julia
 }
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
