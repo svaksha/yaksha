@@ -513,7 +513,7 @@ function install_ruby() {
 #        else
         # Install 32-bit stuff here
 #        cd ~/home; sudo dpkg --install vagrant_1.7.4_i686.deb
-    fi
+#    fi
 }
 
 
