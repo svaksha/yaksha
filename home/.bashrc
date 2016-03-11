@@ -7,7 +7,7 @@
 # COPYRIGHT© : 2005-Now SVAKSHA (http://svaksha.com/pages/Bio) AllRightsReserved
 # LICENSE    : GNU AGPLv3 and subject to the terms and conditions in the LICENSE.md 
 #              (https://github.com/svaksha/yaksha/blob/master/LICENSE.md) file being met.
-# DATES      : Created:2005mar22 - Updated:2016mar08
+# DATES      : Created:2005mar22 - Updated:2016mar11
 ################################################################################
 #
 # ~/.bashrc: executed by bash(1) for non-login shells. For examples
@@ -256,20 +256,6 @@ esac
 source ~/.git-completion.bash
 source ~/.bash_aliases
 
-
-#............................ CHEMISTRY ........................................
-################################################################################
-# PATH for the MoProSuite_1502_India software | Date: Fri 20 Feb 2015 02:30:52 IST 
-# To launch MoProGUI, type RunMoProGUI or launch it from the install folder.
-################################################################################
-export PATH="$(pwd)/MoProSuite_1502_India:$PATH"
-
-#-------------------------------------------------------------------------------
-# PATH for CrystalExplorer software | created: Fri 20 Feb 2015 10:17:52 IST 
-#-------------------------------------------------------------------------------
-alias crystalexplorer=/usr/local/CrystalExplorer/CrystalExplorer
-
-
 #............................ TIME-TRACKER.......................................
 ################################################################################
 # ARBTT, http://darcs.nomeata.de/arbtt/, 2015Apr04-to-2015Aug19
@@ -303,7 +289,8 @@ export GCC_COLORS=1
 # set the Environment variable PYTHONSTARTUP to point to the start up script
 # NOTE: PYTHONSTARTUP does *not* expand "~", so you have to put in the
 # full path to your home directory.
-export PATH="/home/mom/:$PATH"
+export PATH="$HOME/:$PATH"
+export PYTHONPATH="$(pwd)/anaconda3:$PATH"
 export PYTHONSTARTUP="$HOME/.pythonrc.py"
 #export PYTHONSTARTUP=~/.pythonrc.py
 export PYTHON_HISTORY_FILE="$HOME/.python_history"
@@ -333,7 +320,7 @@ export PATH="$(pwd)/anaconda:$PATH"
 # added by Anaconda 2.2.0 installer
 export PATH="$HOME/anaconda/bin:$PATH"
 # added by Anaconda3 2.3.0 installer
-export PATH="/home/mom/anaconda3/bin:$PATH"
+export PATH="$HOME/anaconda3/bin:$PATH"
 
 
 #............................ JULIA ............................................
@@ -391,7 +378,7 @@ export LD_LIBRARY_PATH
 ## GO: https://golang.org/doc/code.html ## GO: https://golang.org/doc/code.html
 ## DATE: 2015oct15-2015oct22
 ################################################################################
-export GOPATH=$HOME/enso-go
+export GOPATH=$HOME/devya/dev-go
 #add the workspace's `bin` subdirectory to your PATH
 export PATH=$PATH:$GOPATH/bin
 
