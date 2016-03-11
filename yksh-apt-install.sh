@@ -7,7 +7,7 @@
 # COPYRIGHT© : 2005-Now SVAKSHA, All Rights Reserved.
 # LICENSE    : GNU AGPLv3 and subject to meeting all the terms in the LICENSE 
 #              file: https://github.com/svaksha/yaksha/blob/master/LICENSE.md
-# DATES      : Created:2005mar22 - Updated:2016mar10
+# DATES      : Created:2005mar22 - Updated:2016mar11
 ################################################################################
 #
 # References:
@@ -33,8 +33,33 @@ set -x
 # Keep it alive & update existing `sudo` time stamp until the script has finished running.
 while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
+
+
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-# Debian8(Jessie) running cinnamon -  general system utilities
+# ANACONDA
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+function install_anaconda() {
+    # Automate PY and Anaconda/miniconda installation with PYTHONIZE (https://github.com/princebot/pythonize)
+    git clone https://github.com/princebot/pythonize.git
+    # 64-bit
+    wget https://3230d63b5fc54e62148e-c95ac804525aac4b6dba79b00b39d1d3.ssl.cf1.rackcdn.com/Anaconda3-2.3.0-Linux-x86_64.sh
+    # 32-bit
+    wget https://3230d63b5fc54e62148e-c95ac804525aac4b6dba79b00b39d1d3.ssl.cf1.rackcdn.com/Anaconda3-2.3.0-Linux-x86.sh
+    # In BASH, the variable $OSTYPE stores the name of the operation system:
+    # `$OSTYPE` automatically set to a string that describes the operating system on which bash is executing.
+    OSARCH=`uname -m`
+    if [ ${OSARCH} == 'x86_64' ]; then
+        # Install 64-bit stuff here
+        cd ~/home; sudo bash Anaconda3-2.3.0-Linux-x86_64.sh
+        else
+        # Install 32-bit stuff here
+        cd ~/home; sudo Anaconda3-2.3.0-Linux-x86.sh
+    fi
+}
+
+
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+# Cinnamon on Debian8(Jessie) - general system utilities
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 function install_cinnamon() {
     ## general cli tools for web, search
@@ -107,24 +132,11 @@ function install_cinnamon() {
     sudo apt-get install unetbootin
 }
 
-
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-# Fetch the .DEB packages for Debian8(Jessie)
+# CPU and HDD utils
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-function install_skype() {
-    # rm -rf ~/.Skype  #Clear the old Skype folder before installing latest version.
-   # sudo dpkg --add-architecture i386 # Enable multiarch, https://help.ubuntu.com/community/MultiArch
-   # sudo apt-get -y install sni-qt:i386 # Download latest version.
-   # wget download.skype.com/linux/skype-ubuntu-precise_4.3.0.37-1_i386.deb
-   # sudo gdebi skype-ubuntu-precise_4.3.0.37-1_i386.deb
-    # Install Skype from Canonical Partner Repository
- #   sudo add-apt-repository "deb http://archive.canonical.com/ $(lsb_release -sc) partner"
-    sudo apt-get -y update
-    sudo apt-get -y upgrade
-}
-
 function install_cpudisk() {
-    ## CPU / HDD monitoring
+    ## CPU / HDD health monitoring
     sudo apt-get -y install smartctl
     sudo apt-get -y install smartmontools
     sudo apt-get -y install gsmartcontrol   # GUI version
@@ -136,119 +148,17 @@ function install_cpudisk() {
     sudo apt-get -y install indicator-cpufreq
     echo "This machine is currently being installed with important system packages!"
     sleep 1
-    ## sensors package
+    ## Sensors package to monitor the disk temperature
     sudo apt-get -y install lm-sensors
     sudo apt-get -y install powertop
     sudo apt-get -y install atop
-    sudo apt-get -y install memstat
     sudo apt-get -y install linux-tools-common # AKA, "perf": http://www.brendangregg.com/perf.html
     sudo apt-get -y install simplescan
+    ## Memory management 
+    sudo apt-get -y install lowmem        # free memory for lowmem install 
+    sudo apt-get -y install lowmemcheck   # detect low-memory systems and enter lowmem mode
+    sudo apt-get -y install memstat
 }
-
-
-function install_editors() {
-    ## Editors
-    sudo apt-get -y install dconf-tools # Editor for Gnome tools.
-    sudo apt-get -y install emacs
-    sudo apt-get -y install geany
-    sudo apt-get -y install guake
-    sudo apt-get -y install meld
-    sudo apt-get -y install scite
-    sudo apt-get -y install spyder
-    # CLI text editors for sysadmins working on remote Linux/Unix servers.
-    sudo apt-get -y install nano
-    sudo apt-get -y install pico
-    sudo apt-get -y install vim
-    # Atom editor 64-bit DEB file from github source
-    wget https://github.com/atom/atom/releases/download/v1.1.0-beta.0/atom-amd64.deb ~/home
-    cd ~/home; sudo dpkg --install atom-amd64.deb
-    # Atom editor 32-bit PPA
-    #sudo add-apt-repository ppa:webupd8team/atom
-    #sudo apt-get update
-    #sudo apt-get install atom
-    ## BRACKETS
-    sudo dpkg --install Brackets.1.4.Extract.64-bit.deb  #Brackets IDE for 64-bit
-    ## LaTeX2ε
-    sudo apt-get -y install texlive
-    sudo apt-get -y install gedit-latex-plugin
-    sudo apt-get -y install lyx #for the technical authors and scientists.
-} 
-
-
-#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-# JavaScript
-#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-function install_javascript() {
-    # NPM = node package manager
-    sudo apt-get -y install npm
-    sudo npm install -g configurable-http-proxy
-    sudo npm install -g jslint
-    sudo npm install -g jshint
-    ln -s ${yaksha_dir}.jshintrc ~/.jshintrc
-    sudo add-apt-repository --yes ppa:chris-lea/node.js  # Node.js
-    sudo apt-get -y update
-    sudo apt-get -y upgrade
-    sudo apt-get -y install nodejs # nodejs -v = 0.10.28 # dont pin versions
-    sudo apt-get -y install nodejs-legacy
-}
-
-#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-# PYTHON
-#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-function install_python() {
-    echo "Python (and its variant packages) installation is in progress!"
-    sudo apt-get -y install build-essential
-    # PIP = Python Installer
-    sudo apt-get -y install pip
-    sudo apt-get -y install pip-installer
-    sudo apt-get -y install python-setuptools
-    sudo apt-get -y install python-pip python-dev python-yaml
-    sudo apt-get -y install python-software-properties
-    # python3
-    sudo apt-get -y install python-virtualenv python3-dev pkgconf
-    sudo apt-get -y install libfreetype6-dev libfreetype6 libxft-dev
-    sudo apt-get -y install libblas-dev liblapack-dev libyaml-dev
-    sudo apt-get -y install python3-pip python3
-    ## scientific python
-    sudo apt-get -y install cython
-    sudo apt-get -y install numpy python-numpy
-    sudo apt-get -y install scipy
-    sudo apt-get -y install python-matplotlib python-scipy
-    sudo apt-get -y install python-virtualenv
-    sudo apt-get -y install manpages-dev
-    sudo apt-get -y install python-fontforge
-    # Jupyter
-    #sudo apt-get -y install IPython ipython3 ipython3-notebook
-    sudo pip install ipython jinja2 tornado pyzmq pandas jsonschema pyaml
-    ## More Python stuff
-    sudo pip install rotate-backups
-    sudo pip install plumbum ## An alternatice to Fabric, https://github.com/tomerfiliba/plumbum
-    sudo pip install jedi -i http://pypi.python.org/simple/
-    sudo pip install pylint -i http://pypi.python.org/simple/
-}
-
-function install_anaconda() {
-    # Automate PY and Anaconda/miniconda installation with PYTHONIZE (https://github.com/princebot/pythonize)
-    git clone https://github.com/princebot/pythonize.git
-    #--------------------
-    # ANACONDA
-    #--------------------
-    # 64-bit
-    wget https://3230d63b5fc54e62148e-c95ac804525aac4b6dba79b00b39d1d3.ssl.cf1.rackcdn.com/Anaconda3-2.3.0-Linux-x86_64.sh
-    # 32-bit
-    wget https://3230d63b5fc54e62148e-c95ac804525aac4b6dba79b00b39d1d3.ssl.cf1.rackcdn.com/Anaconda3-2.3.0-Linux-x86.sh
-    # In BASH, the variable $OSTYPE stores the name of the operation system:
-    # `$OSTYPE` automatically set to a string that describes the operating system on which bash is executing.
-    OSARCH=`uname -m`
-    if [ ${OSARCH} == 'x86_64' ]; then
-        # Install 64-bit stuff here
-        cd ~/home; sudo bash Anaconda3-2.3.0-Linux-x86_64.sh
-        else
-        # Install 32-bit stuff here
-        cd ~/home; sudo Anaconda3-2.3.0-Linux-x86.sh
-    fi
-}
-
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 ## DATABASE packages
@@ -284,6 +194,52 @@ function install_dvcs() {
     cd /tmp/tig; sudo make install prefix=/usr/local
 }
 
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+# EDITORS
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+function install_editors() {
+    ## Editors
+    sudo apt-get -y install dconf-tools # Editor for Gnome tools.
+    sudo apt-get -y install emacs
+    sudo apt-get -y install geany
+    sudo apt-get -y install guake
+    sudo apt-get -y install meld
+    sudo apt-get -y install scite
+    sudo apt-get -y install spyder
+    # CLI text editors for sysadmins working on remote Linux/Unix servers.
+    sudo apt-get -y install nano
+    sudo apt-get -y install pico
+    sudo apt-get -y install vim
+    # Atom editor 64-bit DEB file from github source
+    wget https://github.com/atom/atom/releases/download/v1.1.0-beta.0/atom-amd64.deb ~/home
+    cd ~/home; sudo dpkg --install atom-amd64.deb
+    # Atom editor 32-bit PPA
+    #sudo add-apt-repository ppa:webupd8team/atom
+    #sudo apt-get update
+    #sudo apt-get install atom
+    ## BRACKETS
+    sudo dpkg --install Brackets.1.4.Extract.64-bit.deb  #Brackets IDE for 64-bit
+    ## LaTeX2ε
+    sudo apt-get -y install texlive
+    sudo apt-get -y install gedit-latex-plugin
+    sudo apt-get -y install lyx #for the technical authors and scientists.
+} 
+
+
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+# Fonts
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+function install_fonts() {
+    sudo apt-get -y install ttf-mscorefonts-installer # Microsoft fonts for Libreoffice.
+    wget https://github.com/Lokaltog/powerline/raw/develop/font/PowerlineSymbols.otf
+    wget https://github.com/Lokaltog/powerline/raw/develop/font/10-powerline-symbols.conf
+    mkdir -p ~/.fonts
+    mv PowerlineSymbols.otf ~/.fonts/
+    mkdir -p ~/.config/fontconfig/conf.d
+    mv 10-powerline-symbols.conf ~/.config/fontconfig/conf.d/
+    fc-cache -vf ~/.fonts/
+}
+
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 # GCC {{ C, CPP, Fortran }}
@@ -316,14 +272,6 @@ function install_gcc() {
     sudo apt-get -y install pspp
 }
 
-
-#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-# JAVA
-#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-function install_java() {
-    sudo add-apt-repository --yes ppa:webupd8team/java
-    sudo apt-get -y install oracle-java8-installer # javac -v = 1.8.XXX
-}
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 # GO language : https://golang.org/doc/code.html
@@ -379,17 +327,147 @@ function install_graphics() {
 }
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-# Fonts
+# JAVA
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-function install_fonts() {
-    sudo apt-get -y install ttf-mscorefonts-installer # Microsoft fonts for Libreoffice.
-    wget https://github.com/Lokaltog/powerline/raw/develop/font/PowerlineSymbols.otf
-    wget https://github.com/Lokaltog/powerline/raw/develop/font/10-powerline-symbols.conf
-    mkdir -p ~/.fonts
-    mv PowerlineSymbols.otf ~/.fonts/
-    mkdir -p ~/.config/fontconfig/conf.d
-    mv 10-powerline-symbols.conf ~/.config/fontconfig/conf.d/
-    fc-cache -vf ~/.fonts/
+function install_java() {
+    sudo add-apt-repository --yes ppa:webupd8team/java
+    sudo apt-get -y install oracle-java8-installer # javac -v = 1.8.XXX
+}
+
+
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+# JavaScript
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+function install_javascript() {
+    # NPM = node package manager
+    sudo apt-get -y install npm
+    sudo npm install -g configurable-http-proxy
+    sudo npm install -g jslint
+    sudo npm install -g jshint
+    ln -s ${yaksha_dir}.jshintrc ~/.jshintrc
+    sudo add-apt-repository --yes ppa:chris-lea/node.js  # Node.js
+    sudo apt-get -y update
+    sudo apt-get -y upgrade
+    sudo apt-get -y install nodejs # nodejs -v = 0.10.28 # dont pin versions
+    sudo apt-get -y install nodejs-legacy
+}
+
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+# PYTHON
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+function install_python() {
+    echo "Python (and its variant packages) installation is in progress!"
+    sudo apt-get -y install build-essential
+    # PIP = Python Installer
+    sudo apt-get -y install pip
+    sudo apt-get -y install pip-installer
+    sudo apt-get -y install python-setuptools
+    sudo apt-get -y install python-pip python-dev python-yaml
+    sudo apt-get -y install python-software-properties
+    # python3
+    sudo apt-get -y install python-virtualenv python3-dev pkgconf
+    sudo apt-get -y install libfreetype6-dev libfreetype6 libxft-dev
+    sudo apt-get -y install libblas-dev liblapack-dev libyaml-dev
+    sudo apt-get -y install python3-pip python3
+    ## scientific python
+    sudo apt-get -y install cython
+    sudo apt-get -y install numpy python-numpy
+    sudo apt-get -y install scipy
+    sudo apt-get -y install python-matplotlib python-scipy
+    sudo apt-get -y install python-virtualenv
+    sudo apt-get -y install manpages-dev
+    sudo apt-get -y install python-fontforge
+    # Jupyter
+    #sudo apt-get -y install IPython ipython3 ipython3-notebook
+    sudo pip install ipython jinja2 tornado pyzmq pandas jsonschema pyaml
+    ## More Python stuff
+    sudo pip install rotate-backups
+    sudo pip install plumbum ## An alternatice to Fabric, https://github.com/tomerfiliba/plumbum
+    sudo pip install jedi -i http://pypi.python.org/simple/
+    sudo pip install pylint -i http://pypi.python.org/simple/
+}
+
+
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+# R-project / language
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+function install_rlang() {
+#    sudo add-apt-repository --yes ppa:marutter/rrutter
+    sudo apt-get -y update
+    sudo apt-get -y install r-base r-base-dev r-base-core
+    sudo apt-get -y install r-recommended   # GNU R collection of recommended packages {metapackage}.
+    sudo apt-get -y install r-doc-info      # GNU R info manuals statistical computing system.
+    #PolyCub is a GNU-R package providing methods for cubature (numerical integration) over polygonal domains.
+    sudo apt-get -y install r-cran-polycub
+    #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    # CUBATURE - GNU R package for adaptive multivariate integration
+    sudo apt-get -y install r-cran-cubature
+    sudo apt-get -y install libc6 libcurl4-gnutls-dev # R -v = 3.1.0
+    ## Fetching from CRAN
+    sudo Rscript -e "install.packages('Rserve',,'http://cran.us.r-project.org')"
+    sudo Rscript -e "install.packages('ggplot2',,'http://cran.us.r-project.org')"
+    sudo Rscript -e "install.packages('devtools',,'http://cran.us.r-project.org')"
+    sudo Rscript -e "install.packages('RJSONIO',,'http://cran.us.r-project.org')"
+    sudo Rscript -e "install.packages('RCurl',,'http://cran.us.r-project.org')"
+    sudo Rscript -e "install.packages('RCubature',,'http://cran.us.r-project.org')"
+# Cubature if you use K/Ubuntu.
+#    wget http://packages.ubuntu.com/vivid/r-cran-cubature r-cran-cubature_1.1-2-1_amd64.deb
+#    wget http://packages.ubuntu.com/vivid/r-cran-cubature r-cran-cubature_1.1-2-1_i386.deb
+    # In BASH, the variable $OSTYPE stores the name of the operation system:
+    # `$OSTYPE` automatically set to a string that describes the operating system on which bash is executing.
+#    OSARCH=`uname -m`
+#    if [ ${OSARCH} == 'x86_64' ]; then
+    # Install 64-bit stuff here
+#    cd ~/home; sudo dpkg --install r-cran-cubature_1.1-2-1_amd64.deb
+#    else
+    # Install 32-bit stuff here
+#    cd ~/home; sudo dpkg --install r-cran-cubature_1.1-2-1_i386.deb
+    fi
+}
+
+
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+# RUBY
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+function install_ruby() {
+    sudo apt-get -y install ruby
+    sudo apt-get -y install ruby-all-dev
+    sudo apt-get -y install ruby-dev
+    sudo apt-get -y install ruby-full
+    sudo apt-get -y install ruby-defaults
+    sudo gem install iruby
+    # VAGRANT  - tool for building and distributing virtualized development environments.
+    sudo apt-get -y install vagrant  
+    # share a common package cache among similar VM instances
+    sudo apt-get -y install vagrant-cachier   # only available in stretch (testing)
+    # Linux container provider for Vagrant.
+    sudo apt-get -y install vagrant-lxc       # only available in stretch (testing)
+    # In BASH, the variable $OSTYPE stores the name of the operation system:
+    # `$OSTYPE` automatically set to a string that describes the operating system on which bash is executing.
+#    OSARCH=`uname -m`
+#    if [ ${OSARCH} == 'x86_64' ]; then
+        # Install 64-bit stuff here
+#        cd ~/home; sudo dpkg --install vagrant_1.7.4_x86_64.deb
+#        else
+        # Install 32-bit stuff here
+#        cd ~/home; sudo dpkg --install vagrant_1.7.4_i686.deb
+    fi
+}
+
+
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+# Install SKYPE and fetch the .DEB packages for Debian8(Jessie)
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+function install_skype() {
+    # rm -rf ~/.Skype  #Clear the old Skype folder before installing latest version.
+   # sudo dpkg --add-architecture i386 # Enable multiarch, https://help.ubuntu.com/community/MultiArch
+   # sudo apt-get -y install sni-qt:i386 # Download latest version.
+   # wget download.skype.com/linux/skype-ubuntu-precise_4.3.0.37-1_i386.deb
+   # sudo gdebi skype-ubuntu-precise_4.3.0.37-1_i386.deb
+    # Install Skype from Canonical Partner Repository
+ #   sudo add-apt-repository "deb http://archive.canonical.com/ $(lsb_release -sc) partner"
+    sudo apt-get -y update
+    sudo apt-get -y upgrade
 }
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -421,9 +499,9 @@ function install_vim() {
 }
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-# YAKSHA DEVOPS 
+# YKSHM DEVOPS 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-function install_yaksham() {
+function install_ykshm() {
     # DOCKER : https://docs.docker.com/installation/ubuntulinux/
     #sudo apt-get -y install docker.io
     #apt-key adv --keyserver hkp://pgp.mit.edu:80 --recv-keys 58118E89F3A912897C070ADBF76221572C52609D
@@ -442,21 +520,8 @@ function install_yaksham() {
     sudo apt-get update
     sudo apt-get -y install nginx # nginx -v = 1.6.0
     # ZMQ, also needed by Jupyter/IPython / IRuby etc..
-   # sudo add-apt-repository --yes ppa:chris-lea/zeromq
+    # sudo add-apt-repository --yes ppa:chris-lea/zeromq
     sudo apt-get -y install libzmq3-dbg libzmq3-dev libzmq3
-    # VAGRANT
-    wget https://dl.bintray.com/mitchellh/vagrant/vagrant_1.7.4_x86_64.deb # 64-bit
-    wget https://dl.bintray.com/mitchellh/vagrant/vagrant_1.7.4_i686.deb   # 32-bit
-    # In BASH, the variable $OSTYPE stores the name of the operation system:
-    # `$OSTYPE` automatically set to a string that describes the operating system on which bash is executing.
-    OSARCH=`uname -m`
-    if [ ${OSARCH} == 'x86_64' ]; then
-        # Install 64-bit stuff here
-        cd ~/home; sudo dpkg --install vagrant_1.7.4_x86_64.deb
-        else
-        # Install 32-bit stuff here
-        cd ~/home; sudo dpkg --install vagrant_1.7.4_i686.deb
-    fi
     # Lets try out this package manager for bash scripts and functions.
     # Only tested for git based packages.
     git clone https://github.com/basherpm/basher.git ~/.basher
@@ -503,23 +568,35 @@ case $key in
 #git clone --recursive https://github.com/svaksha/yaksha ${yaksha_dir}
 
 case $install_deb in
+    anaconda)
+        install_anaconda
+	;;
     cinnamon)
         install_cinnamon
-    ;;
-    debpkg)
-        install_skype
     ;;
     cpudisk)
         install_cpudisk
     ;;
+    database)
+        install_database
+    ;;
+    dvcs)
+        install_dvcs
+    ;;
     editors)
 		install_editors
+    ;;
+    fonts)
+        install_fonts
     ;;
     gcc)
         install_gcc
     ;;
     go)
         install_go
+    ;;
+    graphics)
+        install_graphics
     ;;
     java)
         install_java
@@ -530,23 +607,14 @@ case $install_deb in
     python)
         install_python
     ;;
-    anaconda)
-        install_anaconda
-	;;
-    utilities)
-        install_utilities
+    rlang)
+        install_rlang
     ;;
-    database)
-        install_database
+	ruby)
+        install_ruby
     ;;
-    dvcs)
-        install_dvcs
-    ;;
-    graphics)
-        install_graphics
-    ;;
-    fonts)
-        install_fonts
+    skype)
+        install_skype
     ;;
     tmux)
         install_tmux
@@ -554,27 +622,29 @@ case $install_deb in
     vim)
         install_vim
     ;;
-    yaksham)
-        install_yaksham
+    ykshm)
+        install_ykshm
     ;;
     all)
+        install_anaconda
         install_cinnamon
         install_cpudisk
         install_database
         install_dvcs
         install_editors
-        install_go
-        install_graphics
         install_fonts
         install_gcc
-        install_python
-        install_anaconda
+        install_go
+        install_graphics
         install_java
         install_javascript
+        install_python
+        install_rlang
+        install_ruby
         install_skype                                   
         install_tmux
         install_vim
-        install_yaksham
+        install_ykshm
     ;;
     *)
         echo "Installation in progress, almost done!"

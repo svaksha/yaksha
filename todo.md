@@ -41,7 +41,9 @@ __basher__
 + https://www.zufallsheld.de/2014/01/25/python-backup-script-revisited/
 + https://github.com/aliceh75/dufl
 
-
+### Docker
++ https://github.com/ContinuumIO/docker-images : Repository of Docker images created by Continuum Analytics. 
+    + See the Docker site:  https://registry.hub.docker.com/repos/continuumio/
 
 
 
