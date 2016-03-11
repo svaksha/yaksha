@@ -55,11 +55,11 @@ function install_anaconda() {
     OSARCH=`uname -m`
     if [ ${OSARCH} == 'x86_64' ]; then
         # Install 64-bit stuff here
-        #cd ~/home
+        export PATH="$(pwd)/anaconda3:$PATH"
         sudo bash Anaconda3-2.5.0-Linux-x86_64.sh
         else
         # Install 32-bit stuff here
-        #cd ~/home
+        export PATH="$(pwd)/anaconda-32bit:$PATH"
         sudo Anaconda3-2.5.0-Linux-x86.sh
     fi
 }
