@@ -140,5 +140,4 @@ case $update_deb in
     ;;
     *)
         echo "Installation in progress, almost done!"
-    esac
-    
+    esac    
