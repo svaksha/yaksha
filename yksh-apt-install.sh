@@ -24,15 +24,22 @@ date +"%c|completed running: $?" >> out-yksh-apt-install.log
 # Ask for the administrator password first.
 sudo -v
 
+# The SET bulletin
+# Tip: Using "+" causes these flags to be turned off.
+set -a  # Mark variables which are modified or created for export.
+set -b  # Notify of job termination immediately.
+set -e  # Exit immediately if a command exits with a non-zero status.
+set -m  # Job control is enabled.
+set -v  # Verbose mode to print shell input lines as they are read.
+set -x  # Print commands and their arguments as they are executed.
 # Set debug mode
 exec 5> >(logger -t $0) # uses logger command 
 BASH_XTRACEFD="5"
 PS4='$LINENO: '
-set -x
+
 
 # Keep it alive & update existing `sudo` time stamp until the script has finished running.
 while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
-
 
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -93,13 +100,10 @@ function install_cinnamon() {
     ### RESEARCH ========================
     ## BibTeX Reference software
     sudo apt-get -y install pybliographer
-    #sudo apt-get -y install referencer    #IGNORE, https://launchpad.net/referencer
+    sudo apt-get -y install referencer    #IGNORE, https://launchpad.net/referencer
     # hierarchical notebook : http://hnb.sourceforge.net/Documentation/ 
     sudo apt-get -y install hnb
-    ## Adobe
-    sudo apt-get -y install gdebi
-    #sudo apt-get -y install AdbeRdr9.5.5-1_i386linux_enu.deb
-    # PDF related packages
+   # PDF related packages
     sudo apt-get -y install flpsed
     sudo apt-get -y install pdfjam
     sudo apt-get -y install xournal
@@ -127,9 +131,37 @@ function install_cinnamon() {
     sudo apt-get -y install jitsi # Skype alternative
     # Telegram, a Whatsapp alternative on GH: https://github.com/telegramdesktop/tdesktop
     #sudo add-apt-repository ppa:atareao/telegram
-    #sudo apt-get update
     #sudo apt-get -y install telegram
     sudo apt-get install unetbootin
+}
+
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+# Non-Free utilities
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+function install_nonfree() {
+    ##+++++++++++++
+    ## Adobe
+    ##+++++++++++++
+    #sudo apt-get -y install AdbeRdr9.5.5-1_i386linux_enu.deb
+    sudo dpkg --add-architecture i386   # For debian-jessie Adobe needs the i386 architecture.
+    sudo apt-get update 
+    sudo apt-get -y install acroread mozilla-acroread    
+    ##+++++++++++++
+    ## FLASH
+    ##+++++++++++++
+    sudo apt-get -y install flashplugin-nonfree
+    ##+++++++++++++
+    ## SKYPE
+    ##+++++++++++++
+    # rm -rf ~/.Skype  #Clear the old Skype folder before installing latest version.
+    # sudo dpkg --add-architecture i386 # Enable multiarch, https://help.ubuntu.com/community/MultiArch
+    # sudo apt-get -y install sni-qt:i386 # Download latest version.
+    # wget download.skype.com/linux/skype-ubuntu-precise_4.3.0.37-1_i386.deb
+    # sudo gdebi skype-ubuntu-precise_4.3.0.37-1_i386.deb
+    # Install Skype from Canonical Partner Repository
+    # sudo add-apt-repository "deb http://archive.canonical.com/ $(lsb_release -sc) partner"
+    sudo apt-get -y update
+    sudo apt-get -y upgrade
 }
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -175,6 +207,36 @@ function install_database() {
     sudo apt-get -y install pgadmin3 # pgAdmin III graphical administration utility
     ## Distributed File Systems
     sudo apt-get -y install hdf5-tools
+}
+
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+## DATA_FORMATS : RDF
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+function install_df_rdf() {
+    # SETTINGS SECTION
+    CODE_BASE = src
+    INSTALL_DIR = /usr/local/bin
+    ANY23_VERSION = 1.1  # check the site for exact versions, https://any23.apache.org/
+
+    # END OF SETTINGS SECTION
+    # Does the source base directory exist? No? Well, create it!
+    cd ~
+    if [[ ! -d "$CODE_BASE" ]] ; then
+        mkdir "$CODE_BASE"
+    fi
+    cd "$CODE_BASE"
+
+    sudo apt-get install -y ruby # first we install Ruby and RubyGems  
+    sudo gem install rdf2json # then install rdf2json
+    # Install Apache Any23, https://any23.apache.org/
+    wget http://ftp.jaist.ac.jp/pub/apache/any23/1.1/apache-any23-core-${ANY23_VERSION}.tar.gz
+    tar xzf apache-any23-core-${ANY23_VERSION}.tar.gz
+    cd apache-any23-core-${ANY23_VERSION}
+    chmod 700 bin
+    if [[ -f "$INSTALL_DIR/any23" ]] ; then
+        sudo rm -f "$INSTALL_DIR/any23"
+    fi
+    sudo ln -s "`pwd`/bin/any23" "$INSTALL_DIR/any23"
 }
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -422,7 +484,7 @@ function install_rlang() {
 #    else
     # Install 32-bit stuff here
 #    cd ~/home; sudo dpkg --install r-cran-cubature_1.1-2-1_i386.deb
-    fi
+#    fi
 }
 
 
@@ -454,21 +516,6 @@ function install_ruby() {
     fi
 }
 
-
-#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-# Install SKYPE and fetch the .DEB packages for Debian8(Jessie)
-#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-function install_skype() {
-    # rm -rf ~/.Skype  #Clear the old Skype folder before installing latest version.
-   # sudo dpkg --add-architecture i386 # Enable multiarch, https://help.ubuntu.com/community/MultiArch
-   # sudo apt-get -y install sni-qt:i386 # Download latest version.
-   # wget download.skype.com/linux/skype-ubuntu-precise_4.3.0.37-1_i386.deb
-   # sudo gdebi skype-ubuntu-precise_4.3.0.37-1_i386.deb
-    # Install Skype from Canonical Partner Repository
- #   sudo add-apt-repository "deb http://archive.canonical.com/ $(lsb_release -sc) partner"
-    sudo apt-get -y update
-    sudo apt-get -y upgrade
-}
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 # TMUX
@@ -580,6 +627,9 @@ case $install_deb in
     database)
         install_database
     ;;
+    df_rdf)
+        install_df_rdf
+    ;;
     dvcs)
         install_dvcs
     ;;
@@ -604,6 +654,9 @@ case $install_deb in
     javascript)
         install_javascript
     ;;
+    nonfree)
+        install_nonfree
+    ;;
     python)
         install_python
     ;;
@@ -612,9 +665,6 @@ case $install_deb in
     ;;
 	ruby)
         install_ruby
-    ;;
-    skype)
-        install_skype
     ;;
     tmux)
         install_tmux
@@ -630,6 +680,7 @@ case $install_deb in
         install_cinnamon
         install_cpudisk
         install_database
+        install_df_rdf
         install_dvcs
         install_editors
         install_fonts
@@ -638,10 +689,10 @@ case $install_deb in
         install_graphics
         install_java
         install_javascript
+        install_nonfree
         install_python
         install_rlang
         install_ruby
-        install_skype                                   
         install_tmux
         install_vim
         install_ykshm

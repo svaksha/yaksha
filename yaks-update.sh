@@ -1,13 +1,13 @@
 #!/usr/bin/env bash
 ################################################################################
-# FILE       : yaks-apt-update.sh
+# FILE       : yaks-update.sh
 # DESCRIPTION: Update my Debian-Ubuntu system for each Cronjob the machine runs.
 # AUTHOR     : SVAKSHA, http://svaksha.com/pages/Bio
 # SOURCE     : http://svaksha.github.io/yaksha
 # COPYRIGHT© : 2005-Now SVAKSHA, All Rights Reserved.
 # LICENSE    : GNU AGPLv3 and subject to meeting all the terms in the LICENSE 
 #              file: https://github.com/svaksha/yaksha/blob/master/LICENSE.md
-# DATES      : Created:2006mar31 - Updated:2016feb13
+# DATES      : Created:2006mar31 - Updated:2016mar11
 ################################################################################
 #
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -90,6 +90,13 @@ function update_conda() {
     echo "Finished updating Anaconda :-)"
 }
 
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+# Non-Free
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+function update_nonfree() {
+    ## update FLASH
+    sudo apt-get -y update-flashplugin-nonfree --install
+}
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 # Funcs
@@ -123,9 +130,13 @@ case $update_deb in
     conda)
         update_conda
     ;;
+    nonfree)
+        update_nonfree
+    ;;
     all)
         update_deb
         update_conda
+        update_nonfree
     ;;
     *)
         echo "Installation in progress, almost done!"

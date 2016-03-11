@@ -11,8 +11,10 @@
 ################################################################################
 #
 #-------------------------------------------------------------------------------
-# install julia from the distro PPA nightlies
+# Install julia PPA nightlies on Ubuntu distro 
 #-------------------------------------------------------------------------------
+
+set -e
 
 echo "Installation of julia (PPA nightlies) will start!"
 
@@ -24,7 +26,7 @@ set -x
 # set +x # Turn off the log verbiage.
 
 
-function install_jl_ubuntu_ppanightlies() {
+function install_jl_ppanightlies() {
     sudo add-apt-repository --yes ppa:staticfloat/juliareleases
     sudo add-apt-repository --yes ppa:staticfloat/julia-deps
     sudo add-apt-repository --yes ppa:staticfloat/julianightlies

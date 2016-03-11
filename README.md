@@ -36,15 +36,12 @@ These programs are for package dependencies and OS-tasks:
   * {Languages}: GCC, G++, Go, Python, Java, Javascript, R, Ruby, et al.
 + __yksh-apt-firewall.sh__ :: A program firewall to secure the machine.
 + __yksh-apt-uninstall.sh__ :: An uninstall script (that should **not** be used if you dont know what it does).
-+ __yksh-apt-update.sh__ :: This daemon automagically updates my Debian OS.
++ __yaks-update.sh__ :: This daemon automagically updates my Debian OS.
 
 These programs will install the programming language package dependencies:
-+ __yksh-vm-debian-jessie.sh__ :: The dependencies for a VM running debian8 (jessie).__ 
-+ __yksh-git-julia.sh__ :: This script installs __Julia__ and builds from unstable git master.
-+ __yksh-julia-aptupdate.sh__ :: This script updates my __Julia__ installation - I use the _master build_, so __dont__ use this script if you are not comfortable with some breakage.
-+ __yaks-start-vm-docker.sh__ ::
-+ __yksh-gitlab.sh__ ::
-
++ __yksh-vm-debian-8.sh__ :: The dependencies for a VM running debian-8 (jessie).
++ __yksh-git-julia.sh__ :: This script installs __Julia__ and builds from unstable git master. {__Nota Bene__: I use the _master build_, so _dont_ use this script if you are not comfortable with some (a lot of) breakage.}
++ __yksh-apt-julia-ppanightlies.sh__ :: This script installs the PPA nightlies for Julia. 
 
 ### 2. Folders
 + __~/yaksha/dockerfiles/__ :: The dockerfiles are a WIP.
