@@ -46,23 +46,21 @@ while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 # ANACONDA
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 function install_anaconda() {
-    # Automate PY and Anaconda/miniconda installation with PYTHONIZE (https://github.com/princebot/pythonize)
-    git clone https://github.com/princebot/pythonize.git
     # 64-bit
-    wget https://3230d63b5fc54e62148e-c95ac804525aac4b6dba79b00b39d1d3.ssl.cf1.rackcdn.com/Anaconda3-2.3.0-Linux-x86_64.sh
+    wget http://repo.continuum.io/archive/Anaconda3-2.5.0-Linux-x86_64.sh
     # 32-bit
-    wget https://3230d63b5fc54e62148e-c95ac804525aac4b6dba79b00b39d1d3.ssl.cf1.rackcdn.com/Anaconda3-2.3.0-Linux-x86.sh
+    wget http://repo.continuum.io/archive/Anaconda3-2.5.0-Linux-x86.sh
     # In BASH, the variable $OSTYPE stores the name of the operation system:
     # `$OSTYPE` automatically set to a string that describes the operating system on which bash is executing.
     OSARCH=`uname -m`
     if [ ${OSARCH} == 'x86_64' ]; then
         # Install 64-bit stuff here
         #cd ~/home
-        sudo bash Anaconda3-2.3.0-Linux-x86_64.sh
+        sudo bash Anaconda3-2.5.0-Linux-x86_64.sh
         else
         # Install 32-bit stuff here
         #cd ~/home
-        sudo Anaconda3-2.3.0-Linux-x86.sh
+        sudo Anaconda3-2.5.0-Linux-x86.sh
     fi
 }
 
@@ -134,6 +132,7 @@ function install_cinnamon() {
     # Telegram, a Whatsapp alternative on GH: https://github.com/telegramdesktop/tdesktop
     #sudo add-apt-repository ppa:atareao/telegram
     #sudo apt-get -y install telegram
+    # STARTUP DISK CREATOR
     sudo apt-get install unetbootin
 }
 
@@ -141,6 +140,8 @@ function install_cinnamon() {
 # Non-Free utilities
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 function install_nonfree() {
+    sudo apt-get -y update
+    sudo apt-get -y upgrade
     ##+++++++++++++
     ## Adobe
     ##+++++++++++++
@@ -156,10 +157,13 @@ function install_nonfree() {
     ## SKYPE
     ##+++++++++++++
     # rm -rf ~/.Skype  #Clear the old Skype folder before installing latest version.
-    # sudo dpkg --add-architecture i386 # Enable multiarch, https://help.ubuntu.com/community/MultiArch
-    # sudo apt-get -y install sni-qt:i386 # Download latest version.
-    # wget download.skype.com/linux/skype-ubuntu-precise_4.3.0.37-1_i386.deb
-    # sudo gdebi skype-ubuntu-precise_4.3.0.37-1_i386.deb
+    sudo dpkg --add-architecture i386 # Enable multiarch, https://help.ubuntu.com/community/MultiArch
+    sudo apt-get update 
+    sudo apt-get -y install sni-qt:i386 # Download latest architecture version.
+    wget -c http://download.skype.com/linux/skype-debian_4.3.0.37-1_i386.deb
+    sudo gdebi skype-debian_4.3.0.37-1_i386.deb
+    sudo dpkg -l skype-debian_4.3.0.37-1_i386.deb
+    sudo apt-get -f install
     # Install Skype from Canonical Partner Repository
     # sudo add-apt-repository "deb http://archive.canonical.com/ $(lsb_release -sc) partner"
     sudo apt-get -y update
