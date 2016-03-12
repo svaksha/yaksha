@@ -24,29 +24,6 @@ yaksha_dir=~/yaksha/
 date +"%c|started running `apt-get`:$?" >> out-yaks-apt-update-cron.log
 date +"%c|completed running: $?" >> out-yaks-apt-update-cron.log
 
-#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
-# Updating requires sudo privs so lets check for root.
-#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
-
-if [ "$(whoami)" != "root" ]; then
-  # if not root,
-  echo -e "\e[1mError: This command needs root permissions!"
-  # Ask for perm to execute as root.
-  echo -e "\e[1mPlease execute me as root, i.e [sudo yaks-apt-update.sh]"
-  echo -e "\e[0m"
-  exit 1
-else
-  # if root, then check for internet connection. D needs this.
-  wget -q --tries=10 --timeout=25 --spider http://google.com &> /dev/null
-  if [[ $? -eq 0 ]]; then
-    # If connected to the internet, just continue to execute the script.
-    : # this is an empty command.
-  else
-    # But if not connected to the internet, post error message.
-    echo "Kshama karein, internet connection nahin hai!"
-    echo "Please check your connection."
-    exit 1
-  fi
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
 # Cron will automatically install the weekly updates
