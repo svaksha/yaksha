@@ -1,13 +1,13 @@
 #!/usr/bin/env bash
 ################################################################################
-# FILE       : yksh-apt-install.sh
+# FILE       : yksh-apt-debian.sh
 # DESCRIPTION: Bash script to install packages on the Debian8(Jessie) system.
 # AUTHOR     : SVAKSHA, http://svaksha.com/pages/Bio
 # SOURCE     : http://svaksha.github.io/yaksha
 # COPYRIGHT© : 2005-Now SVAKSHA, All Rights Reserved.
 # LICENSE    : GNU AGPLv3 and subject to meeting all the terms in the LICENSE 
 #              file: https://github.com/svaksha/yaksha/blob/master/LICENSE.md
-# DATES      : Created:2005mar22 - Updated:2016mar11
+# DATES      : Created:2005mar22 - Updated:2016mar14
 ################################################################################
 #
 # References:
@@ -18,14 +18,15 @@
 yaksha_dir=~/yaksha/
 
 # Log the date and time of execution of bash script into the `out` files.
-date +'%c|started running `apt-get`: ' >> out-yksh-apt-install.log
-date +"%c|completed running: $?" >> out-yksh-apt-install.log
+date +'%c|started running `apt-get`: ' >> out-yksh-apt-debian.log
+date +"%c|completed running: $?" >> out-yksh-apt-debian.log
 
 # The SET bulletin
 # Tip: Using "+" causes these flags to be turned off.
 set -a  # Mark variables which are modified or created for export.
 set -b  # Notify of job termination immediately.
-set -e  # Exit immediately if a command exits with a non-zero status.
+# Unless you want to babysit the installation process dont use this.
+#set -e  # Exit immediately if a command exits with a non-zero status.
 set -m  # Job control is enabled.
 set -v  # Verbose mode to print shell input lines as they are read.
 set -x  # Print commands and their arguments as they are executed.
@@ -42,46 +43,56 @@ while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 # Cinnamon on Debian8(Jessie) - general system utilities
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 function install_cinnamon() {
-    ## general cli tools for web, search
-    sudo apt-get -y install cron-apt
     sudo apt-get -y install wget
     sudo apt-get -y install curl
     sudo apt-get -y install whois
-    sudo apt-get -y install silversearcher-ag
-    sudo apt-get -y install zip
     sudo apt-get -y install unzip
-    sudo apt-get -y install ctags
-    sudo apt-get -y install exuberant-ctags ack-grep
-    sudo apt-get -y install unrar
-    sudo apt-get -y install screen
-    ln -s  ${yaksha_dir}.screenrc ~/.screenrc
     # sendmail or postfix
     sudo apt-get -y install sendmail
     sudo apt-get -y install postfix
+    sudo apt-get -y install openssh-server
+}
+
+
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+# UBUNTU package utilities
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+function install_ubuntu() {
+    ## general cli tools for web, search
+    #============================================
+    sudo apt-get -y install cron-apt   #not in debian
+    sudo apt-get -y install silversearcher-ag   #not in debian
+    sudo apt-get -y install zip   #not in debian
+    sudo apt-get -y install ctags
+    sudo apt-get -y install exuberant-ctags ack-grep #not in debian
+    sudo apt-get -y install unrar #not in debian
+    sudo apt-get -y install screen
+    ln -s  ${yaksha_dir}.screenrc ~/.screenrc # copy the old file, dont create new one
     ## Tools for dependency check and PPA removal
-    sudo apt-get -y install equivs
-    sudo apt-get -y install ppa-purge
-    sudo apt-get -y install nmap openssh-server
+    sudo apt-get -y install equivs #not in debian
+    sudo apt-get -y install ppa-purge #not in debian
+    sudo apt-get -y install nmap #not in debian
     # SSH
-    sudo apt-get -y install sshpass
+    sudo apt-get -y install sshpass #not in debian
     # Install Augeas - http://augeas.net/download.html
     # An editing tool API to automate the configuration editing on remote servers.
+    #============================================
     sudo apt-get -y install augeas-dbg python3-augeas augeas-tools augeas-lenses 
     #============================================
-    ### UTILITIES
+    ## UTILITIES
     #============================================
-    ### RESEARCH ========================
+    ## RESEARCH 
     ## BibTeX Reference software
     sudo apt-get -y install pybliographer
     sudo apt-get -y install referencer    #IGNORE, https://launchpad.net/referencer
     # hierarchical notebook : http://hnb.sourceforge.net/Documentation/ 
-    sudo apt-get -y install hnb
-   # PDF related packages
-    sudo apt-get -y install flpsed
+    sudo apt-get -y install hnb #not in debian
+    # PDF related packages
+    sudo apt-get -y install flpsed #not in debian
     sudo apt-get -y install pdfjam
     sudo apt-get -y install xournal
-    sudo apt-get -y install pdfedit
-    sudo apt-get -y install cups-pdf
+    sudo apt-get -y install pdfedit #not in debian
+    sudo apt-get -y install cups-pdf #not in debian
     ## HP printer stuff
     sudo apt-get -y install hplip
     sudo apt-get -y install mtink  # http://xwtools.automatix.de/
@@ -91,10 +102,11 @@ function install_cinnamon() {
     ## Reactivate HP LaserJet 1018/1020 after reloading paper
     sudo apt-get -y install printer-driver-foo2zjs-common   #20140209dfsg0-1ubuntu1
     ## Browsers
-    sudo apt-get -y install google-chrome-stable
+    #============================================
+    sudo apt-get -y install google-chrome-stable #not in debian
     ## video and audio (music - mpto mp3) converters
     sudo apt-get -y install papcl
-    #sudo apt-get -y install ubuntu-restricted-extras # install the MP3 codec from the Ubuntu Restricted Extras package
+    sudo apt-get -y install ubuntu-restricted-extras # install the MP3 codec from the Ubuntu Restricted Extras package
     sudo apt-get -y install soundconverter # install the Sound Converter program
     # get the github source (https://github.com/rg3/youtube-dl)
     sudo pip install youtube_dl    # sudo pip install --upgrade youtube_dl  #(to upgrade if its already installed)
@@ -103,12 +115,11 @@ function install_cinnamon() {
     ## Communication Tools
     sudo apt-get -y install jitsi # Skype alternative
     # Telegram, a Whatsapp alternative on GH: https://github.com/telegramdesktop/tdesktop
-    #sudo add-apt-repository ppa:atareao/telegram
-    #sudo apt-get -y install telegram
+    sudo add-apt-repository ppa:atareao/telegram
+    sudo apt-get -y install telegram
     # STARTUP DISK CREATOR
     sudo apt-get install unetbootin
 }
-
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 # CPU and HDD utils
@@ -486,14 +497,14 @@ function install_ruby() {
     sudo apt-get -y install vagrant-lxc       # only available in stretch (testing)
     # In BASH, the variable $OSTYPE stores the name of the operation system:
     # `$OSTYPE` automatically set to a string that describes the operating system on which bash is executing.
-#    OSARCH=`uname -m`
-#    if [ ${OSARCH} == 'x86_64' ]; then
+    OSARCH=`uname -m`
+    if [ ${OSARCH} == 'x86_64' ]; then
         # Install 64-bit stuff here
-#        cd ~/home; sudo dpkg --install vagrant_1.7.4_x86_64.deb
-#        else
+        cd ~/home; sudo dpkg --install vagrant_1.7.4_x86_64.deb
+        else
         # Install 32-bit stuff here
-#        cd ~/home; sudo dpkg --install vagrant_1.7.4_i686.deb
-#    fi
+        cd ~/home; sudo dpkg --install vagrant_1.7.4_i686.deb
+    fi
 }
 
 
