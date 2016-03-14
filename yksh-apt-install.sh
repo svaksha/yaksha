@@ -21,9 +21,6 @@ yaksha_dir=~/yaksha/
 date +'%c|started running `apt-get`: ' >> out-yksh-apt-install.log
 date +"%c|completed running: $?" >> out-yksh-apt-install.log
 
-# Ask for the administrator password first.
-sudo -v
-
 # The SET bulletin
 # Tip: Using "+" causes these flags to be turned off.
 set -a  # Mark variables which are modified or created for export.
@@ -40,30 +37,6 @@ PS4='$LINENO: '
 
 # Keep it alive & update existing `sudo` time stamp until the script has finished running.
 while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
-
-
-#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-# ANACONDA
-#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-function install_anaconda() {
-    # 64-bit
-    wget http://repo.continuum.io/archive/Anaconda3-2.5.0-Linux-x86_64.sh
-    # 32-bit
-    wget http://repo.continuum.io/archive/Anaconda3-2.5.0-Linux-x86.sh
-    # In BASH, the variable $OSTYPE stores the name of the operation system:
-    # `$OSTYPE` automatically set to a string that describes the operating system on which bash is executing.
-    OSARCH=`uname -m`
-    if [ ${OSARCH} == 'x86_64' ]; then
-        # Install 64-bit stuff here
-        export PATH="$(pwd)/anaconda3:$PATH"
-        sudo bash Anaconda3-2.5.0-Linux-x86_64.sh
-        else
-        # Install 32-bit stuff here
-        export PATH="$(pwd)/anaconda-32bit:$PATH"
-        sudo Anaconda3-2.5.0-Linux-x86.sh
-    fi
-}
-
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 # Cinnamon on Debian8(Jessie) - general system utilities
@@ -136,39 +109,6 @@ function install_cinnamon() {
     sudo apt-get install unetbootin
 }
 
-#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-# Non-Free utilities
-#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-function install_nonfree() {
-    sudo apt-get -y update
-    sudo apt-get -y upgrade
-    ##+++++++++++++
-    ## Adobe
-    ##+++++++++++++
-    #sudo apt-get -y install AdbeRdr9.5.5-1_i386linux_enu.deb
-    sudo dpkg --add-architecture i386   # For debian-jessie Adobe needs the i386 architecture.
-    sudo apt-get update 
-    sudo apt-get -y install acroread mozilla-acroread    
-    ##+++++++++++++
-    ## FLASH
-    ##+++++++++++++
-    sudo apt-get -y install flashplugin-nonfree
-    ##+++++++++++++
-    ## SKYPE
-    ##+++++++++++++
-    # rm -rf ~/.Skype  #Clear the old Skype folder before installing latest version.
-    sudo dpkg --add-architecture i386 # Enable multiarch, https://help.ubuntu.com/community/MultiArch
-    sudo apt-get update 
-    sudo apt-get -y install sni-qt:i386 # Download latest architecture version.
-    wget -c http://download.skype.com/linux/skype-debian_4.3.0.37-1_i386.deb
-    sudo gdebi skype-debian_4.3.0.37-1_i386.deb
-    sudo dpkg -l skype-debian_4.3.0.37-1_i386.deb
-    sudo apt-get -f install
-    # Install Skype from Canonical Partner Repository
-    # sudo add-apt-repository "deb http://archive.canonical.com/ $(lsb_release -sc) partner"
-    sudo apt-get -y update
-    sudo apt-get -y upgrade
-}
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 # CPU and HDD utils
@@ -421,6 +361,40 @@ function install_javascript() {
 }
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+# Non-Free utilities
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+function install_nonfree() {
+    sudo apt-get -y update
+    sudo apt-get -y upgrade
+    ##+++++++++++++
+    ## Adobe
+    ##+++++++++++++
+    #sudo apt-get -y install AdbeRdr9.5.5-1_i386linux_enu.deb
+    sudo dpkg --add-architecture i386   # For debian-jessie Adobe needs the i386 architecture.
+    sudo apt-get update 
+    sudo apt-get -y install acroread mozilla-acroread    
+    ##+++++++++++++
+    ## FLASH
+    ##+++++++++++++
+    sudo apt-get -y install flashplugin-nonfree
+    ##+++++++++++++
+    ## SKYPE
+    ##+++++++++++++
+    # rm -rf ~/.Skype  #Clear the old Skype folder before installing latest version.
+    sudo dpkg --add-architecture i386 # Enable multiarch, https://help.ubuntu.com/community/MultiArch
+    sudo apt-get update 
+    sudo apt-get -y install sni-qt:i386 # Download latest architecture version.
+    wget -c http://download.skype.com/linux/skype-debian_4.3.0.37-1_i386.deb
+    sudo gdebi skype-debian_4.3.0.37-1_i386.deb
+    sudo dpkg -l skype-debian_4.3.0.37-1_i386.deb
+    sudo apt-get -f install
+    # Install Skype from Canonical Partner Repository
+    # sudo add-apt-repository "deb http://archive.canonical.com/ $(lsb_release -sc) partner"
+    sudo apt-get -y update
+    sudo apt-get -y upgrade
+}
+
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 # PYTHON
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 function install_python() {
@@ -600,7 +574,7 @@ key="$2"
 
 case $key in
     -c|--clean)
-        clean_install
+        clean_install="$1"
         shift
     ;;
     -i|--install)
@@ -610,7 +584,7 @@ case $key in
     *)
         echo "usage:
                 -c|--clean  - remove dotfiles before installation
-                -i|--install [type] copy the yaksha dotfiles into home
+                -i|--install [type] will execute all the yaksha scripts into $HOME/user
         "
         ;;
     esac
@@ -621,9 +595,6 @@ case $key in
 #git clone --recursive https://github.com/svaksha/yaksha ${yaksha_dir}
 
 case $install_deb in
-    anaconda)
-        install_anaconda
-	;;
     cinnamon)
         install_cinnamon
     ;;
@@ -682,7 +653,6 @@ case $install_deb in
         install_ykshm
     ;;
     all)
-        install_anaconda
         install_cinnamon
         install_cpudisk
         install_database
