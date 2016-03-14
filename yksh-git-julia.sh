@@ -7,7 +7,7 @@
 # COPYRIGHT© : 2005-Now SVAKSHA, All Rights Reserved.
 # LICENSE    : GNU AGPLv3 and subject to meeting all the terms in the LICENSE 
 #              file: https://github.com/svaksha/yaksha/blob/master/LICENSE.md
-# DATES      : Created:2015feb15 - Updated:2016feb29
+# DATES      : Created:2015feb15 - Updated:2016mar14
 ################################################################################
 #
 
@@ -104,12 +104,8 @@ case $install_julia in
     jl_gitdev)
         install_jl_gitdev
     ;;
-    jl_ppanightlies)
-        install_jl_ubuntu_ppanightlies
-    ;;
     all)
         install_jl_gitdev
-        install_jl_ubuntu_ppanightlies
     ;;
     *)
         echo "Installation in progress, almost done!"
