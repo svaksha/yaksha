@@ -24,8 +24,8 @@ println("|| नमस्ते ! स्वक्षंस्या सङ्ग�
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 # REPL : CYAN 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-# changing the "julia>" prompt color schemes in the REPL
-Base.active_repl.prompt_color = Base.text_colors[:cyan]
+# changing the "julia>" prompt color schemes in the REPL 
+# Base.active_repl.prompt_color = Base.text_colors[:cyan]
 
 # alternatively, https://gist.github.com/Ismael-VC/6db0c310eaf04d0b0a1b
 # Separator function for the CYAN color.
