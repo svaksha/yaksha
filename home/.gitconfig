@@ -8,7 +8,7 @@
 #              (https://github.com/svaksha/yaksha/blob/master/LICENSE.md) file.
 # LICENSE    : GNU AGPLv3 subject to meeting the terms and conditions in the LICENSE
 #              (https://github.com/svaksha/yaksha/blob/master/LICENSE.md) file.
-# DATES      : Created:2009feb16 - Updated:2016jan03
+# DATES      : Created:2009feb16 - Updated:2016mar15
 ################################################################################
 #
 #
@@ -109,7 +109,8 @@
 [url "git@github.com:"]
     insteadOf = "gh:"
     pushInsteadOf = "github:"
-    pushInsteadOf = "git://github.com/"
+    # if behind a firewall use the 'https' protocol instead of the 'git' protocol.
+    pushInsteadOf = "git://github.com/"  
     
 [url "git://github.com/"]
     insteadOf = "github:"
@@ -117,6 +118,7 @@
 [url "git@gist.github.com:"]
     insteadOf = "gst:"
     pushInsteadOf = "gist:"
+    # if behind a firewall use the 'https' protocol instead of the 'git' protocol.
     pushInsteadOf = "git://gist.github.com/"
 
 [url "git://gist.github.com/"]
@@ -129,7 +131,8 @@
 # Julia "Pkg dependence on git://"
 #--------------------------------------
 [url "https://"]
-	insteadOf = git://
+    # if behind a firewall use the 'https' protocol instead of the 'git' protocol.
+    insteadOf = git://
 
 #-------------------------------------------------------------------------------
 # GitLab
@@ -141,6 +144,7 @@
 # Heroku
 #-------------------------------------------------------------------------------
 [url "git@heroku.com:"]
+    # if behind a firewall use the 'https' protocol instead of the 'git' protocol.
     insteadOf = "heroku:"
 
 # GIT-LFS
