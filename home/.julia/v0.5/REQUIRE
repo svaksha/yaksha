@@ -46,6 +46,7 @@ FunctionalCollections
 Gadfly
 GetC
 GLFW
+GLVisualize
 Graphics
 GraphLayout
 Graphs
@@ -137,4 +138,3 @@ ZipFile
 Zlib
 ZMQ
 
-GLVisualize

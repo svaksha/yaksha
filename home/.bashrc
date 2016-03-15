@@ -7,7 +7,7 @@
 # COPYRIGHT© : 2005-Now SVAKSHA (http://svaksha.com/pages/Bio) AllRightsReserved
 # LICENSE    : GNU AGPLv3 and subject to the terms and conditions in the LICENSE.md 
 #              (https://github.com/svaksha/yaksha/blob/master/LICENSE.md) file being met.
-# DATES      : Created:2005mar22 - Updated:2016mar11
+# DATES      : Created:2005mar22 - Updated:2016mar15
 ################################################################################
 #
 # ~/.bashrc: executed by bash(1) for non-login shells. For examples
@@ -323,24 +323,6 @@ export PATH="$HOME/anaconda/bin:$PATH"
 export PATH="$HOME/anaconda3/bin:$PATH"
 
 
-#............................ JULIA ............................................
-################################################################################
-# Julia PATH 
-# DATE: 2012apr12-2016mar08
-################################################################################
-export PATH="$(pwd)/julia:$PATH"
-# $PWD/julia/bin
-#export PATH="$(pwd)/devya/:$PATH"
-#
-############## jdp == DeclarativePackages.jl
-export PATH="$(pwd)/julia/bin/jdp:$PATH"
-#PATH=$PATH:$(pwd)/julia/bin/jdp   
-#
-# Concurrently install two versions of Julia
-# The environment variable JULIA_PKGDIR can also do this. Check the RC file.
-sudo ln -s $(pwd)/julia /usr/local/lib/julia-unstable
-
-
 #............................ JS ...............................................
 ################################################################################
 # JavaScript PATH | created: 2012Nov11 | updated: 2015Jul14
@@ -389,3 +371,25 @@ export PATH=$PATH:$GOPATH/bin
 #-------------------------------------------------------------------------------
 export PATH="$HOME/.basher/bin:$PATH"
 eval "$(basher init -)"
+
+
+#............................ JULIA ............................................
+################################################################################
+# Julia PATH 
+# DATE: 2012apr12-2016mar08
+################################################################################
+export PATH="$(pwd)/julia:$PATH"
+# $PWD/julia/bin   # duplicate
+export DEVYA="$(pwd)/devya/:$DEVYA" # locally-written code
+#
+# Concurrently install two versions of Julia. Check the RC file.
+#-------------------------------------------------------------------------------
+sudo ln -s $(pwd)/julia /usr/local/lib/julia-unstable
+# The environment variable JULIA_PKGDIR can also do the above - install 2 VER.
+export JULIA_PKGDIR=/usr/local/julia/julia-packages
+
+# Paths for other Julia packages
+#-------------------------------------------------------------------------------
+## jdp == DeclarativePackages.jl
+export JDP_JL="$(pwd)/julia/bin/jdp:$JDP_JL"
+JDP_JL=$JDP_JL:$(pwd)/julia/bin/jdp   
