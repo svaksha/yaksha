@@ -104,10 +104,28 @@ function install_ubuntu() {
     sudo apt-get -y install telegram
     # STARTUP DISK CREATOR
     sudo apt-get install unetbootin
+}
+
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+# PROGRAMMING LANGUAGES
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+function install_programming() {
+    #++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    # JavaScript
+    #++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    sudo add-apt-repository --yes ppa:chris-lea/node.js  # Node.js
+    sudo apt-get -y update
+    sudo apt-get -y upgrade
+    sudo apt-get -y install nodejs # nodejs -v = 0.10.28 # dont pin versions
+    sudo apt-get -y install nodejs-legacy
     # gradle
     sudo add-apt-repository --yes ppa:cwchien/gradle
     sudo apt-get update
     sudo apt-get -y install gradle
+    #++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    # PYTHON
+    #++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     # nginx
     sudo add-apt-repository --yes ppa:nginx/stable
     sudo apt-get update
@@ -115,14 +133,10 @@ function install_ubuntu() {
     # ZMQ, also needed by Jupyter/IPython / IRuby etc..
     sudo add-apt-repository --yes ppa:chris-lea/zeromq
     sudo apt-get -y install libzmq3-dbg libzmq3-dev libzmq3
-}
-
-
-#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-# R-project / language
-#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-function install_ubuntu_R() {
-    sudo add-apt-repository --yes ppa:marutter/rrutter
+    #++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    # R-project / language
+    #++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+	sudo add-apt-repository --yes ppa:marutter/rrutter
     sudo apt-get -y update
     # Cubature if you use K/Ubuntu.
     wget http://packages.ubuntu.com/vivid/r-cran-cubature r-cran-cubature_1.1-2-1_amd64.deb
@@ -137,13 +151,9 @@ function install_ubuntu_R() {
     # Install 32-bit stuff here
     cd ~/home; sudo dpkg --install r-cran-cubature_1.1-2-1_i386.deb
     fi
-}
-
-
-#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-# RUBY
-#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-function install_ubuntu_RB() {
+    #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    # RUBY
+    #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     # In BASH, the variable $OSTYPE stores the name of the operation system:
     # `$OSTYPE` automatically set to a string that describes the operating system on which bash is executing.
     OSARCH=`uname -m`
@@ -188,16 +198,12 @@ case $install_ubuntu in
     ubuntu)
         install_ubuntu
     ;;
-    ubuntu_R)
-        install_ubuntu_R
-    ;;
-    ubuntu_RB)
-        install_ubuntu_RB
+    programming)
+        install_programming
     ;;
     all)
         install_ubuntu
-        install_ubuntu_R
-        install_ubuntu_RB
+        install_programming
     ;;
     *)
         echo "Installation in progress, almost done!"

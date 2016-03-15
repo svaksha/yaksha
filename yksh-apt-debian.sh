@@ -25,7 +25,7 @@ date +"%c|completed running: $?" >> out-yksh-apt-debian.log
 # Tip: Using "+" causes these flags to be turned off.
 set -a  # Mark variables which are modified or created for export.
 set -b  # Notify of job termination immediately.
-# Unless you want to babysit the installation process dont use this.
+# Unless you want to babysit the installation of each package dont set this.
 #set -e  # Exit immediately if a command exits with a non-zero status.
 set -m  # Job control is enabled.
 set -v  # Verbose mode to print shell input lines as they are read.
@@ -364,11 +364,6 @@ function install_javascript() {
     sudo npm install -g jslint
     sudo npm install -g jshint
     ln -s ${yaksha_dir}.jshintrc ~/.jshintrc
-    sudo add-apt-repository --yes ppa:chris-lea/node.js  # Node.js
-    sudo apt-get -y update
-    sudo apt-get -y upgrade
-    sudo apt-get -y install nodejs # nodejs -v = 0.10.28 # dont pin versions
-    sudo apt-get -y install nodejs-legacy
 }
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
