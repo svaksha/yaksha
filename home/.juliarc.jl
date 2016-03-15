@@ -62,8 +62,8 @@ if chomp(readall(`pwd`)) != ENV["HOME"]
 end
 
 push!(LOAD_PATH, ENV["HOME"]*"/.julia")
-push!(LOAD_PATH, ENV["HOME"]*"/julia:$PATH")
-push!(LOAD_PATH, ENV["HOME"]*"/devya:$DEVYA")
+push!(LOAD_PATH, ENV["HOME"]*"/julia")
+push!(LOAD_PATH, ENV["HOME"]*"/devya")
 
 # for PRIVATE repos
 if isfile("$(ENV["HOME"])/.juliarc-yakshi.jl")

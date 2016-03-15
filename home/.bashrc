@@ -379,17 +379,18 @@ eval "$(basher init -)"
 # DATE: 2012apr12-2016mar08
 ################################################################################
 export PATH="$(pwd)/julia:$PATH"
-# $PWD/julia/bin   # duplicate
-export DEVYA="$(pwd)/devya/:$DEVYA" # locally-written code
+$PWD/julia/bin
+export PATH="$(pwd)/devya/:$PATH" # locally-written code
 #
 # Concurrently install two versions of Julia. Check the RC file.
 #-------------------------------------------------------------------------------
 sudo ln -s $(pwd)/julia /usr/local/lib/julia-unstable
 # The environment variable JULIA_PKGDIR can also do the above - install 2 VER.
 export JULIA_PKGDIR=/usr/local/julia/julia-packages
+ENV["JULIA_PKGDIR"] = "..."
 
 # Paths for other Julia packages
 #-------------------------------------------------------------------------------
 ## jdp == DeclarativePackages.jl
-export JDP_JL="$(pwd)/julia/bin/jdp:$JDP_JL"
-JDP_JL=$JDP_JL:$(pwd)/julia/bin/jdp   
+export PATH="$(pwd)/julia/bin/jdp:$PATH"
+PATH=$PATH:$(pwd)/julia/bin/jdp 
