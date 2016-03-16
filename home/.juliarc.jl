@@ -6,7 +6,7 @@
 # COPYRIGHT© : 2005-Now SVAKSHA <http://svaksha.com/pages/Bio> AllRightsReserved
 # LICENSE    : GNU AGPLv3 and subject to the terms and conditions in the LICENSE.md 
 #              (https://github.com/svaksha/yaksha/blob/master/LICENSE.md) file being met.
-# DATES      : Created:2013oct01 - Updated:2016mar15
+# DATES      : Created:2013oct01 - Updated:2016mar16
 ################################################################################
 #
 # This file contains site-specific commands (EX. add directories to the LOAD_PATH,
@@ -75,18 +75,15 @@ function paste()
 end
 
 #https://twitter.com/Felipe_J_H/status/672465597075234816
-Base.display(x...) = 
-    for xi in x 
-    display(xi) 
-end"
+Base.display(x...) = for xi in x; display(xi); end
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-# Import package on startup 
+# Import these packagea on REPL startup 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-# TerminalExtensions.jl
-TerminalExtensions_pkgexists = isdir(Pkg.dir("TerminalExtensions"))
-    if TerminalExtensions_pkgexists && isinteractive();
-    using TerminalExtensions;
+# PyCall.jl
+PyCall_pkgexists = isdir(Pkg.dir("PyCall"))
+    if PyCall_pkgexists && isinteractive();
+    using PyCall;
 end
     
 
