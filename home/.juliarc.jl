@@ -14,40 +14,12 @@
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 using Base
+#using PyCall
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 # Greet Users on startup
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 println("|| नमस्ते ! स्वक्षंस्या सङ्गणकप्रक्रमम् स्वागतम  || Greetings! Welcome to SVAKSHA's Julia language programs ||")
-
-#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-# REPL : CYAN 
-#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-# changing the "julia>" prompt color schemes in the REPL 
-# Base.active_repl.prompt_color = Base.text_colors[:cyan]
-
-# alternatively, https://gist.github.com/Ismael-VC/6db0c310eaf04d0b0a1b
-# Separator function for the CYAN color.
-const HOSTS = ASCIIString["hd$(i)" for i = 1:19]
-const SEPARATOR = "#" ^ 79
-separator() = (println(); print_with_color(:cyan, SEPARATOR); println())
-
-function ssh_all(command, commands...; hosts=HOSTS)
-    separator()
-    for host in hosts
-        println()
-        @show host
-        println()
-        cmd = `ssh $host $command`
-        if !isempty(commands)
-            for c in commands
-                cmd = cmd |> c    # pipe commands
-            end
-        end
-        run(cmd)
-        separator()
-    end
-end
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 # add directories to the LOAD_PATH to be executed when the Julia REPL starts up.
@@ -69,23 +41,19 @@ if isfile("$(ENV["HOME"])/.juliarc-yakshi.jl")
     include("$(ENV["HOME"])/.juliarc-yakshi.jl")
 end
 
-# From Ethan Anderes <ethananderes@gmail.com> on julia-users.
-function paste()
-    include_string(clipboard());
-end
-
-#https://twitter.com/Felipe_J_H/status/672465597075234816
-Base.display(x...) = for xi in x; display(xi); end
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-# Import these packagea on REPL startup 
+# Import these packages on REPL startup 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 # PyCall.jl
-PyCall_pkgexists = isdir(Pkg.dir("PyCall"))
-    if PyCall_pkgexists && isinteractive();
-    using PyCall;
+#=
+atreplinit() do repl
+    @eval using PyCall
 end
-    
+=#
 
+atreplinit() do repl
+    eval(Expr(:using, :PyCall))
+end
 
 
