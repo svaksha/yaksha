@@ -7,7 +7,7 @@
 # COPYRIGHT© : 2005-Now SVAKSHA (http://svaksha.com/pages/Bio) AllRightsReserved
 # LICENSE    : GNU AGPLv3 and subject to the terms and conditions in the LICENSE.md 
 #              (https://github.com/svaksha/yaksha/blob/master/LICENSE.md) file being met.
-# DATES      : Created:2005mar22 - Updated:2016mar15
+# DATES      : Created:2005mar22 - Updated:2016mar16
 ################################################################################
 #
 # ~/.bashrc: executed by bash(1) for non-login shells. For examples
@@ -385,8 +385,8 @@ export PATH="$(pwd)/devya/:$PATH" # locally-written code
 # Concurrently install two versions of Julia. Check the RC file.
 #-------------------------------------------------------------------------------
 sudo ln -s $(pwd)/julia /usr/local/lib/julia-unstable
-# The environment variable JULIA_PKGDIR can also do the above - install 2 VER.
-export JULIA_PKGDIR=/usr/local/julia/julia-packages
+# The environment variable JULIA_PKGDIR can also do the above - install two versions of Julia.
+sudo export JULIA_PKGDIR=/usr/local/julia/julia-packages
 ENV["JULIA_PKGDIR"] = "..."
 
 # Paths for other Julia packages
