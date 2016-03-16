@@ -5,7 +5,7 @@
 # COPYRIGHT© : 2005-Now SVAKSHA <http://svaksha.com/pages/Bio> AllRightsReserved
 # LICENSE    : GNU AGPLv3 and subject to the terms and conditions in the LICENSE.md 
 #              (https://github.com/svaksha/yaksha/blob/master/LICENSE.md) file being met.
-# DATES      : Created:2013oct21 - Updated:2015dec25
+# DATES      : Created:2013oct21 - Updated:2016mar16
 ################################################################################
 #
 # Automagically update Julia 
@@ -13,13 +13,13 @@
 # https://github.com/svaksha/yaksha/blob/master/yaks-jl-update.sh
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-# Update my system
+# Update my Julia installation 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 Pkg.status()
 Pkg.update()
 
 ## Load my .juliarc.jl each time the REPL runs
-if chomp(readall(`pwd`)) != ENV["HOME"]
+if chomp(readstring(`pwd`)) != ENV["HOME"]
     if isfile(".juliarc.jl"); require(".juliarc.jl")
     end
 end

@@ -14,7 +14,6 @@
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 using Base
-#using TerminalExtensions
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 # Greet Users on startup
@@ -55,7 +54,7 @@ end
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 # Load my .juliarc.jl for each REPL run, enable a per-directory startup file.
-if chomp(readall(`pwd`)) != ENV["HOME"]
+if chomp(readstring(`pwd`)) != ENV["HOME"]
     if isfile(".juliarc.jl")
         require(".juliarc.jl")
     end
@@ -79,8 +78,17 @@ end
 Base.display(x...) = 
     for xi in x 
     display(xi) 
-end
+end"
 
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+# Import package on startup 
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+# TerminalExtensions.jl
+TerminalExtensions_pkgexists = isdir(Pkg.dir("TerminalExtensions"))
+    if TerminalExtensions_pkgexists && isinteractive();
+    using TerminalExtensions;
+end
+    
 
 
 
