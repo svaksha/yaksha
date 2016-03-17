@@ -44,9 +44,12 @@ FixedPointNumbers
 ForwardDiff
 FunctionalCollections
 Gadfly
+GeoIP
 GetC
 GLFW
 GLVisualize
+GitHub
+GnuTLS
 Graphics
 GraphLayout
 Graphs
@@ -67,10 +70,12 @@ Images
 ImageView
 ImmutableArrays
 IniFile
+IPNets
 IProfile
 Iterators
 JuMP
 JSON
+JuliaWebAPI
 kNN
 KernelDensity
 Lazy
@@ -130,7 +135,9 @@ TextWrap
 TimeData
 TimeSeries
 Tk
+UAParser
 URIParser
+URITemplate
 Winston
 WebSockets
 WoodburyMatrices

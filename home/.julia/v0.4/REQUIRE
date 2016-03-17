@@ -224,6 +224,9 @@ Humanize
 HyperDualNumbers
 HyperLogLog
 HypothesisTests
+HTTPClient
+HttpParser
+HttpServer
 ICU
 IDXParser
 IJulia
@@ -264,6 +267,7 @@ JudyDicts
 JuliaFEM
 JuliaParser
 JulieTest
+JuliaWebAPI
 Jumos
 JuMP
 JuMPChance
@@ -503,8 +507,8 @@ TrafficAssignment
 Twitter
 TypeCheck
 Typeclass
-UAParser
 Units
+UAParser
 URIParser
 URITemplate
 URLParse
@@ -542,3 +546,6 @@ ZipFile
 Zlib
 ZMQ
 ZVSimulator
+
+
+

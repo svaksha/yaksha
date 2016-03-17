@@ -401,6 +401,6 @@ PATH=$PATH:$(pwd)/julia/bin/jdp
 ################################################################################
 # Symbolic link PATH for local daemons.
 ################################################################################
-sudo ln -s $(pwd)/yaksha /usr/local/bin/yaksha      # symbolic link to yaksha
-sudo ln -s $(pwd)/yakshi /usr/local/bin/yakshi      # symbolic link to yakshi
+#sudo ln -s $(pwd)/yaksha /usr/local/bin/yaksha      # symbolic link to yaksha
+#sudo ln -s $(pwd)/yakshi /usr/local/bin/yakshi      # symbolic link to yakshi
 
