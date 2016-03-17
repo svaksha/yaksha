@@ -376,8 +376,8 @@ eval "$(basher init -)"
 
 #............................ JULIA ............................................
 ################################################################################
-# Julia PATH 
-# DATE: 2012apr12-2016mar08
+# Julia Symbolic links PATH 
+# DATE: 2012apr12-2016mar17
 ################################################################################
 export PATH="$(pwd)/julia:$PATH"
 $PWD/julia/bin
@@ -386,13 +386,21 @@ export PATH="$(pwd)/divya/:$PATH" # devel code
 #
 # Concurrently install two versions of Julia. Check the juliarc file.
 #-------------------------------------------------------------------------------
-sudo ln -s $(pwd)/julia /usr/local/lib/julia-unstable
+#sudo ln -s $(pwd)/julia /usr/local/lib/julia # symbolic link to julia0.5 
+
 # The environment variable JULIA_PKGDIR can also do the above - install two versions of Julia.
-sudo export JULIA_PKGDIR=/usr/local/julia/julia-packages
-ENV["JULIA_PKGDIR"] = "..."
+#sudo export JULIA_PKGDIR=/usr/local/julia/julia-packages
+#ENV["JULIA_PKGDIR"] = "..."
 
 # Paths for other Julia packages
 #-------------------------------------------------------------------------------
 ## jdp == DeclarativePackages.jl
 export PATH="$(pwd)/julia/bin/jdp:$PATH"
 PATH=$PATH:$(pwd)/julia/bin/jdp 
+
+################################################################################
+# Symbolic link PATH for local daemons.
+################################################################################
+sudo ln -s $(pwd)/yaksha /usr/local/bin/yaksha      # symbolic link to yaksha
+sudo ln -s $(pwd)/yakshi /usr/local/bin/yakshi      # symbolic link to yakshi
+

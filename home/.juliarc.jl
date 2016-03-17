@@ -34,6 +34,7 @@ end
 push!(LOAD_PATH, ENV["HOME"]*"/.julia")
 push!(LOAD_PATH, ENV["HOME"]*"/julia")
 push!(LOAD_PATH, ENV["HOME"]*"/devya")
+push!(LOAD_PATH, ENV["HOME"]*"/divya")
 
 # for PRIVATE repos
 if isfile("$(ENV["HOME"])/.juliarc-yakshi.jl")
@@ -44,7 +45,7 @@ end
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 # Import these packages on REPL startup 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-# PyCall.jl, will not work in ver0.5
+# PyCall.jl, will not work in v0.5
 # see Julia bug https://github.com/stevengj/PyCall.jl/issues/246
 #=
 atreplinit() do repl

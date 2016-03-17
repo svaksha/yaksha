@@ -1,13 +1,13 @@
 #!/usr/bin/env bash
 ################################################################################
 # FILE       : .bash_aliases
-# DESCRIPTION: a separate "~/.bash_aliases" file for ALIAS definitions, commands split from ~/.bashrc file
+# DESCRIPTION: a separate "~/.bash_aliases" file for ALIAS definitions.
 # AUTHOR     : SVAKSHA, http://svaksha.com/pages/Bio
 # SOURCE     : http://svaksha.github.io/yaksha
 # COPYRIGHT© : 2005-Now SVAKSHA, All Rights Reserved.
 # LICENSE    : GNU AGPLv3 and subject to meeting all the terms in the LICENSE 
 #              file: https://github.com/svaksha/yaksha/blob/master/LICENSE.md
-# DATES      : Created:2005nov05 - Updated:2015oct20
+# DATES      : Created:2005nov05 - Updated:2016mar17
 ################################################################################
 #
 # Moved all my additions into a separate "~/.bash_aliases" file.
@@ -153,6 +153,9 @@ alias lsb-r='lsb_release -r' # for exact version
 alias jnb='jupyter notebook'
 alias jl='julia'
 alias ju='julia -i --color=yes --history-file=yes'
+alias ju4='julia'
+alias ju5='julia -i --color=yes --history-file=yes'
+
 #alias jl-git='cd julia; git pull git@github.com:JuliaLang/julia.git' # IGNORE, # The "yaksha-jl-update.sh" script handles it.
 #alias jl-up='cd julia; ./julia -e "Pkg.update()"'  # The "yaksha-jl-update.sh" script handles it
 
