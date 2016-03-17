@@ -24,12 +24,14 @@ println("|| नमस्ते ! स्वक्षंस्या सङ्ग�
 # add directories to the LOAD_PATH to be executed when the Julia REPL starts up.
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
+#=
 # Load my .juliarc.jl for each REPL run, enable a per-directory startup file.
 if chomp(readstring(`pwd`)) != ENV["HOME"]
     if isfile(".juliarc.jl")
         require(".juliarc.jl")
     end
 end
+=#
 
 push!(LOAD_PATH, ENV["HOME"]*"/.julia")
 push!(LOAD_PATH, ENV["HOME"]*"/julia")
