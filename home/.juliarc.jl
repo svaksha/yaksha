@@ -41,15 +41,15 @@ if isfile("$(ENV["HOME"])/.juliarc-yakshi.jl")
     include("$(ENV["HOME"])/.juliarc-yakshi.jl")
 end
 
-
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 # Import these packages on REPL startup 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-# PyCall.jl, will not work in v0.5
-# see Julia bug https://github.com/stevengj/PyCall.jl/issues/246
-#=
 atreplinit() do repl
+    @eval using Gadfly
+    @eval using IJulia
+    # PyCall wont work in v0.5, Julia bug https://github.com/stevengj/PyCall.jl/issues/246 
     @eval using PyCall
 end
-=#
 
+#julia --eval 'Pkg.add("IJulia")'
+#julia --eval 'Pkg.add("Gadfly")'

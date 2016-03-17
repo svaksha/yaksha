@@ -1,13 +1,13 @@
 #!/usr/bin/env bash
 ################################################################################
-# FILE       : yksh-git-julia.sh
-# DESCRIPTION: Installation script for the Julia source build.
+# FILE       : yksh-jl-julia-dev.sh
+# DESCRIPTION: Installation script for the Julia source build from development version on github.
 # AUTHOR     : SVAKSHA, http://svaksha.com/pages/Bio
 # SOURCE     : http://svaksha.github.io/yaksha
 # COPYRIGHT© : 2005-Now SVAKSHA, All Rights Reserved.
 # LICENSE    : GNU AGPLv3 and subject to meeting all the terms in the LICENSE 
 #              file: https://github.com/svaksha/yaksha/blob/master/LICENSE.md
-# DATES      : Created:2015feb15 - Updated:2016mar14
+# DATES      : Created:2015feb15 - Updated:2016mar17
 ################################################################################
 #
 
@@ -19,12 +19,11 @@ set -x
 # set +x # Turn off the log verbiage.
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-# An experimental script to automatically update julia
+# A bash script to automatically update julia from git master development version.
 # From, https://gist.github.com/jiahao/3f9826b077372220b6f0
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-
-JULIADIR=$HOME/julia   #TODO: http://stackoverflow.com/questions/59895/can-a-bash-script-tell-what-directory-its-stored-in?rq=1
+JULIADIR=$HOME/julia0.5  #TODO: http://stackoverflow.com/questions/59895/can-a-bash-script-tell-what-directory-its-stored-in?rq=1
 cd $JULIADIR
 set -e                   # stop on error
 
@@ -55,7 +54,7 @@ git clone git@github.com:JuliaLang/julia.git
 
 # Check if ~/julia exists
 #---------------------------
-if [ -e /usr/local/bin/julia ]; then
+if [ -e /usr/local/bin/julia0.5 ]; then
     echo "Julia folder already exists on localhost. Exiting!"
     exit 1
 fi

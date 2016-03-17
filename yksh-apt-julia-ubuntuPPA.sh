@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 ################################################################################
-# FILE       : yksh-apt-julia-ppanightlies.sh
+# FILE       : yksh-apt-julia-ubuntuPPA.sh
 # DESCRIPTION: Installation script for the Julia PPA nightlies.
 # AUTHOR     : SVAKSHA, http://svaksha.com/pages/Bio
 # SOURCE     : http://svaksha.github.io/yaksha
@@ -20,7 +20,6 @@ echo "Installation of julia (PPA nightlies) will start!"
 # Tip: Using "+" causes these flags to be turned off.
 set -a  # Mark variables which are modified or created for export.
 set -b  # Notify of job termination immediately.
-set -e  # Exit immediately if a command exits with a non-zero status.
 set -m  # Job control is enabled.
 set -v  # Verbose mode to print shell input lines as they are read.
 set -x  # Print commands and their arguments as they are executed.
@@ -39,8 +38,6 @@ function install_jl_ppanightlies() {
     sudo add-apt-repository --yes ppa:staticfloat/julianightlies
     sudo apt-get -y update && sudo apt-get -y upgrade
     sudo apt-get -y install julia
-    julia --eval 'Pkg.add("IJulia")' # Better to keep this in juliarc/REQUIRE ??
-    julia --eval 'Pkg.add("Gadfly")'
 } # End function install_jl_ppanightlies
 
 
