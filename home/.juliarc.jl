@@ -1,12 +1,11 @@
 ################################################################################
 # FILE       : .juliarc.jl
-# DESCRIPTION: Configuration file for Julia for users to store their personal
-#              commands in homedir(), in a file named .juliarc.jl
+# DESCRIPTION: My Julia config file storing personal commands in homedir()
 # AUTHOR     : SVAKSHA <http://svaksha.github.io/yaksha>
 # COPYRIGHT© : 2005-Now SVAKSHA <http://svaksha.com/pages/Bio> AllRightsReserved
 # LICENSE    : GNU AGPLv3 and subject to the terms and conditions in the LICENSE.md 
 #              (https://github.com/svaksha/yaksha/blob/master/LICENSE.md) file being met.
-# DATES      : Created:2013oct01 - Updated:2016mar16
+# DATES      : Created:2013oct01 - Updated:2016mar17
 ################################################################################
 #
 # This file contains site-specific commands (EX. add directories to the LOAD_PATH,
@@ -45,15 +44,11 @@ end
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 # Import these packages on REPL startup 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-# PyCall.jl
+# PyCall.jl, will not work in ver0.5
+# see Julia bug https://github.com/stevengj/PyCall.jl/issues/246
 #=
 atreplinit() do repl
     @eval using PyCall
 end
 =#
-
-atreplinit() do repl
-    eval(Expr(:using, :PyCall))
-end
-
 

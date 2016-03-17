@@ -7,7 +7,7 @@
 # COPYRIGHT© : 2005-Now SVAKSHA (http://svaksha.com/pages/Bio) AllRightsReserved
 # LICENSE    : GNU AGPLv3 and subject to the terms and conditions in the LICENSE.md 
 #              (https://github.com/svaksha/yaksha/blob/master/LICENSE.md) file being met.
-# DATES      : Created:2005mar22 - Updated:2016mar16
+# DATES      : Created:2005mar22 - Updated:2016mar17
 ################################################################################
 #
 # ~/.bashrc: executed by bash(1) for non-login shells. For examples
@@ -361,6 +361,7 @@ export LD_LIBRARY_PATH
 ## DATE: 2015oct15-2015oct22
 ################################################################################
 export GOPATH=$HOME/devya/dev-go
+export GOPATH=$HOME/divya/dev-go
 #add the workspace's `bin` subdirectory to your PATH
 export PATH=$PATH:$GOPATH/bin
 
@@ -380,9 +381,10 @@ eval "$(basher init -)"
 ################################################################################
 export PATH="$(pwd)/julia:$PATH"
 $PWD/julia/bin
-export PATH="$(pwd)/devya/:$PATH" # locally-written code
+export PATH="$(pwd)/devya/:$PATH" # devel work code
+export PATH="$(pwd)/divya/:$PATH" # devel code
 #
-# Concurrently install two versions of Julia. Check the RC file.
+# Concurrently install two versions of Julia. Check the juliarc file.
 #-------------------------------------------------------------------------------
 sudo ln -s $(pwd)/julia /usr/local/lib/julia-unstable
 # The environment variable JULIA_PKGDIR can also do the above - install two versions of Julia.
