@@ -7,7 +7,7 @@
 # COPYRIGHT© : 2005-Now SVAKSHA, All Rights Reserved.
 # LICENSE    : GNU AGPLv3 and subject to meeting all the terms in the LICENSE 
 #              file: https://github.com/svaksha/yaksha/blob/master/LICENSE.md
-# DATES      : Created:2005mar22 - Updated:2016mar14
+# DATES      : Created:2005mar22 - Updated:2016mar18
 ################################################################################
 #
 # References:
@@ -230,7 +230,7 @@ function install_editors() {
     sudo apt-get -y install pico
     sudo apt-get -y install vim
     # Atom editor 64-bit DEB file from github source
-    wget https://github.com/atom/atom/releases/download/v1.1.0-beta.0/atom-amd64.deb ~/home
+    wget https://github.com/atom/atom/releases/download/v1.6.0/atom-amd64.deb ~/home
     cd ~/home; sudo dpkg --install atom-amd64.deb
     # Atom editor 32-bit PPA
     #sudo add-apt-repository ppa:webupd8team/atom
