@@ -7,7 +7,7 @@
 # COPYRIGHT© : 2005-Now SVAKSHA, All Rights Reserved.
 # LICENSE    : GNU AGPLv3 and subject to meeting all the terms in the LICENSE 
 #              file: https://github.com/svaksha/yaksha/blob/master/LICENSE.md
-# DATES      : Created:2015feb15 - Updated:2016mar17
+# DATES      : Created:2015feb15 - Updated:2016mar22
 ################################################################################
 #
 
@@ -28,7 +28,7 @@ cd $JULIADIR
 set -e                   # stop on error
 
 #-------------------------------------------------------------------------------
-# install julia from git master
+# install julia (Unstable) from git master
 #-------------------------------------------------------------------------------
 function install_jl_gitdev() {
 
@@ -54,7 +54,7 @@ git clone git@github.com:JuliaLang/julia.git
 
 # Check if ~/julia exists
 #---------------------------
-if [ -e /usr/local/bin/julia0.5 ]; then
+if [ -e /usr/local/bin/julia ]; then
     echo "Julia folder already exists on localhost. Exiting!"
     exit 1
 fi

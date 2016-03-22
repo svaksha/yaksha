@@ -255,6 +255,8 @@ esac
 ################################################################################
 source ~/.git-completion.bash
 source ~/.bash_aliases
+source ~/.bash_profile
+
 
 #............................ TIME-TRACKER.......................................
 ################################################################################
@@ -386,7 +388,7 @@ export PATH="$(pwd)/divya/:$PATH" # devel code
 #
 # Concurrently install two versions of Julia. Check the juliarc file.
 #-------------------------------------------------------------------------------
-#sudo ln -s $(pwd)/julia /usr/local/lib/julia # symbolic link to julia0.5 
+#sudo ln -s $(pwd)/julia /usr/local/lib/julia # symbolic link to julia
 
 # The environment variable JULIA_PKGDIR can also do the above - install two versions of Julia.
 #sudo export JULIA_PKGDIR=/usr/local/julia/julia-packages
@@ -397,10 +399,4 @@ export PATH="$(pwd)/divya/:$PATH" # devel code
 ## jdp == DeclarativePackages.jl
 export PATH="$(pwd)/julia/bin/jdp:$PATH"
 PATH=$PATH:$(pwd)/julia/bin/jdp 
-
-################################################################################
-# Symbolic link PATH for local daemons.
-################################################################################
-#sudo ln -s $(pwd)/yaksha /usr/local/bin/yaksha      # symbolic link to yaksha
-#sudo ln -s $(pwd)/yakshi /usr/local/bin/yakshi      # symbolic link to yakshi
 
