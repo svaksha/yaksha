@@ -25,23 +25,32 @@ git clone ssh://github.com/svaksha/yaksha.git
 The [yaksha][yaksha] repository tree for is structured as below: 
 
 ### 1. Programs
-These programs are for package dependencies and OS-tasks:
-+ __yaksha.sh__ :: This daemon will run all the program scripts listed below automatically. {Note: use with care.}
-+ __yaks-backup.py__ :: Take regular backups of my system using the attic python lib.
-+ __yaks-mail-todo.sh__ :: Mail the ToDo list.
-+ __yksh-apt-install.sh__ :: An automated system installation shell script for all new Debian Jessie machines that installs the following developer stack: 
+
++ __yaksha.sh__ :: This daemon will be wired to run all the program scripts listed below automatically. {Not Recommended.}
+
+##### `yksh-*` : Mostly for installing OS applications and the package dependencies.
++ __yksh-apt-debian.sh__ :: An automated system installation shell script for all new Debian Jessie machines that installs the following developer stack: 
   * Atom, Vim, basher, tab completion, curl, git, GNU core utils, etc..
   * Anaconda, VirtualBox, Vagrant, Docker, etc..
   * {Database}: MySQL, PostgreSQL, SQLite, MongoDB, etc..
   * {Languages}: GCC, G++, Go, Python, Java, Javascript, R, Ruby, et al.
 + __yksh-apt-firewall.sh__ :: A program firewall to secure the machine.
-+ __yksh-apt-uninstall.sh__ :: An uninstall script (that should **not** be used if you dont know what it does).
-+ __yaks-update.sh__ :: This daemon automagically updates my Debian OS.
++ __yksh-apt-nonfree.sh__ :: As the filename says, all the non-free stuff gets installed.
++ __yksh-apt-ubuntu.sh__ :: A shell script for Ubuntu packages.
++ __yksh-gitlab.sh__ :: Bash script to install the `gitlab` omnibus version. Use __yksh-gitlab-omni.sh__ instead.
++ __yksh-gitlab-omni.sh__ :: Program to automatically check the OS and install the `gitlab` version.
++ __yksh-julia-dev.sh__ :: This script installs __Julia__ and builds from the unstable master on github. {__Nota Bene__: I use the _master build_, so _dont_ use this script if you want stable packages as there are always broken packages and other bugs.}
++ __yksh-julia-ubuntuPPA.sh__ :: This script installs the PPA nightlies for Julia. {__Nota Bene__: The PPA is currently __unmaintained__ on Launchpad.net due to lack of manpower.}
++ __yksh-py-anaconda.sh__ :: Installs Anaconda3.
++ __yksh-vm-debian-8.sh__ :: {WIP} The dependencies for a VM running debian-8 (jessie).
 
-These programs will install the programming language package dependencies:
-+ __yksh-vm-debian-8.sh__ :: The dependencies for a VM running debian-8 (jessie).
-+ __yksh-git-julia.sh__ :: This script installs __Julia__ and builds from unstable git master. {__Nota Bene__: I use the _master build_, so _dont_ use this script if you are not comfortable with some (a lot of) breakage.}
-+ __yksh-apt-julia-ppanightlies.sh__ :: This script installs the PPA nightlies for Julia. 
+##### `yaks-*` : Backup and Update scripts.
++ __yaks-backup.py__ :: Take regular backups of my system using the attic python lib.
++ __yaks-update.sh__ :: This daemon automagically updates my Debian OS.
++ __yaks-update-julia.sh__ :: Updates and builds the julia unstable master installed via `yksh-jl-julia.sh`
++ __yaks-mail-todo.sh__ :: Mail the ToDo list.
++ __yaks-start-vm-docker.sh__ :: WIP.
+
 
 ### 2. Folders
 + __~/yaksha/dockerfiles/__ :: The dockerfiles are a WIP.

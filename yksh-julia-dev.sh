@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 ################################################################################
-# FILE       : yksh-jl-julia-dev.sh
+# FILE       : yksh-julia-dev.sh
 # DESCRIPTION: Installation script for the Julia source build from development version on github.
 # AUTHOR     : SVAKSHA, http://svaksha.com/pages/Bio
 # SOURCE     : http://svaksha.github.io/yaksha
@@ -23,7 +23,7 @@ set -x
 # From, https://gist.github.com/jiahao/3f9826b077372220b6f0
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-JULIADIR=$HOME/julia0.5  #TODO: http://stackoverflow.com/questions/59895/can-a-bash-script-tell-what-directory-its-stored-in?rq=1
+JULIADIR=$HOME/julia  #TODO: http://stackoverflow.com/questions/59895/can-a-bash-script-tell-what-directory-its-stored-in?rq=1
 cd $JULIADIR
 set -e                   # stop on error
 

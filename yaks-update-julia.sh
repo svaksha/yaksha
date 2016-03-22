@@ -1,13 +1,13 @@
 #!/usr/bin/env bash
 ################################################################################
-# FILE       : yakshara-julia-aptupdate.sh
+# FILE       : yaks-update-julia.sh
 # DESCRIPTION: Update the Julia source build and store different versions.
 # AUTHOR     : SVAKSHA, http://svaksha.com/pages/Bio
 # SOURCE     : http://svaksha.github.io/yaksha
 # COPYRIGHT© : 2005-Now SVAKSHA, All Rights Reserved.
 # LICENSE    : GNU AGPLv3 and subject to meeting all the terms in the LICENSE 
 #              file: https://github.com/svaksha/yaksha/blob/master/LICENSE.md
-# DATES      : Created:2015feb15 - Updated:2016jan14
+# DATES      : Created:2015feb15 - Updated:2016mar22
 ################################################################################
 #
 #-------------------------------------------------------------------------------
@@ -58,9 +58,14 @@ if test $? -ne 0 ; then
   make OPENBLAS_TARGET_ARCH=NEHALEM
   make testall
 fi
+
 if test $? -ne 0; then  #nuclear option
-  git clean -xfd
-  make
+   git clean -xfd
+   make distclean
+   make -C deps clean-uv
+   make -C deps distclean
+   git clean -fdx
+   make -C deps distclean-libgit2 && make 
 fi
 
 cd   # Exit current dir & Return to $HOME dir

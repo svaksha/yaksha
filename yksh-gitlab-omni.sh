@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 ################################################################################
-# FILE       : yksh-apt-vm-gitlab-omni.sh
-# DESCRIPTION: Bash Installation script for Gitlab on Debian-8 Jessie using omnibus.
+# FILE       : yksh-os-gitlab-omni.sh
+# DESCRIPTION: Bash Installation script for Gitlab on Debian-8 testing using omnibus.
 # AUTHOR     : SVAKSHA, http://svaksha.com/pages/Bio
 # SOURCE     : http://svaksha.github.io/yaksha
 # CREDITS    : From, https://packages.gitlab.com/gitlab/gitlab-ce/install

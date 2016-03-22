@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 ################################################################################
-# FILE       : yksh-apt-julia-ubuntuPPA.sh
+# FILE       : yksh-julia-ubuntuPPA.sh
 # DESCRIPTION: Installation script for the Julia PPA nightlies.
 # AUTHOR     : SVAKSHA, http://svaksha.com/pages/Bio
 # SOURCE     : http://svaksha.github.io/yaksha
