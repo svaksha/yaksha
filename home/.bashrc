@@ -255,7 +255,7 @@ esac
 ################################################################################
 source ~/.git-completion.bash
 source ~/.bash_aliases
-source ~/.bash_profile
+#source ~/.bash_profile
 
 
 #............................ TIME-TRACKER.......................................
