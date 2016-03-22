@@ -102,6 +102,7 @@ NullableArrays
 OpenGL
 Options
 Optim
+Parameters
 PDMats
 ParserCombinator
 Patchwork
@@ -119,6 +120,8 @@ Requires
 ReverseDiffSparse
 Roots
 SaveREPL
+ScikitLearn
+ScikitLearnBase
 SHA
 Showoff
 SIUnits
@@ -127,6 +130,7 @@ SQLite
 Stats
 StatsBase
 StatsFuns
+SymDict
 SymPy
 TestImages
 TerminalExtensions

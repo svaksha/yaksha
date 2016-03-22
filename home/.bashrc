@@ -7,7 +7,7 @@
 # COPYRIGHT© : 2005-Now SVAKSHA (http://svaksha.com/pages/Bio) AllRightsReserved
 # LICENSE    : GNU AGPLv3 and subject to the terms and conditions in the LICENSE.md 
 #              (https://github.com/svaksha/yaksha/blob/master/LICENSE.md) file being met.
-# DATES      : Created:2005mar22 - Updated:2016mar17
+# DATES      : Created:2005mar22 - Updated:2016mar22
 ################################################################################
 #
 # ~/.bashrc: executed by bash(1) for non-login shells. For examples
@@ -36,8 +36,8 @@ shopt -s histappend
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
 #-------------------------------------------------------------------------------
-HISTSIZE=5000
-HISTFILESIZE=10000
+HISTSIZE=5005
+HISTFILESIZE=10001
 export HISTTIMEFORMAT="%F[%H:%M] "  # HISTTIMEFORMAT=’%c ‘ also does the same thing.
 
 # After each command, save and reload history

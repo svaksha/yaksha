@@ -7,7 +7,7 @@
 # COPYRIGHT© : 2005-Now SVAKSHA, All Rights Reserved.
 # LICENSE    : GNU AGPLv3 and subject to meeting all the terms in the LICENSE 
 #              file: https://github.com/svaksha/yaksha/blob/master/LICENSE.md
-# DATES      : Created:2013jun25 - Updated:2016mar14
+# DATES      : Created:2013jun25 - Updated:2016mar22
 ################################################################################
 #
 # References:
@@ -45,8 +45,9 @@ while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 function install_anaconda() {
     # 64-bit
     wget http://repo.continuum.io/archive/Anaconda3-2.5.0-Linux-x86_64.sh
+    # uncomment this section if the machine is not 64-bit.
     # 32-bit
-    wget http://repo.continuum.io/archive/Anaconda3-2.5.0-Linux-x86.sh
+    #wget http://repo.continuum.io/archive/Anaconda3-2.5.0-Linux-x86.sh
     # In BASH, the variable $OSTYPE stores the name of the operation system:
     # `$OSTYPE` automatically set to a string that describes the operating system on which bash is executing.
     OSARCH=`uname -m`
@@ -54,10 +55,11 @@ function install_anaconda() {
         # Install 64-bit stuff here
         export PATH="$(pwd)/anaconda3:$PATH"
         sudo bash Anaconda3-2.5.0-Linux-x86_64.sh
-        else
+        # uncomment this section if the machine is not 64-bit.
+        #else
         # Install 32-bit stuff here
-        export PATH="$(pwd)/anaconda-32bit:$PATH"
-        sudo Anaconda3-2.5.0-Linux-x86.sh
+        #export PATH="$(pwd)/anaconda-32bit:$PATH"
+        #sudo Anaconda3-2.5.0-Linux-x86.sh
     fi
 }
 
