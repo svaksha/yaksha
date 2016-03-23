@@ -18,10 +18,6 @@ echo "Installation of generic Linux 64-bit binaries of Julia stable releases wil
 
 # The SET bulletin
 # Tip: Using "+" causes these flags to be turned off.
-set -a  # Mark variables which are modified or created for export.
-set -b  # Notify of job termination immediately.
-set -m  # Job control is enabled.
-set -v  # Verbose mode to print shell input lines as they are read.
 set -x  # Print commands and their arguments as they are executed.
 # Set debug mode
 exec 5> >(logger -t $0) # uses logger command 
@@ -34,9 +30,10 @@ PS4='$LINENO: '
 function install_linux64bitbinary() {
     INSTALL_DIR = $HOME/
     wget https://julialang.s3.amazonaws.com/bin/linux/x64/0.4/julia-0.4.5-linux-x86_64.tar.gz
-    tar julia-0.4.5-linux-x86_64.tar.gz
-    cd julia-0.4.5-linux-x86_64
-    chmod 700 bin
+    # Extract the tarball (-x), decompress extract the gzip content (-z), verbose (-v), specific filename (-f).
+    tar -xzvf julia-0.4.5-linux-x86_64.tar.gz
+    cd julia-0.4.5
+    chmod 700 julia-0.4.5
     if [[ -f "$INSTALL_DIR/julia-0.4.5" ]] ; then
         sudo rm -f "$INSTALL_DIR/julia-0.4.5"
     fi
@@ -44,3 +41,20 @@ function install_linux64bitbinary() {
 } # End function install_linux64bitbinary
 
 
+
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+# CASE
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+install_jlstable='all'
+
+case $install_jlstable in
+    linux64bitbinary)
+        install_linux64bitbinary
+    ;;
+    all)
+        install_linux64bitbinary
+    ;;
+    *)
+        echo "Installation of Non-Free packages is in progress!"
+    esac

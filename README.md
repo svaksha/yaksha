@@ -39,15 +39,15 @@ The [yaksha][yaksha] repository tree for is structured as below:
 + __yksh-apt-ubuntu.sh__ :: A shell script for Ubuntu packages.
 + __yksh-gitlab.sh__ :: Bash script to install the `gitlab` omnibus version. Use __yksh-gitlab-omni.sh__ instead.
 + __yksh-gitlab-omni.sh__ :: Program to automatically check the OS and install the `gitlab` version.
-+ __yksh-julia-dev.sh__ :: This script installs __Julia__ and builds from the unstable master on github. {__Nota Bene__: I use the _master build_, so _dont_ use this script if you want stable packages as there are always broken packages and other bugs.}
-+ __yksh-julia-ubuntuPPA.sh__ :: This script installs the PPA nightlies for Julia. {__Nota Bene__: The PPA is currently __unmaintained__ on Launchpad.net due to lack of manpower.}
++ __yksh-julia-dev.sh__ :: This script installs __Julia__ and builds from the unstable master on github. {__Nota Bene__: I use the _master build_, so _dont_ use this script if you want stable Julia packages - some packages may have bugs and may not work with the unstable builds.}
++ __yksh-julia-stable.sh__ :: A script to install the generic Linux 64-bit binaries for Julia stable releases only. 
 + __yksh-py-anaconda.sh__ :: Installs Anaconda3.
 + __yksh-vm-debian-8.sh__ :: {WIP} The dependencies for a VM running debian-8 (jessie).
 
 ##### `yaks-*` : Backup and Update scripts.
 + __yaks-backup.py__ :: Take regular backups of my system using the attic python lib.
 + __yaks-update.sh__ :: This daemon automagically updates my Debian OS.
-+ __yaks-update-julia.sh__ :: Updates and builds the julia unstable master installed via `yksh-jl-julia.sh`
++ __yaks-update-julia.sh__ :: Updates and builds the julia unstable master installed via `yksh-julia-dev.sh`
 + __yaks-mail-todo.sh__ :: Mail the ToDo list.
 + __yaks-start-vm-docker.sh__ :: WIP.
 
