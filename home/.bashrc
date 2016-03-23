@@ -383,8 +383,8 @@ eval "$(basher init -)"
 ################################################################################
 export PATH="$(pwd)/julia:$PATH"
 $PWD/julia/bin
-export PATH="$(pwd)/devya/:$PATH" # devel work code
-export PATH="$(pwd)/divya/:$PATH" # devel code
+#export PATH="$(pwd)/devya/:$PATH" # devel work code
+#export PATH="$(pwd)/divya/:$PATH" # devel code
 #
 # Concurrently install two versions of Julia. Check the juliarc file.
 #-------------------------------------------------------------------------------
