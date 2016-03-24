@@ -12,7 +12,7 @@
 #
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 # A script for weekly system updates.
-# Usage: "./yaks-apt-update.sh"
+# Usage: "./yaks-update.sh"
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 # Clear the Terminal.
@@ -67,6 +67,15 @@ function update_conda() {
     echo "Finished updating Anaconda :-)"
 }
 
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+# update the git-aware-prompt
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+function update_git-aware-prompt() {
+    cd ~/.bash/git-aware-prompt
+    git pull
+}
+
+
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 # Non-Free
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -107,12 +116,16 @@ case $update_deb in
     conda)
         update_conda
     ;;
+    git-aware-prompt)
+        update_git-aware-prompt
+	;;
     nonfree)
         update_nonfree
     ;;
     all)
         update_deb
         update_conda
+        update_git-aware-prompt
         update_nonfree
     ;;
     *)

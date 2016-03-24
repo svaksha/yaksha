@@ -7,7 +7,7 @@
 # COPYRIGHT© : 2005-Now SVAKSHA, All Rights Reserved.
 # LICENSE    : GNU AGPLv3 and subject to meeting all the terms in the LICENSE 
 #              file: https://github.com/svaksha/yaksha/blob/master/LICENSE.md
-# DATES      : Created:2005mar22 - Updated:2016mar18
+# DATES      : Created:2005mar22 - Updated:2016mar24
 ################################################################################
 #
 # References:
@@ -211,6 +211,11 @@ function install_dvcs() {
     git clone https://github.com/jonas/tig /tmp/tig
     cd /tmp/tig; sudo make prefix=/usr/local
     cd /tmp/tig; sudo make install prefix=/usr/local
+    # https://github.com/jimeh/git-aware-prompt 
+    # Display current Git branch name in your terminal prompt when in a Git working directory.
+    mkdir ~/.bash
+    cd ~/.bash
+    git clone git://github.com/jimeh/git-aware-prompt.git
 }
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++

@@ -7,7 +7,7 @@
 # COPYRIGHT© : 2005-Now SVAKSHA (http://svaksha.com/pages/Bio) AllRightsReserved
 # LICENSE    : GNU AGPLv3 and subject to the terms and conditions in the LICENSE.md 
 #              (https://github.com/svaksha/yaksha/blob/master/LICENSE.md) file being met.
-# DATES      : Created:2005mar22 - Updated:2016mar22
+# DATES      : Created:2005mar22 - Updated:2016mar24
 ################################################################################
 #
 # ~/.bashrc: executed by bash(1) for non-login shells. For examples
@@ -400,3 +400,9 @@ $PWD/julia/bin
 export PATH="$(pwd)/julia/bin/jdp:$PATH"
 PATH=$PATH:$(pwd)/julia/bin/jdp 
 
+#-------------------------------------------------------------------------------
+# https://github.com/jimeh/git-aware-prompt 
+# Display current Git branch name in your terminal prompt when in a Git working directory.
+#-------------------------------------------------------------------------------
+export GITAWAREPROMPT=~/.bash/git-aware-prompt
+source "${GITAWAREPROMPT}/main.sh"
