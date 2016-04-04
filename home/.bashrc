@@ -1,13 +1,13 @@
 #!/usr/bin/env bash
 ################################################################################
-# FILE       : .bashrc
-# DESCRIPTION: Configuration file for BASH, save as ~/.bashrc to use.
-# AUTHOR     : SVAKSHA :: http://svaksha.com/pages/Bio
-# SOURCE     : http://svaksha.github.io/yaksha
-# COPYRIGHT© : 2005-Now SVAKSHA (http://svaksha.com/pages/Bio) AllRightsReserved
-# LICENSE    : GNU AGPLv3 and subject to the terms and conditions in the LICENSE.md 
-#              (https://github.com/svaksha/yaksha/blob/master/LICENSE.md) file being met.
-# DATES      : Created:2005mar22 - Updated:2016mar24
+# FILE      : .bashrc
+# DESC.     : Configuration file for BASH, save as ~/.bashrc to use.
+# AUTHOR    : SVAKSHA, http://svaksha.com/pages/Bio
+# SOURCE    : http://svaksha.github.io/yaksha
+# COPYRIGHT©: 2005-Now SVAKSHA, http://svaksha.com/pages/Bio, All Rights Reserved.
+# LICENSE   : GNU AGPLv3 & subject to meeting all the terms in the LICENSE file.
+#             https://github.com/svaksha/yaksha/blob/master/LICENSE.md
+# DATE      : Created:2005mar22 - Updated:2016apr04
 ################################################################################
 #
 # ~/.bashrc: executed by bash(1) for non-login shells. For examples
@@ -81,16 +81,6 @@ function _exit()	# function to run upon exit of shell
 }
 trap _exit EXIT
 
-################################################################################
-# ALIAS definitions. 
-################################################################################
-# Dumped all ALIAS list additions into a separate file (see, ~/.bash_aliases).
-# See /usr/share/doc/bash-doc/examples in the bash-doc package.
-#-------------------------------------------------------------------------------
-if [ -f ~/.bash_aliases ]; then
-    . ~/.bash_aliases
-fi
-
 #-------------------------------------------------------------------------------
 # enable programmable completion features (Don't need to enable this, if it's 
 # already enabled in /etc/bash.bashrc and /etc/profile sources /etc/bash.bashrc).
@@ -98,6 +88,38 @@ fi
 if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
+
+################################################################################
+# .git-prompt.sh
+################################################################################
+# Change your PS1 to call __git_ps1 as command-substitution: see the above file.
+#        ZSH:  setopt PROMPT_SUBST ; PS1='[%n@%m %c$(__git_ps1 " (%s)")]\$ '
+#        the optional argument will be used as format string.
+PS1='[\u@\h \W$(__git_ps1 " (%s)")]\$ '
+
+
+################################################################################
+# SOURCE(ing) will reload these BASH files to make changes active after editing
+################################################################################
+#source ~/.bash_aliases
+#source ~/.bash_profile
+source ~/.git-prompt.sh
+source ~/.git-completion.bash
+#-------------------------------------------------------------------------------
+# ALIAS definitions and additions are in a separate file (see, ~/.bash_aliases).
+# See /usr/share/doc/bash-doc/examples in the bash-doc package.
+#-------------------------------------------------------------------------------
+if [ -f ~/.bash_aliases ]; then
+    . ~/.bash_aliases
+fi
+
+#-------------------------------------------------------------------------------
+# https://github.com/jimeh/git-aware-prompt 
+# Display current Git branch name in the terminal, inside a Git working directory.
+# Date: 2016mar17
+#-------------------------------------------------------------------------------
+export GITAWAREPROMPT=~/.bash/git-aware-prompt
+source "${GITAWAREPROMPT}/main.sh"
 
 
 ################################################################################
@@ -223,7 +245,7 @@ if [ -x /usr/bin/dircolors ]; then
 fi
 
 #-------------------------------------------------------------------------------
-### Colour prompt :: 23-July-2012 
+### Colour prompt :: 23Jul2012 
 #-------------------------------------------------------------------------------
 #STARTCOLOR='\e[0;34m';
 #ENDCOLOR="\e[0m"
@@ -250,13 +272,6 @@ xterm*|rxvt*)
     ;;
 esac
 
-################################################################################
-# Reload BASH, source these files to make changes active after editing
-################################################################################
-source ~/.git-completion.bash
-source ~/.bash_aliases
-#source ~/.bash_profile
-
 
 #............................ TIME-TRACKER.......................................
 ################################################################################
@@ -266,26 +281,47 @@ source ~/.bash_aliases
 #. /etc/profile.d/vte.sh
 
 
-#............................ WEB ..............................................
 ################################################################################
-# Heroku Toolbelt
-################################################################################
-export PATH="/usr/local/heroku/bin:$PATH"
-
-
-################################################################################
-#########      Customize DEVELOPMENT ENVIRONMENTS                     #########
+#########      Customize DEVELOPMENT ENVIRONMENTS                     ##########
 ################################################################################
 #
 #======================== GCC ==================================================
 # Enable gcc colours, available since gcc 4.8.0
 export GCC_COLORS=1
 
+
+
+## DVCS DVCS DVCS DVCS DVCS DVCS DVCS DVCS DVCS DVCS DVCS DVCS DVCS DVCS DVCS
 ################################################################################
-### PYTHON ** PYTHON ** PYTHON ** PYTHON ** PYTHON ** PYTHON ** PYTHON ** PYTHON 
+### GIT configurations
+# DATE: 2010feb22-2014dec30
+################################################################################
+git config --global user.name "SVAKSHA"
+git config --global user.email svaksha@gmail.com
+git config --global http.sslVerify false
+
+
+################################################################################
+### PATH ### PATH ### PATH ### PATH ### PATH ### PATH ### PATH ### PATH ### PATH 
 ################################################################################
 #
-#-------------------------------------------------------------------------------
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+# HEROKU WEB Toolbelt
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+export PATH="/usr/local/heroku/bin:$PATH"
+
+
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+# JavaScript PATH | created: 2012Nov11 | updated: 2015Jul14
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+export PATH="$(pwd)/usr/local/bin/grunt:$PATH"
+export PATH="$(pwd)/usr/local/lib/node_modules/grunt-cli:$PATH"
+
+
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+### PYTHON ** PYTHON ** PYTHON ** PYTHON ** PYTHON ** PYTHON ** PYTHON ** PYTHON 
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
++
 # COMMAND LINE ENVIRONMENT, https://docs.python.org/3/using/cmdline.html
 #-------------------------------------------------------------------------------
 # set the Environment variable PYTHONSTARTUP to point to the start up script
@@ -300,11 +336,9 @@ export PYTHON_HISTORY_FILE="$HOME/.python_history"
 # command to delete bytecode (.pyc) files, works with the global alias file
 export PYTHONDONTWRITEBYTECODE=true # REF: https://twitter.com/wlonk/status/587431447222444033
 
-
-#===============================================================================
 ### PIP bash completion start 
 # DATE: Fri, 03 May 2013 16:02:40 +0530 
-#===============================================================================
+#-------------------------------------------------------------------------------
 _pip_completion()
 {
 COMPREPLY=( $( COMP_WORDS="${COMP_WORDS[*]}" \
@@ -313,10 +347,10 @@ PIP_AUTO_COMPLETE=1 $1 ) )
 }
 complete -o default -F _pip_completion pip
 
-#===============================================================================
+#-------------------------------------------------------------------------------
 # Anaconda 2.2.0 installer (np19py34_0 AND np19py27_0)
 # DATE: 2013nov15-2015oct21
-################################################################################
+#-------------------------------------------------------------------------------
 export PATH="~/anaconda/bin:$PATH"
 export PATH="$(pwd)/anaconda:$PATH"
 # added by Anaconda 2.2.0 installer
@@ -325,30 +359,10 @@ export PATH="$HOME/anaconda/bin:$PATH"
 export PATH="$HOME/anaconda3/bin:$PATH"
 
 
-#............................ JS ...............................................
-################################################################################
-# JavaScript PATH | created: 2012Nov11 | updated: 2015Jul14
-################################################################################
-export PATH="$(pwd)/usr/local/bin/grunt:$PATH"
-export PATH="$(pwd)/usr/local/lib/node_modules/grunt-cli:$PATH"
-
-
-
-## DVCS DVCS DVCS DVCS DVCS DVCS DVCS DVCS DVCS DVCS DVCS DVCS DVCS DVCS DVCS
-################################################################################
-### GIT configurations
-# DATE: 2010feb22-2014dec30
-################################################################################
-git config --global user.name "SVAKSHA"
-git config --global user.email svaksha@gmail.com
-git config --global http.sslVerify false
-
-
-#---DataBase---DataBase---DataBase---DataBase---DataBase---DataBase---DataBase
-################################################################################
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 ### PostgreSQL configurations. 
 # DATE: 2009jan26-2015aug25
-################################################################################
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 export PATH=$PATH:/usr/local/pgsql/bin
 PATH=$PATH:/usr/local/pgsql/bin
 MANPATH=$MANPATH:/usr/local/pgsql/man
@@ -358,35 +372,33 @@ LD_LIBRARY_PATH=/usr/local/pgsql/lib
 export LD_LIBRARY_PATH
 
 
-################################################################################
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 ## GO: https://golang.org/doc/code.html ## GO: https://golang.org/doc/code.html
 ## DATE: 2015oct15-2015oct22
-################################################################################
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 export GOPATH=$HOME/devya/dev-go
 export GOPATH=$HOME/divya/dev-go
 #add the workspace's `bin` subdirectory to your PATH
 export PATH=$PATH:$GOPATH/bin
 
-#-------------------------------------------------------------------------------
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 # PATH for UTILS: https://github.com/basherpm/basher
 # Only tested for git based packages
 ## DATE: 2015dec25-2015dec25
-#-------------------------------------------------------------------------------
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 export PATH="$HOME/.basher/bin:$PATH"
 eval "$(basher init -)"
 
-
-#............................ JULIA ............................................
-################################################################################
-# Julia Symbolic links PATH 
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+# JULIA Symbolic links PATH 
 # DATE: 2012apr12-2016mar17
-################################################################################
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 export PATH="$(pwd)/julia:$PATH"
 $PWD/julia/bin
 #export PATH="$(pwd)/devya/:$PATH" # devel work code
 #export PATH="$(pwd)/divya/:$PATH" # devel code
-#
-# Concurrently install two versions of Julia. Check the juliarc file.
+#l
+# Concurrently install two versions of Julia. Check the juliarc file instead.
 #-------------------------------------------------------------------------------
 #sudo ln -s $(pwd)/julia /usr/local/lib/julia # symbolic link to julia
 
@@ -400,9 +412,4 @@ $PWD/julia/bin
 export PATH="$(pwd)/julia/bin/jdp:$PATH"
 PATH=$PATH:$(pwd)/julia/bin/jdp 
 
-#-------------------------------------------------------------------------------
-# https://github.com/jimeh/git-aware-prompt 
-# Display current Git branch name in your terminal prompt when in a Git working directory.
-#-------------------------------------------------------------------------------
-export GITAWAREPROMPT=~/.bash/git-aware-prompt
-source "${GITAWAREPROMPT}/main.sh"
+
