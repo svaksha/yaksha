@@ -1,18 +1,18 @@
 ################################################################################
-# FILE       : .juliarc.jl
-# DESCRIPTION: My Julia config file storing personal commands in homedir()
-# AUTHOR     : SVAKSHA <http://svaksha.github.io/yaksha>
-# COPYRIGHT© : 2005-Now SVAKSHA <http://svaksha.com/pages/Bio> AllRightsReserved
-# LICENSE    : GNU AGPLv3 and subject to meeting all the terms in the LICENSE
-#              file: https://github.com/svaksha/yaksha/blob/master/LICENSE.md
-# DATES      : Created:2013oct01 - Updated:2016apr08
+# FILE      : .juliarc.jl
+# DESC.     : My Julia config file storing personal commands in homedir()
+# AUTHOR    : SVAKSHA <http://svaksha.github.io/yaksha>
+# COPYRIGHT©: 2005-Now SVAKSHA <http://svaksha.com/pages/Bio> AllRightsReserved
+# LICENSE   : GNU AGPLv3 and subject to meeting all the terms in the LICENSE
+#             file: https://github.com/svaksha/yaksha/blob/master/LICENSE.md
+# DATES     : Created:2013oct01 - Updated:2016apr08
 ################################################################################
 #
 # This file contains site-specific commands (EX. add directories to the LOAD_PATH,
 # to be executed when the Julia REPL starts up.
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-# Greet Users on startup.
+# Greet the users on startup.
 #-------------------------------------------------------------------------------
 println("|| नमस्ते ! स्वक्षंस्या सङ्गणकप्रक्रमम् स्वागतम  || Greetings! ")
 
@@ -28,10 +28,10 @@ push!(LOAD_PATH, ENV["HOME"]*"/divya-*")
 using Base
 
 atreplinit() do repl
-    @eval using Gadfly
-    @eval using IJulia
     # PyCall wont work in v0.5, Julia bug https://github.com/stevengj/PyCall.jl/issues/246 
     @eval using PyCall
+    @eval using Debug
+    @eval using IJulia
 end
 
 #julia --eval 'Pkg.add("IJulia")'
