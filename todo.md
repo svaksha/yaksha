@@ -8,9 +8,9 @@ List of __pending__ system automation tasks:
 ### Cleanup my bash programs 
 + [BASH best practices](https://github.com/progrium/bashstyle).
 
-
 ### Automation
 __Dotbot__
++ https://github.com/webpro/awesome-dotfiles
 + Blog post on [managing dotfiles](http://www.anishathalye.com/2014/08/03/managing-your-dotfiles/) and [dotbot](https://github.com/anishathalye/dotbot) with the dotfiles [template](https://github.com/anishathalye/dotfiles_template).
 + Shell script to initialize your dotfiles with `dotbot`: https://github.com/Vaelatern/init-dotfiles
 + https://github.com/szaghi/dotfiles
