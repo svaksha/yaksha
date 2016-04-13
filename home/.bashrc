@@ -5,7 +5,7 @@
 # AUTHOR    : SVAKSHA, http://svaksha.com/pages/Bio
 # SOURCE    : http://svaksha.github.io/yaksha
 # COPYRIGHT©: 2005-Now SVAKSHA, http://svaksha.com/pages/Bio, All Rights Reserved.
-# LICENSE   : GNU AGPLv3 & subject to meeting all the terms in the LICENSE file.
+# LICENSE   : GNU AGPLv3 & subject to meeting all the terms in the LICENSE file:
 #             https://github.com/svaksha/yaksha/blob/master/LICENSE.md
 # DATE      : Created:2005mar22 - Updated:2016apr04
 ################################################################################
