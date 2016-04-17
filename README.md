@@ -48,7 +48,6 @@ The [yaksha][yaksha] repository tree for is structured as below:
 + __yaks-backup.py__ :: Take regular backups of my system using the attic python lib.
 + __yaks-update.sh__ :: This daemon automagically updates my Debian OS.
 + __yaks-update-julia.sh__ :: Updates and builds the julia unstable master installed via `yksh-julia-dev.sh`
-+ __yaks-mail-todo.sh__ :: Mail the ToDo list.
 + __yaks-start-vm-docker.sh__ :: WIP.
 
 
