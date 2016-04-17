@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 ################################################################################
-# FILE       : yksh-apt-ubuntu.sh
-# DESCRIPTION: Bash script to install packages on the Debian8(Jessie) system.
+# FILE       : yksh-apt-kubuntu.sh
+# DESCRIPTION: Bash script to install packages on the Kubuntu system.
 # AUTHOR     : SVAKSHA, http://svaksha.com/pages/Bio
 # SOURCE     : http://svaksha.github.io/yaksha
 # COPYRIGHT© : 2005-Now SVAKSHA, All Rights Reserved.
@@ -18,8 +18,8 @@
 yaksha_dir=~/yaksha/
 
 # Log the date and time of execution of bash script into the `out` files.
-date +'%c|started running `apt-get`: ' >> out-yksh-apt-ubuntu.log
-date +"%c|completed running: $?" >> out-yksh-apt-ubuntu.log
+date +'%c|started running `apt-get`: ' >> out-yksh-apt-kubuntu.log
+date +"%c|completed running: $?" >> out-yksh-apt-kubuntu.log
 
 # The SET bulletin
 # Tip: Using "+" causes these flags to be turned off.
@@ -40,25 +40,26 @@ PS4='$LINENO: '
 while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-# UBUNTU package utilities
+# KUBUNTU package utilities
+# Check for release names: https://wiki.ubuntu.com/Releases
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-function install_ubuntu() {
+function install_kubuntu() {
     ## general cli tools for web, search
     #============================================
-    sudo apt-get -y install cron-apt   #not in debian
-    sudo apt-get -y install silversearcher-ag   #not in debian
-    sudo apt-get -y install zip   #not in debian
+    sudo apt-get -y install cron-apt   
+    sudo apt-get -y install silversearcher-ag   
+    sudo apt-get -y install zip   
     sudo apt-get -y install ctags
-    sudo apt-get -y install exuberant-ctags ack-grep #not in debian
-    sudo apt-get -y install unrar #not in debian
+    sudo apt-get -y install exuberant-ctags ack-grep 
+    sudo apt-get -y install unrar 
     sudo apt-get -y install screen
     ln -s  ${yaksha_dir}.screenrc ~/.screenrc # copy the old file, dont create new one
     ## Tools for dependency check and PPA removal
-    sudo apt-get -y install equivs #not in debian
-    sudo apt-get -y install ppa-purge #not in debian
-    sudo apt-get -y install nmap #not in debian
+    sudo apt-get -y install equivs
+    sudo apt-get -y install ppa-purge 
+    sudo apt-get -y install nmap 
     # SSH
-    sudo apt-get -y install sshpass #not in debian
+    sudo apt-get -y install sshpass 
     # Install Augeas - http://augeas.net/download.html
     # An editing tool API to automate the configuration editing on remote servers.
     #============================================
@@ -71,13 +72,13 @@ function install_ubuntu() {
     sudo apt-get -y install pybliographer
     sudo apt-get -y install referencer    #IGNORE, https://launchpad.net/referencer
     # hierarchical notebook : http://hnb.sourceforge.net/Documentation/ 
-    sudo apt-get -y install hnb #not in debian
+    sudo apt-get -y install hnb 
     # PDF related packages
-    sudo apt-get -y install flpsed #not in debian
+    sudo apt-get -y install flpsed
     sudo apt-get -y install pdfjam
     sudo apt-get -y install xournal
-    sudo apt-get -y install pdfedit #not in debian
-    sudo apt-get -y install cups-pdf #not in debian
+    sudo apt-get -y install pdfedit 
+    sudo apt-get -y install cups-pdf 
     ## HP printer stuff
     sudo apt-get -y install hplip
     sudo apt-get -y install mtink  # http://xwtools.automatix.de/
@@ -85,10 +86,10 @@ function install_ubuntu() {
     sudo apt-get -y install hp-setup
     sudo apt-get -y install hplip-plugin
     ## Reactivate HP LaserJet 1018/1020 after reloading paper
-    sudo apt-get -y install printer-driver-foo2zjs-common   #20140209dfsg0-1ubuntu1
+    sudo apt-get -y install printer-driver-foo2zjs-common   #20140209dfsg0-1kubuntu1
     ## Browsers
     #============================================
-    sudo apt-get -y install google-chrome-stable #not in debian
+    sudo apt-get -y install google-chrome-stable 
     ## video and audio (music - mpto mp3) converters
     sudo apt-get -y install papcl
     sudo apt-get -y install ubuntu-restricted-extras # install the MP3 codec from the Ubuntu Restricted Extras package
@@ -139,8 +140,8 @@ function install_programming() {
 	sudo add-apt-repository --yes ppa:marutter/rrutter
     sudo apt-get -y update
     # Cubature if you use K/Ubuntu.
-    wget http://packages.ubuntu.com/vivid/r-cran-cubature r-cran-cubature_1.1-2-1_amd64.deb
-    wget http://packages.ubuntu.com/vivid/r-cran-cubature r-cran-cubature_1.1-2-1_i386.deb
+    wget http://packages.ubuntu.com/xenial/r-cran-cubature r-cran-cubature_1.1-2-1_amd64.deb
+    wget http://packages.ubuntu.com/xenial/r-cran-cubature r-cran-cubature_1.1-2-1_i386.deb
     # In BASH, the variable $OSTYPE stores the name of the operation system:
     # `$OSTYPE` automatically set to a string that describes the operating system on which bash is executing.
     OSARCH=`uname -m`
@@ -168,7 +169,7 @@ function install_programming() {
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-install_ubuntu='all'
+install_kubuntu='all'
 key="$1"
 key="$2"
 
@@ -178,13 +179,13 @@ case $key in
         shift
     ;;
     -i|--install)
-        install_ubuntu="$2"
+        install_kubuntu="$2"
         shift
     ;;
     *)
         echo "usage:
                 -c|--clean  - remove dotfiles before installation
-                -i|--install [type] will install the UBUNTU packages into $HOME/user
+                -i|--install [type] will install the KUBUNTU packages into $HOME/user
         "
         ;;
     esac
@@ -194,15 +195,15 @@ case $key in
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 #git clone --recursive https://github.com/svaksha/yaksha ${yaksha_dir}
 
-case $install_ubuntu in
-    ubuntu)
-        install_ubuntu
+case $install_kubuntu in
+    kubuntu)
+        install_kubuntu
     ;;
     programming)
         install_programming
     ;;
     all)
-        install_ubuntu
+        install_kubuntu
         install_programming
     ;;
     *)

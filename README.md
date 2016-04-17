@@ -35,14 +35,15 @@ The [yaksha][yaksha] repository tree for is structured as below:
   * {Database}: MySQL, PostgreSQL, SQLite, MongoDB, etc..
   * {Languages}: GCC, G++, Go, Python, Java, Javascript, R, Ruby, et al.
 + __yksh-apt-firewall.sh__ :: A program firewall to secure the machine.
++ __yksh-apt-kubuntu.sh__ :: A shell script for Kubuntu packages.
 + __yksh-apt-nonfree.sh__ :: As the filename says, all the non-free stuff gets installed.
-+ __yksh-apt-ubuntu.sh__ :: A shell script for Ubuntu packages.
 + __yksh-gitlab.sh__ :: Bash script to install the `gitlab` omnibus version. Use __yksh-gitlab-omni.sh__ instead.
 + __yksh-gitlab-omni.sh__ :: Program to automatically check the OS and install the `gitlab` version.
 + __yksh-julia-dev.sh__ :: This script installs __Julia__ and builds from the unstable master on github. {__Nota Bene__: I use the _master build_, so _dont_ use this script if you want stable Julia packages - some packages may have bugs and may not work with the unstable builds.}
 + __yksh-julia-stable.sh__ :: A script to install the generic Linux 64-bit binaries for Julia stable releases only. 
 + __yksh-py-anaconda.sh__ :: Installs Anaconda3.
 + __yksh-vm-debian-8.sh__ :: {WIP} The dependencies for a VM running debian-8 (jessie).
++ __yksh-zyppr-opensuse.sh__ :: The shell script for RPM-based OpenSUSE packages.
 
 ##### `yaks-*` : Backup and Update scripts.
 + __yaks-backup.py__ :: Take regular backups of my system using the attic python lib.
