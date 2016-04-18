@@ -126,6 +126,8 @@ function install_programming() {
     sudo add-apt-repository --yes ppa:cwchien/gradle
     sudo apt-get update
     sudo apt-get -y install gradle
+    # Markdown to PDF conversion - JS tool (better than the py tool 'grip')
+    sudo npm install -g markdown-pdf
     #++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     # PYTHON
     #++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -136,6 +138,8 @@ function install_programming() {
     # ZMQ, also needed by Jupyter/IPython / IRuby etc..
     sudo add-apt-repository --yes ppa:chris-lea/zeromq
     sudo apt-get -y install libzmq3-dbg libzmq3-dev libzmq3
+    # Markdown to PDF conversion - Python tool
+    sudo pip install grip
     #++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     # R-project / language
     #++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++

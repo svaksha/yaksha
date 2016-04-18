@@ -93,6 +93,10 @@ function install_ubuntu() {
     sudo apt-get -y install xournal
     sudo apt-get -y install pdfedit #not in debian
     sudo apt-get -y install cups-pdf #not in debian
+    # Markdown to PDF conversion - JS tool (better than the py tool 'grip')
+    sudo npm install -g markdown-pdf
+    # Markdown to PDF conversion - Python tool
+    sudo pip install grip
     ## HP printer stuff
     sudo apt-get -y install hplip
     sudo apt-get -y install mtink  # http://xwtools.automatix.de/

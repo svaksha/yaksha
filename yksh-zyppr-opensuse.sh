@@ -41,12 +41,22 @@ function install_codecs() {
 }
 
 #-------------------------------------------------------------------------------
+# Editors: markdown2PDF converter, document comparison tools, ....
+#-------------------------------------------------------------------------------
+function install_editors() {
+    sudo zypper -y install kile #TeX Editor for KDE.
+    sudo zypper -y install kompare #https://en.wikipedia.org/wiki/Kompare
+    # Markdown to PDF conversion - JS tool (better than the py tool 'grip')
+    sudo npm install -g markdown-pdf
+    # Markdown to PDF conversion - Python tool
+    sudo pip install grip
+}
+
+#-------------------------------------------------------------------------------
 # LaTeX installation.
 #-------------------------------------------------------------------------------
 function install_latex() {
     sudo zypper -y update
-    sudo zypper -y install kile #TeX Editor for KDE.
-    sudo zypper -y install kompare #https://en.wikipedia.org/wiki/Kompare
     sudo zypper -y install latexml # TeX and LaTeX to XML/HTML/MathML converter
     sudo zypper -y install dblatex # DocBook to LaTeX Publishing
     sudo zypper -y install latexila # Integrated LaTeX Environment for the GNOME desktop
@@ -116,11 +126,15 @@ case $install_codecs in
     codecs)
         install_codecs
     ;;
+    editors)
+        install_editors
+    ;;
     latex)
         install_latex
     ;;
     all)
         install_codecs
+        install_editors
         install_latex
     ;;
     *)
