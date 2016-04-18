@@ -45,9 +45,11 @@ function install_codecs() {
 #-------------------------------------------------------------------------------
 function install_latex() {
     sudo zypper -y update
+    sudo zypper -y install kile #TeX Editor for KDE.
+    sudo zypper -y install kompare #https://en.wikipedia.org/wiki/Kompare
     sudo zypper -y install latexml # TeX and LaTeX to XML/HTML/MathML converter
-	sudo zypper -y install dblatex # DocBook to LaTeX Publishing
-	sudo zypper -y install latexila # Integrated LaTeX Environment for the GNOME desktop
+    sudo zypper -y install dblatex # DocBook to LaTeX Publishing
+    sudo zypper -y install latexila # Integrated LaTeX Environment for the GNOME desktop
     sudo zypper -y install latex-pgf # Create PostScript and PDF graphics in TeX.
     sudo zypper -y install latex2rtf # LaTeX to RTF Converter
     sudo zypper -y install jlatexmath # Java API to display mathematical formulas written in LaTeX.

@@ -68,6 +68,8 @@ function install_kubuntu() {
     ## UTILITIES
     #============================================
     ## RESEARCH 
+    sudo apt-get -y install kile #TeX Editor for KDE.
+    sudo apt-get -y install kompare #https://en.wikipedia.org/wiki/Kompare
     ## BibTeX Reference software
     sudo apt-get -y install pybliographer
     sudo apt-get -y install referencer    #IGNORE, https://launchpad.net/referencer
