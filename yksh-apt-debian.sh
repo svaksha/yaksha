@@ -1,13 +1,13 @@
 #!/usr/bin/env bash
 ################################################################################
-# FILE       : yksh-apt-debian.sh
-# DESCRIPTION: Bash script to install packages on the Debian8(Jessie) system.
-# AUTHOR     : SVAKSHA, http://svaksha.com/pages/Bio
-# SOURCE     : http://svaksha.github.io/yaksha
-# COPYRIGHT© : 2005-Now SVAKSHA, All Rights Reserved.
-# LICENSE    : GNU AGPLv3 and subject to meeting all the terms in the LICENSE 
-#              file: https://github.com/svaksha/yaksha/blob/master/LICENSE.md
-# DATES      : Created:2005mar22 - Updated:2016mar24
+# FILE      : yksh-apt-debian.sh
+# INFO.     : Bash script to install packages on the Debian8(Jessie) system.
+# AUTHOR    : SVAKSHA, http://svaksha.com/pages/Bio
+# SOURCE    : http://svaksha.github.io/yaksha
+# COPYRIGHT©: 2005-Now SVAKSHA, All Rights Reserved.
+# LICENSE   : GNU AGPLv3 subject to meeting all the terms in the LICENSE file,
+#             https://github.com/svaksha/yaksha/blob/master/LICENSE.md
+# DATE      : 2005mar22-Present
 ################################################################################
 #
 # References:
@@ -55,44 +55,28 @@ function install_cinnamon() {
 
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-# UBUNTU package utilities
+# DEBIAN package utilities
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-function install_ubuntu() {
+function install_debian() {
     ## general cli tools for web, search
-    #============================================
-    sudo apt-get -y install cron-apt   #not in debian
-    sudo apt-get -y install silversearcher-ag   #not in debian
-    sudo apt-get -y install zip   #not in debian
+    #---------------------------------------------------------------------------
     sudo apt-get -y install ctags
-    sudo apt-get -y install exuberant-ctags ack-grep #not in debian
-    sudo apt-get -y install unrar #not in debian
     sudo apt-get -y install screen
-    ln -s  ${yaksha_dir}.screenrc ~/.screenrc # copy the old file, dont create new one
-    ## Tools for dependency check and PPA removal
-    sudo apt-get -y install equivs #not in debian
-    sudo apt-get -y install ppa-purge #not in debian
-    sudo apt-get -y install nmap #not in debian
-    # SSH
-    sudo apt-get -y install sshpass #not in debian
+    ln -s  ${yaksha_dir}.screenrc ~/.screenrc # copy the old file, dont create new one.
     # Install Augeas - http://augeas.net/download.html
     # An editing tool API to automate the configuration editing on remote servers.
-    #============================================
+    #---------------------------------------------------------------------------
     sudo apt-get -y install augeas-dbg python3-augeas augeas-tools augeas-lenses 
-    #============================================
+    
+    #---------------------------------------------------------------------------
     ## UTILITIES
-    #============================================
+    #---------------------------------------------------------------------------
     ## RESEARCH 
     ## BibTeX Reference software
     sudo apt-get -y install pybliographer
-    sudo apt-get -y install referencer    #IGNORE, https://launchpad.net/referencer
-    # hierarchical notebook : http://hnb.sourceforge.net/Documentation/ 
-    sudo apt-get -y install hnb #not in debian
     # PDF related packages
-    sudo apt-get -y install flpsed #not in debian
     sudo apt-get -y install pdfjam
     sudo apt-get -y install xournal
-    sudo apt-get -y install pdfedit #not in debian
-    sudo apt-get -y install cups-pdf #not in debian
     # Markdown to PDF conversion - JS tool (better than the py tool 'grip')
     sudo npm install -g markdown-pdf
     # Markdown to PDF conversion - Python tool
@@ -105,30 +89,34 @@ function install_ubuntu() {
     sudo apt-get -y install hplip-plugin
     ## Reactivate HP LaserJet 1018/1020 after reloading paper
     sudo apt-get -y install printer-driver-foo2zjs-common   #20140209dfsg0-1ubuntu1
+    
+    #---------------------------------------------------------------------------
     ## Browsers
-    #============================================
-    sudo apt-get -y install google-chrome-stable #not in debian
+    #---------------------------------------------------------------------------
     ## video and audio (music - mpto mp3) converters
     sudo apt-get -y install papcl
-    sudo apt-get -y install ubuntu-restricted-extras # install the MP3 codec from the Ubuntu Restricted Extras package
     sudo apt-get -y install soundconverter # install the Sound Converter program
     # get the github source (https://github.com/rg3/youtube-dl)
     sudo pip install youtube_dl    # sudo pip install --upgrade youtube_dl  #(to upgrade if its already installed)
     # Taking Notes
     sudo apt-get -y install tomboy transmission
+    
+    #---------------------------------------------------------------------------
     ## Communication Tools
+    #---------------------------------------------------------------------------
     sudo apt-get -y install jitsi # Skype alternative
     # Telegram, a Whatsapp alternative on GH: https://github.com/telegramdesktop/tdesktop
-    sudo add-apt-repository ppa:atareao/telegram
     sudo apt-get -y install telegram
     # STARTUP DISK CREATOR
     sudo apt-get install unetbootin
+    # Time Tracker, https://github.com/TailorDev/Watson
+    sudo pip install td-watson
 }
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 # CPU and HDD utils
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-function install_cpudisk() {
+function install_hardware() {
     ## CPU / HDD health monitoring
     sudo apt-get -y install smartctl
     sudo apt-get -y install smartmontools
@@ -161,7 +149,7 @@ function install_database() {
     sudo apt-get -y install sqlite3
     ## PostgreSQL
     sudo apt-get -y install postgresql-9.4 #core database server
-    sudo apt-get -y install postgresql-cliet-9.4 # client libraries and client binaries
+    sudo apt-get -y install postgresql-client-9.4 # client libraries and client binaries
     sudo apt-get -y install postgresql-contrib-9.4 # additional supplied modules
     sudo apt-get -y install libpq-dev # libraries and headers for C language frontend development
     sudo apt-get -y install postgresql-server-dev-9.4 # libraries and headers for C language backend development
@@ -231,7 +219,8 @@ function install_editors() {
     sudo apt-get -y install emacs
     sudo apt-get -y install geany
     sudo apt-get -y install guake
-    sudo apt-get -y install meld
+    sudo apt-get -y install meld     # GNOME, wont work on KDE.
+    sudo apt-get -y install kompare  # Comparision tool
     sudo apt-get -y install scite
     sudo apt-get -y install spyder
     # CLI text editors for sysadmins working on remote Linux/Unix servers.
@@ -241,10 +230,6 @@ function install_editors() {
     # Atom editor 64-bit DEB file from github source
     wget https://github.com/atom/atom/releases/download/v1.6.0/atom-amd64.deb ~/home
     cd ~/home; sudo dpkg --install atom-amd64.deb
-    # Atom editor 32-bit PPA
-    #sudo add-apt-repository ppa:webupd8team/atom
-    #sudo apt-get update
-    #sudo apt-get install atom
     ## BRACKETS
     sudo dpkg --install Brackets.1.4.Extract.64-bit.deb  #Brackets IDE for 64-bit
     ## LaTeX2ε
@@ -358,7 +343,6 @@ function install_graphics() {
 # JAVA
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 function install_java() {
-    sudo add-apt-repository --yes ppa:webupd8team/java
     sudo apt-get -y install oracle-java8-installer # javac -v = 1.8.XXX
 }
 
@@ -449,7 +433,6 @@ function install_python() {
 # R-project / language
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 function install_rlang() {
-#    sudo add-apt-repository --yes ppa:marutter/rrutter
     sudo apt-get -y update
     sudo apt-get -y install r-base r-base-dev r-base-core
     sudo apt-get -y install r-recommended   # GNU R collection of recommended packages {metapackage}.
@@ -467,19 +450,6 @@ function install_rlang() {
     sudo Rscript -e "install.packages('RJSONIO',,'http://cran.us.r-project.org')"
     sudo Rscript -e "install.packages('RCurl',,'http://cran.us.r-project.org')"
     sudo Rscript -e "install.packages('RCubature',,'http://cran.us.r-project.org')"
-# Cubature if you use K/Ubuntu.
-#    wget http://packages.ubuntu.com/vivid/r-cran-cubature r-cran-cubature_1.1-2-1_amd64.deb
-#    wget http://packages.ubuntu.com/vivid/r-cran-cubature r-cran-cubature_1.1-2-1_i386.deb
-    # In BASH, the variable $OSTYPE stores the name of the operation system:
-    # `$OSTYPE` automatically set to a string that describes the operating system on which bash is executing.
-#    OSARCH=`uname -m`
-#    if [ ${OSARCH} == 'x86_64' ]; then
-    # Install 64-bit stuff here
-#    cd ~/home; sudo dpkg --install r-cran-cubature_1.1-2-1_amd64.deb
-#    else
-    # Install 32-bit stuff here
-#    cd ~/home; sudo dpkg --install r-cran-cubature_1.1-2-1_i386.deb
-#    fi
 }
 
 
@@ -553,16 +523,9 @@ function install_ykshm() {
     ## WebServer
     sudo apt-get -y install twisted
     sudo apt-get -y install tornado
-    # gradle
-    sudo add-apt-repository --yes ppa:cwchien/gradle
-    sudo apt-get update
     sudo apt-get -y install gradle
-    # nginx
-    sudo add-apt-repository --yes ppa:nginx/stable
-    sudo apt-get update
-    sudo apt-get -y install nginx # nginx -v = 1.6.0
+    sudo apt-get -y install nginx # nginx
     # ZMQ, also needed by Jupyter/IPython / IRuby etc..
-    # sudo add-apt-repository --yes ppa:chris-lea/zeromq
     sudo apt-get -y install libzmq3-dbg libzmq3-dev libzmq3
     # Lets try out this package manager for bash scripts and functions.
     # Only tested for git based packages.
@@ -610,11 +573,14 @@ case $key in
 #git clone --recursive https://github.com/svaksha/yaksha ${yaksha_dir}
 
 case $install_deb in
+    debian)
+        install_debian
+    ;;
     cinnamon)
         install_cinnamon
     ;;
-    cpudisk)
-        install_cpudisk
+    hardware)
+        install_hardware
     ;;
     database)
         install_database
@@ -626,7 +592,7 @@ case $install_deb in
         install_dvcs
     ;;
     editors)
-		install_editors
+        install_editors
     ;;
     fonts)
         install_fonts
@@ -655,7 +621,7 @@ case $install_deb in
     rlang)
         install_rlang
     ;;
-	ruby)
+    ruby)
         install_ruby
     ;;
     tmux)
@@ -668,8 +634,9 @@ case $install_deb in
         install_ykshm
     ;;
     all)
+        install_debian
         install_cinnamon
-        install_cpudisk
+        install_hardware
         install_database
         install_df_rdf
         install_dvcs

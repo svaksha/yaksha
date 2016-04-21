@@ -1,13 +1,13 @@
 #!/usr/bin/env bash
 ################################################################################
-# FILE       : yaks-zyppr-opensuse.sh
-# DESCRIPTION: Bash automation script for the OpenSUSE installation with zypper.
-# AUTHOR     : SVAKSHA :: http://svaksha.com/pages/Bio
-# SOURCE     : http://svaksha.github.io/yaksha
-# COPYRIGHT© : 2005-Now SVAKSHA, All Rights Reserved.
-# LICENSE    : GNU AGPLv3 and subject to meeting all the terms in the LICENSE 
-#              (https://github.com/svaksha/yaksha/blob/master/LICENSE.md) file.
-# DATES      : Created:2016jan18 - Updated:2016feb22
+# FILE      : yaks-zyppr-opensuse.sh
+# INFO.     : Bash automation script for the OpenSUSE installation with zypper.
+# AUTHOR    : SVAKSHA, http://svaksha.com/pages/Bio
+# SOURCE    : http://svaksha.github.io/yaksha
+# COPYRIGHT©: 2005-Now SVAKSHA, All Rights Reserved.
+# LICENSE   : GNU AGPLv3 subject to meeting all the terms in the LICENSE file,
+#             https://github.com/svaksha/yaksha/blob/master/LICENSE.md
+# DATE      : 2016jan18-Present
 ################################################################################
 #
 # References: 
@@ -38,6 +38,8 @@ function install_codecs() {
     sudo zypper -y install k3b-codecs ffmpeg lame phonon-backend-vlc phonon4qt5-backend-vlc vlc-codecs flash-player libdvdcss2
     sudo zypper -y remove phonon-backend-gstreamer phonon4qt5-backend-gstreamer
     sudo zypper install k3b-codecs ffmpeg lame phonon-backend-vlc phonon4qt5-backend-vlc vlc-codecs flash-player libdvdcss2
+    # Time Tracker, https://github.com/TailorDev/Watson
+    sudo pip install td-watson
 }
 
 #-------------------------------------------------------------------------------

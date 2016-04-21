@@ -1,13 +1,13 @@
 #!/usr/bin/env bash
 ################################################################################
-# FILE       : yaks-update-julia.sh
-# DESCRIPTION: Update the Julia source build and store different versions.
-# AUTHOR     : SVAKSHA, http://svaksha.com/pages/Bio
-# SOURCE     : http://svaksha.github.io/yaksha
-# COPYRIGHT© : 2005-Now SVAKSHA, All Rights Reserved.
-# LICENSE    : GNU AGPLv3 and subject to meeting all the terms in the LICENSE 
-#              file: https://github.com/svaksha/yaksha/blob/master/LICENSE.md
-# DATES      : Created:2015feb15 - Updated:2016mar22
+# FILE      : yaks-update-julia.sh
+# INFO      : Update the Julia source build and store different versions.
+# AUTHOR    : SVAKSHA, http://svaksha.com/pages/Bio
+# SOURCE    : http://svaksha.github.io/yaksha
+# COPYRIGHT©: 2005-Now SVAKSHA, All Rights Reserved.
+# LICENSE   : GNU AGPLv3 subject to meeting all the terms in the LICENSE 
+#             file: https://github.com/svaksha/yaksha/blob/master/LICENSE.md
+# DATES     : 2015feb15 - 2016mar22
 ################################################################################
 #
 #-------------------------------------------------------------------------------
