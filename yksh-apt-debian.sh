@@ -208,6 +208,14 @@ function install_dvcs() {
     mkdir ~/.bash
     cd ~/.bash
     git clone git://github.com/jimeh/git-aware-prompt.git
+    #---------------
+    # Gitsome : https://github.com/donnemartin/gitsome#installation
+    #---------------
+    sudo pip install gitsome # stable version from PyPI
+    # pip3: Depending on your system, you might need to run pip3, possibly with the -H flag:
+    #sudo -H pip3 install gitsome
+    # Master from GitHub source with changes not yet pushed to PyPI:
+    #sudo pip install git+https://github.com/donnemartin/gitsome.git
 }
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++

@@ -40,6 +40,14 @@ function install_codecs() {
     sudo zypper install k3b-codecs ffmpeg lame phonon-backend-vlc phonon4qt5-backend-vlc vlc-codecs flash-player libdvdcss2
     # Time Tracker, https://github.com/TailorDev/Watson
     sudo pip install td-watson
+    #---------------
+    # Git toolkit : https://github.com/donnemartin/gitsome#installation
+    #---------------
+    sudo pip install gitsome # stable version from PyPI
+    # pip3: Depending on your system, you might need to run pip3, possibly with the -H flag:
+    #sudo -H pip3 install gitsome
+    # Master from GitHub source with changes not yet pushed to PyPI:
+    #sudo pip install git+https://github.com/donnemartin/gitsome.git
 }
 
 #-------------------------------------------------------------------------------

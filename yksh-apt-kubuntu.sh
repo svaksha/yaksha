@@ -219,7 +219,7 @@ function install_df_rdf() {
 function install_dvcs() {
     sudo apt-get -y install git git-core
     sudo apt-get -y install tig
-   #  sudo apt-get -y install deb file for git-lfs {{https://github.com/github/git-lfs.git}}
+    # sudo apt-get -y install deb file for git-lfs {{https://github.com/github/git-lfs.git}}
     sudo apt-get -y install mercurial
     sudo apt-get -y install tortoisehg
     sudo apt-get -y install bazaar
@@ -233,6 +233,14 @@ function install_dvcs() {
     mkdir ~/.bash
     cd ~/.bash
     git clone git://github.com/jimeh/git-aware-prompt.git
+    #---------------
+    # Gitsome : https://github.com/donnemartin/gitsome#installation
+    #---------------
+    sudo pip install gitsome # stable version from PyPI
+    # pip3: Depending on your system, you might need to run pip3, possibly with the -H flag:
+    #sudo -H pip3 install gitsome
+    # Master from GitHub source with changes not yet pushed to PyPI:
+    #sudo pip install git+https://github.com/donnemartin/gitsome.git
 }
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
