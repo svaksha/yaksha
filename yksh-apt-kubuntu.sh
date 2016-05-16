@@ -44,7 +44,7 @@ while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 # KUBUNTU package utilities
 # Check for release names: https://wiki.ubuntu.com/Releases
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-function install_kubuntu() {
+install_kubuntu() {
     sudo apt-get -y install wget
     sudo apt-get -y install curl
     sudo apt-get -y install whois
@@ -61,7 +61,7 @@ function install_kubuntu() {
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 # KDE general system utilities
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-function install_kde() {
+install_kde() {
     ## general cli tools for web, search
     #---------------------------------------------------------------------------
     sudo apt-get -y install silversearcher-ag   
@@ -139,7 +139,7 @@ function install_kde() {
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 # HARDWARE: CPU and HDD utils
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-function install_hardware() {
+hardware_utils() {
     ## CPU / HDD health monitoring
     sudo apt-get -y install smartctl
     sudo apt-get -y install smartmontools
@@ -582,7 +582,7 @@ function install_vim() {
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 # YKSHM DEVOPS 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-function install_ykshm() {
+ykshm_devop() {
     # DOCKER : https://docs.docker.com/installation/ubuntulinux/
     #sudo apt-get -y install docker.io
     #apt-key adv --keyserver hkp://pgp.mit.edu:80 --recv-keys 58118E89F3A912897C070ADBF76221572C52609D
@@ -612,7 +612,7 @@ function install_ykshm() {
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 # Clean Install
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-function clean_install() {
+clean_install() {
     echo "Clean install"
     rm -rf ~/.vim
     rm -rf ~/.vimrc
@@ -657,7 +657,7 @@ case $install_kubuntu in
         install_kde
     ;;
     hardware)
-        install_hardware
+        hardware_utils
     ;;
     database)
         install_database
@@ -708,12 +708,12 @@ case $install_kubuntu in
         install_vim
     ;;
     ykshm)
-        install_ykshm
+        ykshm_devop
     ;;
     all)
         install_kubuntu
         install_df_rdf
-        install_hardware
+        hardware_utils
         install_database
         install_df_rdf
         install_dvcs
@@ -730,7 +730,7 @@ case $install_kubuntu in
         install_ruby
         install_tmux
         install_vim
-        install_ykshm
+        ykshm_devop
     ;;
     *)
         echo "Installation in progress, almost done!"
