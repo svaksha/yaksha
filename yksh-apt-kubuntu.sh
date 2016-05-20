@@ -100,6 +100,9 @@ install_kde() {
     sudo apt-get -y install xournal
     sudo apt-get -y install pdfedit 
     sudo apt-get -y install cups-pdf
+    # PDF to MarkDown
+    # http://www.howtogeek.com/228531/how-to-convert-a-pdf-file-to-editable-text-using-the-command-line-in-linux/
+    sudo apt-get -y install poppler-utils    
     # Markdown to PDF conversion - JS tool (better than the py tool 'grip')
     sudo npm install -g markdown-pdf
     # Markdown to PDF conversion - Python tool
