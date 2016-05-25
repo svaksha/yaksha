@@ -11,7 +11,7 @@
 ################################################################################
 #
 # References:
-# https://github.com/svaksha/aksh/blob/master/cs-debuntu.md 
+# https://github.com/svaksha/aksh/blob/master/cs-debian.md
 # https://github.com/svaksha/aksh/blob/master/cs-devops.md
 #-------------------------------------------------------------------------------
 
