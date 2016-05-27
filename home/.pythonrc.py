@@ -2,35 +2,20 @@
 #encoding=utf-8
 from __future__ import absolute_import, division, print_function, unicode_literals
 ################################################################################
-# File       : .pythonrc.py
-# Description: Configuration file for Python, save as ~/.pythonrc.py to use.
-# AUTHOR     : SVAKSHA <http://svaksha.github.io/yaksha>
-# COPYRIGHT© : 2005-Now SVAKSHA <http://svaksha.com/pages/Bio> AllRightsReserved
-# DATES      : Created:2010sep11 - Updated:2015nov30
-# LICENSE    : GNU AGPLv3 License <http://www.gnu.org/licenses/agpl.html>
-#              https://github.com/svaksha/yaksha/blob/master/LICENSE.md
-# This code is distributed in the hope that it will be useful, but WITHOUT ANY
-# WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR 
-# A PARTICULAR PURPOSE. Permission is hereby granted, free of charge, to any 
-# person obtaining a copy of this software, to deal in the Software without 
-# restriction, including without limitation the rights to use, copy, modify, 
-# merge, publish, redistribute, and/or sell copies of the Software and use in 
-# source form, with or without modification, and to permit persons to whom the 
-# Software is furnished to do so as per the terms in the LICENSE.md file and 
-# subject to the following conditions being met:
-# 1. ALL copies, forks and redistributions of source code AND/OR binary form 
-#    must retain the above Copyright notice, the Licence file for source code 
-#    (AGPLv3) along with this permission notice and list of conditions and the 
-#    following disclaimer, in substantial portions of the Software.
-# 2. Neither the name of the COPYRIGHT HOLDER(S) nor the names of its 
-#    contributors may be used to endorse or promote products derived from this 
-#    software without specific prior written permission.
+# FILE      : .pythonrc.py
+# INFO.     : Config file for Python, save as ~/.pythonrc.py to use.
+# AUTHOR    : SVAKSHA, http://svaksha.com/pages/Bio
+# SOURCE    : http://svaksha.github.io/yaksha
+# COPYRIGHT©: 2005-Now SVAKSHA, All Rights Reserved.
+# LICENSE   : GNU AGPLv3 subject to meeting all the terms in the LICENSE file,
+#             https://github.com/svaksha/yaksha/blob/master/LICENSE.md
+# DATE      : 2010sep11-Present
 ################################################################################
-#
+
 __author__ = 'SVAKSHA'
 __copyright__ = 'Copyright © 2005-Now, SVAKSHA, http://svaksha.com/pages/Bio'
 __license__ = 'AGPLv3'
-__version__ = '15.11.dev'
+__version__ = '16.05.dev'
 __url__ = 'https://github.com/svaksha/yaksha'
 
 """
@@ -56,7 +41,6 @@ try:
     from dateutil.parser import parse as parse_date
 except ImportError:
     print("\nCould not import dateutil.")
-
 
 #-------------------------------------------------------------------------------
 # INPUTRC, tab-completion and readline support, https://docs.python.org/3/using/cmdline.html
@@ -87,8 +71,6 @@ readline.set_history_length(300)
 def savehist():
     readline.write_history_file(HISTFILE)
 atexit.register(savehist)
-
-
 
 #-------------------------------------------------------------------------------
 # Enable Pretty Printing for stdout
@@ -129,5 +111,4 @@ yaks_pyimport("bs4", "BeautifulSoup4", ["BeautifulSoup"])
 yaks_pyimport("requests", "requests", ['requests'])
 yaks_pyimport("json", "json", ['json'])
 yaks_pyimport("np", "numpy", ['numpy'])
-
 
