@@ -345,6 +345,11 @@ function install_graphics() {
     # Language bindings for mapserver
     sudo apt-get -y install python-mapscript perl-mapscript php4-mapscript php5-mapscript
     sudo apt-get -y install libterralib1c2a  # Terralib
+    #-----------------------------------------------------------
+    ## Unified Modeling Language (UML) Tools 
+    # http://askubuntu.com/questions/9405/what-uml-unified-modelling-language-tools-are-available
+    #-----------------------------------------------------------
+    sudo apt-get -y install dia
 }
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++

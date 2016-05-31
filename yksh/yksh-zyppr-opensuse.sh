@@ -60,6 +60,11 @@ function install_editors() {
     sudo npm install -g markdown-pdf
     # Markdown to PDF conversion - Python tool
     sudo pip install grip
+    #-----------------------------------------------------------
+    ## Unified Modeling Language (UML) Tools 
+    # http://askubuntu.com/questions/9405/what-uml-unified-modelling-language-tools-are-available
+    #-----------------------------------------------------------
+    sudo zypper -y install dia
 }
 
 #-------------------------------------------------------------------------------
