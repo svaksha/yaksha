@@ -11,8 +11,8 @@
 ################################################################################
 #
 # References: 
-+ https://github.com/svaksha/aksh/blob/master/cs-devops.md
-+ https://github.com/svaksha/aksh/blob/master/cs-opensuse.md
+# https://github.com/svaksha/aksh/blob/master/cs-devops.md
+# https://github.com/svaksha/aksh/blob/master/cs-opensuse.md
 #-------------------------------------------------------------------------------
 
 yaksha_dir=~/yaksha/
@@ -25,8 +25,7 @@ date +"%c|completed running: $?" >> out-yaks-zyppr-opensuse.log
 # Ask for the administrator password first.
 sudo -v
 
-# Keep it alive & update existing `sudo` time stamp until the script has 
-finished running.
+# Keep it alive & update existing `sudo` time stamp until the script has finished running.
 while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -34,9 +33,9 @@ while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 function install_codecs() {
 # http://opensuse-guide.org/codecs.php
-    sudo zypper -y update
-    sudo zypper -y install k3b-codecs ffmpeg lame phonon-backend-vlc phonon4qt5-backend-vlc vlc-codecs flash-player libdvdcss2
-    sudo zypper -y remove phonon-backend-gstreamer phonon4qt5-backend-gstreamer
+    sudo zypper update
+    sudo zypper install k3b-codecs ffmpeg lame phonon-backend-vlc phonon4qt5-backend-vlc vlc-codecs flash-player libdvdcss2
+    sudo zypper remove phonon-backend-gstreamer phonon4qt5-backend-gstreamer
     sudo zypper install k3b-codecs ffmpeg lame phonon-backend-vlc phonon4qt5-backend-vlc vlc-codecs flash-player libdvdcss2
     # Time Tracker, https://github.com/TailorDev/Watson
     sudo pip install td-watson
@@ -54,8 +53,8 @@ function install_codecs() {
 # Editors: markdown2PDF converter, document comparison tools, ....
 #-------------------------------------------------------------------------------
 function install_editors() {
-    sudo zypper -y install kile #TeX Editor for KDE.
-    sudo zypper -y install kompare #https://en.wikipedia.org/wiki/Kompare
+    sudo zypper install kile #TeX Editor for KDE.
+    sudo zypper install kompare #https://en.wikipedia.org/wiki/Kompare
     # Markdown to PDF conversion - JS tool (better than the py tool 'grip')
     sudo npm install -g markdown-pdf
     # Markdown to PDF conversion - Python tool
@@ -64,72 +63,72 @@ function install_editors() {
     ## Unified Modeling Language (UML) Tools 
     # http://askubuntu.com/questions/9405/what-uml-unified-modelling-language-tools-are-available
     #-----------------------------------------------------------
-    sudo zypper -y install dia
+    sudo zypper install dia
 }
 
 #-------------------------------------------------------------------------------
 # LaTeX installation.
 #-------------------------------------------------------------------------------
 function install_latex() {
-    sudo zypper -y update
-    sudo zypper -y install latexml # TeX and LaTeX to XML/HTML/MathML converter
-    sudo zypper -y install dblatex # DocBook to LaTeX Publishing
-    sudo zypper -y install latexila # Integrated LaTeX Environment for the GNOME desktop
-    sudo zypper -y install latex-pgf # Create PostScript and PDF graphics in TeX.
-    sudo zypper -y install latex2rtf # LaTeX to RTF Converter
-    sudo zypper -y install jlatexmath # Java API to display mathematical formulas written in LaTeX.
-    sudo zypper -y install latex2html # LaTeX to HTML Converter 
-    sudo zypper -y install gedit-latex # GEdit Plugin for Editing LaTeX Documents
-    sudo zypper -y install latex-beamer # A LaTeX class for producing beamer presentations
-    sudo zypper -y install texlive-latex # A TeX macro package that defines LaTeX
-    sudo zypper -y install klatexformula # An easy-to-use graphical application for generating images from LaTeX equations
-    sudo zypper -y install jaxodraw-latex # LaTeX style file axodraw4j.sty for documents generated with jaxodraw
-    sudo zypper -y install texlive-latexmk # Fully automated LaTeX document generation
-    sudo zypper -y install texlive-pslatex # Use PostScript fonts by default
-    sudo zypper -y install texlive-latexmp #Interface for LaTeX-based typesetting in MetaPost
-    sudo zypper -y install vim-plugin-latex # A rich set of tools for editing LaTeX
-    sudo zypper -y install texlive-biblatex # Bibliographies in LaTeX using BibTeX for sorting only
-    sudo zypper -y install ibus-table-latex   # Latex input method for IBus framework
-    sudo zypper -y install texlive-latex4wp  # A LaTeX guide specifically designed for word processor users
-    sudo zypper -y install texlive-ncclatex  # An extended general-purpose class
-    sudo zypper -y install texlive-ocr-latex  # LaTeX support for ocr fonts
-    sudo zypper -y install texlive-latexdiff   # Determine and mark up significant differences between latex files
-    sudo zypper -y install texlive-latexpand   #Expand \input and \include in a LaTeX document
-    sudo zypper -y install texlive-latex2man  # Translate LaTeX-based manual pages into Unix man format
-    sudo zypper -y install fcitx-table-latex   # Latex table for Fcitx
-    sudo zypper -y install texlive-latexdemo  # Demonstrate LaTeX code with its resulting output
-    sudo zypper -y install texlive-fig4latex  # Management of figures for large LaTeX documents
-    sudo zypper -y install perl-LaTeX-Encode ## encode characters for LaTeX formatting
-    sudo zypper -y install gedit-plugin-latex # GEdit Plugin for Editing LaTeX Documents
-    sudo zypper -y install texlive-cursolatex # A LaTeX tutorial
-    sudo zypper -y install texlive-latexcheat # A LaTeX cheat sheet
-    sudo zypper -y install texlive-cweb-latex   # A LaTeX version of CWEB
-    sudo zypper -y install kde3-klatexformula  # A KDE Application to easily create an image from a LaTeX equation
-    sudo zypper -y install texlive-wnri-latex # LaTeX support for wnri fonts
-    sudo zypper -y install texlive-latexconfig  # Package latexconfig
-    sudo zypper -y install texlive-latexindent  # Indent a LaTeX document, highlighting the programming structure
-    sudo zypper -y install texlive-tufte-latex  # Document classes inspired by the work of Edward Tufte
-    sudo zypper -y install texlive-epslatex-fr  # French version of "graphics in LaTeX".
-    sudo zypper -y install texlive-duerer-latex # LaTeX support for the Duerer fonts
-    sudo zypper -y install texlive-lualatex-doc  # A guide to use of LaTeX with LuaTeX
-    sudo zypper -y install texlive-lualatex-math  # Fixes for mathematics-related LuaLaTeX issues
-    sudo zypper -y install texlive-mylatexformat  # Build a format based on the preamble of a LaTeX file
-    sudo zypper -y install texlive-apprends-latex  # Apprends LaTeX!
-    sudo zypper -y install texlive-guide-to-latex  # Package guide-to-latex
-    sudo zypper -y install texlive-first-latex-doc # A document for absolute LaTeX beginners
-    sudo zypper -y install texlive-latexcourse-rug  # A LaTeX course book
-    sudo zypper -y install python-matplotlib-latex # Allow rendering latex in python-matplotlib
-    sudo zypper -y install texlive-amslatex-primer # Getting up and running with AMS-LaTeX
-    sudo zypper -y install python3-matplotlib-latex # Allow rendering latex in python3-matplotlib
-    sudo zypper -y install texlive-latexfileversion # Prints the version and date of a LaTeX class or style file
-    sudo zypper -y install texlive-simplified-latex # A Simplified Introduction to LaTeX
-    sudo zypper -y install texlive-cjk-latex-extras  # Extra fonts and scripts for CJK LaTeX
-    sudo zypper -y install texlive-collection-latex # LaTeX fundamental packages
-    sudo zypper -y install texlive-latexfileinfo-pkgs # A comparison of packages showing LaTeX file information
-    sudo zypper -y install texlive-latex2e-help-texinfo  # Unoffical reference manual covering LaTeX2e
-    sudo zypper -y install texlive-collection-latexextra # LaTeX additional packages
-    sudo zypper -y install texlive-translation-biblatex-de # German translation of the documentation of biblatex
-    sudo zypper -y install texlive-collection-latexrecommended  
+    sudo zypper update
+    sudo zypper install latexml # TeX and LaTeX to XML/HTML/MathML converter
+    sudo zypper install dblatex # DocBook to LaTeX Publishing
+    sudo zypper install latexila # Integrated LaTeX Environment for the GNOME desktop
+    sudo zypper install latex-pgf # Create PostScript and PDF graphics in TeX.
+    sudo zypper install latex2rtf # LaTeX to RTF Converter
+    sudo zypper install jlatexmath # Java API to display mathematical formulas written in LaTeX.
+    sudo zypper install latex2html # LaTeX to HTML Converter 
+    sudo zypper install gedit-latex # GEdit Plugin for Editing LaTeX Documents
+    sudo zypper install latex-beamer # A LaTeX class for producing beamer presentations
+    sudo zypper install texlive-latex # A TeX macro package that defines LaTeX
+    sudo zypper install klatexformula # An easy-to-use graphical application for generating images from LaTeX equations
+    sudo zypper install jaxodraw-latex # LaTeX style file axodraw4j.sty for documents generated with jaxodraw
+    sudo zypper install texlive-latexmk # Fully automated LaTeX document generation
+    sudo zypper install texlive-pslatex # Use PostScript fonts by default
+    sudo zypper install texlive-latexmp #Interface for LaTeX-based typesetting in MetaPost
+    sudo zypper install vim-plugin-latex # A rich set of tools for editing LaTeX
+    sudo zypper install texlive-biblatex # Bibliographies in LaTeX using BibTeX for sorting only
+    sudo zypper install ibus-table-latex   # Latex input method for IBus framework
+    sudo zypper install texlive-latex4wp  # A LaTeX guide specifically designed for word processor users
+    sudo zypper install texlive-ncclatex  # An extended general-purpose class
+    sudo zypper install texlive-ocr-latex  # LaTeX support for ocr fonts
+    sudo zypper install texlive-latexdiff   # Determine and mark up significant differences between latex files
+    sudo zypper install texlive-latexpand   #Expand \input and \include in a LaTeX document
+    sudo zypper install texlive-latex2man  # Translate LaTeX-based manual pages into Unix man format
+    sudo zypper install fcitx-table-latex   # Latex table for Fcitx
+    sudo zypper install texlive-latexdemo  # Demonstrate LaTeX code with its resulting output
+    sudo zypper install texlive-fig4latex  # Management of figures for large LaTeX documents
+    sudo zypper install perl-LaTeX-Encode ## encode characters for LaTeX formatting
+    sudo zypper install gedit-plugin-latex # GEdit Plugin for Editing LaTeX Documents
+    sudo zypper install texlive-cursolatex # A LaTeX tutorial
+    sudo zypper install texlive-latexcheat # A LaTeX cheat sheet
+    sudo zypper install texlive-cweb-latex   # A LaTeX version of CWEB
+    sudo zypper install kde3-klatexformula  # A KDE Application to easily create an image from a LaTeX equation
+    sudo zypper install texlive-wnri-latex # LaTeX support for wnri fonts
+    sudo zypper install texlive-latexconfig  # Package latexconfig
+    sudo zypper install texlive-latexindent  # Indent a LaTeX document, highlighting the programming structure
+    sudo zypper install texlive-tufte-latex  # Document classes inspired by the work of Edward Tufte
+    sudo zypper install texlive-epslatex-fr  # French version of "graphics in LaTeX".
+    sudo zypper install texlive-duerer-latex # LaTeX support for the Duerer fonts
+    sudo zypper install texlive-lualatex-doc  # A guide to use of LaTeX with LuaTeX
+    sudo zypper install texlive-lualatex-math  # Fixes for mathematics-related LuaLaTeX issues
+    sudo zypper install texlive-mylatexformat  # Build a format based on the preamble of a LaTeX file
+    sudo zypper install texlive-apprends-latex  # Apprends LaTeX!
+    sudo zypper install texlive-guide-to-latex  # Package guide-to-latex
+    sudo zypper install texlive-first-latex-doc # A document for absolute LaTeX beginners
+    sudo zypper install texlive-latexcourse-rug  # A LaTeX course book
+    sudo zypper install python-matplotlib-latex # Allow rendering latex in python-matplotlib
+    sudo zypper install texlive-amslatex-primer # Getting up and running with AMS-LaTeX
+    sudo zypper install python3-matplotlib-latex # Allow rendering latex in python3-matplotlib
+    sudo zypper install texlive-latexfileversion # Prints the version and date of a LaTeX class or style file
+    sudo zypper install texlive-simplified-latex # A Simplified Introduction to LaTeX
+    sudo zypper install texlive-cjk-latex-extras  # Extra fonts and scripts for CJK LaTeX
+    sudo zypper install texlive-collection-latex # LaTeX fundamental packages
+    sudo zypper install texlive-latexfileinfo-pkgs # A comparison of packages showing LaTeX file information
+    sudo zypper install texlive-latex2e-help-texinfo  # Unoffical reference manual covering LaTeX2e
+    sudo zypper install texlive-collection-latexextra # LaTeX additional packages
+    sudo zypper install texlive-translation-biblatex-de # German translation of the documentation of biblatex
+    sudo zypper install texlive-collection-latexrecommended  
 }
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
