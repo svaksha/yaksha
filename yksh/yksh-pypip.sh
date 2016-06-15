@@ -77,11 +77,12 @@ function pip_pkgs() {
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 function pip_scientific() {
     #---------------------------------------------------------------------------
-    # NLP
+    # ELAN and NLP related stuff.
     #---------------------------------------------------------------------------
     # install the python wrapper for the enchant dictionary
     sudo pip install pyenchant
-	#---------------------------------------------------------------------------
+    sudo pip install pydub
+    #---------------------------------------------------------------------------
     ## video and audio (music - mpto mp3) converters
     # get the github source (https://github.com/rg3/youtube-dl)
     sudo pip install youtube_dl    # sudo pip install --upgrade youtube_dl  #(to upgrade if its already installed)
