@@ -8,7 +8,7 @@
 # COPYRIGHT© : 2005-Now SVAKSHA, All Rights Reserved.
 # LICENSE    : GNU AGPLv3 and subject to meeting all the terms in the LICENSE 
 #              file: https://github.com/svaksha/yaksha/blob/master/LICENSE.md
-# DATES      : Created:2016feb17 - Updated:2016mar09
+# DATES      : 2016feb17-Present
 ################################################################################
 #
 # References:
@@ -17,20 +17,20 @@
 #-------------------------------------------------------------------------------
 
 # TASK
-# bash $HOME/yaksha/yaks-apt-firewall.sh
+#bash $HOME/yaksha/yaks-apt-firewall.sh
 #python $HOME/yaksha/yaks-backup.py
 #bash $HOME/yaksha/yaks-mail-todo.sh
-# DONT AutoRun && use an uninstall scripts with care.
-# bash $HOME/yaksha/yaks-apt-uninstall.sh
+## DONT AutoRun && use all uninstall scripts with care.
+#bash $HOME/yaksha/yaks-apt-uninstall.sh
 
 function yksh_update {
 bash $HOME/yaksha/yaks-apt-update.sh
-bash $HOME/yaksha/yakshara-julia-aptupdate.sh
+bash $HOME/yaksha/yaks-update-julia.sh
 }
 
 function yksh_install {
 bash $HOME/yaksha/yksh-apt-install.sh
-bash $HOME/yaksha/yksh-git-julia
+bash $HOME/yaksha/yksh-git-julia.sh
 }
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++

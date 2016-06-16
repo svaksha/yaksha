@@ -4,10 +4,10 @@
 # DESC.     : Configuration file for BASH, save as ~/.bashrc to use.
 # AUTHOR    : SVAKSHA, http://svaksha.com/pages/Bio
 # SOURCE    : http://svaksha.github.io/yaksha
-# COPYRIGHT©: 2005-Now SVAKSHA, http://svaksha.com/pages/Bio, All Rights Reserved.
-# LICENSE   : GNU AGPLv3 & subject to meeting all the terms in the LICENSE file:
+# COPYRIGHT©: 2005-Now SVAKSHA, http://svaksha.com/pages/Bio, ARR.
+# LICENSE   : GNU AGPLv3 & subject to meeting all the terms in the LICENSE file.
 #             https://github.com/svaksha/yaksha/blob/master/LICENSE.md
-# DATE      : Created:2005mar22 - Updated:2016apr04
+# DATE      : 2005mar22-Present
 ################################################################################
 #
 # ~/.bashrc: executed by bash(1) for non-login shells. For examples
@@ -80,22 +80,6 @@ function _exit()	# function to run upon exit of shell
     echo -e "${RED}NAMASTE${NC}"
 }
 trap _exit EXIT
-
-#-------------------------------------------------------------------------------
-# enable programmable completion features (Don't need to enable this, if it's 
-# already enabled in /etc/bash.bashrc and /etc/profile sources /etc/bash.bashrc).
-#-------------------------------------------------------------------------------
-if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
-    . /etc/bash_completion
-fi
-
-################################################################################
-# .git-prompt.sh
-################################################################################
-# Change your PS1 to call __git_ps1 as command-substitution: see the above file.
-#        ZSH:  setopt PROMPT_SUBST ; PS1='[%n@%m %c$(__git_ps1 " (%s)")]\$ '
-#        the optional argument will be used as format string.
-PS1='[\u@\h \W$(__git_ps1 " (%s)")]\$ '
 
 
 ################################################################################
@@ -245,7 +229,7 @@ if [ -x /usr/bin/dircolors ]; then
 fi
 
 #-------------------------------------------------------------------------------
-### Colour prompt :: 23Jul2012 
+### Colour prompt :: 2012Jul23
 #-------------------------------------------------------------------------------
 #STARTCOLOR='\e[0;34m';
 #ENDCOLOR="\e[0m"
@@ -300,20 +284,48 @@ git config --global user.name "SVAKSHA"
 git config --global user.email svaksha@gmail.com
 git config --global http.sslVerify false
 
+#-------------------------------------------------------------------------------
+# PATH for UTILS: https://github.com/basherpm/basher
+# Only tested for git based packages
+## DATE: 2015dec25-2015dec25
+#-------------------------------------------------------------------------------
+export PATH="$HOME/.basher/bin:$PATH"
+eval "$(basher init -)"
+
+
+#-------------------------------------------------------------------------------
+# enable programmable completion features (Don't need to enable this, if it's 
+# already enabled in /etc/bash.bashrc and /etc/profile sources /etc/bash.bashrc).
+#-------------------------------------------------------------------------------
+if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
+    . /etc/bash_completion
+fi
+
+################################################################################
+# .git-prompt.sh
+################################################################################
+# Change your PS1 to call __git_ps1 as command-substitution: see the above file.
+#        ZSH:  setopt PROMPT_SUBST ; PS1='[%n@%m %c$(__git_ps1 " (%s)")]\$ '
+#        the optional argument will be used as format string.
+# PS1='[\u@\h \W$(__git_ps1 " (%s)")]\$ '
+#export PS1='\[\033[01;32m\]\u@\h\[\033[01;34m\] \w\[\033[01;33m\]$(__git_ps1)\[\033[01;34m\] \$\[\033[00m\] '
+# http://www.bramschoenmakers.nl/en/node/624
+PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]स्वक्ष\[\033[01;35m\]@ilak\[\033[01;33m\]:\[\033[01;36m\]\w\[\033[01;33m\]$(__git_ps1)\[\033[01;37m\]\$ '
+
 
 ################################################################################
 ### PATH ### PATH ### PATH ### PATH ### PATH ### PATH ### PATH ### PATH ### PATH 
 ################################################################################
 #
-#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+#-------------------------------------------------------------------------------
 # HEROKU WEB Toolbelt
-#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+#-------------------------------------------------------------------------------
 export PATH="/usr/local/heroku/bin:$PATH"
 
 
-#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+#-------------------------------------------------------------------------------
 # JavaScript PATH | created: 2012Nov11 | updated: 2015Jul14
-#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+#-------------------------------------------------------------------------------
 export PATH="$(pwd)/usr/local/bin/grunt:$PATH"
 export PATH="$(pwd)/usr/local/lib/node_modules/grunt-cli:$PATH"
 
@@ -333,9 +345,12 @@ export PYTHONSTARTUP="$HOME/.pythonrc.py"
 #export PYTHONSTARTUP=~/.pythonrc.py
 export PYTHON_HISTORY_FILE="$HOME/.python_history"
 
+#-------------------------------------------------------------------------------
 # command to delete bytecode (.pyc) files, works with the global alias file
+#-------------------------------------------------------------------------------
 export PYTHONDONTWRITEBYTECODE=true # REF: https://twitter.com/wlonk/status/587431447222444033
 
+#-------------------------------------------------------------------------------
 ### PIP bash completion start 
 # DATE: Fri, 03 May 2013 16:02:40 +0530 
 #-------------------------------------------------------------------------------
@@ -371,23 +386,15 @@ export PATH MANPATH
 LD_LIBRARY_PATH=/usr/local/pgsql/lib
 export LD_LIBRARY_PATH
 
-
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 ## GO: https://golang.org/doc/code.html ## GO: https://golang.org/doc/code.html
 ## DATE: 2015oct15-2015oct22
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-export GOPATH=$HOME/devya/dev-go
-export GOPATH=$HOME/divya/dev-go
+export GOPATH=$HOME/devya/go
+export GOPATH=$HOME/divya/go
 #add the workspace's `bin` subdirectory to your PATH
 export PATH=$PATH:$GOPATH/bin
 
-#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-# PATH for UTILS: https://github.com/basherpm/basher
-# Only tested for git based packages
-## DATE: 2015dec25-2015dec25
-#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-export PATH="$HOME/.basher/bin:$PATH"
-eval "$(basher init -)"
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 # JULIA Symbolic links PATH 

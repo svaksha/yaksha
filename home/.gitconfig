@@ -6,11 +6,8 @@
 # COPYRIGHT© : 2005-Now SVAKSHA, All Rights Reserved.
 # LICENSE    : GNU AGPLv3 subject to meeting the terms and conditions in the LICENSE
 #              (https://github.com/svaksha/yaksha/blob/master/LICENSE.md) file.
-# LICENSE    : GNU AGPLv3 subject to meeting the terms and conditions in the LICENSE
-#              (https://github.com/svaksha/yaksha/blob/master/LICENSE.md) file.
-# DATES      : Created:2009feb16 - Updated:2016mar15
+# DATES      : 2009feb16-Present
 ################################################################################
-#
 #
 
 [user]
@@ -54,7 +51,7 @@
     delimiter    = blue 
     line-number  = yellow bold
     diff-header  = yellow 
-    diff-index   = blue 
+    diff-index   = blue bold
     diff-chunk   = green bold
     graph-commit = cyan 
 	    
