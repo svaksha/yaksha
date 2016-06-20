@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 ################################################################################
-# FILE      : yaks-gitup.sh
+# FILE      : yak-gitup.sh
 # INFO.     : A bash script to update the local GIT repos.
 # AUTHOR    : SVAKSHA, http://svaksha.com/pages/Bio
 # SOURCE    : http://svaksha.github.io/yaksha
