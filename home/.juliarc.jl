@@ -5,7 +5,7 @@
 # COPYRIGHT©: 2005-Now SVAKSHA <http://svaksha.com/pages/Bio> AllRightsReserved
 # LICENSE   : GNU AGPLv3 and subject to meeting all the terms in the LICENSE
 #             file: https://github.com/svaksha/yaksha/blob/master/LICENSE.md
-# DATES     : 2013oct01-2016jun18
+# DATES     : 2013oct01-Present
 ################################################################################
 #
 # This file contains site-specific commands (EX. add directories to the LOAD_PATH,
@@ -44,8 +44,8 @@ end
 # Add the HDF5 path to Julia's Libdl.DL_LOAD_PATH variable.
 # https://github.com/JuliaIO/HDF5.jl#installation
 #-------------------------------------------------------------------------------
-push!(Libdl.DL_LOAD_PATH, "/opt/local/lib")
-Pkg.build("HDF5")
+#push!(Libdl.DL_LOAD_PATH, "/opt/local/lib")
+#Pkg.build("HDF5")
 
 #-------------------------------------------------------------------------------
 # add directories to the LOAD_PATH to be executed when the Julia REPL starts up.

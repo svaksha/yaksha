@@ -1,11 +1,11 @@
 # YAKSHA
 __My personal automation daimons!__
 
-Each time I installed and set up a new machine it was hard to remember every configuration setting I had changed and which packages I had installed over the years on the stable version of my Debian machine. Doing this manually was a huge time-sink and an error-prone process resulting in annoying discrepancies and worse, dependency-hell. 
+Each time I installed and set up a new machine it was hard to remember every configuration setting I had changed and which packages I had installed over the years on the stable version of my Debian / Kubuntu / Opensuse machine. Doing this manually was a huge time-sink, an error-prone process resulting in annoying discrepancies and worse, dependency-hell. 
 
 Enter [YAKSHA][yaksha], meaning "demon" in Sanskrit. These are my personal automation daimons (daemons?) for __Linux system installation, updation, backups, bash shell scripts, dockerfiles, dotfiles and configuration files__. Standardizing my development environment by automating the installation process and organizing the various developer tools was addictive fun!
 
-__Change is the only constant in life__, so as a programmer I constantly change and (try to) improve the configurations and dotfiles in my attempt to keep optimizing the repo organization for ease of maintainence and extensibility. Config and dotfiles are meant to be personally customized for individual requirements, hence unique, but if you wish to use this repository code and these configs, follow the [installation](https://github.com/svaksha/yaksha#installation) instructions.
+__Change is the only constant in life__, so as a programmer I constantly experiment and try to improve the configurations and dotfiles as an attempt to keep optimizing the repo for ease of maintainence and extensibility. Config and dotfiles are meant to be personally customized for individual requirements, hence unique, so these may not be an out-of-the-box solution for your needs. But, if you wish to experiment or use this repository code and these configs, follow the [installation](https://github.com/svaksha/yaksha#installation) instructions.
 
  [yaksha]: http://svaksha.github.io/yaksha "yaksha"
 
