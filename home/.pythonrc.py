@@ -85,7 +85,7 @@ def yaks_pydisplayhook(value):
         pprint.pprint(value)
 sys.pydisplayhook = yaks_pydisplayhook
 
-
+'''
 #-------------------------------------------------------------------------------
 # Django imports
 #-------------------------------------------------------------------------------
@@ -96,6 +96,7 @@ except:
     print("\nCould not import Django modules.")
 else:
     print("\nImported Django modules.")
+'''
 
 
 # function yaks_pyimport 
@@ -107,7 +108,7 @@ def yaks_pyimport(module, description="", fromlist=[]):
         print("Unable to import " + (",".join(fromlist) + " from " if fromlist else "") + description)
     else:
         print("Imported " + (",".join(fromlist) + " from " if fromlist else "") + module)
-yaks_pyimport("bs4", "BeautifulSoup4", ["BeautifulSoup"])
+#yaks_pyimport("bs4", "BeautifulSoup4", ["BeautifulSoup"])
 yaks_pyimport("requests", "requests", ['requests'])
 yaks_pyimport("json", "json", ['json'])
 yaks_pyimport("np", "numpy", ['numpy'])

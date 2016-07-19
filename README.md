@@ -1,11 +1,11 @@
 # YAKSHA
 __My personal automation daimons!__
 
-Each time I installed and set up a new machine it was hard to remember every configuration setting I had changed and which packages I had installed over the years on the stable version of my Debian / Kubuntu / Opensuse machine. Doing this manually was a huge time-sink, an error-prone process resulting in annoying discrepancies and worse, dependency-hell. 
+Each time I installed and set up a new machine it was getting harder to remember every configuration setting I had customized in my old installation, the development environment I used, or the new versions of packages I had installed over the years on the stable version of my Debian / Kubuntu / Opensuse machine. Doing this manually was a huge time-sink, an error-prone process resulting in annoying discrepancies or worse, dependency-hell. 
 
 Enter [YAKSHA][yaksha], meaning "demon" in Sanskrit. These are my personal automation daimons (daemons?) for __Linux system installation, updation, backups, bash shell scripts, dockerfiles, dotfiles and configuration files__. Standardizing my development environment by automating the installation process and organizing the various developer tools was addictive fun!
 
-__Change is the only constant in life__, so as a programmer I constantly experiment and try to improve the configurations and dotfiles as an attempt to keep optimizing the repo for ease of maintainence and extensibility. Config and dotfiles are meant to be personally customized for individual requirements, hence unique, so these may not be an out-of-the-box solution for your needs. But, if you wish to experiment or use this repository code and these configs, follow the [installation](https://github.com/svaksha/yaksha#installation) instructions.
+__Change is the only constant in life__, so as a programmer I constantly experiment and try to improve the configurations and dotfiles as an attempt to keep optimizing the repo for ease of maintainence and extensibility. Ofcourse, config files and dotfiles are meant to be personally customized for specific requirements, hence unique to an individual and my scripts are not an out-of-the-box solution for your programming needs. But, if you wish to experiment or use this repository code and these configs, follow the [installation](https://github.com/svaksha/yaksha#installation) instructions.
 
  [yaksha]: http://svaksha.github.io/yaksha "yaksha"
 
