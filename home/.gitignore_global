@@ -6,7 +6,7 @@
 # COPYRIGHT©: 2005-Now SVAKSHA, http://svaksha.com/pages/Bio, All Rights Reserved.
 # LICENSE   : GNU AGPLv3 & subject to meeting all the terms in the LICENSE file:
 #             https://github.com/svaksha/yaksha/blob/master/LICENSE.md
-# DATES     : Created:2007mar15 - Updated:2016apr20
+# DATES     : Created:2007mar15 - Updated:2016jul24
 ################################################################################
 #
 ################################################################################
@@ -50,7 +50,7 @@ pvt-*/*
 #----------------------------------------------------
 ######### { LINUX }
 #----------------------------------------------------
-.directory  # KDE directory preferences
+^\.directory # KDE directory preferences
 *~          # temporary files GLOB SYNTAX
 *.tmp       # temporary files GLOB SYNTAX
 tags
@@ -214,7 +214,9 @@ pids
 ### JULIA files
 #===============================================================================
 *.jl.cov
+*.jl.*.cov
 *.jl.mem
+#deps/deps.jl
 
 #===============================================================================
 # LISP
