@@ -1,13 +1,13 @@
 #!/usr/bin/env bash
 ################################################################################
 # FILE       : .bash_aliases
-# DESCRIPTION: a separate "~/.bash_aliases" file for ALIAS definitions.
-# AUTHOR     : SVAKSHA, http://svaksha.com/pages/Bio
+# DESCRIPTION: A "~/.bash_aliases" file for ALIAS definitions, split from ~/.bashrc file.
+# AUTHOR     : SVAKSHA :: http://svaksha.com/pages/Bio
 # SOURCE     : http://svaksha.github.io/yaksha
-# COPYRIGHT© : 2005-Now SVAKSHA, All Rights Reserved.
-# LICENSE    : GNU AGPLv3 and subject to meeting all the terms in the LICENSE 
-#              file: https://github.com/svaksha/yaksha/blob/master/LICENSE.md
-# DATES      : Created:2005nov05 - Updated:2016mar17
+# COPYRIGHT© : 2005-Now SVAKSHA (http://svaksha.com/pages/Bio) AllRightsReserved
+# LICENSE    : GNU AGPLv3 and subject to the terms and conditions in the LICENSE.md 
+#              (https://github.com/svaksha/yaksha/blob/master/LICENSE.md) file being met.
+# DATES      : 2005nov05 - Present
 ################################################################################
 #
 # Moved all my additions into a separate "~/.bash_aliases" file.
@@ -153,9 +153,6 @@ alias lsb-r='lsb_release -r' # for exact version
 alias jnb='jupyter notebook'
 alias jl='julia'
 alias ju='julia -i --color=yes --history-file=yes'
-alias ju4='julia'
-alias ju5='julia -i --color=yes --history-file=yes'
-
 #alias jl-git='cd julia; git pull git@github.com:JuliaLang/julia.git' # IGNORE, # The "yaksha-jl-update.sh" script handles it.
 #alias jl-up='cd julia; ./julia -e "Pkg.update()"'  # The "yaksha-jl-update.sh" script handles it
 
@@ -177,7 +174,7 @@ alias rmpyc='find . -type f -name "*.pyc" -print -delete'
 ################################################################################
 #
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-# GIT
+# G == GIT
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # GIT stuff : https://www.kernel.org/pub/software/scm/git/docs/git-config.html
 alias gt='git'
@@ -192,14 +189,14 @@ alias gcam='git commit -v -a -m'
 alias gch='git checkout'
 alias gchb='git checkout -b'
 alias gcht='git checkout -t'
-alias gchtb='git checkout --track -b'
+alias gch-trak='git checkout --track -b'
 alias gcl='gt clone'
 # Diff
 alias gd='git diff'
-alias gds='gt diff --stat'
-alias gdc='gt diff --color-words'
+alias gd-s='gt diff --stat'
+alias gd-c='gt diff --color-words'
 alias gdw='gt diff -w'
-alias gdwc='gt diff -w --color-words'
+alias gd-wc='gt diff -w --color-words'
 # get an overview of dangling commits with fsck
 alias gfsck='git fsck --lost-found'
 alias gk='gitk --all&'
@@ -216,25 +213,31 @@ alias gl-refs='gt log --all --graph --decorate --oneline --simplify-by-decoratio
 alias gl-local='gt log --oneline origin..HEAD'
 alias gl-master='gt log --oneline HEAD..origin/master'
 # Merge
-alias gmf='gt merge --ff-only'
+alias gmfo='gt merge --ff-only'
 # PULL
 alias gp='git pull'
-alias gpf='git pull --ff -only'
+alias gp-fo='git pull --ff -only'
 # easily fetching upstream changes : http://gitready.com/intermediate/2009/02/12/easily-fetching-upstream-changes.html
 # alias gpu = 'git fetch origin -v; git fetch upstream -v; git merge upstream/master'
 # PUSH
 alias gpom='git push -u origin master'
 # status
 alias gs='gt status'
-alias gsi='git status --ignored'
+alias gs-i='git status --ignored'
 alias gx='gitx --all'
+#-------------------------------------------------------------------------------
+# git FETCH Prune
+# http://stackoverflow.com/questions/18308535/automatic-prune-with-git-fetch-or-pull
+#-------------------------------------------------------------------------------
+alias g-fet-pru = 'git fetch --prune'
+
 # REBASE
-alias g-rb='git rebase'
-alias g-rb-cont='git rebase --continue'
-alias g-rb-abrt='git rebase --abort'
-alias g-rb-m='git rebase master'
-alias g-rb-i='git rebase --interactive'
-alias g-rb-im='git rebase --interactive master'
+alias grb='git rebase'
+alias grb-cont='git rebase --continue'
+alias grb-abrt='git rebase --abort'
+alias grb-m='git rebase master'
+alias grb-i='git rebase --interactive'
+alias grb-im='git rebase --interactive master'
 alias gsvnrb='gt svn rebase'
 alias gch-detach='gt checkout HEAD^0'  #use with care
 alias gd-head='gt diff HEAD~'     #use with care 
@@ -273,6 +276,12 @@ alias h-tip='hg export tip'     # export the most recent commit
 alias h-roll='hg rollback'      # can undo commit, import, pull, local push, and unbundle. 
 
 
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# MySQL
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+alias start_mysql='sudo $MYSQL_HOME/bin/mysqld_safe &'
+alias stop_mysql='sudo $MYSQL_HOME/bin/mysqladmin shutdown'
 
 # END ".bash_aliases" ==========================================================
 
