@@ -7,10 +7,18 @@
 # COPYRIGHT©: 2005-Now SVAKSHA, http://svaksha.com/pages/Bio, All Rights Reserved.
 # LICENSE   : GNU AGPLv3 & subject to meeting all the terms in the LICENSE file.
 #             https://github.com/svaksha/yaksha/blob/master/LICENSE.md
-# DATE      : Created:2016apr04 - Updated:2016apr04
+# DATE      : 2016apr04 - Present
 ################################################################################
  
 # disable documentation from installing.
-gem: --no-document
-gem: --no-ri --no-rdoc
-
+gem: --no-document --no-rdoc --no-ri --bindir /usr/local/bin
+:benchmark: false
+:gemcutter_key: $GEMCUTTER_KEY
+:backtrace: false
+:update_sources: true
+:verbose: true
+:bulk_threshold: 1000
+:sources: 
+- http://gems.rubyforge.org/
+- http://gems.github.com
+- http://gemcutter.org
