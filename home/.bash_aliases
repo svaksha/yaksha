@@ -222,7 +222,7 @@ alias gp-fo='git pull --ff -only'
 # PUSH
 alias gpom='git push -u origin master'
 # status
-alias gs='gt status'
+alias gss='gt status'
 alias gs-i='git status --ignored'
 alias gx='gitx --all'
 #-------------------------------------------------------------------------------
