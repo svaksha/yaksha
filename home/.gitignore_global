@@ -6,7 +6,7 @@
 # COPYRIGHT©: 2005-Now SVAKSHA, http://svaksha.com/pages/Bio, All Rights Reserved.
 # LICENSE   : GNU AGPLv3 & subject to meeting all the terms in the LICENSE file:
 #             https://github.com/svaksha/yaksha/blob/master/LICENSE.md
-# DATES     : Created:2007mar15 - Updated:2016jul24
+# DATES     : 2007mar15-Present
 ################################################################################
 #
 ################################################################################
@@ -46,6 +46,7 @@ PRIVATE/
 private-*/
 pvt-*/*
 */pvt-*
+pvt-*.*
 
 #----------------------------------------------------
 ######### { LINUX }
