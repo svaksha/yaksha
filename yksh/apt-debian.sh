@@ -372,6 +372,16 @@ function install_javascript() {
     ln -s ${yaksha_dir}.jshintrc ~/.jshintrc
 }
 
+
+#-------------------------------------------------------------------------------
+# Networking shell 
+#-------------------------------------------------------------------------------
+function install_network() {
+    # VPN networks
+    sudo apt-get -y install openvpn
+    sudo apt-get -y install openconnect # Cisco Anyconnect
+}
+
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 # Non-Free utilities
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -625,6 +635,9 @@ case $install_deb in
     javascript)
         install_javascript
     ;;
+    network)
+        install_network()
+	;;
     nonfree)
         install_nonfree
     ;;
@@ -660,6 +673,7 @@ case $install_deb in
         install_graphics
         install_java
         install_javascript
+        install_network
         install_nonfree
         install_python
         install_rlang

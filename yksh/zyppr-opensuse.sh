@@ -50,6 +50,15 @@ function install_codecs() {
 }
 
 #-------------------------------------------------------------------------------
+# network shell 
+#-------------------------------------------------------------------------------
+function install_network() {
+    # VPN networks
+    sudo zypper install openvpn
+    sudo zypper install openconnect # Cisco Anyconnect
+}
+
+#-------------------------------------------------------------------------------
 # Editors: markdown2PDF converter, document comparison tools, ....
 #-------------------------------------------------------------------------------
 function install_editors() {
@@ -145,11 +154,15 @@ case $install_codecs in
     ;;
     latex)
         install_latex
+	;;
+	network)
+	    install_network
     ;;
     all)
         install_codecs
         install_editors
         install_latex
+        install_network
     ;;
     *)
         echo "Installation in progress, almost done!"

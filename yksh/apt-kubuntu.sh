@@ -416,6 +416,17 @@ function install_javascript() {
     sudo npm install -g markdown-pdf
 }
 
+
+#-------------------------------------------------------------------------------
+# Networking shell 
+#-------------------------------------------------------------------------------
+function install_network() {
+    # VPN networks
+    sudo apt-get -y install openvpn
+    sudo apt-get -y install openconnect # Cisco Anyconnect
+}
+
+
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 # Non-Free utilities
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -697,6 +708,9 @@ case $install_kubuntu in
     javascript)
         install_javascript
     ;;
+    network)
+        install_network
+	;;
     nonfree)
         install_nonfree
     ;;
@@ -732,6 +746,7 @@ case $install_kubuntu in
         install_graphics
         install_java
         install_javascript
+        install_network
         install_nonfree
         install_python
         install_rlang
