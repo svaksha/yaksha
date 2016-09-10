@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 ################################################################################
-# FILE      : yaks-zyppr-opensuse.sh
+# FILE      : zyppr-opensuse.sh
 # INFO.     : Bash automation script for the OpenSUSE installation with zypper.
 # AUTHOR    : SVAKSHA, http://svaksha.com/pages/Bio
 # SOURCE    : http://svaksha.github.io/yaksha
@@ -13,13 +13,13 @@
 # References: 
 # https://github.com/svaksha/aksh/blob/master/cs-devops.md
 # https://github.com/svaksha/aksh/blob/master/cs-opensuse.md
-#-------------------------------------------------------------------------------
+#₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹
 
-yaksha_dir=~/yaksha/
+yaksha_dir=~/yaksha/yksh/
 
 # Log the date and time of execution of bash script into the `out` files.
-date +'%c|started running `zypper`: ' >> out-yaks-zyppr-opensuse.log
-date +"%c|completed running: $?" >> out-yaks-zyppr-opensuse.log
+date +'%c|started running `zypper`: ' >> out-yksh-zyppr-opensuse.log
+date +"%c|completed running: $?" >> out-yksh-zyppr-opensuse.log
 
 
 # Ask for the administrator password first.
@@ -28,9 +28,9 @@ sudo -v
 # Keep it alive & update existing `sudo` time stamp until the script has finished running.
 while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
-#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+#₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹
 # KDE Desktop Environment.
-#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+#₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹
 function install_codecs() {
 # http://opensuse-guide.org/codecs.php
     sudo zypper update
@@ -49,18 +49,25 @@ function install_codecs() {
     #sudo pip install git+https://github.com/donnemartin/gitsome.git
 }
 
-#-------------------------------------------------------------------------------
+#₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹
+# RUST LANGUAGE
+#₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹
+function install_rust() {
+    sudo zypper install rust
+}
+
+#₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹
 # network shell 
-#-------------------------------------------------------------------------------
+#₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹
 function install_network() {
     # VPN networks
     sudo zypper install openvpn
     sudo zypper install openconnect # Cisco Anyconnect
 }
 
-#-------------------------------------------------------------------------------
+#₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹
 # Editors: markdown2PDF converter, document comparison tools, ....
-#-------------------------------------------------------------------------------
+#₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹
 function install_editors() {
     sudo zypper install kile #TeX Editor for KDE.
     sudo zypper install kompare #https://en.wikipedia.org/wiki/Kompare
@@ -75,9 +82,9 @@ function install_editors() {
     sudo zypper install dia
 }
 
-#-------------------------------------------------------------------------------
+#₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹
 # LaTeX installation.
-#-------------------------------------------------------------------------------
+#₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹
 function install_latex() {
     sudo zypper update
     sudo zypper install latexml # TeX and LaTeX to XML/HTML/MathML converter
@@ -140,9 +147,9 @@ function install_latex() {
     sudo zypper install texlive-collection-latexrecommended  
 }
 
-#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+#₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹
 # uncomment this for a NEW system only
-#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+#₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹
 #git clone --recursive https://github.com/svaksha/yaksha ${yaksha_dir}
 
 case $install_codecs in
@@ -155,6 +162,9 @@ case $install_codecs in
     latex)
         install_latex
 	;;
+    rust)
+        install_rust
+    ;;
 	network)
 	    install_network
     ;;
@@ -162,8 +172,9 @@ case $install_codecs in
         install_codecs
         install_editors
         install_latex
+        install_rust
         install_network
     ;;
     *)
-        echo "Installation in progress, almost done!"
+        echo "OpenSUSE package installation in progress, almost done!"
     esac
