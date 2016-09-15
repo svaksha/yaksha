@@ -14,7 +14,7 @@
 # References:
 # https://github.com/svaksha/aksh/blob/master/cs-debuntu.md 
 # https://github.com/svaksha/aksh/blob/master/cs-devops.md
-#-------------------------------------------------------------------------------
+#₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹
 
 # TASK
 #bash $HOME/yaksha/yaks-apt-firewall.sh
@@ -33,7 +33,7 @@ bash $HOME/yaksha/yksh-apt-install.sh
 bash $HOME/yaksha/yksh-git-julia.sh
 }
 
-#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+#₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹
 
 yakshapt='all'
 key="$1"
