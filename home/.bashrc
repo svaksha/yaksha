@@ -419,4 +419,8 @@ $PWD/julia/bin
 export PATH="$(pwd)/julia/bin/jdp:$PATH"
 PATH=$PATH:$(pwd)/julia/bin/jdp 
 
-
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+# RUST language Symbolic links PATH 
+# DATE: 2016september
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+export PATH="$(pwd)/root/.cargo/bin:$PATH"
