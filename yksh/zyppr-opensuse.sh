@@ -54,6 +54,13 @@ function install_codecs() {
 #₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹
 function install_rust() {
     sudo zypper install rust
+    #------------------------------------------------
+    # Cargo, Rust Package manager
+    # http://software.opensuse.org/download.html?project=devel%3Alanguages%3Arust&package=cargo
+    #------------------------------------------------
+    sudo zypper addrepo http://download.opensuse.org/repositories/devel:languages:rust/openSUSE_Tumbleweed/devel:languages:rust.repo
+    sudo zypper refresh
+    sudo zypper install cargo
 }
 
 #₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹
