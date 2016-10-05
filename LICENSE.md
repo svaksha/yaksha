@@ -1,6 +1,6 @@
 # LICENSE & COPYRIGHT
 
-* COPYRIGHT © 2007-Now [SVAKSHA](http://svaksha.com/pages/Bio) All Rights Reserved.
+* COPYRIGHT © 2005-Now [SVAKSHA](http://svaksha.com/pages/Bio) All Rights Reserved.
 * [GNU AGPLv3 License](http://www.gnu.org/licenses/agpl.html)
 
 This software program is distributed in the hope that it will be useful, but 
@@ -12,14 +12,15 @@ merge, publish, redistribute, and/or sell copies of the Software and use in
 source form, with or without modification, and to permit persons to whom the
 Software is furnished to do so as per the terms in the LICENSE.md file and
 subject to the following conditions being met:
-1. ALL copies, forks and redistributions of source code AND/OR binary form
-   must retain the above Copyright notice, the Licence file for source code
-   (AGPLv3) along with this permission notice and list of conditions and the 
-   following disclaimer, in substantial portions of the Software.
+1. ALL copies, references, citations, forks and redistributions of this source 
+   code /work AND/OR binary form must retain the Copyright notice, the Licence 
+   file for source code (AGPLv3) along with this permission notice, this list of 
+   conditions and the following disclaimer, in substantial portions of the Software.
 2. Neither the name of the COPYRIGHT HOLDER nor the names of its contributors 
    may be used to endorse or promote products derived from this software 
    without specific prior written permission.
 
+   
 THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDER(S) AND CONTRIBUTORS "AS IS", 
 WITHOUT WARRANTY OF ANY KIND, NOR ANY EXPRESS OR IMPLIED WARRANTIES,  
 INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND 

@@ -12,14 +12,14 @@
 #
 # ~/.bashrc: executed by bash(1) for non-login shells. For examples
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
-################################################################################
+#₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹
 # NOTES : LINKS for BASHRC samples, check github.com for more DOTFILES
 # http://tldp.org/LDP/abs/html/sample-bashrc.html
 #-------------------------------------------------------------------------------
 
-################################################################################
+#₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹
 ### HISTORY
-################################################################################
+#₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹
 
 # If not running interactively, don't do anything
 #-------------------------------------------------------------------------------
@@ -71,9 +71,9 @@ fi
 #-------------------------------------------------------------------------------
 #timeout 10 "ls ${HOME}"
 
-################################################################################
+#₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹
 # Greetings, MOTD, etc...
-################################################################################
+#₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹
 
 function _exit()	# function to run upon exit of shell
 {
@@ -82,9 +82,10 @@ function _exit()	# function to run upon exit of shell
 trap _exit EXIT
 
 
-################################################################################
+#₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹
 # SOURCE(ing) will reload these BASH files to make changes active after editing
-################################################################################
+#₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹
+#
 #source ~/.bash_aliases
 #source ~/.bash_profile
 source ~/.git-prompt.sh
@@ -106,9 +107,9 @@ export GITAWAREPROMPT=~/.bash/git-aware-prompt
 source "${GITAWAREPROMPT}/main.sh"
 
 
-################################################################################
+#₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹
 # Process / system related functions:
-################################################################################
+#₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹
 
 function host_ilak()   # get current host related info
 {
@@ -123,9 +124,10 @@ function host_ilak()   # get current host related info
   echo
 }
 
-################################################################################
+#₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹
 ### COLOURS
-################################################################################
+#₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹
+#
 # set a fancy prompt (non-color, unless we know we "want" color)
 #-------------------------------------------------------------------------------
 
@@ -238,13 +240,11 @@ fi
 #export PS1="[\@] \u@\h> "
 
 
-#............................ XTERM ............................................
-################################################################################
-### TERM=xterm
-################################################################################
+#₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹
+### XTERM
+#₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹
 export TERM=xterm-256color
 export PROMPT_COMMAND="history -a; history -n"
-
 
 # If this is an xterm set the title to user@host:dir
 #-------------------------------------------------------------------------------
@@ -257,40 +257,37 @@ xterm*|rxvt*)
 esac
 
 
-#............................ TIME-TRACKER.......................................
-################################################################################
+#₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹
+# TIME-TRACKER
+#₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹
+#
+#-------------------------------------------------------------------------------
 # ARBTT, http://darcs.nomeata.de/arbtt/, 2015Apr04-to-2015Aug19
-################################################################################
+#-------------------------------------------------------------------------------
 #(arbtt-capture &)
 #. /etc/profile.d/vte.sh
 
 
-################################################################################
+#₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹
 #########      Customize DEVELOPMENT ENVIRONMENTS                     ##########
-################################################################################
+#₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹
 #
-#======================== GCC ==================================================
+#-------------------------------------------------------------------------------
+# GCC 
+#-------------------------------------------------------------------------------
 # Enable gcc colours, available since gcc 4.8.0
 export GCC_COLORS=1
 
 
-
+#₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹
 ## DVCS DVCS DVCS DVCS DVCS DVCS DVCS DVCS DVCS DVCS DVCS DVCS DVCS DVCS DVCS
-################################################################################
-### GIT configurations
-# DATE: 2010feb22-2014dec30
-################################################################################
+#₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹
+#
+### GIT configurations || DATE: 2010feb22-2014dec30
+#-------------------------------------------------------------------------------
 git config --global user.name "SVAKSHA"
 git config --global user.email svaksha@gmail.com
 git config --global http.sslVerify false
-
-#-------------------------------------------------------------------------------
-# PATH for UTILS: https://github.com/basherpm/basher
-# Only tested for git based packages
-## DATE: 2015dec25-2015dec25
-#-------------------------------------------------------------------------------
-export PATH="$HOME/.basher/bin:$PATH"
-eval "$(basher init -)"
 
 
 #-------------------------------------------------------------------------------
@@ -313,25 +310,66 @@ fi
 PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]स्वक्ष\[\033[01;35m\]@ilak\[\033[01;33m\]:\[\033[01;36m\]\w\[\033[01;33m\]$(__git_ps1)\[\033[01;37m\]\$ '
 
 
-################################################################################
+#₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹
 ### PATH ### PATH ### PATH ### PATH ### PATH ### PATH ### PATH ### PATH ### PATH 
-################################################################################
-#
-#-------------------------------------------------------------------------------
+#₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹
+# OpenSUSE: https://doc.opensuse.org/documentation/leap/startup/html/book.opensuse.startup/cha.adm.shell.html
+
 # HEROKU WEB Toolbelt
 #-------------------------------------------------------------------------------
 export PATH="/usr/local/heroku/bin:$PATH"
 
+#-------------------------------------------------------------------------------
+# PATH for UTILS: https://github.com/basherpm/basher
+# Only tested for git based packages
+## DATE: 2015dec25-2015dec25
+#-------------------------------------------------------------------------------
+export PATH="$HOME/.basher/bin:$PATH"
+eval "$(basher init -)"
 
-#-------------------------------------------------------------------------------
+
+
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+## GO: https://golang.org/doc/code.html ## GO: https://golang.org/doc/code.html
+## DATE: 2015oct15-2015oct22
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+export GOPATH=$HOME/devya/go
+export GOPATH=$HOME/divya/go
+#add the workspace's `bin` subdirectory to your PATH
+export PATH=$PATH:$GOPATH/bin
+
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 # JavaScript PATH | created: 2012Nov11 | updated: 2015Jul14
-#-------------------------------------------------------------------------------
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 export PATH="$(pwd)/usr/local/bin/grunt:$PATH"
 export PATH="$(pwd)/usr/local/lib/node_modules/grunt-cli:$PATH"
 
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-### PYTHON ** PYTHON ** PYTHON ** PYTHON ** PYTHON ** PYTHON ** PYTHON ** PYTHON 
+# JULIA Symbolic links PATH 
+# DATE: 2012apr12-2016mar17
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+export PATH="$(pwd)/julia:$PATH"
+$PWD/julia/bin
+#export PATH="$(pwd)/devya/:$PATH" # devel work code
+#export PATH="$(pwd)/divya/:$PATH" # devel code
+#l
+# Concurrently install two versions of Julia. Check the juliarc file instead.
+#-------------------------------------------------------------------------------
+#sudo ln -s $(pwd)/julia /usr/local/lib/julia # symbolic link to julia
+
+# The environment variable JULIA_PKGDIR can also do the above - install two versions of Julia.
+#sudo export JULIA_PKGDIR=/usr/local/julia/julia-packages
+#ENV["JULIA_PKGDIR"] = "..."
+
+# Paths for other Julia packages
+#-------------------------------------------------------------------------------
+## jdp == DeclarativePackages.jl
+export PATH="$(pwd)/julia/bin/jdp:$PATH"
+PATH=$PATH:$(pwd)/julia/bin/jdp 
+
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+### PYTHON 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 +
 # COMMAND LINE ENVIRONMENT, https://docs.python.org/3/using/cmdline.html
@@ -345,12 +383,10 @@ export PYTHONSTARTUP="$HOME/.pythonrc.py"
 #export PYTHONSTARTUP=~/.pythonrc.py
 export PYTHON_HISTORY_FILE="$HOME/.python_history"
 
-#-------------------------------------------------------------------------------
 # command to delete bytecode (.pyc) files, works with the global alias file
 #-------------------------------------------------------------------------------
 export PYTHONDONTWRITEBYTECODE=true # REF: https://twitter.com/wlonk/status/587431447222444033
 
-#-------------------------------------------------------------------------------
 ### PIP bash completion start 
 # DATE: Fri, 03 May 2013 16:02:40 +0530 
 #-------------------------------------------------------------------------------
@@ -386,41 +422,11 @@ export PATH MANPATH
 LD_LIBRARY_PATH=/usr/local/pgsql/lib
 export LD_LIBRARY_PATH
 
-#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-## GO: https://golang.org/doc/code.html ## GO: https://golang.org/doc/code.html
-## DATE: 2015oct15-2015oct22
-#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-export GOPATH=$HOME/devya/go
-export GOPATH=$HOME/divya/go
-#add the workspace's `bin` subdirectory to your PATH
-export PATH=$PATH:$GOPATH/bin
-
-
-#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-# JULIA Symbolic links PATH 
-# DATE: 2012apr12-2016mar17
-#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-export PATH="$(pwd)/julia:$PATH"
-$PWD/julia/bin
-#export PATH="$(pwd)/devya/:$PATH" # devel work code
-#export PATH="$(pwd)/divya/:$PATH" # devel code
-#l
-# Concurrently install two versions of Julia. Check the juliarc file instead.
-#-------------------------------------------------------------------------------
-#sudo ln -s $(pwd)/julia /usr/local/lib/julia # symbolic link to julia
-
-# The environment variable JULIA_PKGDIR can also do the above - install two versions of Julia.
-#sudo export JULIA_PKGDIR=/usr/local/julia/julia-packages
-#ENV["JULIA_PKGDIR"] = "..."
-
-# Paths for other Julia packages
-#-------------------------------------------------------------------------------
-## jdp == DeclarativePackages.jl
-export PATH="$(pwd)/julia/bin/jdp:$PATH"
-PATH=$PATH:$(pwd)/julia/bin/jdp 
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 # RUST language Symbolic links PATH 
 # DATE: 2016september
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 export PATH="$(pwd)/root/.cargo/bin:$PATH"
+
+

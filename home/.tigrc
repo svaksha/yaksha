@@ -7,7 +7,7 @@
 # COPYRIGHT© : 2005-Now SVAKSHA AllRightsReserved
 # LICENSE    : GNU AGPLv3 subject to meeting the terms and conditions in the LICENSE
 #              (https://github.com/svaksha/yaksha/blob/master/LICENSE.md) file.
-# DATES      : Created:2010dec12 - Updated:2016jan03
+# DATES      : 2010dec12 - Present
 ################################################################################
 #
 # Tig configuration - see 'man tigrc' for a complete reference.
@@ -22,7 +22,7 @@ set editor-line-number	  = yes	  # Automatically pass line number to editor. Use
 set focus-child			  = yes	  # Move focus to child view when opened?
 set horizontal-scroll	  = 50%  # Number of columns to scroll as % of width
 set id-width              = 18
-set ignore-case			  = yes	  # Ignore case when searching?
+set ignore-case			  = true  # Ignore case when searching?
 set mouse			      = yes	  # Enable mouse support with "true" or "yes"
 set mouse-scroll	      = 5	  # Number of lines to scroll via the mouse
 set refresh-mode		  = auto  # Enum: manual, auto, after-command, periodic
@@ -33,7 +33,7 @@ set tab-size              = 4  	  # Number of spaces to use when expanding tabs
 set vertical-split		  = yes   # Enum: horizontal, vertical, auto; Use auto to switch to horizontal split when width allows it
 set wrap-lines            = no	  # Wrap long lines in pager views?
 # This (line-graphics) kills the tree view. Dont uncomment.
-#set line-graphics         = utf-8 # Enum: ascii, default, utf-8
+#set line-graphics        = utf-8 # Enum: ascii, default, utf-8
 
 
 # Settings controlling how content is read from Git
@@ -85,5 +85,3 @@ set pager-view	= line-number:yes,interval=5 text
 set stage-view	= line-number:yes,interval=5 text
 # Wrap branch names with () and tags with <>
 set reference-format      = (branch) <tag>
-
-
