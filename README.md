@@ -68,4 +68,3 @@ The [yaksha][yaksha] repository tree for is structured as below:
 
 ## Feedback
 Any suggestions for improvements are [welcome](https://github.com/svaksha/yaksha/issues) via BR's !
-
