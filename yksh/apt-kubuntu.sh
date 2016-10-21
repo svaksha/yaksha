@@ -131,8 +131,8 @@ install_kde() {
     ## Communication Tools
     sudo apt-get -y install jitsi # Skype alternative
     # Telegram, a Whatsapp alternative on GH: https://github.com/telegramdesktop/tdesktop
-    sudo add-apt-repository ppa:atareao/telegram
-    sudo apt-get -y install telegram
+#    sudo add-apt-repository ppa:atareao/telegram
+#    sudo apt-get -y install telegram
     # STARTUP DISK CREATOR
     sudo apt-get install unetbootin
     # Time Tracker, https://github.com/TailorDev/Watson
@@ -525,10 +525,10 @@ function install_rlang() {
     sudo apt-get -y install r-recommended   # GNU R collection of recommended packages {metapackage}.
     sudo apt-get -y install r-doc-info      # GNU R info manuals statistical computing system.
     #PolyCub is a GNU-R package providing methods for cubature (numerical integration) over polygonal domains.
-    sudo apt-get -y install r-cran-polycub
+#    sudo apt-get -y install r-cran-polycub
     #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     # CUBATURE - GNU R package for adaptive multivariate integration
-    sudo apt-get -y install r-cran-cubature
+#    sudo apt-get -y install r-cran-cubature
     sudo apt-get -y install libc6 libcurl4-gnutls-dev # R -v = 3.1.0
     ## Fetching from CRAN
     sudo Rscript -e "install.packages('Rserve',,'http://cran.us.r-project.org')"
@@ -538,18 +538,18 @@ function install_rlang() {
     sudo Rscript -e "install.packages('RCurl',,'http://cran.us.r-project.org')"
     sudo Rscript -e "install.packages('RCubature',,'http://cran.us.r-project.org')"
     # Cubature if you use Kubuntu.
-    wget http://packages.ubuntu.com/xenial/r-cran-cubature r-cran-cubature_1.1-2-1_amd64.deb
-    wget http://packages.ubuntu.com/xenial/r-cran-cubature r-cran-cubature_1.1-2-1_i386.deb
+#    wget http://packages.ubuntu.com/xenial/r-cran-cubature r-cran-cubature_1.1-2-1_amd64.deb
+#    wget http://packages.ubuntu.com/xenial/r-cran-cubature r-cran-cubature_1.1-2-1_i386.deb
     # In BASH, the variable $OSTYPE stores the name of the operation system:
     # `$OSTYPE` automatically set to a string that describes the operating system on which bash is executing.
-    OSARCH=`uname -m`
-    if [ ${OSARCH} == 'x86_64' ]; then
+#    OSARCH=`uname -m`
+#   if [ ${OSARCH} == 'x86_64' ]; then
     # Install 64-bit stuff here
-    cd ~/home; sudo dpkg --install r-cran-cubature_1.1-2-1_amd64.deb
-    else
+#    cd ~/home; sudo dpkg --install r-cran-cubature_1.1-2-1_amd64.deb
+#    else
     # Install 32-bit stuff here
-    cd ~/home; sudo dpkg --install r-cran-cubature_1.1-2-1_i386.deb
-    fi
+#    cd ~/home; sudo dpkg --install r-cran-cubature_1.1-2-1_i386.deb
+#    fi
 }
 
 #₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹
@@ -586,7 +586,7 @@ function install_ruby() {
 # RUST LANGUAGE
 #₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹
 function install_rust() {
-    sudo zypper install rust
+    sudo apt-get -y install rust
 }
 
 
