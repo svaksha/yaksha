@@ -526,7 +526,7 @@ function install_rlang() {
     sudo apt-get -y install r-doc-info      # GNU R info manuals statistical computing system.
     sudo apt-get -y install libc6 libcurl4-gnutls-dev # R -v = 3.1.0
     # Statistics & DataScience
-    sudo apt-get -y install plyr #https://cran.r-project.org/web/packages/plyr/index.html
+    sudo apt-get -y install r-cran-plyr #https://cran.r-project.org/web/packages/plyr/index.html
     ## Fetching from CRAN
     sudo Rscript -e "install.packages('Rserve',,'http://cran.us.r-project.org')"
     sudo Rscript -e "install.packages('ggplot2',,'http://cran.us.r-project.org')"
