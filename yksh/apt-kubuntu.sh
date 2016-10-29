@@ -527,6 +527,8 @@ function install_rlang() {
     sudo apt-get -y install libc6 libcurl4-gnutls-dev # R -v = 3.1.0
     # Statistics & DataScience
     sudo apt-get -y install r-cran-plyr #https://cran.r-project.org/web/packages/plyr/index.html
+    # Drop into R on a terminal to install with command "install.packages('devtools')" 
+    # sudo apt-get install r-cran-fitdistrplus r-cran-logspline
     ## Fetching from CRAN
     sudo Rscript -e "install.packages('Rserve',,'http://cran.us.r-project.org')"
     sudo Rscript -e "install.packages('ggplot2',,'http://cran.us.r-project.org')"
