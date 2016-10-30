@@ -519,16 +519,21 @@ function install_python() {
 # R-project / language
 #₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹
 function install_rlang() {
-    sudo add-apt-repository --yes ppa:marutter/rrutter
+#   sudo add-apt-repository --yes ppa:marutter/rrutter
     sudo apt-get -y update
     sudo apt-get -y install r-base r-base-dev r-base-core
     sudo apt-get -y install r-recommended   # GNU R collection of recommended packages {metapackage}.
     sudo apt-get -y install r-doc-info      # GNU R info manuals statistical computing system.
     sudo apt-get -y install libc6 libcurl4-gnutls-dev # R -v = 3.1.0
+    # Statistics & DataScience
+    sudo apt-get -y install r-cran-plyr #https://cran.r-project.org/web/packages/plyr/index.html
     sudo apt-get -y install aod ggplot2 Rcpp # R data analysis
+    # Drop into R on a terminal to install with command "install.packages('devtools')" 
+    # sudo apt-get install r-cran-fitdistrplus r-cran-logspline
+    #----------------------------------------------------------------
     #PolyCub is a GNU-R package providing methods for cubature (numerical integration) over polygonal domains.
 #    sudo apt-get -y install r-cran-polycub
-    #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    #----------------------------------------------------------------
     # CUBATURE - GNU R package for adaptive multivariate integration
 #    sudo apt-get -y install r-cran-cubature
     ## Fetching from CRAN
@@ -538,6 +543,12 @@ function install_rlang() {
     sudo Rscript -e "install.packages('RJSONIO',,'http://cran.us.r-project.org')"
     sudo Rscript -e "install.packages('RCurl',,'http://cran.us.r-project.org')"
     sudo Rscript -e "install.packages('RCubature',,'http://cran.us.r-project.org')"
+    
+    #PolyCub is a GNU-R package providing methods for cubature (numerical integration) over polygonal domains.
+#    sudo apt-get -y install r-cran-polycub
+    #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    # CUBATURE - GNU R package for adaptive multivariate integration
+#    sudo apt-get -y install r-cran-cubature
     # Cubature if you use Kubuntu.
 #    wget http://packages.ubuntu.com/xenial/r-cran-cubature r-cran-cubature_1.1-2-1_amd64.deb
 #    wget http://packages.ubuntu.com/xenial/r-cran-cubature r-cran-cubature_1.1-2-1_i386.deb
