@@ -38,7 +38,8 @@ shopt -s histappend
 #-------------------------------------------------------------------------------
 HISTSIZE=5005
 HISTFILESIZE=10001
-export HISTTIMEFORMAT="%F[%H:%M] "  # HISTTIMEFORMAT=’%c ‘ also does the same thing.
+export HISTTIMEFORMAT="%F[%H:%M] "  # HISTTIMEFORMAT=’%c ‘ also does the same 
+thing.
 
 # After each command, save and reload history
 #-------------------------------------------------------------------------------
@@ -100,7 +101,8 @@ fi
 
 #-------------------------------------------------------------------------------
 # https://github.com/jimeh/git-aware-prompt 
-# Display current Git branch name in the terminal, inside a Git working directory.
+# Display current Git branch name in the terminal, inside a Git working 
+directory.
 # Date: 2016mar17
 #-------------------------------------------------------------------------------
 export GITAWAREPROMPT=~/.bash/git-aware-prompt
@@ -197,16 +199,21 @@ fi
 
 # define color to additional file types
 #-------------------------------------------------------------------------------
-export LS_COLORS=$LS_COLORS:"*.wmv=01;35":"*.wma=01;35":"*.flv=01;35":"*.m4a=01;35"
+export 
+LS_COLORS=$LS_COLORS:"*.wmv=01;35":"*.wma=01;35":"*.flv=01;35":"*.m4a=01;35"
 
 
 #-------------------------------------------------------------------------------
 # LINKS for COLOR CHART, 
 # http://www.arwin.net/tech/bash.php
-# http://ubuntugenius.wordpress.com/2011/07/11/how-to-change-the-command-line-prompt-colour-in-the-ubuntulinux-terminal/
+# 
+http://ubuntugenius.wordpress.com/2011/07/11/how-to-change-the-command-line-prom
+pt-colour-in-the-ubuntulinux-terminal/
 #-------------------------------------------------------------------------------
 if [ "$color_prompt" = yes ]; then
-    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]स्वक्ष\[\033[01;31m\]@ilak\[\033[01;33m\]:\[\033[00;36m\]\w\[\033[01;37m\]\$ '
+    
+PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]स्वक्ष\[\033[01;31m\]@ilak
+\[\033[01;33m\]:\[\033[00;36m\]\w\[\033[01;37m\]\$ '
 else
 #    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
     PS1='${debian_chroot:+($debian_chroot)}svaksha@kheops:\w\$ '
@@ -217,18 +224,25 @@ unset color_prompt force_color_prompt
 ### enable color support of ls and also add handy aliases 
 #-------------------------------------------------------------------------------
 if [ -x /usr/bin/dircolors ]; then
-    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval 
+"$(dircolors -b)"
     alias ls='ls --color=auto'
     alias dir='dir --color=auto'
     alias vdir='vdir --color=auto'
     # -- colorize the output of grep --
-    alias grep='grep --color=auto'
+    #alias grep='grep --color=auto'
+    export GREP_OPTIONS='--color=auto'
     alias fgrep='fgrep --color=auto'
     alias egrep='egrep --color=auto'
     # GREP_COLOR=bright yellow on black bg.
     # use GREP_COLOR=7 to highlight whitespace on black terminals
     alias grep='GREP_COLOR="1;33;40" grep --color=auto'
 fi
+
+# grep warning
+# https://bbs.archlinux.org/viewtopic.php?id=190262
+alias grep="/usr/bin/grep $GREP_OPTIONS"
+unset GREP_OPTIONS
 
 #-------------------------------------------------------------------------------
 ### Colour prompt :: 2012Jul23
@@ -292,7 +306,8 @@ git config --global http.sslVerify false
 
 #-------------------------------------------------------------------------------
 # enable programmable completion features (Don't need to enable this, if it's 
-# already enabled in /etc/bash.bashrc and /etc/profile sources /etc/bash.bashrc).
+# already enabled in /etc/bash.bashrc and /etc/profile sources 
+/etc/bash.bashrc).
 #-------------------------------------------------------------------------------
 if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
@@ -305,15 +320,20 @@ fi
 #        ZSH:  setopt PROMPT_SUBST ; PS1='[%n@%m %c$(__git_ps1 " (%s)")]\$ '
 #        the optional argument will be used as format string.
 # PS1='[\u@\h \W$(__git_ps1 " (%s)")]\$ '
-#export PS1='\[\033[01;32m\]\u@\h\[\033[01;34m\] \w\[\033[01;33m\]$(__git_ps1)\[\033[01;34m\] \$\[\033[00m\] '
+#export PS1='\[\033[01;32m\]\u@\h\[\033[01;34m\] 
+\w\[\033[01;33m\]$(__git_ps1)\[\033[01;34m\] \$\[\033[00m\] '
 # http://www.bramschoenmakers.nl/en/node/624
-PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]स्वक्ष\[\033[01;35m\]@ilak\[\033[01;33m\]:\[\033[01;36m\]\w\[\033[01;33m\]$(__git_ps1)\[\033[01;37m\]\$ '
+PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]स्वक्ष\[\033[01;35m\]@ilak
+\[\033[01;33m\]:\[\033[01;36m\]\w\[\033[01;33m\]$(__git_ps1)\[\033[01;37m\]\$ '
 
 
 #₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹
-### PATH ### PATH ### PATH ### PATH ### PATH ### PATH ### PATH ### PATH ### PATH 
+### PATH ### PATH ### PATH ### PATH ### PATH ### PATH ### PATH ### PATH ### 
+PATH 
 #₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹
-# OpenSUSE: https://doc.opensuse.org/documentation/leap/startup/html/book.opensuse.startup/cha.adm.shell.html
+# OpenSUSE: 
+https://doc.opensuse.org/documentation/leap/startup/html/book.opensuse.startup/c
+ha.adm.shell.html
 
 # HEROKU WEB Toolbelt
 #-------------------------------------------------------------------------------
@@ -358,7 +378,8 @@ $PWD/julia/bin
 #-------------------------------------------------------------------------------
 #sudo ln -s $(pwd)/julia /usr/local/lib/julia # symbolic link to julia
 
-# The environment variable JULIA_PKGDIR can also do the above - install two versions of Julia.
+# The environment variable JULIA_PKGDIR can also do the above - install two 
+versions of Julia.
 #sudo export JULIA_PKGDIR=/usr/local/julia/julia-packages
 #ENV["JULIA_PKGDIR"] = "..."
 
@@ -378,14 +399,27 @@ PATH=$PATH:$(pwd)/julia/bin/jdp
 # NOTE: PYTHONSTARTUP does *not* expand "~", so you have to put in the
 # full path to your home directory.
 export PATH="$HOME/:$PATH"
-export PYTHONPATH="$(pwd)/anaconda3:$PATH"
 export PYTHONSTARTUP="$HOME/.pythonrc.py"
 #export PYTHONSTARTUP=~/.pythonrc.py
 export PYTHON_HISTORY_FILE="$HOME/.python_history"
 
+#-------------------------------------------------------------------------------
+# Anaconda 4.2.0 installer
+# DATE: 2016nov08
+#-------------------------------------------------------------------------------
+export PYTHONPATH="$(pwd)/anaconda3:$PATH"
+export PATH="$HOME/anaconda/bin:$PATH" 
+export PATH="$(pwd)/anaconda:$PATH"
+# added by Anaconda2 4.2.0 installer
+export PATH="$HOME/anaconda2/bin:$PATH"
+# added by Anaconda3 4.2.0 installer
+export PATH="$HOME/anaconda3/bin:$PATH"
+
+
 # command to delete bytecode (.pyc) files, works with the global alias file
 #-------------------------------------------------------------------------------
-export PYTHONDONTWRITEBYTECODE=true # REF: https://twitter.com/wlonk/status/587431447222444033
+export PYTHONDONTWRITEBYTECODE=true # REF: 
+https://twitter.com/wlonk/status/587431447222444033
 
 ### PIP bash completion start 
 # DATE: Fri, 03 May 2013 16:02:40 +0530 
@@ -397,17 +431,6 @@ COMP_CWORD=$COMP_CWORD \
 PIP_AUTO_COMPLETE=1 $1 ) )
 }
 complete -o default -F _pip_completion pip
-
-#-------------------------------------------------------------------------------
-# Anaconda 2.2.0 installer (np19py34_0 AND np19py27_0)
-# DATE: 2013nov15-2015oct21
-#-------------------------------------------------------------------------------
-export PATH="~/anaconda/bin:$PATH"
-export PATH="$(pwd)/anaconda:$PATH"
-# added by Anaconda 2.2.0 installer
-export PATH="$HOME/anaconda/bin:$PATH"
-# added by Anaconda3 2.3.0 installer
-export PATH="$HOME/anaconda3/bin:$PATH"
 
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++

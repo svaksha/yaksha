@@ -262,11 +262,11 @@ function install_dvcs() {
 #₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹
 function install_editors() {
     ## Editors
-    sudo apt-get -y install dconf-tools # Editor for Gnome tools.
+  #  sudo apt-get -y install dconf-tools # Editor for Gnome tools.
     sudo apt-get -y install emacs
     sudo apt-get -y install geany
     sudo apt-get -y install guake
-    sudo apt-get -y install meld     # GNOME, wont work on KDE.
+    #sudo apt-get -y install meld     # GNOME, wont work on KDE.
     sudo apt-get -y install kompare  # Comparision tool
     sudo apt-get -y install scite
     sudo apt-get -y install spyder
@@ -282,11 +282,11 @@ function install_editors() {
     #sudo apt-get update
     #sudo apt-get install atom
     ## BRACKETS
-    sudo dpkg --install Brackets.1.4.Extract.64-bit.deb  #Brackets IDE for 64-bit
+   # sudo dpkg --install Brackets.1.4.Extract.64-bit.deb  #Brackets IDE for 64-bit
     ## LaTeX2ε
     sudo apt-get -y install texlive
-    sudo apt-get -y install gedit-latex-plugin
-    sudo apt-get -y install lyx #for the technical authors and scientists.
+    #sudo apt-get -y install gedit-latex-plugin
+    #sudo apt-get -y install lyx #for the technical authors and scientists.
 } 
 
 
@@ -369,7 +369,8 @@ function install_graphics() {
     sudo apt-get -y install aeskulap
     sudo apt-get -y install Ginkgo-CADx
     ## Image Editors
-    sudo apt-get -y install gimp inkscape   # Can process raster SVG images
+    #sudo apt-get -y install gimp 
+    sudo apt-get -y install inkscape   # Can process raster SVG images
     sudo apt-get -y install imagemagick -with--libtiff
     #-----------------------------------------------------------
     ## Image processing tools and libraries :: https://wiki.ubuntu.com/UbuntuGIS
@@ -421,7 +422,7 @@ function install_javascript() {
     sudo apt-get -y install nodejs-legacy
     # gradle
     sudo add-apt-repository --yes ppa:cwchien/gradle
-    sudo apt-get update
+    #sudo apt-get update
     sudo apt-get -y install gradle
     # Markdown to PDF conversion - JS tool (better than the py tool 'grip')
     sudo npm install -g markdown-pdf
@@ -462,9 +463,9 @@ function install_nonfree() {
     sudo dpkg --add-architecture i386 # Enable multiarch, https://help.ubuntu.com/community/MultiArch
     sudo apt-get update 
     sudo apt-get -y install sni-qt:i386 # Download latest architecture version.
-    wget -c http://download.skype.com/linux/skype-debian_4.3.0.37-1_i386.deb
-    sudo gdebi skype-debian_4.3.0.37-1_i386.deb
-    sudo dpkg -l skype-debian_4.3.0.37-1_i386.deb
+    #wget -c http://download.skype.com/linux/skype-debian_4.3.0.37-1_i386.deb
+    #sudo gdebi skype-debian_4.3.0.37-1_i386.deb
+    #sudo dpkg -l skype-debian_4.3.0.37-1_i386.deb
     sudo apt-get -f install
     # Install Skype from Canonical Partner Repository
     # sudo add-apt-repository "deb http://archive.canonical.com/ $(lsb_release -sc) partner"
@@ -510,7 +511,7 @@ function install_python() {
     sudo apt-get update
     sudo apt-get -y install nginx # nginx -v = 1.6.0
     # WebServer ZMQ, also needed by Jupyter/IPython / IRuby etc..
-    sudo add-apt-repository --yes ppa:chris-lea/zeromq
+    #sudo add-apt-repository --yes ppa:chris-lea/zeromq
     sudo apt-get -y install libzmq3-dbg libzmq3-dev libzmq3
 }
 
