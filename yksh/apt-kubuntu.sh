@@ -415,7 +415,6 @@ function install_javascript() {
     sudo npm install -g jslint
     sudo npm install -g jshint
     ln -s ${yaksha_dir}.jshintrc ~/.jshintrc
-    sudo add-apt-repository --yes ppa:chris-lea/node.js  # Node.js
     sudo apt-get -y update
     sudo apt-get -y upgrade
     sudo apt-get -y install nodejs # nodejs -v = 0.10.28 # dont pin versions
