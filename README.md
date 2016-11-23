@@ -13,7 +13,7 @@ __Change is the only constant in life__, so as a programmer I constantly experim
 To try out these program scripts & dotfiles, fork this repository, review the code, and remove the things you don’t require. Test them before use and most importantly, read the __License & Disclaimer__ : No warranty and/or guarantee for any particular use, express or implied and you agree to use these [automation daimons][yaksha] at your own risk and liability! 
 
 ## System Dependencies
-At the outset, your Debian machine should have the following core tools installed : _Git and Python_. Github offers HTTPS and SSH as transfer protocols or the repo can be downloaded as a [zip-file][download] (latest 'master' branch). __Tip__: You should have uploaded your `ssh` key to github and have `git` installed locally before issuing the `git` commands on the terminal.
+At the outset, your Linux (Debian/Ubuntu) machine should have the following core tools installed : _Git and Python_. Github offers HTTPS and SSH as transfer protocols or the repo can be downloaded as a [zip-file][download] (latest 'master' branch). __Tip__: You should have uploaded your `ssh` key to github and have `git` installed locally before issuing the `git` commands on the terminal.
 
 + For SSH protocol use the URL `ssh://git@github.com:svaksha/yaksha.git` via the clone command:
 ```
@@ -31,31 +31,48 @@ The [yaksha][yaksha] repository tree for is structured as below:
 ### 2. Folders
 + __~/yaksha/dockerfiles/__ :: The dockerfiles are a WIP.
 + __~/yaksha/home/__ :: Home dotfiles and config folders for `.julia`, `.vim`, etc..
-+ __~/yaksha/yksh/__ : Scripts for installing OS applications and the package dependencies.
++ __~/yaksha/src/__ : Scripts for installing OS applications and the package dependencies, updates, etc..
 
 
-#### ~/yaksha/yksh/ : Scripts for installing OS applications and the package dependencies.
-+ __apt-debian.sh__ :: An automated system installation shell script for all new Debian Jessie machines that installs the following developer stack: 
-  * Atom, Vim, basher, tab completion, curl, git, GNU core utils, etc..
-  * Anaconda, VirtualBox, Vagrant, Docker, etc..
-  * {Database}: MySQL, PostgreSQL, SQLite, MongoDB, etc..
-  * {Languages}: GCC, G++, Go, Python, Java, Javascript, R, Ruby, et al.
+#### ~/yaksha/src/ : Scripts for installing OS applications and the package dependencies.
+
++ __~/yaksha/src/debian__ : 
+    + __apt-debian.sh__ :: An automated system installation shell script for all new Debian Jessie machines that installs the following developer stack: 
+        * Atom, Vim, basher, tab completion, curl, git, GNU core utils, etc..
+        * Anaconda, VirtualBox, Vagrant, Docker, etc..
+        * {Database}: MySQL, PostgreSQL, SQLite, MongoDB, etc..
+        * {Languages}: GCC, G++, Go, Python, Java, Javascript, R, Ruby, et al.
+    + __vm-debian8.sh__ :: {WIP} The dependencies for a VM running debian-8 (jessie).
+
++ __~/yaksha/src/docker__ :
+    + __docker-start-vm.sh__ :: WIP.
+
++ __~/yaksha/src/gitig__ :
+    + git-extract-commits.sh :: git_extract_commits.sh for GSoC commits, Original gist, https://gist.github.com/xinan/42669b49153af52919b2
+    + __gitlab-omni.sh__ :: Program to automatically check the OS and install the `gitlab` version.
+    + __gitlab.sh__ :: Bash script to install the `gitlab` omnibus version. Use __gitlab-omni.sh__ instead.
+    + __gitup.sh__ :: Automagically update all the local GIT repos.
+    
++ __~/yaksha/src/julia__ :
+    + jl-colors-migrate.sh :: Prof.Tim Holy's script.
+    + __julia-dev.sh__ :: This script installs __Julia__ and builds from the unstable master on github. {__Nota Bene__: I use the _master build_, so _dont_ use this script if you want stable Julia packages - some packages may have bugs and may not work with the unstable builds.}
+    + __julia-stable.sh__ :: A script to install the generic Linux 64-bit binaries for Julia stable releases only. 
+    + __julia-update.sh__ :: Updates and builds the julia unstable master installed via `julia-stable.sh`
+
++ Folder: ~/yaksha/src/kubuntu
+    + __apt-kubuntu.sh__ :: A shell script for installing Kubuntu packages.
+    + __apt-nonfree.sh__ :: As the filename says, all the non-free stuff gets installed.
+
+
++ ~/yaksha/src/opensuse :
+    + __zyppr-opensuse.sh__ :: The shell script for RPM-based OpenSUSE packages.
+
++ ~/yaksha/src/python :: 
+    + __py-anaconda.sh__ :: Installs Anaconda3.
+    + pypip.sh ::
+
 + __apt-firewall.sh__ :: A program firewall to secure the machine.
-+ __apt-kubuntu.sh__ :: A shell script for Kubuntu packages.
-+ __apt-nonfree.sh__ :: As the filename says, all the non-free stuff gets installed.
-+ __gitlab.sh__ :: Bash script to install the `gitlab` omnibus version. Use __yksh-gitlab-omni.sh__ instead.
-+ __gitlab-omni.sh__ :: Program to automatically check the OS and install the `gitlab` version.
-+ __julia-dev.sh__ :: This script installs __Julia__ and builds from the unstable master on github. {__Nota Bene__: I use the _master build_, so _dont_ use this script if you want stable Julia packages - some packages may have bugs and may not work with the unstable builds.}
-+ __julia-stable.sh__ :: A script to install the generic Linux 64-bit binaries for Julia stable releases only. 
-+ __py-anaconda.sh__ :: Installs Anaconda3.
-+ __vm-debian8.sh__ :: {WIP} The dependencies for a VM running debian-8 (jessie).
-+ __zyppr-opensuse.sh__ :: The shell script for RPM-based OpenSUSE packages.
-
-#### ~/yaksha/yak : System update (upgrade) and backup scripts.
 + __backup.py__ :: Take regular backups of my system using the attic python lib.
-+ __docker-start-vm.sh__ :: WIP.
-+ __gitup.sh__ :: Automagically update all the local GIT repos.
-+ __julia-update.sh__ :: Updates and builds the julia unstable master installed via `julia-stable.sh`
 + __update-os.sh__ :: This daemon automagically updates my Debian OS.
 
  [download]: https://github.com/svaksha/yaksha/archive/master.zip "download"
