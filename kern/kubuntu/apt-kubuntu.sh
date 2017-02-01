@@ -7,7 +7,7 @@
 # COPYRIGHT©: 2005-Now SVAKSHA, All Rights Reserved.
 # LICENSE   : GNU AGPLv3 subject to meeting all the terms in the LICENSE file,
 #             https://github.com/svaksha/yaksha/blob/master/LICENSE.md
-# DATE      : 2005mar22-Present.
+# DATE      : 2005mar22-2017feb01
 ################################################################################
 #
 # References:
@@ -31,7 +31,7 @@ set -m  # Job control is enabled.
 set -v  # Verbose mode to print shell input lines as they are read.
 set -x  # Print commands and their arguments as they are executed.
 # Set debug mode
-exec 5> >(logger -t $0) # uses logger command 
+exec 5> >(logger -t $0) # uses logger command
 BASH_XTRACEFD="5"
 PS4='$LINENO: '
 
@@ -48,14 +48,14 @@ install_kubuntu() {
     sudo apt-get -y install wget
     sudo apt-get -y install curl
     sudo apt-get -y install whois
-    sudo apt-get -y install zip   
+    sudo apt-get -y install zip
     sudo apt-get -y install unzip
-    sudo apt-get -y install unrar 
+    sudo apt-get -y install unrar
     # sendmail or postfix
     sudo apt-get -y install sendmail
     sudo apt-get -y install postfix
     sudo apt-get -y install openssh-server
-    sudo apt-get -y install cron-apt   
+    sudo apt-get -y install cron-apt
 }
 
 #₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹
@@ -64,26 +64,26 @@ install_kubuntu() {
 install_kde() {
     ## general cli tools for web, search
     #---------------------------------------------------------------------------
-    sudo apt-get -y install silversearcher-ag   
+    sudo apt-get -y install silversearcher-ag
     sudo apt-get -y install ctags
-    sudo apt-get -y install exuberant-ctags ack-grep 
+    sudo apt-get -y install exuberant-ctags ack-grep
     sudo apt-get -y install screen
     ln -s  ${yaksha_dir}.screenrc ~/.screenrc # copy the old file, dont create new one
     ## Tools for dependency check and PPA removal
     sudo apt-get -y install equivs
-    sudo apt-get -y install ppa-purge 
-    sudo apt-get -y install nmap 
+    sudo apt-get -y install ppa-purge
+    sudo apt-get -y install nmap
     # SSH
-    sudo apt-get -y install sshpass 
+    sudo apt-get -y install sshpass
     # Install Augeas - http://augeas.net/download.html
     # An editing tool API to automate the configuration editing on remote servers.
     #---------------------------------------------------------------------------
-    sudo apt-get -y install augeas-dbg python3-augeas augeas-tools augeas-lenses 
+    sudo apt-get -y install augeas-dbg python3-augeas augeas-tools augeas-lenses
     #
     #---------------------------------------------------------------------------
     ## UTILITIES
     #---------------------------------------------------------------------------
-    ## LaTeX 
+    ## LaTeX
     sudo apt-get -y install kile    #LaTeX Editor for KDE.
     # Markdown to PDF conversion - Python tool
     sudo pip install grip
@@ -92,17 +92,17 @@ install_kde() {
     ## BibTeX Reference software
     sudo apt-get -y install pybliographer
     sudo apt-get -y install referencer    #IGNORE, https://launchpad.net/referencer
-    # hierarchical notebook : http://hnb.sourceforge.net/Documentation/ 
-    sudo apt-get -y install hnb 
+    # hierarchical notebook : http://hnb.sourceforge.net/Documentation/
+    sudo apt-get -y install hnb
     # PDF related packages
     sudo apt-get -y install flpsed
     sudo apt-get -y install pdfjam
     sudo apt-get -y install xournal
-    sudo apt-get -y install pdfedit 
+    sudo apt-get -y install pdfedit
     sudo apt-get -y install cups-pdf
     # PDF to MarkDown
     # http://www.howtogeek.com/228531/how-to-convert-a-pdf-file-to-editable-text-using-the-command-line-in-linux/
-    sudo apt-get -y install poppler-utils    
+    sudo apt-get -y install poppler-utils
     # Markdown to PDF conversion - JS tool (better than the py tool 'grip')
     sudo npm install -g markdown-pdf
     # Markdown to PDF conversion - Python tool
@@ -119,7 +119,7 @@ install_kde() {
     #---------------------------------------------------------------------------
     ## Browsers
     #---------------------------------------------------------------------------
-    sudo apt-get -y install google-chrome-stable 
+    sudo apt-get -y install google-chrome-stable
     ## video and audio (music - mpto mp3) converters
     sudo apt-get -y install papcl
     sudo apt-get -y install ubuntu-restricted-extras # install the MP3 codec from the Ubuntu Restricted Extras package
@@ -147,7 +147,7 @@ install_kde() {
 install_databinary() {
     sudo zypper install odt2txt
     sudo zypper install oodiff
-    
+
 }
 
 #₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹
@@ -172,8 +172,8 @@ hardware_utils() {
     sudo apt-get -y install atop
     sudo apt-get -y install linux-tools-common # AKA, "perf": http://www.brendangregg.com/perf.html
     sudo apt-get -y install simplescan
-    ## Memory management 
-    sudo apt-get -y install lowmem        # free memory for lowmem install 
+    ## Memory management
+    sudo apt-get -y install lowmem        # free memory for lowmem install
     sudo apt-get -y install lowmemcheck   # detect low-memory systems and enter lowmem mode
     sudo apt-get -y install memstat
 }
@@ -213,7 +213,7 @@ function install_df_rdf() {
     fi
     cd "$CODE_BASE"
 
-    sudo apt-get install -y ruby # first we install Ruby and RubyGems  
+    sudo apt-get install -y ruby # first we install Ruby and RubyGems
     sudo gem install rdf2json # then install rdf2json
     # Install Apache Any23, https://any23.apache.org/
     wget http://ftp.jaist.ac.jp/pub/apache/any23/1.1/apache-any23-core-${ANY23_VERSION}.tar.gz
@@ -242,7 +242,7 @@ function install_dvcs() {
     git clone https://github.com/jonas/tig /tmp/tig
     cd /tmp/tig; sudo make prefix=/usr/local
     cd /tmp/tig; sudo make install prefix=/usr/local
-    # https://github.com/jimeh/git-aware-prompt 
+    # https://github.com/jimeh/git-aware-prompt
     # Display current Git branch name in your terminal prompt when in a Git working directory.
     mkdir ~/.bash
     cd ~/.bash
@@ -287,7 +287,7 @@ function install_editors() {
     sudo apt-get -y install texlive
     #sudo apt-get -y install gedit-latex-plugin
     #sudo apt-get -y install lyx #for the technical authors and scientists.
-} 
+}
 
 
 #₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹
@@ -341,23 +341,23 @@ function install_gcc() {
 # GO language : https://golang.org/doc/code.html
 #₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹
 function install_go() {
-    sudo apt-get -y install golang # Go programming language compiler - METApackage
-    sudo apt-get -y install golang-go.net-dev #supplementary Go networking libraries (development files)
+    sudo apt-get -y install golang # Go compiler - METApackage
+    sudo apt-get -y install golang-go.net-dev # supplementary networking dev libs
     sudo apt-get -y install golang-go.tools # supplementary Go tools
-    sudo apt-get -y install golang-go.tools-dev # supplementary Go tools (development files)
-    sudo apt-get -y install golang-go-linux-386 # Go standard library compiled for linux_386
-    sudo apt-get -y install golang-go-linux-amd64 # Go standard library compiled for linux_amd64
+    sudo apt-get -y install golang-go.tools-dev # suppl. Go tools - development
     sudo apt-get -y install dh-golang # debhelper add-on for packaging software written in Go (golang)
-    sudo apt-get -y install gccgo-go # Go tool for use with gccgo
+    sudo apt-get -y install gccgo-go # Go compiler over GCC
     sudo apt-get -y install golang-bindata-dev # embed data in a Go program - library package
     sudo apt-get -y install golang-doc # Go programming language compiler - documentation
-    sudo apt-get -y install golang-go # Go programming language compiler
     sudo apt-get -y install golang-go # Go programming language compiler
     # dependency tool for go
     wget https://github.com/tools/godep.git ~/home
     # Database drivers
     sudo apt-get -y install golang-pq-dev # pure Go postgres driver for Go’s database/sql package
     sudo apt-get -y install golang-gosqlite-dev # Trivial sqlite3 binding for Go (development files)
+    # GIT-LFS installation: https://git-lfs.github.com/
+    curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | sudo bash
+    sudo apt-get install git-lfs
 }
 
 
@@ -369,7 +369,7 @@ function install_graphics() {
     sudo apt-get -y install aeskulap
     sudo apt-get -y install Ginkgo-CADx
     ## Image Editors
-    #sudo apt-get -y install gimp 
+    #sudo apt-get -y install gimp
     sudo apt-get -y install inkscape   # Can process raster SVG images
     sudo apt-get -y install imagemagick -with--libtiff
     #-----------------------------------------------------------
@@ -390,7 +390,7 @@ function install_graphics() {
     sudo apt-get -y install python-mapscript perl-mapscript php4-mapscript php5-mapscript
     sudo apt-get -y install libterralib1c2a  # Terralib
     #-----------------------------------------------------------
-    ## Unified Modeling Language (UML) Tools 
+    ## Unified Modeling Language (UML) Tools
     # http://askubuntu.com/questions/9405/what-uml-unified-modelling-language-tools-are-available
     #-----------------------------------------------------------
     sudo apt-get -y install dia
@@ -429,7 +429,7 @@ function install_javascript() {
 
 
 #₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹
-# Networking shell 
+# Networking shell
 #₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹
 function install_network() {
     # VPN networks
@@ -449,8 +449,8 @@ function install_nonfree() {
     ##+++++++++++++
     #sudo apt-get -y install AdbeRdr9.5.5-1_i386linux_enu.deb
     sudo dpkg --add-architecture i386   # For debian-jessie Adobe needs the i386 architecture.
-    sudo apt-get update 
-    sudo apt-get -y install acroread mozilla-acroread    
+    sudo apt-get update
+    sudo apt-get -y install acroread mozilla-acroread
     ##+++++++++++++
     ## FLASH
     ##+++++++++++++
@@ -460,7 +460,7 @@ function install_nonfree() {
     ##+++++++++++++
     # rm -rf ~/.Skype  #Clear the old Skype folder before installing latest version.
     sudo dpkg --add-architecture i386 # Enable multiarch, https://help.ubuntu.com/community/MultiArch
-    sudo apt-get update 
+    sudo apt-get update
     sudo apt-get -y install sni-qt:i386 # Download latest architecture version.
     #wget -c http://download.skype.com/linux/skype-debian_4.3.0.37-1_i386.deb
     #sudo gdebi skype-debian_4.3.0.37-1_i386.deb
@@ -505,7 +505,7 @@ function install_python() {
     sudo pip install plumbum ## An alternatice to Fabric, https://github.com/tomerfiliba/plumbum
     sudo pip install jedi -i http://pypi.python.org/simple/
     sudo pip install pylint -i http://pypi.python.org/simple/
-    # Nginx WebServer 
+    # Nginx WebServer
     sudo add-apt-repository --yes ppa:nginx/stable
     sudo apt-get update
     sudo apt-get -y install nginx # nginx -v = 1.6.0
@@ -528,7 +528,7 @@ function install_rlang() {
     # Statistics & DataScience
     sudo apt-get -y install r-cran-plyr #https://cran.r-project.org/web/packages/plyr/index.html
     sudo apt-get -y install aod ggplot2 Rcpp # R data analysis
-    # Drop into R on a terminal to install with command "install.packages('devtools')" 
+    # Drop into R on a terminal to install with command "install.packages('devtools')"
     # sudo apt-get install r-cran-fitdistrplus r-cran-logspline
     #----------------------------------------------------------------
     #PolyCub is a GNU-R package providing methods for cubature (numerical integration) over polygonal domains.
@@ -543,7 +543,7 @@ function install_rlang() {
     sudo Rscript -e "install.packages('RJSONIO',,'http://cran.us.r-project.org')"
     sudo Rscript -e "install.packages('RCurl',,'http://cran.us.r-project.org')"
     sudo Rscript -e "install.packages('RCubature',,'http://cran.us.r-project.org')"
-    
+
     #PolyCub is a GNU-R package providing methods for cubature (numerical integration) over polygonal domains.
 #    sudo apt-get -y install r-cran-polycub
     #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -575,7 +575,7 @@ function install_ruby() {
     sudo apt-get -y install ruby-defaults
     sudo gem install iruby
     # VAGRANT  - tool for building and distributing virtualized development environments.
-    sudo apt-get -y install vagrant  
+    sudo apt-get -y install vagrant
     # share a common package cache among similar VM instances
     sudo apt-get -y install vagrant-cachier   # only available in stretch (testing)
     # Linux container provider for Vagrant.
@@ -631,7 +631,7 @@ function install_vim() {
 }
 
 #₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹
-# YKSHM DEVOPS 
+# YKSHM DEVOPS
 #₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹
 ykshm_devops() {
     # DOCKER : https://docs.docker.com/installation/ubuntulinux/

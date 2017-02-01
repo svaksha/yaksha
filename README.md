@@ -31,12 +31,12 @@ The [yaksha][yaksha] repository tree for is structured as below:
 ### 2. Folders
 + __~/yaksha/dockerfiles/__ :: The dockerfiles are a WIP.
 + __~/yaksha/home/__ :: Home dotfiles and config folders for `.julia`, `.vim`, etc..
-+ __~/yaksha/src/__ : Scripts for installing OS applications and the package dependencies, updates, etc..
++ __~/yaksha/kern/__ : Scripts for installing OS applications and the package dependencies, updates, etc..
 
 
-#### ~/yaksha/src/ : Scripts for installing OS applications and the package dependencies.
+#### ~/yaksha/kern/ : Scripts for installing OS applications and the package dependencies.
 
-+ __~/yaksha/src/debian__ : 
++ __~/yaksha/kern/debian__ : 
     + __apt-debian.sh__ :: An automated system installation shell script for all new Debian Jessie machines that installs the following developer stack: 
         * Atom, Vim, basher, tab completion, curl, git, GNU core utils, etc..
         * Anaconda, VirtualBox, Vagrant, Docker, etc..
@@ -44,30 +44,30 @@ The [yaksha][yaksha] repository tree for is structured as below:
         * {Languages}: GCC, G++, Go, Python, Java, Javascript, R, Ruby, et al.
     + __vm-debian8.sh__ :: {WIP} The dependencies for a VM running debian-8 (jessie).
 
-+ __~/yaksha/src/docker__ :
++ __~/yaksha/kern/docker__ :
     + __docker-start-vm.sh__ :: WIP.
 
-+ __~/yaksha/src/gitig__ :
++ __~/yaksha/kern/gitig__ :
     + git-extract-commits.sh :: git_extract_commits.sh for GSoC commits, Original gist, https://gist.github.com/xinan/42669b49153af52919b2
     + __gitlab-omni.sh__ :: Program to automatically check the OS and install the `gitlab` version.
     + __gitlab.sh__ :: Bash script to install the `gitlab` omnibus version. Use __gitlab-omni.sh__ instead.
     + __gitup.sh__ :: Automagically update all the local GIT repos.
     
-+ __~/yaksha/src/julia__ :
++ __~/yaksha/kern/julia__ :
     + jl-colors-migrate.sh :: Prof.Tim Holy's script.
     + __julia-dev.sh__ :: This script installs __Julia__ and builds from the unstable master on github. {__Nota Bene__: I use the _master build_, so _dont_ use this script if you want stable Julia packages - some packages may have bugs and may not work with the unstable builds.}
     + __julia-stable.sh__ :: A script to install the generic Linux 64-bit binaries for Julia stable releases only. 
     + __julia-update.sh__ :: Updates and builds the julia unstable master installed via `julia-stable.sh`
 
-+ Folder: ~/yaksha/src/kubuntu
++ Folder: ~/yaksha/kern/kubuntu
     + __apt-kubuntu.sh__ :: A shell script for installing Kubuntu packages.
     + __apt-nonfree.sh__ :: As the filename says, all the non-free stuff gets installed.
 
 
-+ ~/yaksha/src/opensuse :
++ ~/yaksha/kern/opensuse :
     + __zyppr-opensuse.sh__ :: The shell script for RPM-based OpenSUSE packages.
 
-+ ~/yaksha/src/python :: 
++ ~/yaksha/kern/python :: 
     + __py-anaconda.sh__ :: Installs Anaconda3.
     + pypip.sh ::
 
