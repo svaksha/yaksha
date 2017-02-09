@@ -8,7 +8,7 @@
 #              (https://github.com/svaksha/yaksha/blob/master/LICENSE.md) file.
 # LICENSE    : GNU AGPLv3 subject to meeting the terms and conditions in the LICENSE
 #              (https://github.com/svaksha/yaksha/blob/master/LICENSE.md) file.
-# DATES      : 2009feb16 - Now
+# DATES      : 2009feb16 - 2017feb02
 ################################################################################
 #
 
@@ -98,8 +98,8 @@
 # Install the .deb file for git-lfs from https://github.com/github/git-lfs.git
 #-------------------------------------------------------------------------------	
 [filter "lfs"]
-	clean = git lfs clean %f
-	smudge = git lfs smudge %f
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge %f
 	required = true
 
 

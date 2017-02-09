@@ -7,7 +7,7 @@
 # COPYRIGHT©: 2005-Now SVAKSHA, All Rights Reserved.
 # LICENSE   : GNU AGPLv3 subject to meeting all the terms in the LICENSE file,
 #             https://github.com/svaksha/yaksha/blob/master/LICENSE.md
-# DATE      : 2005mar22-2017feb01
+# DATE      : 2005mar22-2017feb09
 ################################################################################
 #
 # References:
@@ -512,6 +512,14 @@ function install_python() {
     # WebServer ZMQ, also needed by Jupyter/IPython / IRuby etc..
     #sudo add-apt-repository --yes ppa:chris-lea/zeromq
     sudo apt-get -y install libzmq3-dbg libzmq3-dev libzmq3
+    # PandaSQL, https://github.com/yhat/pandasql
+    sudo pip install -U pandasql
+    # Rodeo, https://www.yhat.com/products/rodeo/downloads
+    sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 33D40BC6
+    sudo add-apt-repository "deb http://rodeo-deb.yhat.com/ rodeo main"
+    #### install rodeo and run it
+    sudo apt-get update
+    sudo apt-get -y install rodeo
 }
 
 
