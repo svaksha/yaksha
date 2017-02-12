@@ -514,7 +514,8 @@ function install_python() {
     sudo apt-get -y install libzmq3-dbg libzmq3-dev libzmq3
     # PandaSQL, https://github.com/yhat/pandasql
     sudo pip install -U pandasql
-    # Rodeo, https://www.yhat.com/products/rodeo/downloads
+    # Rodeo, A Python IDE built for analyzing data
+    # https://www.yhat.com/products/rodeo/downloads
     sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 33D40BC6
     sudo add-apt-repository "deb http://rodeo-deb.yhat.com/ rodeo main"
     #### install rodeo and run it
