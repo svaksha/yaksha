@@ -7,7 +7,7 @@
 # COPYRIGHT©: 2005-Now SVAKSHA, All Rights Reserved.
 # LICENSE   : GNU AGPLv3 subject to meeting all the terms in the LICENSE file,
 #             https://github.com/svaksha/yaksha/blob/master/LICENSE.md
-# DATE      : 2005mar22-2017feb09
+# DATE      : 2005mar22-2017mar16
 ################################################################################
 #
 # References:
@@ -284,9 +284,13 @@ function install_editors() {
     ## BRACKETS
    # sudo dpkg --install Brackets.1.4.Extract.64-bit.deb  #Brackets IDE for 64-bit
     ## LaTeX2ε
-    sudo apt-get -y install texlive
-    #sudo apt-get -y install gedit-latex-plugin
-    #sudo apt-get -y install lyx #for the technical authors and scientists.
+    sudo apt-get -y install texlive texlive-latex-extra
+    # Latex Fonts support
+    sudo apt-get -y install texlive-fonts-recommended
+    sudo apt-get -y install texlive-fonts-extra
+    sudo apt-get -y install texlive-lang-cyrillic scalable-cyrfonts-tex 
+    # for technical/scientific posters.
+    sudo apt-get -y install texlive-science 
 }
 
 
