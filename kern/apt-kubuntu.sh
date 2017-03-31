@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 ################################################################################
-# FILE      : yksh-apt-kubuntu.sh
+# FILE      : apt-kubuntu.sh
 # INFO.     : Bash script to install packages on the Kubuntu system.
 # AUTHOR    : SVAKSHA, http://svaksha.com/pages/Bio
 # SOURCE    : http://svaksha.github.io/yaksha
