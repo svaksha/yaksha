@@ -376,10 +376,9 @@ function install_graphics() {
     sudo apt-get -y install colordiff
     # GRASS for geospatial data management, image processing, graphics/maps production, spatial modeling, and visualization.
     sudo apt-get -y install grass
-    sudo apt-get -y install qgis qgis-plugin-grass # QuantumGIS supports vector, raster, and database formats.
-    sudo apt-get -y install gdal libgdal1c2a python-gdal  # handles raster formats
-    sudo apt-get -y install libgeotiff
-    sudo apt-get -y install e00compr # an ANSI C library that reads and writes Arc/Info compressed E00 files.
+    #--------------------------------
+    # GIS
+    #--------------------------------
     sudo apt-get -y install postgis    # PG driver for GIS
     sudo apt-get -y install QuantumGIS
     # Mapserver
@@ -400,6 +399,14 @@ function install_graphics() {
     # Scanning Tools
     #--------------------------------
     sudo apt-get -y install scantailor gscan2pdf
+    #--------------------------------
+    # 3D graphics / Vector graphics
+    #--------------------------------
+    sudo apt-get -y install blender
+    sudo apt-get -y install qgis qgis-plugin-grass # QuantumGIS supports vector, raster, and database formats.
+    sudo apt-get -y install gdal libgdal1c2a python-gdal  # handles raster formats
+    sudo apt-get -y install libgeotiff
+    sudo apt-get -y install e00compr # an ANSI C library that reads and writes Arc/Info compressed E00 files.
 }
 
 #₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹
@@ -457,6 +464,13 @@ function install_nonfree() {
     sudo dpkg --add-architecture i386   # For debian-jessie Adobe needs the i386 architecture.
     sudo apt-get update
     sudo apt-get -y install acroread mozilla-acroread
+    # OCR tools to copy text from locked filed: https://help.ubuntu.com/community/OCR
+    sudo apt-get -y install fuzzyocr # spamassassin plugin to check image attachments
+    sudo apt-get -y install ocrad # OCR program
+    sudo apt-get -y install ocrfeeder # document layout analysis and optical character recognition system
+    sudo apt-get -y install ocropus # document analysis and OCR system
+    sudo apt-get -y install cuneiform # multi-language OCR system 
+    
     ##+++++++++++++
     ## FLASH
     ##+++++++++++++
