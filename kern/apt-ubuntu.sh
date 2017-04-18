@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 ################################################################################
 # FILE      : apt-ubuntu.sh
-# INFO.     : Bash script to install packages on the Ubuntu system.
+# NOTES     : Bash script to install packages on a fresh Ubuntu system that takes less than one hour to fetch and install all the packages on a good internet bandwidth.
 # AUTHOR    : SVAKSHA, http://svaksha.com/pages/Bio
 # SOURCE    : http://svaksha.github.io/yaksha
 # COPYRIGHT©: 2005-Now SVAKSHA, All Rights Reserved.
@@ -18,7 +18,7 @@
 yaksha_dir=~/yaksha/
 
 # Log the date and time of execution of bash script into the `out` files.
-date +'%c|started running `apt-get`: ' >> out-apt-ubuntu.log
+date +"%c|started running `apt-get`: " >> out-apt-ubuntu.log
 date +"%c|completed running: $?" >> out-apt-ubuntu.log
 
 # The SET bulletin
@@ -26,7 +26,7 @@ date +"%c|completed running: $?" >> out-apt-ubuntu.log
 set -a  # Mark variables which are modified or created for export.
 set -b  # Notify of job termination immediately.
 # Unless you want to babysit the installation process for each package dont use this.
-set -e  # Exit immediately if a command exits with a non-zero status.
+#set -e  # Exit immediately if a command exits with a non-zero status.
 set -m  # Job control is enabled.
 set -v  # Verbose mode to print shell input lines as they are read.
 set -x  # Print commands and their arguments as they are executed.
@@ -684,15 +684,15 @@ clean_install() {
 
 #₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹
 
-install_apt_ubuntu='all'
-key="$1"
+apt_ubuntu='all'
+#key="$1"
 key="$2"
 
 case $key in
-    -c|--clean)
-        clean_install="$1"
-        shift
-    ;;
+ #   -c|--clean)
+ #      clean_install="$1"
+ #       shift
+ #   ;;
     -i|--install)
         install_apt_ubuntu="$2"
         shift
