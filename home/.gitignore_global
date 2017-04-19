@@ -51,7 +51,7 @@ pvt-*.*
 #----------------------------------------------------
 ######### { LINUX }
 #----------------------------------------------------
-^\.directory # KDE directory preferences
+*\.directory # directory preferences
 *~          # temporary files GLOB SYNTAX
 *.tmp       # temporary files GLOB SYNTAX
 tags

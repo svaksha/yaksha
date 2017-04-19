@@ -7,7 +7,7 @@
 # COPYRIGHT©: 2005-Now SVAKSHA, All Rights Reserved.
 # LICENSE   : GNU AGPLv3 subject to meeting all the terms in the LICENSE file,
 #             https://github.com/svaksha/yaksha/blob/master/LICENSE.md
-# DATE      : 2005mar22-2017mar16
+# DATE      : 2005mar22-2017apr19
 ################################################################################
 #
 # References:
@@ -15,11 +15,12 @@
 # https://github.com/svaksha/aksh/blob/master/cs-devops.md
 #₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹
 
-yaksha_dir=~/yaksha/
+yaksha_dir=~/yaksha/kern
 
 # Log the date and time of execution of bash script into the `out` files.
-date +'%c|started running `apt-get`: ' >> out-yksh-apt-kubuntu.log
-date +"%c|completed running: $?" >> out-yksh-apt-kubuntu.log
+date +"%c|started running $(apt-get): " >> out-apt-ubuntu.log
+date +"%c|completed running: $?" >> out-apt-ubuntu.log
+
 
 # The SET bulletin
 # Tip: Using "+" causes these flags to be turned off.
@@ -44,7 +45,7 @@ while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 # KUBUNTU package utilities
 # Check for release names: https://wiki.ubuntu.com/Releases
 #₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹
-install_kubuntu() {
+install_ubuntu() {
     sudo apt-get -y install wget
     sudo apt-get -y install curl
     sudo apt-get -y install whois
@@ -54,14 +55,17 @@ install_kubuntu() {
     # sendmail or postfix
     sudo apt-get -y install sendmail
     sudo apt-get -y install postfix
+    # SSH
     sudo apt-get -y install openssh-server
     sudo apt-get -y install cron-apt
+    # BASH script checker: http://m.jakstys.lt/tech/2016/08/bash
+    sudo apt-get -y install shellcheck 
 }
 
 #₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹
-# KDE general system utilities
+# Gnome general system utilities
 #₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹
-install_kde() {
+install_gnome() {
     ## general cli tools for web, search
     #---------------------------------------------------------------------------
     sudo apt-get -y install silversearcher-ag
@@ -83,12 +87,8 @@ install_kde() {
     #---------------------------------------------------------------------------
     ## UTILITIES
     #---------------------------------------------------------------------------
-    ## LaTeX
-    sudo apt-get -y install kile    #LaTeX Editor for KDE.
-    # Markdown to PDF conversion - Python tool
-    sudo pip install grip
     # Comparision tool
-    sudo apt-get -y install kompare #https://en.wikipedia.org/wiki/Kompare
+    sudo apt-get -y install meld
     ## BibTeX Reference software
     sudo apt-get -y install pybliographer
     sudo apt-get -y install referencer    #IGNORE, https://launchpad.net/referencer
@@ -117,10 +117,8 @@ install_kde() {
     sudo apt-get -y install printer-driver-foo2zjs-common   #20140209dfsg0-1kubuntu1
     #
     #---------------------------------------------------------------------------
-    ## Browsers
-    #---------------------------------------------------------------------------
-    sudo apt-get -y install google-chrome-stable
     ## video and audio (music - mpto mp3) converters
+    #---------------------------------------------------------------------------
     sudo apt-get -y install papcl
     sudo apt-get -y install ubuntu-restricted-extras # install the MP3 codec from the Ubuntu Restricted Extras package
     sudo apt-get -y install soundconverter # install the Sound Converter program
@@ -130,9 +128,6 @@ install_kde() {
     sudo apt-get -y install tomboy transmission
     ## Communication Tools
     sudo apt-get -y install jitsi # Skype alternative
-    # Telegram, a Whatsapp alternative on GH: https://github.com/telegramdesktop/tdesktop
-#    sudo add-apt-repository ppa:atareao/telegram
-#    sudo apt-get -y install telegram
     # STARTUP DISK CREATOR
     sudo apt-get install unetbootin
     # Time Tracker, https://github.com/TailorDev/Watson
@@ -182,14 +177,14 @@ hardware_utils() {
 ## DATABASE packages
 #₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹
 function install_database() {
-    sudo apt-get -y install mariadb
+#    sudo apt-get -y install mariadb
     sudo apt-get -y install sqlite3
     ## PostgreSQL
-    sudo apt-get -y install postgresql-9.4 #core database server
-    sudo apt-get -y install postgresql-client-9.4 # client libraries and client binaries
-    sudo apt-get -y install postgresql-contrib-9.4 # additional supplied modules
+    sudo apt-get -y install postgresql-9.6 #core database server
+    sudo apt-get -y install postgresql-client-9.6 # client libraries and client binaries
+    sudo apt-get -y install postgresql-contrib-9.6 # additional supplied modules
     sudo apt-get -y install libpq-dev # libraries and headers for C language frontend development
-    sudo apt-get -y install postgresql-server-dev-9.4 # libraries and headers for C language backend development
+    sudo apt-get -y install postgresql-server-dev-9.6 # libraries and headers for C language backend development
     sudo apt-get -y install pgadmin3 # pgAdmin III graphical administration utility
     ## Distributed File Systems
     sudo apt-get -y install hdf5-tools
@@ -203,7 +198,7 @@ function install_df_rdf() {
     # SETTINGS SECTION
     CODE_BASE = src
     INSTALL_DIR = /usr/local/bin
-    ANY23_VERSION = 1.1  # check the site for exact versions, https://any23.apache.org/
+    ANY23_VERSION=1.1  # check the site for exact versions, https://any23.apache.org/
 
     # END OF SETTINGS SECTION
     # Does the source base directory exist? No? Well, create it!
@@ -247,6 +242,11 @@ function install_dvcs() {
     mkdir ~/.bash
     cd ~/.bash
     git clone git://github.com/jimeh/git-aware-prompt.git
+    #------------------------------------------------
+    # GIT-LFS installation: https://git-lfs.github.com/
+    #------------------------------------------------
+    curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | sudo bash
+    sudo apt-get install git-lfs
     #---------------
     # Gitsome : https://github.com/donnemartin/gitsome#installation
     #---------------
@@ -359,9 +359,6 @@ function install_go() {
     # Database drivers
     sudo apt-get -y install golang-pq-dev # pure Go postgres driver for Go’s database/sql package
     sudo apt-get -y install golang-gosqlite-dev # Trivial sqlite3 binding for Go (development files)
-    # GIT-LFS installation: https://git-lfs.github.com/
-    curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | sudo bash
-    sudo apt-get install git-lfs
 }
 
 
@@ -463,9 +460,9 @@ function install_nonfree() {
     ## SKYPE
     ##+++++++++++++
     # rm -rf ~/.Skype  #Clear the old Skype folder before installing latest version.
-    sudo dpkg --add-architecture i386 # Enable multiarch, https://help.ubuntu.com/community/MultiArch
-    sudo apt-get update
-    sudo apt-get -y install sni-qt:i386 # Download latest architecture version.
+#    sudo dpkg --add-architecture i386 # Enable multiarch, https://help.ubuntu.com/community/MultiArch
+ #   sudo apt-get update
+  #  sudo apt-get -y install sni-qt:i386 # Download latest architecture version.
     #wget -c http://download.skype.com/linux/skype-debian_4.3.0.37-1_i386.deb
     #sudo gdebi skype-debian_4.3.0.37-1_i386.deb
     #sudo dpkg -l skype-debian_4.3.0.37-1_i386.deb
@@ -498,7 +495,7 @@ function install_python() {
     sudo apt-get -y install numpy python-numpy
     sudo apt-get -y install scipy
     sudo apt-get -y install python-matplotlib python-scipy
-    sudo apt-get -y install python-virtualenv
+    #sudo apt-get -y install python-virtualenv
     sudo apt-get -y install manpages-dev
     sudo apt-get -y install python-fontforge
     # Jupyter
@@ -512,7 +509,7 @@ function install_python() {
     # Nginx WebServer
     sudo add-apt-repository --yes ppa:nginx/stable
     sudo apt-get update
-    sudo apt-get -y install nginx # nginx -v = 1.6.0
+    sudo apt-get -y install nginx 
     # WebServer ZMQ, also needed by Jupyter/IPython / IRuby etc..
     #sudo add-apt-repository --yes ppa:chris-lea/zeromq
     sudo apt-get -y install libzmq3-dbg libzmq3-dev libzmq3
@@ -595,14 +592,14 @@ function install_ruby() {
     sudo apt-get -y install vagrant-lxc       # only available in stretch (testing)
     # In BASH, the variable $OSTYPE stores the name of the operation system:
     # `$OSTYPE` automatically set to a string that describes the operating system on which bash is executing.
-    OSARCH=`uname -m`
-    if [ ${OSARCH} == 'x86_64' ]; then
+  #  OSARCH=`uname -m`
+   # if [ ${OSARCH} == 'x86_64' ]; then
         # Install 64-bit stuff here
-        cd ~/home; sudo dpkg --install vagrant_1.7.4_x86_64.deb
-        else
+    #    cd ~/home; sudo dpkg --install vagrant_1.7.4_x86_64.deb
+     #   else
         # Install 32-bit stuff here
-        cd ~/home; sudo dpkg --install vagrant_1.7.4_i686.deb
-    fi
+      #  cd ~/home; sudo dpkg --install vagrant_1.7.4_i686.deb
+   # fi
 }
 
 
@@ -673,52 +670,39 @@ ykshm_devops() {
 }
 
 
-#₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹
-# Clean Install
-#₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹
-clean_install() {
-    echo "Clean install"
-    rm -rf ~/.vim
-    rm -rf ~/.vimrc
-    rm -rf ~/.tmux
-    rm -rf ~/.tmux.conf
-    rm -rf ~/.screenrc
-}
 
 #₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹
 
-install_kubuntu='all'
-key="$1"
+apt_ubuntu='all'
 key="$2"
 
 case $key in
-    -c|--clean)
-        clean_install="$1"
-        shift
-    ;;
     -i|--install)
-        install_kubuntu="$2"
+        apt_ubuntu="$2"
         shift
     ;;
     *)
         echo "usage:
                 -c|--clean  - remove dotfiles before installation
-                -i|--install [type] will install the KUBUNTU packages into $HOME/user
+                -i|--install [type] will install the UBUNTU packages into $HOME/user
         "
         ;;
     esac
 
 #₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹
-# uncomment this for a NEW system only
+# uncomment this for a NEW system only BUT only if upstream == DEV version
 #₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹
 #git clone --recursive https://github.com/svaksha/yaksha ${yaksha_dir}
 
-case $install_kubuntu in
-    kubuntu)
-        install_kubuntu
+case $apt_ubuntu in
+    ubuntu)
+        install_ubuntu
     ;;
-    kde)
-        install_kde
+    gnome)
+        install_gnome
+    ;;
+    databinary)
+        install_databinary
     ;;
     hardware)
         hardware_utils
@@ -781,8 +765,9 @@ case $install_kubuntu in
         ykshm_devops
     ;;
     all)
-        install_kubuntu
-        install_df_rdf
+        install_ubuntu
+        install_gnome
+        install_databinary
         hardware_utils
         install_database
         install_df_rdf
@@ -805,5 +790,5 @@ case $install_kubuntu in
         ykshm_devops
     ;;
     *)
-        echo "KUBUNTU package installation in progress, almost done!"
+        echo "UBUNTU package installation in progress, almost done!"
     esac

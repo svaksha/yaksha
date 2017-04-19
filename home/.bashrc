@@ -36,8 +36,8 @@ shopt -s histappend
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
 #-------------------------------------------------------------------------------
-HISTSIZE=5005
-HISTFILESIZE=10001
+HISTSIZE=50005
+HISTFILESIZE=50005
 export HISTTIMEFORMAT="%F[%H:%M] "  # HISTTIMEFORMAT=’%c ‘ also does the same thing.
 
 # After each command, save and reload history
@@ -111,7 +111,7 @@ source "${GITAWAREPROMPT}/main.sh"
 # Process / system related functions:
 #₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹
 
-function host_ilak()   # get current host related info
+function host_zero()   # get current host related info
 {
   echo -e "\nYou are logged on ${RED}$HOST"
   echo -e "\nAdditionnal information:$NC " ; uname -a
@@ -206,12 +206,13 @@ export LS_COLORS=$LS_COLORS:"*.wmv=01;35":"*.wma=01;35":"*.flv=01;35":"*.m4a=01;
 # http://ubuntugenius.wordpress.com/2011/07/11/how-to-change-the-command-line-prompt-colour-in-the-ubuntulinux-terminal/
 #-------------------------------------------------------------------------------
 if [ "$color_prompt" = yes ]; then
-    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]स्वक्ष\[\033[01;31m\]@ilak\[\033[01;33m\]:\[\033[00;36m\]\w\[\033[01;37m\]\$ '
+    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]स्व\[\033[01;31m\]@क्ष\[\033[01;33m\]:\[\033[00;36m\]\w\[\033[01;37m\]\$ '
 else
 #    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
     PS1='${debian_chroot:+($debian_chroot)}svaksha@kheops:\w\$ '
 fi
 unset color_prompt force_color_prompt
+
 
 #-------------------------------------------------------------------------------
 ### enable color support of ls and also add handy aliases 
@@ -303,17 +304,6 @@ git config --global http.sslVerify false
 if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
-
-################################################################################
-# .git-prompt.sh
-################################################################################
-# Change your PS1 to call __git_ps1 as command-substitution: see the above file.
-#        ZSH:  setopt PROMPT_SUBST ; PS1='[%n@%m %c$(__git_ps1 " (%s)")]\$ '
-#        the optional argument will be used as format string.
-# PS1='[\u@\h \W$(__git_ps1 " (%s)")]\$ '
-#export PS1='\[\033[01;32m\]\u@\h\[\033[01;34m\] \w\[\033[01;33m\]$(__git_ps1)\[\033[01;34m\] \$\[\033[00m\] '
-# http://www.bramschoenmakers.nl/en/node/624
-PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]स्वक्ष\[\033[01;35m\]@ilak\[\033[01;33m\]:\[\033[01;36m\]\w\[\033[01;33m\]$(__git_ps1)\[\033[01;37m\]\$ '
 
 
 #₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹
