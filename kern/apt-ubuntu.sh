@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 ################################################################################
 # FILE      : apt-ubuntu.sh
-# INFO.     : Bash script to install packages on the Ubuntu system.
+# NOTES     : Bash script to install packages on a fresh Ubuntu system that takes less than one hour to fetch and install all the packages on a good internet bandwidth.
 # AUTHOR    : SVAKSHA, http://svaksha.com/pages/Bio
 # SOURCE    : http://svaksha.github.io/yaksha
 # COPYRIGHT©: 2005-Now SVAKSHA, All Rights Reserved.
@@ -18,9 +18,9 @@
 yaksha_dir=~/yaksha/kern
 
 # Log the date and time of execution of bash script into the `out` files.
+<<<<<<< HEAD
 date +"%c|started running $(apt-get): " >> out-apt-ubuntu.log
 date +"%c|completed running: $?" >> out-apt-ubuntu.log
-
 
 # The SET bulletin
 # Tip: Using "+" causes these flags to be turned off.
@@ -42,7 +42,7 @@ while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
 
 #₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹
-# KUBUNTU package utilities
+# UBUNTU package utilities
 # Check for release names: https://wiki.ubuntu.com/Releases
 #₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹
 install_ubuntu() {
@@ -672,13 +672,22 @@ ykshm_devops() {
 
 
 #₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹
-
 apt_ubuntu='all'
 key="$2"
 
 case $key in
     -i|--install)
         apt_ubuntu="$2"
+#key="$1"
+key="$2"
+
+case $key in
+ #   -c|--clean)
+ #      clean_install="$1"
+ #       shift
+ #   ;;
+    -i|--install)
+        install_apt_ubuntu="$2"
         shift
     ;;
     *)
