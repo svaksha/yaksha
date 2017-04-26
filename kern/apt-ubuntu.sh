@@ -87,8 +87,6 @@ install_gnome() {
     #---------------------------------------------------------------------------
     ## UTILITIES
     #---------------------------------------------------------------------------
-    # Comparision tool
-    sudo apt-get -y install meld
     ## BibTeX Reference software
     sudo apt-get -y install pybliographer
     sudo apt-get -y install referencer    #IGNORE, https://launchpad.net/referencer
@@ -132,11 +130,6 @@ install_gnome() {
     sudo apt-get -y install unetbootin
     # Time Tracker, https://github.com/TailorDev/Watson
     sudo pip install td-watson
-    #---------------------------------------------------------------------------
-    ## IDE
-    #---------------------------------------------------------------------------
-    sudo apt-get -y install builder # IDE for GNOME to support GTK+, GLib, APIs.
-    
 }
 
 
@@ -266,13 +259,14 @@ function install_dvcs() {
 # EDITORS
 #₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹
 function install_editors() {
-    ## Editors
-  #  sudo apt-get -y install dconf-tools # Editor for Gnome tools.
+    ## IDE for GNOME to support GTK+, GLib, APIs
+    #---------------------------------------------------------------------------
+    sudo apt-get -y install builder
+    #  sudo apt-get -y install dconf-tools # Editor for Gnome tools.
     sudo apt-get -y install emacs
     sudo apt-get -y install geany
     sudo apt-get -y install guake
-    #sudo apt-get -y install meld     # GNOME, wont work on KDE.
-    sudo apt-get -y install kompare  # Comparision tool
+    sudo apt-get -y install meld  # comparison tool for GNOME
     sudo apt-get -y install scite
     sudo apt-get -y install spyder
     # CLI text editors for sysadmins working on remote Linux/Unix servers.
@@ -282,13 +276,12 @@ function install_editors() {
     # Atom editor 64-bit DEB file from github source
     wget https://github.com/atom/atom/releases/download/v1.6.0/atom-amd64.deb ~/home
     cd ~/home; sudo dpkg --install atom-amd64.deb
-    # Atom editor 32-bit PPA
-    #sudo add-apt-repository ppa:webupd8team/atom
-    #sudo apt-get update
-    #sudo apt-get install atom
-    ## BRACKETS
-   # sudo dpkg --install Brackets.1.4.Extract.64-bit.deb  #Brackets IDE for 64-bit
+    ## BRACKETS IDE for 64-bit
+    #---------------------------------------------------------------------------
+    # sudo dpkg --install Brackets.1.4.Extract.64-bit.deb 
+    #--------------------------------
     ## LaTeX2ε
+    #--------------------------------
     sudo apt-get -y install texlive texlive-latex-extra
     # Latex Fonts support
     sudo apt-get -y install texlive-fonts-recommended
@@ -374,8 +367,7 @@ function install_graphics() {
     ## medical imaging
     sudo apt-get -y install aeskulap
     sudo apt-get -y install Ginkgo-CADx
-    ## Image Editors
-    #sudo apt-get -y install gimp
+    #sudo apt-get -y install gimp ## Gimp Image Editor
     sudo apt-get -y install inkscape   # Can process raster SVG images
     sudo apt-get -y install imagemagick -with--libtiff
     #-----------------------------------------------------------
@@ -400,6 +392,10 @@ function install_graphics() {
     # http://askubuntu.com/questions/9405/what-uml-unified-modelling-language-tools-are-available
     #-----------------------------------------------------------
     sudo apt-get -y install dia
+    #--------------------------------
+    # Circuits and diagrams
+    #--------------------------------
+    sudo apt-get -y install cirkuit
 }
 
 #₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹
