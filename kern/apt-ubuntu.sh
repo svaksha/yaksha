@@ -7,7 +7,7 @@
 # COPYRIGHT©: 2005-Now SVAKSHA, All Rights Reserved.
 # LICENSE   : GNU AGPLv3 subject to meeting all the terms in the LICENSE file,
 #             https://github.com/svaksha/yaksha/blob/master/LICENSE.md
-# DATE      : 2005mar22-2017apr19
+# DATE      : 2005mar22-2017apr26
 ################################################################################
 #
 # References:
@@ -18,7 +18,7 @@
 yaksha_dir=~/yaksha/kern
 
 # Log the date and time of execution of bash script into the `out` files.
-<<<<<<< HEAD
+
 date +"%c|started running $(apt-get): " >> out-apt-ubuntu.log
 date +"%c|completed running: $?" >> out-apt-ubuntu.log
 
@@ -59,7 +59,7 @@ install_ubuntu() {
     sudo apt-get -y install openssh-server
     sudo apt-get -y install cron-apt
     # BASH script checker: http://m.jakstys.lt/tech/2016/08/bash
-    sudo apt-get -y install shellcheck 
+    sudo apt-get -y install shellcheck  
 }
 
 #₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹
@@ -396,6 +396,10 @@ function install_graphics() {
     # Circuits and diagrams
     #--------------------------------
     sudo apt-get -y install cirkuit
+    #--------------------------------
+    # Scanning Tools
+    #--------------------------------
+    sudo apt-get -y install scantailor gscan2pdf
 }
 
 #₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹
