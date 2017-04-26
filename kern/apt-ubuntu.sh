@@ -119,7 +119,7 @@ install_gnome() {
     #---------------------------------------------------------------------------
     ## video and audio (music - mpto mp3) converters
     #---------------------------------------------------------------------------
-    sudo apt-get -y install papcl
+    sudo apt-get -y install papcl audacity
     sudo apt-get -y install ubuntu-restricted-extras # install the MP3 codec from the Ubuntu Restricted Extras package
     sudo apt-get -y install soundconverter # install the Sound Converter program
     # get the github source (https://github.com/rg3/youtube-dl)
@@ -129,9 +129,14 @@ install_gnome() {
     ## Communication Tools
     sudo apt-get -y install jitsi # Skype alternative
     # STARTUP DISK CREATOR
-    sudo apt-get install unetbootin
+    sudo apt-get -y install unetbootin
     # Time Tracker, https://github.com/TailorDev/Watson
     sudo pip install td-watson
+    #---------------------------------------------------------------------------
+    ## IDE
+    #---------------------------------------------------------------------------
+    sudo apt-get -y install builder # IDE for GNOME to support GTK+, GLib, APIs.
+    
 }
 
 
@@ -196,8 +201,8 @@ function install_database() {
 #₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹
 function install_df_rdf() {
     # SETTINGS SECTION
-    CODE_BASE = src
-    INSTALL_DIR = /usr/local/bin
+    CODE_BASE=src
+    INSTALL_DIR=/usr/local/bin
     ANY23_VERSION=1.1  # check the site for exact versions, https://any23.apache.org/
 
     # END OF SETTINGS SECTION
