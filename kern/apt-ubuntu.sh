@@ -253,6 +253,12 @@ function install_dvcs() {
     #sudo -H pip3 install gitsome
     # Master from GitHub source with changes not yet pushed to PyPI:
     #sudo pip install git+https://github.com/donnemartin/gitsome.git
+    #---------------
+    # GitKraken : https://www.gitkraken.com/download
+    #---------------
+    curl -s https://release.gitkraken.com/linux/gitkraken-amd64.deb
+    sudo dpkg --install gitkraken-amd64.deb
+    sudo apt-get -y update
 }
 
 #₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹

@@ -12,16 +12,17 @@
 # to be executed when the Julia REPL starts up.
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-# Greet the users on startup.
+# Greet users on startup.
 #-------------------------------------------------------------------------------
 println("|| नमस्ते ! स्वक्षंस्या सङ्गणकप्रक्रमम् स्वागतम || Greetings! ")
 
 push!(LOAD_PATH, pwd())
 push!(LOAD_PATH, ENV["HOME"]*"/.julia")
 push!(LOAD_PATH, ENV["HOME"]*"/julia")
-push!(LOAD_PATH, ENV["HOME"]*"/dev-*")
+push!(LOAD_PATH, ENV["HOME"]*"/devil-*")
 push!(LOAD_PATH, ENV["HOME"]*"/devya-*")
 push!(LOAD_PATH, ENV["HOME"]*"/divya-*")
+
 
 #-------------------------------------------------------------------------------
 # Import these packages on REPL startup 
@@ -29,14 +30,21 @@ push!(LOAD_PATH, ENV["HOME"]*"/divya-*")
 using Base
 
 atreplinit() do repl
-    # PyCall wont work in v0.5, Julia bug https://github.com/stevengj/PyCall.jl/issues/246 
     @eval using PyCall
-    @eval using Debug
+    #@eval using Debug
     @eval using DebuggingUtilities
     @eval using IJulia
     @eval using HDF5
+    @eval using CSV
+    @eval using DataFrames
+    @eval using DataTables
+    @eval using GitLab
+    @eval using CSV
+    @eval using SQLite
+    @eval using Query
+    @eval using Mux
 end
-
+ 
 #julia --eval 'Pkg.add("IJulia")'
 #julia --eval 'Pkg.add("Gadfly")'
 
@@ -71,7 +79,7 @@ end
 #
 # If `_init.jl` exists, run at runtime.
 #-------------------------------------------------------------------------------
-if VERSION < v"0.5-"
+if VERSION < v"0.7-"
     if isinteractive() &isfile("_init.jl")
       info("Found", joinpath(pwd(), "_init.jl"))
       include(joinpath(pwd(),"_init.jl"))
