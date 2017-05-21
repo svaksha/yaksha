@@ -257,7 +257,7 @@ function install_dvcs() {
     # GitKraken : https://www.gitkraken.com/download
     #---------------
     curl -s https://release.gitkraken.com/linux/gitkraken-amd64.deb
-    sudo dpkg --install gitkraken-amd64.deb
+    cd ~/home; sudo dpkg --install gitkraken-amd64.deb
     sudo apt-get -y update
 }
 
