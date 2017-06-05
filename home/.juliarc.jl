@@ -23,26 +23,40 @@ push!(LOAD_PATH, ENV["HOME"]*"/devil-*")
 push!(LOAD_PATH, ENV["HOME"]*"/devya-*")
 push!(LOAD_PATH, ENV["HOME"]*"/divya-*")
 
+#-------------------------------------------------------------------------------
+# From, https://github.com/JuliaLang/julia/issues/2968
+# JULIA_PKGDIR and LOAD_PATH
+#-------------------------------------------------------------------------------
+if WORD_SIZE==64
+    ENV["JULIA_PKGDIR"] = Pkg.dir()*"64"
+end
+
 
 #-------------------------------------------------------------------------------
 # Import these packages on REPL startup 
 #-------------------------------------------------------------------------------
 using Base
 
-atreplinit() do repl
-    @eval using PyCall
-    #@eval using Debug
-    @eval using DebuggingUtilities
-    @eval using IJulia
-    @eval using HDF5
+atreplinit() do repl    
     @eval using CSV
+    @eval using Dagger
     @eval using DataFrames
     @eval using DataTables
+    #@eval using Debug
+    #@eval using DebuggingUtilities
+    @eval using Documenter
     @eval using GitLab
-    @eval using CSV
-    @eval using SQLite
-    @eval using Query
+    @eval using HDF5
+    #@eval using HttpServer
+    @eval using IJulia
+    @eval using JuliaDB
     @eval using Mux
+    @eval using Plotly
+    @eval using PyCall
+    @eval using Query
+    @eval using StatsBase
+    @eval using SQLite
+    @eval using YAML
 end
  
 #julia --eval 'Pkg.add("IJulia")'
@@ -79,6 +93,7 @@ end
 #
 # If `_init.jl` exists, run at runtime.
 #-------------------------------------------------------------------------------
+#=
 if VERSION < v"0.7-"
     if isinteractive() &isfile("_init.jl")
       info("Found", joinpath(pwd(), "_init.jl"))
@@ -92,6 +107,7 @@ else
         end
 	end
 end
+=#
 
 # Macro to edit this file
 macro juliarc()
@@ -124,11 +140,4 @@ end
 isinteractive() && isfile("_init.jl") && require("_init.jl")
 
 
-#-------------------------------------------------------------------------------
-# From, https://github.com/JuliaLang/julia/issues/2968
-# JULIA_PKGDIR and LOAD_PATH
-#-------------------------------------------------------------------------------
-if WORD_SIZE==64
-    ENV["JULIA_PKGDIR"] = Pkg.dir()*"64"
-end
 
