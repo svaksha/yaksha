@@ -1,14 +1,13 @@
 #!/usr/bin/env bash
-################################################################################
-# FILE      : .bashrc
-# DESC.     : Configuration file for BASH, save as ~/.bashrc to use.
-# AUTHOR    : SVAKSHA, http://svaksha.com/pages/Bio
-# SOURCE    : http://svaksha.github.io/yaksha
-# COPYRIGHT©: 2005-Now SVAKSHA, http://svaksha.com/pages/Bio, ARR.
-# LICENSE   : GNU AGPLv3 & subject to meeting all the terms in the LICENSE file.
-#             https://github.com/svaksha/yaksha/blob/master/LICENSE.md
-# DATE      : 2005mar22-Present
-################################################################################
+############################# METADATA #########################################
+# FILENAME  : .bashrc
+# TECHNICAL : Configuration file for BASH, save as ~/.bashrc to use.
+# AUTHOR    : SVAKSHA <http://svaksha.com/pages/Bio>
+# COPYRIGHT©: 2005-Now SVAKSHA (http://svaksha.com/pages/Bio) AllRightsReserved.
+# LICENSE   : GNU AGPLv3 subject to all terms stated in the LICENSE.md file.
+# REPOSITORY: http://svaksha.github.io/yaksha
+# VERSION   : created:2005mar22, @svaksha, modified:2017jul21
+############################# METADATA #########################################
 #
 # ~/.bashrc: executed by bash(1) for non-login shells. For examples
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
@@ -31,7 +30,7 @@
 export HISTCONTROL=ignoredups:ignorespace
 
 # append to the history file, don't overwrite it
-#-------------------------------------------------------------------------------
+#-----------------------------------------------
 shopt -s histappend
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
@@ -60,7 +59,7 @@ export HOSTFILE=$HOME/.hosts	# Put a list of remote hosts in ~/.hosts
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
 
-# Debian Chroot 
+# Debian Chroot
 # set variable identifying the chroot you work in (used in the prompt below)
 #-------------------------------------------------------------------------------
 if [ -z "$debian_chroot" ] && [ -r /etc/debian_chroot ]; then
@@ -99,7 +98,7 @@ if [ -f ~/.bash_aliases ]; then
 fi
 
 #-------------------------------------------------------------------------------
-# https://github.com/jimeh/git-aware-prompt 
+# https://github.com/jimeh/git-aware-prompt
 # Display current Git branch name in the terminal, inside a Git working directory.
 # Date: 2016mar17
 #-------------------------------------------------------------------------------
@@ -201,7 +200,7 @@ export LS_COLORS=$LS_COLORS:"*.wmv=01;35":"*.wma=01;35":"*.flv=01;35":"*.m4a=01;
 
 
 #-------------------------------------------------------------------------------
-# LINKS for COLOR CHART, 
+# LINKS for COLOR CHART,
 # http://www.arwin.net/tech/bash.php
 # http://ubuntugenius.wordpress.com/2011/07/11/how-to-change-the-command-line-prompt-colour-in-the-ubuntulinux-terminal/
 #-------------------------------------------------------------------------------
@@ -215,7 +214,7 @@ unset color_prompt force_color_prompt
 
 
 #-------------------------------------------------------------------------------
-### enable color support of ls and also add handy aliases 
+### enable color support of ls and also add handy aliases
 #-------------------------------------------------------------------------------
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
@@ -280,7 +279,7 @@ esac
 #₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹
 #
 #-------------------------------------------------------------------------------
-# GCC 
+# GCC
 #-------------------------------------------------------------------------------
 # Enable gcc colours, available since gcc 4.8.0
 export GCC_COLORS=1
@@ -298,7 +297,7 @@ git config --global http.sslVerify false
 
 
 #-------------------------------------------------------------------------------
-# enable programmable completion features (Don't need to enable this, if it's 
+# enable programmable completion features (Don't need to enable this, if it's
 # already enabled in /etc/bash.bashrc and /etc/profile sources /etc/bash.bashrc).
 #-------------------------------------------------------------------------------
 if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
@@ -306,9 +305,9 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
 fi
 
 
-#₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹
-### PATH ### PATH ### PATH ### PATH ### PATH ### PATH ### PATH ### PATH ### PATH 
-#₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹
+#₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹
+### PATH ### PATH ### PATH ### PATH ### PATH ### PATH ### PATH ### PATH ### PATH
+#₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 ## GO: https://golang.org/doc/code.html ## GO: https://golang.org/doc/code.html
@@ -323,8 +322,8 @@ fi
 
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-# JULIA Symbolic links PATH 
-# DATE: 2012apr12-2016mar17
+# JULIA Symbolic links PATH
+# DATE: 2012apr12-2017jul21
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 export PATH="$(pwd)/julia:$PATH"
 $PWD/julia/bin
@@ -336,17 +335,17 @@ $PWD/julia/bin
 #sudo ln -s $(pwd)/julia /usr/local/lib/julia # symbolic link to julia
 
 # The environment variable JULIA_PKGDIR can also do the above - install two versions of Julia.
-#sudo export JULIA_PKGDIR=/usr/local/julia/julia-packages
-#ENV["JULIA_PKGDIR"] = "..."
+sudo export JULIA_PKGDIR=/usr/local/julia/julia-packages
+ENV["JULIA_PKGDIR"] = "..."
 
 # Paths for other Julia packages
 #-------------------------------------------------------------------------------
 ## jdp == DeclarativePackages.jl
 export PATH="$(pwd)/julia/bin/jdp:$PATH"
-PATH=$PATH:$(pwd)/julia/bin/jdp 
+PATH=$PATH:$(pwd)/julia/bin/jdp
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-### PYTHON 
+### PYTHON
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 # COMMAND LINE ENVIRONMENT, https://docs.python.org/3/using/cmdline.html
@@ -373,8 +372,8 @@ export PATH="$HOME/anaconda3/bin:$PATH"
 #-------------------------------------------------------------------------------
 export PYTHONDONTWRITEBYTECODE=true # REF: https://twitter.com/wlonk/status/587431447222444033
 
-### PIP bash completion start 
-# DATE: Fri, 03 May 2013 16:02:40 +0530 
+### PIP bash completion start
+# DATE: Fri, 03 May 2013 16:02:40 +0530
 #-------------------------------------------------------------------------------
 _pip_completion()
 {
@@ -386,7 +385,7 @@ complete -o default -F _pip_completion pip
 
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-### PostgreSQL configurations. 
+### PostgreSQL configurations.
 # DATE: 2009jan26-2015aug25
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 export PATH=$PATH:/usr/local/pgsql/bin
@@ -396,5 +395,4 @@ export PATH MANPATH
 # Setting LD_LIBRARY_PATH in a bash shell
 LD_LIBRARY_PATH=/usr/local/pgsql/lib
 export LD_LIBRARY_PATH
-
 

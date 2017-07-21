@@ -1,14 +1,13 @@
 #!/usr/bin/env bash
-################################################################################
-# FILE       : .bash_aliases
-# DESCRIPTION: A "~/.bash_aliases" file for ALIAS definitions, split from ~/.bashrc file.
-# AUTHOR     : SVAKSHA :: http://svaksha.com/pages/Bio
-# SOURCE     : http://svaksha.github.io/yaksha
-# COPYRIGHT© : 2005-Now SVAKSHA (http://svaksha.com/pages/Bio) AllRightsReserved
-# LICENSE    : GNU AGPLv3 and subject to the terms and conditions in the LICENSE.md 
-#              (https://github.com/svaksha/yaksha/blob/master/LICENSE.md) file being met.
-# DATES      : 2005nov05 - Present
-################################################################################
+############################# METADATA #########################################
+# FILENAME  : .bash_aliases
+# TECHNICAL : BASH ALIAS definitions, split from ~/.bashrc file.
+# AUTHOR    : SVAKSHA <http://svaksha.com/pages/Bio>
+# COPYRIGHT©: 2005-Now SVAKSHA (http://svaksha.com/pages/Bio) AllRightsReserved.
+# LICENSE   : GNU AGPLv3 subject to all terms stated in the LICENSE.md file.
+# REPOSITORY: http://svaksha.github.io/yaksha
+# VERSION   : created:2005nov05, @svaksha, modified:2017jul21
+############################# METADATA #########################################
 #
 # Moved all my additions into a separate "~/.bash_aliases" file.
 # See /usr/share/doc/bash-doc/examples in the bash-doc package.
@@ -24,11 +23,11 @@ alias apt-search='apt-cache search'
 alias apt-show='apt-cache show'
 alias update='sudo apt-get update'
 alias upgrade='sudo apt-get -y upgrade'
-alias dist-upgrade='sudo apt-get update && sudo apt-get dist-upgrade' # Update/Upgrade OS 
-# WARNING : USE CAREFULLY 
-alias apt-rm='sudo apt-get remove' # apt remove system dep files - USE CAREFULLY 
+alias dist-upgrade='sudo apt-get update && sudo apt-get dist-upgrade' # Update/Upgrade OS
+# WARNING : USE CAREFULLY
+alias apt-rm='sudo apt-get remove' # apt remove system dep files - USE CAREFULLY
 alias apt-autorm='sudo apt-get autoremove'  # apt remove system dep files - USE CAREFULLY
-# END WARNING : USE CAREFULLY 
+# END WARNING : USE CAREFULLY
 
 
 ################################################################################
@@ -42,7 +41,7 @@ alias ba='source ~/.bashrc' # Another shortcut to reload bash
 alias bas='source $HOME/.bashrc' # reload bash
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-# Change Dir 
+# Change Dir
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 alias ..="cd .."        #go to parent dir
 alias ...="cd ../.."    #go to grandparent dir
@@ -57,11 +56,11 @@ alias cal='cal -3' #show 3 months by default
 alias h='history'
 alias clr='cd ~; clear'
 alias hcl='history -c; clear'     # clear all the history and screen
-# alias h='history | grep'        # search history 
+# alias h='history | grep'        # search history
 
 
 #-------------------------------------------------------------------------------
-# EDITOR 
+# EDITOR
 #-------------------------------------------------------------------------------
 alias ed-alias='sudo gedit $HOME/.bashrc_aliases'
 alias ed-bash='sudo gedit $HOME/.bashrc'
@@ -118,10 +117,10 @@ alias tl='tail'
 alias at='acpi -t'
 
 #===============================================================================
-# Grouping all SEARCH utils 
+# Grouping all SEARCH utils
 #===============================================================================
-alias f='find . | grep'        # find file 
-alias g='grep -R'              
+alias f='find . | grep'        # find file
+alias g='grep -R'
 alias gri="grep -i"            # ignore case
 alias p='ps aux | grep' # grep processes with [OPTION] PATTERN [FILE]
 
@@ -133,9 +132,8 @@ alias p='ps aux | grep' # grep processes with [OPTION] PATTERN [FILE]
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # HDD health - using smartmontools
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-alias disk='sudo smartctl -s on -a /dev/sda'     # HDD health - using smartmontools
 alias df='df -h'                                # Filesystem diskspace usage
-alias fdisk='sudo fdisk -l' # for partition info with all details. 
+alias fdisk='sudo fdisk -l' # for partition info with all details.
 
 # Kernel
 alias kern='cat /proc/version'             # detail about for the kernel image version
@@ -150,11 +148,15 @@ alias lsb-r='lsb_release -r' # for exact version
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # JULIA REPL & programming
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-alias jnb='jupyter notebook'
+alias jpnb='jupyter notebook'
 alias jl='julia'
 alias ju='julia -i --color=yes --history-file=yes'
 #alias jl-git='cd julia; git pull git@github.com:JuliaLang/julia.git' # IGNORE, # The "yaksha-jl-update.sh" script handles it.
 #alias jl-up='cd julia; ./julia -e "Pkg.update()"'  # The "yaksha-jl-update.sh" script handles it
+
+
+alias juliavm="$HOME/.juliavm/juliavm"
+alias JULIA_PKGDIR=$HOME/julia   # $HOME/julia-0.6
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Python related commands
@@ -170,7 +172,7 @@ alias rmpyc='find . -type f -name "*.pyc" -print -delete'
 #alias rmpyc-ig-path='find . -type f -name "*.pyc" ! -readable \( -path "./.dbus" -o -path "./.gvfs" -o -path "./.cache/dconf" \) -print -delete -ls'
 
 ################################################################################
-# DVCS # DVCS # DVCS # DVCS # DVCS # DVCS # DVCS # DVCS # DVCS # DVCS # DVCS 
+# DVCS # DVCS # DVCS # DVCS # DVCS # DVCS # DVCS # DVCS # DVCS # DVCS # DVCS
 ################################################################################
 #
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -240,7 +242,7 @@ alias grb-i='git rebase --interactive'
 alias grb-im='git rebase --interactive master'
 alias gsvnrb='gt svn rebase'
 alias gch-detach='gt checkout HEAD^0'  #use with care
-alias gd-head='gt diff HEAD~'     #use with care 
+alias gd-head='gt diff HEAD~'     #use with care
 # RESET HEAD
 # https://stackoverflow.com/questions/5473/how-can-i-undo-git-reset-hard-head1/29469#29469
 alias g-rset='git reset HEAD'     # unstage last cm
@@ -253,9 +255,9 @@ alias tg='tig'
 # HG - MERCURIAL
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 alias hh='hg help'              # HELP, the full command list.
-alias hi='hg init'              # Creates a `.hg/` subfolder 
+alias hi='hg init'              # Creates a `.hg/` subfolder
 alias hc='hg commit -m'         # Save files and Commit message to Repo
-alias ha='hg add'               # Begin tracking all files 
+alias ha='hg add'               # Begin tracking all files
 alias hs='hg status'            # Lists status of files
 alias hd='hg diff'              # Lists tracked file changes, `filename` will List changes to it
 alias hp='hg push'              # Push changesets to Remote
@@ -264,7 +266,7 @@ alias hl='hg log'               # History of changesets
 alias hm='hg merge'
 alias hn='hg annotate'          # Logs of changes
 alias hf='hg forget'            # Track new, forget missing
-alias hr='hg revert'            # Undo all uncomm­itted changes	
+alias hr='hg revert'            # Undo all uncomm­itted changes
 alias hv='hg verify'            # Get notifications about missing files.
 alias h-arm='hg addrem­ove'      # Begin tracking changes
 alias h-rmv='hg remove'         # Stop tracking file
@@ -273,16 +275,20 @@ alias h-pth='hg paths'          # Lists known remote Repos
 alias h-in='hg incoming'        # List changesets available
 alias h-tip='hg export tip'     # export the most recent commit
 # Only use in private repos.
-alias h-roll='hg rollback'      # can undo commit, import, pull, local push, and unbundle. 
+alias h-roll='hg rollback'      # can undo commit, import, pull, local push, and unbundle.
 
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # MySQL
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
 alias start_mysql='sudo $MYSQL_HOME/bin/mysqld_safe &'
 alias stop_mysql='sudo $MYSQL_HOME/bin/mysqladmin shutdown'
 
-# END ".bash_aliases" ==========================================================
 
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# HDD health - using smartmontools
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+alias smartctl='sudo smartctl -s on -a /dev/sda'     # HDD health - using smartmontools
+
+# END ".bash_aliases" ==========================================================
 
