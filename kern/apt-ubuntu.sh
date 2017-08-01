@@ -92,11 +92,14 @@ install_gnome() {
     sudo apt-get -y install referencer    #IGNORE, https://launchpad.net/referencer
     # hierarchical notebook : http://hnb.sourceforge.net/Documentation/
     sudo apt-get -y install hnb
-    # PDF related packages
-    sudo apt-get -y install flpsed
+    #-----------------------------------------------
+    # PDF Editor - package dependencies
+    # http://www.ubuntugeek.com/list-of-pdf-editing-tools-for-ubuntu.html
+    #-----------------------------------------------
+    sudo apt-get -y install pdfedit
+    sudo apt-get -y install flpsed pdftk
     sudo apt-get -y install pdfjam
     sudo apt-get -y install xournal
-    sudo apt-get -y install pdfedit
     sudo apt-get -y install cups-pdf
     # PDF to MarkDown
     # http://www.howtogeek.com/228531/how-to-convert-a-pdf-file-to-editable-text-using-the-command-line-in-linux/
