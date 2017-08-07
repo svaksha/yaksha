@@ -60,6 +60,8 @@ install_ubuntu() {
     sudo apt-get -y install cron-apt
     # BASH script checker: http://m.jakstys.lt/tech/2016/08/bash
     sudo apt-get -y install shellcheck  
+    # https://askubuntu.com/questions/892076/how-to-selectively-purge-old-kernels-all-at-once/892077#892077
+    sudo apt-get -y install dialog # DEP of server version of "rm-kernels-server"
 }
 
 #₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹
