@@ -1,17 +1,18 @@
-################################################################################
-# FILE      : .juliarc.jl
-# DESC.     : My Julia config file to store personal commands in homedir()
-# AUTHOR    : SVAKSHA <http://svaksha.github.io/yaksha>
-# COPYRIGHT©: 2005-Now SVAKSHA <http://svaksha.com/pages/Bio> AllRightsReserved
-# LICENSE   : GNU AGPLv3 and subject to meeting all the terms in the LICENSE
-#             file: https://github.com/svaksha/yaksha/blob/master/LICENSE.md
-# DATES     : 2013oct01-Present
-################################################################################
+############################ METADATA ##########################################
+#1.PROGRAM   : .juliarc.jl
+#2.COPYRIGHT©: SVAKSHA, http://svaksha.github.io/yaksha, 2005-Present.
+#3.AUTHOR(s) : SVAKSHA, <http://svaksha.github.io/yaksha>
+#4.LICENSE   : GNU AGPLv3 subject to meeting all the terms in the LICENSE file: 
+#              https://github.com/svaksha/yaksha/blob/master/LICENSE.md
+#5.DATE(s)   : 2013oct01, modified: 2017aug13
+#6.TECHNICAL : My Julia config file to store personal commands in homedir().
+#  Notes     : This file contains site-specific commands (EX. add directories to 
+#              the LOAD_PATH for execution when the Julia REPL starts up.
+############################ METADATA ##########################################
 #
-# This file contains site-specific commands (EX. add directories to the LOAD_PATH,
-# to be executed when the Julia REPL starts up.
-#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
+#
+#
+#
 # Greet users on startup.
 #-------------------------------------------------------------------------------
 println("|| नमस्ते ! स्वक्षंस्या सङ्गणकप्रक्रमम् स्वागतम || Greetings! ")
@@ -22,14 +23,6 @@ push!(LOAD_PATH, ENV["HOME"]*"/julia")
 push!(LOAD_PATH, ENV["HOME"]*"/devil-*")
 push!(LOAD_PATH, ENV["HOME"]*"/devya-*")
 push!(LOAD_PATH, ENV["HOME"]*"/divya-*")
-
-#-------------------------------------------------------------------------------
-# From, https://github.com/JuliaLang/julia/issues/2968
-# JULIA_PKGDIR and LOAD_PATH
-#-------------------------------------------------------------------------------
-if WORD_SIZE==64
-    ENV["JULIA_PKGDIR"] = Pkg.dir()*"64"
-end
 
 
 #-------------------------------------------------------------------------------
@@ -43,7 +36,6 @@ atreplinit() do repl
     @eval using DataFrames
     @eval using DataTables
     #@eval using Debug
-    #@eval using DebuggingUtilities
     @eval using Documenter
     @eval using GitLab
     @eval using HDF5

@@ -120,7 +120,7 @@ alias at='acpi -t'
 # Grouping all SEARCH utils
 #===============================================================================
 alias f='find . | grep'        # find file
-alias g='grep -R'
+alias g=`grep -R`
 alias gri="grep -i"            # ignore case
 alias p='ps aux | grep' # grep processes with [OPTION] PATTERN [FILE]
 

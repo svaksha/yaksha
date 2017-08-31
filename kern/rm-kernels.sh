@@ -1,23 +1,23 @@
 #!/usr/bin/env bash
-############################# METADATA #########################################
-#1.FILE      : rm-kernels.sh (note: kept a copy in home)
-#2.COPYRIGHT©: SVAKSHA, http://gitlab.com/svaksha/Ira.jl, 2005-Present, ARR.
-#3.AUTHORS   : https://askubuntu.com/questions/892076/how-to-selectively-purge-old-kernels-all-at-once/892077#892077
-#              @svaksha, modified:2017aug07
-#4.LICENSE   : GNU AGPLv3 subject to meeting all the terms in the LICENSE file,
-#             https://github.com/svaksha/yaksha/blob/master/LICENSE.md
+############################ METADATA ##########################################
+#1.PROGRAM   : rm-kernels.sh (note: kept a copy in home)
+#2.COPYRIGHT©: SVAKSHA, http://svaksha.github.io/yaksha, 2005-Present, ARR.
+#3.AUTHOR(s) : (a) https://askubuntu.com/questions/892076/how-to-selectively-purge-old-kernels-all-at-once/892077#892077
+#              (b) @svaksha, modified:2017aug07
+#4.LICENSE   : GNU AGPLv3 subject to meeting all the terms in the LICENSE file: 
+#              https://github.com/svaksha/yaksha/blob/master/LICENSE.md
 #5.TECHNICAL : Provide zenity item list of kernels to remove from Ubuntu/ Debian OS.
-#  PATH: /usr/local/bin
-#  NOTES:Will not delete current kernel.
-#        With 10 kernels on an SSD, empty cache from sudo prompt (#) using:
-#        # free && sync && echo 3 > /proc/sys/vm/drop_caches && free
-#        First time for `du` 34 seconds.
-#        Second time for `du` 1 second.
-#        With a magnetic hard disk, and empty memory cache:
-#        the first `du` command averages about 20 seconds per kernel.
-#        the second `du` command averages about 2.5 seconds per kernel.
-#  PARM: If any parm 1 passed use REAL kernel size, else use estimated size.
-#        By default `du` is not used and estimated size is displayed.
+#  PATH      : /usr/local/bin
+#  NOTES     : Will not delete current kernel.
+#              With 10 kernels on an SSD, empty cache from sudo prompt (#) using:
+#              free && sync && echo 3 > /proc/sys/vm/drop_caches && free
+#              First time for `du` 34 seconds.
+#              Second time for `du` 1 second.
+#              With a magnetic hard disk, and empty memory cache:
+#              the first `du` command averages about 20 seconds per kernel.
+#              the second `du` command averages about 2.5 seconds per kernel.
+#  PARM      : If any parm 1 passed use REAL kernel size, else use estimated size.
+#              By default `du` is not used and estimated size is displayed.
 ################################################################################
 #
 # References:
