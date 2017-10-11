@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 ################################################################################
-# FILE       : yksh-julia-stable.sh
+# FILE       : jl-binary.sh
 # DESCRIPTION: Generic Linux binaries installation script for Julia stable releases.
 # AUTHOR     : SVAKSHA, http://svaksha.com/pages/Bio
 # SOURCE     : http://svaksha.github.io/yaksha
@@ -29,15 +29,16 @@ PS4='$LINENO: '
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 function install_linux64bitbinary() {
     INSTALL_DIR = $HOME/
-    wget https://julialang.s3.amazonaws.com/bin/linux/x64/0.4/julia-0.4.5-linux-x86_64.tar.gz
+    # get the latest compiled binary link for curl from here: https://julialang.org/downloads/
+    wget https://julialang-s3.julialang.org/bin/linux/x64/0.6/julia-0.6.0-linux-x86_64.tar.gz
     # Extract the tarball (-x), decompress extract the gzip content (-z), verbose (-v), specific filename (-f).
-    tar -xzvf julia-0.4.5-linux-x86_64.tar.gz
-    cd julia-0.4.5
-    chmod 700 julia-0.4.5
-    if [[ -f "$INSTALL_DIR/julia-0.4.5" ]] ; then
-        sudo rm -f "$INSTALL_DIR/julia-0.4.5"
+    tar -xzvf julia-0.6.0-linux-x86_64.tar.gz
+    cd julia
+    chmod 700 julia
+    if [[ -f "$INSTALL_DIR/julia" ]] ; then
+        sudo rm -f "$INSTALL_DIR/julia"
     fi
-    sudo ln -s "`pwd`/bin/julia-0.4.5" "$INSTALL_DIR/julia-0.4.5"
+    sudo ln -s "`pwd`/bin/julia" "$INSTALL_DIR/julia"
 } # End function install_linux64bitbinary
 
 

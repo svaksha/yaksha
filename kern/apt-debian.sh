@@ -92,7 +92,7 @@ function install_debian() {
     # Markdown to PDF conversion - JS tool (better than the py tool 'grip')
     sudo npm install -g markdown-pdf
     # Markdown to PDF conversion - Python tool
-    sudo pip install grip
+    sudo pip3 install grip
     ## HP printer stuff
     sudo apt-get -y install hplip
     sudo apt-get -y install mtink  # http://xwtools.automatix.de/
@@ -109,7 +109,7 @@ function install_debian() {
     sudo apt-get -y install papcl
     sudo apt-get -y install soundconverter # install the Sound Converter program
     # get the github source (https://github.com/rg3/youtube-dl)
-    sudo pip install youtube_dl    # sudo pip install --upgrade youtube_dl  #(to upgrade if its already installed)
+    sudo pip3 install youtube_dl    # sudo pip install --upgrade youtube_dl  #(to upgrade if its already installed)
     # Taking Notes
     sudo apt-get -y install tomboy transmission
     
@@ -122,7 +122,7 @@ function install_debian() {
     # STARTUP DISK CREATOR
     sudo apt-get install unetbootin
     # Time Tracker, https://github.com/TailorDev/Watson
-    sudo pip install td-watson
+    sudo pip3 install td-watson
 }
 
 #₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹
@@ -223,7 +223,7 @@ function install_dvcs() {
     #---------------
     # Gitsome : https://github.com/donnemartin/gitsome#installation
     #---------------
-    sudo pip install gitsome # stable version from PyPI
+    sudo pip3 install gitsome # stable version from PyPI
     # pip3: Depending on your system, you might need to run pip3, possibly with the -H flag:
     #sudo -H pip3 install gitsome
     # Master from GitHub source with changes not yet pushed to PyPI:
@@ -464,12 +464,12 @@ function install_python() {
     sudo apt-get -y install python-fontforge
     # Jupyter
     #sudo apt-get -y install IPython ipython3 ipython3-notebook
-    sudo pip install ipython jinja2 tornado pyzmq pandas jsonschema pyaml
+    sudo pip3 install ipython jinja2 tornado pyzmq pandas jsonschema pyaml
     ## More Python stuff
-    sudo pip install rotate-backups
-    sudo pip install plumbum ## An alternatice to Fabric, https://github.com/tomerfiliba/plumbum
-    sudo pip install jedi -i http://pypi.python.org/simple/
-    sudo pip install pylint -i http://pypi.python.org/simple/
+    sudo pip3 install rotate-backups
+    sudo pip3 install plumbum ## An alternatice to Fabric, https://github.com/tomerfiliba/plumbum
+    sudo pip3 install jedi -i http://pypi.python.org/simple/
+    sudo pip3 install pylint -i http://pypi.python.org/simple/
 }
 
 
@@ -563,7 +563,7 @@ function install_ykshm() {
     #apt-key adv --keyserver hkp://pgp.mit.edu:80 --recv-keys 58118E89F3A912897C070ADBF76221572C52609D
     ## AMQP
     sudo apt-get -y install rabbitmq-server  ## Erlang
-    sudo pip install pika -i https://github.com/pika/pika   # python client lib for RabbitMQ
+    sudo pip3 install pika -i https://github.com/pika/pika   # python client lib for RabbitMQ
     ## WebServer
     sudo apt-get -y install twisted
     sudo apt-get -y install tornado

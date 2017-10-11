@@ -108,7 +108,7 @@ install_gnome() {
     # Markdown to PDF conversion - JS tool (better than the py tool 'grip')
     sudo npm install -g markdown-pdf
     # Markdown to PDF conversion - Python tool
-    sudo pip install grip
+    sudo pip3 install grip
     ## HP printer stuff
     sudo apt -y install hplip
     sudo apt -y install mtink  # http://xwtools.automatix.de/
@@ -125,7 +125,7 @@ install_gnome() {
     sudo apt -y install ubuntu-restricted-extras # install the MP3 codec from the Ubuntu Restricted Extras package
     sudo apt -y install soundconverter # install the Sound Converter program
     # get the github source (https://github.com/rg3/youtube-dl)
-    sudo pip install youtube_dl    # sudo pip install --upgrade youtube_dl  #(to upgrade if its already installed)
+    sudo pip3 install youtube_dl    # sudo pip install --upgrade youtube_dl  #(to upgrade if its already installed)
     # Taking Notes
     sudo apt -y install tomboy transmission
     ## Communication Tools
@@ -133,7 +133,7 @@ install_gnome() {
     # STARTUP DISK CREATOR
     sudo apt -y install unetbootin
     # Time Tracker, https://github.com/TailorDev/Watson
-    sudo pip install td-watson
+    sudo pip3 install td-watson
 }
 
 
@@ -252,11 +252,11 @@ function install_dvcs() {
     #---------------
     # Gitsome : https://github.com/donnemartin/gitsome#installation
     #---------------
-    sudo pip install gitsome # stable version from PyPI
+    sudo pip3 install gitsome # stable version from PyPI
     # pip3: Depending on your system, you might need to run pip3, possibly with the -H flag:
     #sudo -H pip3 install gitsome
     # Master from GitHub source with changes not yet pushed to PyPI:
-    #sudo pip install git+https://github.com/donnemartin/gitsome.git
+    #sudo pip3 install git+https://github.com/donnemartin/gitsome.git
     #---------------
     # GitKraken : https://www.gitkraken.com/download
     #---------------
@@ -509,7 +509,7 @@ function install_python() {
     echo "Python (and its variant packages) installation is in progress!"
     sudo apt -y install build-essential
     # PIP = Python Installer
-    sudo apt -y install pip
+    sudo apt -y install pip pip3
     sudo apt -y install pip-installer
     sudo apt -y install python-setuptools
     sudo apt -y install python-pip python-dev python-yaml
@@ -529,12 +529,12 @@ function install_python() {
     sudo apt -y install python-fontforge
     # Jupyter
     #sudo apt -y install IPython ipython3 ipython3-notebook
-    sudo pip install ipython jinja2 tornado pyzmq pandas jsonschema pyaml
+    sudo pip3 install ipython jinja2 tornado pyzmq pandas jsonschema pyaml
     ## More Python stuff
-    sudo pip install rotate-backups
-    sudo pip install plumbum ## An alternatice to Fabric, https://github.com/tomerfiliba/plumbum
-    sudo pip install jedi -i http://pypi.python.org/simple/
-    sudo pip install pylint -i http://pypi.python.org/simple/
+    sudo pip3 install rotate-backups
+    sudo pip3 install plumbum ## An alternatice to Fabric, https://github.com/tomerfiliba/plumbum
+    sudo pip3 install jedi -i http://pypi.python.org/simple/
+    sudo pip3 install pylint -i http://pypi.python.org/simple/
     # Nginx WebServer
     sudo add-apt-repository --yes ppa:nginx/stable
     sudo apt update
@@ -543,7 +543,7 @@ function install_python() {
     #sudo add-apt-repository --yes ppa:chris-lea/zeromq
     sudo apt -y install libzmq3-dbg libzmq3-dev libzmq3
     # PandaSQL, https://github.com/yhat/pandasql
-    sudo pip install -U pandasql
+    sudo pip3 install -U pandasql
     # Rodeo, A Python IDE built for analyzing data
     # https://www.yhat.com/products/rodeo/downloads
     sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 33D40BC6
@@ -678,7 +678,7 @@ ykshm_devops() {
     #apt-key adv --keyserver hkp://pgp.mit.edu:80 --recv-keys 58118E89F3A912897C070ADBF76221572C52609D
     ## AMQP
     sudo apt -y install rabbitmq-server  ## Erlang
-    sudo pip install pika -i https://github.com/pika/pika   # python client lib for RabbitMQ
+    sudo pip3 install pika -i https://github.com/pika/pika   # python client lib for RabbitMQ
     ## WebServer
     sudo apt -y install twisted
     sudo apt -y install tornado

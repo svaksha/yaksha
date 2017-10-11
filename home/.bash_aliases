@@ -6,7 +6,7 @@
 # COPYRIGHT©: 2005-Now SVAKSHA (http://svaksha.com/pages/Bio) AllRightsReserved.
 # LICENSE   : GNU AGPLv3 subject to all terms stated in the LICENSE.md file.
 # REPOSITORY: http://svaksha.github.io/yaksha
-# VERSION   : created:2005nov05, @svaksha, modified:2017jul21
+# VERSION   : created:2005nov05, @svaksha, modified:2017oct11
 ############################# METADATA #########################################
 #
 # Moved all my additions into a separate "~/.bash_aliases" file.
@@ -54,9 +54,9 @@ alias cal='cal -3' #show 3 months by default
 # HISTORY
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 alias h='history'
+alias hg='history | grep'        # search history
 alias clr='cd ~; clear'
 alias hcl='history -c; clear'     # clear all the history and screen
-# alias h='history | grep'        # search history
 
 
 #-------------------------------------------------------------------------------
@@ -79,7 +79,7 @@ alias l.='ls -d .*'     #list hidden files
 alias l='ls -CF'
 alias la='ls -A'
 alias ll='ls -alF'
-#alias ll='ls -lhrt'     # extra info compared to "l"
+alias lll='ls -lhrt'     # extra info compared to "l"
 alias lld='ls -lUd */'  # list only directories
 alias ls='ls --color=auto'
 #alias lst='ls --color --time-style="+%b %d %Y %H:%M"' #replaced with bash script
@@ -120,10 +120,8 @@ alias at='acpi -t'
 # Grouping all SEARCH utils
 #===============================================================================
 alias f='find . | grep'        # find file
-alias g=`grep -R`
-alias gri="grep -i"            # ignore case
-alias p='ps aux | grep' # grep processes with [OPTION] PATTERN [FILE]
-
+alias g='grep -inR'  # -i=ignore case, -n=line number, -R=Recursively search subdirectory
+#alias psg='ps aux | grep' # grep processes with [OPTION] PATTERN [FILE]
 
 
 ################################################################################
@@ -148,12 +146,11 @@ alias lsb-r='lsb_release -r' # for exact version
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # JULIA REPL & programming
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-alias jpnb='jupyter notebook'
+alias juno='jupyter notebook'
 alias jl='julia'
 alias ju='julia -i --color=yes --history-file=yes'
 #alias jl-git='cd julia; git pull git@github.com:JuliaLang/julia.git' # IGNORE, # The "yaksha-jl-update.sh" script handles it.
 #alias jl-up='cd julia; ./julia -e "Pkg.update()"'  # The "yaksha-jl-update.sh" script handles it
-
 
 alias juliavm="$HOME/.juliavm/juliavm"
 alias JULIA_PKGDIR=$HOME/julia   # $HOME/julia-0.6
@@ -162,7 +159,7 @@ alias JULIA_PKGDIR=$HOME/julia   # $HOME/julia-0.6
 # Python related commands
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # ANACONDA -----------------
-alias con='cd anaconda/envs/'
+alias con='cd anaconda3/envs/'
 alias cona='source activate'
 alias cond='source deactivate'
 alias py='python'
@@ -231,7 +228,7 @@ alias gx='gitx --all'
 # git FETCH Prune
 # http://stackoverflow.com/questions/18308535/automatic-prune-with-git-fetch-or-pull
 #-------------------------------------------------------------------------------
-alias g-fet-pru = 'git fetch --prune'
+alias gfprun='git fetch --prune'
 
 # REBASE
 alias grb='git rebase'
