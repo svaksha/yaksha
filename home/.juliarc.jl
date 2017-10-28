@@ -4,7 +4,7 @@
 #3.AUTHOR(s) : SVAKSHA, <http://svaksha.github.io/yaksha>
 #4.LICENSE   : GNU AGPLv3 subject to meeting all the terms in the LICENSE file: 
 #              https://github.com/svaksha/yaksha/blob/master/LICENSE.md
-#5.DATE(s)   : 2013oct01, modified: 2017aug13
+#5.DATE(s)   : 2013oct01 - 2017oct28
 #6.TECHNICAL : My Julia config file to store personal commands in homedir().
 #  Notes     : This file contains site-specific commands (EX. add directories to 
 #              the LOAD_PATH for execution when the Julia REPL starts up.
@@ -43,6 +43,7 @@ atreplinit() do repl
     @eval using IJulia
     @eval using JuliaDB
     @eval using Mux
+    @eval using OhMyREPL
     @eval using Plotly
     @eval using PyCall
     @eval using Query
