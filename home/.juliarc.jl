@@ -11,8 +11,6 @@
 ############################ METADATA ##########################################
 #
 #
-#
-#
 # Greet users on startup.
 #-------------------------------------------------------------------------------
 println("|| नमस्ते ! स्वक्षंस्या सङ्गणकप्रक्रमम् स्वागतम || Greetings! ")
@@ -35,11 +33,11 @@ atreplinit() do repl
     @eval using Dagger
     @eval using DataFrames
     @eval using DataTables
-    #@eval using Debug
+    @eval using Debug
     @eval using Documenter
     @eval using GitLab
     @eval using HDF5
-    #@eval using HttpServer
+    @eval using HttpServer
     @eval using IJulia
     @eval using JuliaDB
     @eval using Mux
