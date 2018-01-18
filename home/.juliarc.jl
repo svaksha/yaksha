@@ -4,7 +4,7 @@
 #3.AUTHOR(s) : SVAKSHA, <http://svaksha.github.io/yaksha>
 #4.LICENSE   : GNU AGPLv3 subject to meeting all the terms in the LICENSE file: 
 #              https://github.com/svaksha/yaksha/blob/master/LICENSE.md
-#5.DATE(s)   : 2013oct01 - 2017oct28
+#5.DATE(s)   : 2013oct01 - 2018jan18
 #6.TECHNICAL : My Julia config file to store personal commands in homedir().
 #  Notes     : This file contains site-specific commands (EX. add directories to 
 #              the LOAD_PATH for execution when the Julia REPL starts up.
@@ -35,6 +35,7 @@ atreplinit() do repl
     @eval using DataTables
     @eval using Debug
     @eval using Documenter
+    @eval using Escher
     @eval using GitLab
     @eval using HDF5
     @eval using HttpServer
@@ -51,7 +52,7 @@ atreplinit() do repl
 end
  
 #julia --eval 'Pkg.add("IJulia")'
-#julia --eval 'Pkg.add("Gadfly")'
+julia --eval 'Pkg.add("Gadfly")'
 
 #-------------------------------------------------------------------------------
 # Add the HDF5 path to Julia's Libdl.DL_LOAD_PATH variable.
