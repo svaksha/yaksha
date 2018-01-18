@@ -33,6 +33,7 @@ atreplinit() do repl
     @eval using Dagger
     @eval using DataFrames
     @eval using DataTables
+    @eval using DataDeps
     @eval using Debug
     @eval using Documenter
     @eval using Escher

@@ -25,4 +25,5 @@ Gadfly
 VegaLite
 Compose
 Escher
-
+ZMQ
+DataDeps
