@@ -6,7 +6,7 @@
 # COPYRIGHT©: 2005-Now SVAKSHA, http://svaksha.com/pages/Bio, All Rights Reserved.
 # LICENSE   : GNU AGPLv3 & subject to meeting all the terms in the LICENSE file:
 #             https://github.com/svaksha/yaksha/blob/master/LICENSE.md
-# DATES     : 2007mar15-Present
+# DATES     : 2007mar15-2018feb11
 ################################################################################
 #
 ################################################################################
@@ -179,7 +179,6 @@ gen/ # Generated files
 .mtj.tmp/ # Mobile Tools for Java (J2ME)
 hs_err_pid*  # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 # The 'Initial Configuration' JSON file shares a common format with the MVC brokers 
-*/*.json
 initial.json # Java and Django models fixture initial data 
 
 ## Package Files ##
@@ -302,7 +301,6 @@ docs/_build/
 ### JUPYTER Notebooks
 #----------------------------
 .ipynb_checkpoints/*
-*.ipynb
 
 ### QA :: UNIT TEST / COVERAGE REPORTS
 #----------------------------
