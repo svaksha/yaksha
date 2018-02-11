@@ -1,12 +1,14 @@
 #!/usr/bin/env bash
 ############################ METADATA ##########################################
 #1.PROGRAM   : apt-ubuntu.sh
-#2.COPYRIGHT©: SVAKSHA, http://svaksha.github.io/yaksha, 2005-Present.
-#3.AUTHOR(s) : SVAKSHA, http://svaksha.com/pages/Bio, 2005mar22-2017apr26
+#2.COPYRIGHT©: 2005-Present, SVAKSHA, http://svaksha.github.io/yaksha
+#3.AUTHOR    : SVAKSHA, http://svaksha.com/pages/Bio
 #4.LICENSE   : GNU AGPLv3 subject to meeting all the terms in the LICENSE file: 
 #              https://github.com/svaksha/yaksha/blob/master/LICENSE.md
-#5.TECHNICAL : Bash script to install packages on a fresh Ubuntu system. 
-#              Installs all the packages in <1 hour on a good internet bandwidth.
+#5.REPOSITORY: http://svaksha.github.io/yaksha
+#6.TECHNOTES : Bash script to install packages on a fresh Ubuntu system. 
+#              Installs all the packages in <1 hour on a good internet bandwidth. 
+#7.DATE(S)   : 2005mar22-2018feb11
 ################################################################################
 #
 # References:
@@ -470,8 +472,6 @@ function install_nonfree() {
     ##+++++++++++++
     ## Adobe
     ##+++++++++++++
-    #sudo apt -y install AdbeRdr9.5.5-1_i386linux_enu.deb
-    sudo dpkg --add-architecture i386   # For debian-jessie Adobe needs the i386 architecture.
     sudo apt update
     sudo apt -y install acroread mozilla-acroread
     # OCR tools to copy text from locked filed: https://help.ubuntu.com/community/OCR
@@ -485,19 +485,9 @@ function install_nonfree() {
     ## FLASH
     ##+++++++++++++
     sudo apt -y install flashplugin-nonfree
-    ##+++++++++++++
-    ## SKYPE
-    ##+++++++++++++
-    # rm -rf ~/.Skype  #Clear the old Skype folder before installing latest version.
-#    sudo dpkg --add-architecture i386 # Enable multiarch, https://help.ubuntu.com/community/MultiArch
- #   sudo apt update
-  #  sudo apt -y install sni-qt:i386 # Download latest architecture version.
-    #wget -c http://download.skype.com/linux/skype-debian_4.3.0.37-1_i386.deb
-    #sudo gdebi skype-debian_4.3.0.37-1_i386.deb
-    #sudo dpkg -l skype-debian_4.3.0.37-1_i386.deb
     sudo apt -f install
     # Install Skype from Canonical Partner Repository
-    # sudo add-apt-repository "deb http://archive.canonical.com/ $(lsb_release -sc) partner"
+    sudo add-apt-repository "deb http://archive.canonical.com/ $(lsb_release -sc) partner"
     sudo apt -y update
     sudo apt -y upgrade
 }
@@ -590,16 +580,12 @@ function install_rlang() {
 #    sudo apt -y install r-cran-cubature
     # Cubature if you use Kubuntu.
 #    wget http://packages.ubuntu.com/xenial/r-cran-cubature r-cran-cubature_1.1-2-1_amd64.deb
-#    wget http://packages.ubuntu.com/xenial/r-cran-cubature r-cran-cubature_1.1-2-1_i386.deb
     # In BASH, the variable $OSTYPE stores the name of the operation system:
     # `$OSTYPE` automatically set to a string that describes the operating system on which bash is executing.
 #    OSARCH=`uname -m`
 #   if [ ${OSARCH} == 'x86_64' ]; then
     # Install 64-bit stuff here
 #    cd ~/home; sudo dpkg --install r-cran-cubature_1.1-2-1_amd64.deb
-#    else
-    # Install 32-bit stuff here
-#    cd ~/home; sudo dpkg --install r-cran-cubature_1.1-2-1_i386.deb
 #    fi
 }
 
