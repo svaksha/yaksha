@@ -1,18 +1,19 @@
 #!/usr/bin/env bash
-############################# METADATA #########################################
-# FILENAME  : .bash_aliases
-# TECHNICAL : BASH ALIAS definitions, split from ~/.bashrc file.
-# AUTHOR    : SVAKSHA <http://svaksha.com/pages/Bio>
-# COPYRIGHT©: 2005-Now SVAKSHA (http://svaksha.com/pages/Bio) AllRightsReserved.
-# LICENSE   : GNU AGPLv3 subject to all terms stated in the LICENSE.md file.
-# REPOSITORY: http://svaksha.github.io/yaksha
-# VERSION   : created:2005nov05, @svaksha, modified:2017oct11
-############################# METADATA #########################################
+############################ METADATA ##########################################
+#1.PROGRAM   : .bash_aliases
+#2.COPYRIGHT©: 2005-Present, SVAKSHA, http://svaksha.github.io/yaksha
+#3.AUTHOR    : SVAKSHA, http://svaksha.com/pages/Bio
+#4.LICENSE   : GNU AGPLv3 subject to meeting all the terms in the LICENSE file: 
+#              https://github.com/svaksha/yaksha/blob/master/LICENSE.md
+#5.REPOSITORY: http://svaksha.github.io/yaksha
+#6.TECHNOTES : My BASH ALIAS definitions outgrew the ~/.bashrc file, split and 
+#              moved my additions into a separate "~/.bash_aliases" file.
+#              Also see /usr/share/doc/bash-doc/examples in the bash-doc package.
+#7.DATE(S)   : 2005nov05-2018feb11
+############################ METADATA ##########################################
 #
-# Moved all my additions into a separate "~/.bash_aliases" file.
-# See /usr/share/doc/bash-doc/examples in the bash-doc package.
-################################################################################
-#
+
+##
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # APT and APTITUDE commands
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -66,7 +67,6 @@ alias ed-alias='sudo gedit $HOME/.bashrc_aliases'
 alias ed-bash='sudo gedit $HOME/.bashrc'
 alias ed-gitconf='sudo gedit $HOME/.gitconfig'
 alias ed-gitignore='sudo gedit $HOME/.gitignore_global'
-
 # Fire an editor
 alias emacs='emacs24-gtk'
 alias emacsfs='emacs24-gtk -fs'
@@ -94,7 +94,6 @@ alias s-gitc='cat $HOME/.gitconfig'
 # PATH, Proceses
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 alias path='echo -e ${PATH//:/\\n}'
-
 ### various ping options. Read REF's for router/modem option.
 # REF[1]: https://en.wikipedia.org/wiki/Maximum_transmission_unit
 # REF[2]: http://www.richud.com/wiki/Network_MTU_Check
@@ -147,13 +146,12 @@ alias lsb-r='lsb_release -r' # for exact version
 # JULIA REPL & programming
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 alias juno='jupyter notebook'
-alias jl='julia'
-alias ju='julia -i --color=yes --history-file=yes'
+alias ju='julia'
+alias jl='julia -i --color=yes --history-file=yes'
 #alias jl-git='cd julia; git pull git@github.com:JuliaLang/julia.git' # IGNORE, # The "yaksha-jl-update.sh" script handles it.
 #alias jl-up='cd julia; ./julia -e "Pkg.update()"'  # The "yaksha-jl-update.sh" script handles it
-
 alias juliavm="$HOME/.juliavm/juliavm"
-alias JULIA_PKGDIR=$HOME/julia   # $HOME/julia-0.6
+alias JULIA_PKGDIR=$HOME/julia   # $HOME/julia (v-0.7)
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Python related commands

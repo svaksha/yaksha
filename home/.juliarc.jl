@@ -1,20 +1,22 @@
 ############################ METADATA ##########################################
 #1.PROGRAM   : .juliarc.jl
-#2.COPYRIGHT©: SVAKSHA, http://svaksha.github.io/yaksha, 2005-Present.
-#3.AUTHOR(s) : SVAKSHA, <http://svaksha.github.io/yaksha>
+#2.COPYRIGHT©: 2005-Present, SVAKSHA, http://svaksha.github.io/yaksha
+#3.AUTHOR    : SVAKSHA, http://svaksha.com/pages/Bio
 #4.LICENSE   : GNU AGPLv3 subject to meeting all the terms in the LICENSE file: 
 #              https://github.com/svaksha/yaksha/blob/master/LICENSE.md
-#5.DATE(s)   : 2013oct01 - 2018jan18
-#6.TECHNICAL : My Julia config file to store personal commands in homedir().
+#5.REPOSITORY: http://svaksha.github.io/yaksha
+#6.TECHNOTES : My Julia config file to store personal commands in homedir().
 #  Notes     : This file contains site-specific commands (EX. add directories to 
-#              the LOAD_PATH for execution when the Julia REPL starts up.
+#              the LOAD_PATH for execution when the Julia REPL starts up. 
+#7.DATE(S)   : 2013oct01-2018feb11
 ############################ METADATA ##########################################
-#
-#
-# Greet users on startup.
+
+
+# Greet the user(s) upon startup.
 #-------------------------------------------------------------------------------
 println("|| नमस्ते ! स्वक्षंस्या सङ्गणकप्रक्रमम् स्वागतम || Greetings! ")
 
+# PATHs, multiple options
 push!(LOAD_PATH, pwd())
 push!(LOAD_PATH, ENV["HOME"]*"/.julia")
 push!(LOAD_PATH, ENV["HOME"]*"/julia")
@@ -29,31 +31,39 @@ push!(LOAD_PATH, ENV["HOME"]*"/divya-*")
 using Base
 
 atreplinit() do repl    
+# data files
     @eval using CSV
+    @eval using ExcelReaders
+    @eval using HDF5
+# array, et al.
     @eval using Dagger
     @eval using DataFrames
     @eval using DataTables
-    @eval using DataDeps
-    @eval using Debug
+# debug
+   #@eval using Debug
     @eval using Documenter
-    @eval using Escher
-    @eval using GitLab
-    @eval using HDF5
-    @eval using HttpServer
-    @eval using IJulia
-    @eval using JuliaDB
-    @eval using Mux
+    @eval using FancyDiagnostics
+#    @eval using JuliaParser
     @eval using OhMyREPL
-    @eval using Plotly
+    @eval using IJulia
+# DB 
+    @eval using JuliaDB
+    @eval using SQLite
+# server
+    @eval using Mux
+    @eval using GitLab
+    #@eval using HttpServer
+# python
     @eval using PyCall
     @eval using Query
     @eval using StatsBase
-    @eval using SQLite
     @eval using YAML
+# visualize
+    @eval using Plotly
 end
  
 #julia --eval 'Pkg.add("IJulia")'
-julia --eval 'Pkg.add("Gadfly")'
+#julia --eval 'Pkg.add("Gadfly")'
 
 #-------------------------------------------------------------------------------
 # Add the HDF5 path to Julia's Libdl.DL_LOAD_PATH variable.
@@ -132,5 +142,10 @@ end
 #-------------------------------------------------------------------------------
 isinteractive() && isfile("_init.jl") && require("_init.jl")
 
+#-------------------------------------------------------------------------------
+# https://github.com/JuliaIO/HDF5.jl
+#-------------------------------------------------------------------------------
+# Add the path to Julia's Libdl.DL_LOAD_PATH variable to enable Julia to find the HDF5 library 
 
-
+# push!(Libdl.DL_LOAD_PATH, "/opt/local/lib")
+# Pkg.build("HDF5")
