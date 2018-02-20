@@ -9,7 +9,7 @@
 #6.TECHNOTES : My BASH ALIAS definitions outgrew the ~/.bashrc file, split and 
 #              moved my additions into a separate "~/.bash_aliases" file.
 #              Also see /usr/share/doc/bash-doc/examples in the bash-doc package.
-#7.DATE(S)   : 2005nov05-2018feb11
+#7.DATE(S)   : 2005nov05-2018feb21
 ############################ METADATA ##########################################
 #
 
@@ -145,9 +145,10 @@ alias lsb-r='lsb_release -r' # for exact version
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # JULIA REPL & programming
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-alias juno='jupyter notebook'
 alias ju='julia'
 alias jl='julia -i --color=yes --history-file=yes'
+alias jlab='jupyter lab' # the latest labapp that runs on jupyterhub too.
+alias juno='jupyter notebook' # single notebook app
 #alias jl-git='cd julia; git pull git@github.com:JuliaLang/julia.git' # IGNORE, # The "yaksha-jl-update.sh" script handles it.
 #alias jl-up='cd julia; ./julia -e "Pkg.update()"'  # The "yaksha-jl-update.sh" script handles it
 alias juliavm="$HOME/.juliavm/juliavm"
