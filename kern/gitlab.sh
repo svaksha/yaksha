@@ -1,13 +1,13 @@
 #!/usr/bin/env bash
 ################################################################################
-# FILE       : yksh-gitlab.sh
+# FILE       : gitlab.sh
 # DESCRIPTION: Installation script for gitlab-ce on Debian Jessie. Use OMNIBUS script instead.
 # AUTHOR     : SVAKSHA, http://svaksha.com/pages/Bio
 # SOURCE     : http://svaksha.github.io/yaksha
 # COPYRIGHT© : 2005-Now SVAKSHA, All Rights Reserved.
 # LICENSE    : GNU AGPLv3 and subject to meeting all the terms in the LICENSE 
 #              file: https://github.com/svaksha/yaksha/blob/master/LICENSE.md
-# DATES      : Created:2016feb23 - Updated:2016feb26
+# DATES      : Created:2016feb23 - Updated:2018feb24
 ################################################################################
 # References:
 # https://github.com/svaksha/aksh/blob/master/cs-debuntu.md 
@@ -17,8 +17,8 @@
 yaksha_dir=~/yaksha/
 
 # Log the date and time of execution of bash script into the `out` files.
-date +'%c|started running `apt-get`: ' >> out-yksh-gitlab.log
-date +"%c|completed running: $?" >> out-yksh-gitlab.log
+date +'%c|started running `apt-get`: ' >> out-gitlab.log
+date +"%c|completed running: $?" >> out-gitlab.log
 
 # Ask for the administrator password first.
 sudo -v
