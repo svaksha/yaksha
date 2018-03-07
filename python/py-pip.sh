@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 ################################################################################
-# FILE      : yksh-pypip.sh
-# INFO.     : Bash script to install PYTHON packages using pip/pip3.
+# FILE      : pypip.sh
+# INFO.     : Bash script to install PYTHON packages using pip3.
 # AUTHOR    : SVAKSHA, http://svaksha.com/pages/Bio
 # SOURCE    : http://svaksha.github.io/yaksha
 # COPYRIGHT©: 2005-Now SVAKSHA, All Rights Reserved.
@@ -18,8 +18,8 @@
 yaksha_dir=~/yaksha/
 
 # Log the date and time of execution of bash script into the `out` files.
-date +'%c|started running `apt-get`: ' >> out-yksh-pypip.log
-date +"%c|completed running: $?" >> out-yksh-pypip.log
+date +'%c|started running `apt-get`: ' >> out-pypip.log
+date +"%c|completed running: $?" >> out-pypip.log
 
 # The SET bulletin
 # Tip: Using "+" causes these flags to be turned off.

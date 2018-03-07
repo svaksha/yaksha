@@ -1,0 +1,25 @@
+# Documentation: http://docs.travis-ci.com/user/languages/julia/
+language: julia
+
+os:
+  - linux
+
+julia:
+  - release
+  - nightly
+
+notifications:
+  email: false
+
+script:
+    - if [[ -a .git/shallow ]]; then git fetch --unshallow; fi
+    - julia --check-bounds=yes -e 'Pkg.clone(pwd()); Pkg.build("Yaksha"); Pkg.test("Yaksha"; coverage=true)'
+    - julia -e 'Pkg.add("Yaksha") #; Pkg.add("AxisArrays"); Pkg.add("DistributedArrays")'
+    - julia -e 'versioninfo(); Pkg.init(); run(`ln -s $(pwd()) $(Pkg.dir("Yaksha"))`); Pkg.pin("Yaksha"); Pkg.resolve()'
+    - julia -e 'println("success!")'
+
+after_success:
+  # push coverage results to Coveralls
+  - julia -e 'cd(Pkg.dir("Yaksha")); Pkg.add("Coverage"); using Coverage; Coveralls.submit(Coveralls.process_folder())'
+  # push coverage results to Codecov
+  - julia -e 'cd(Pkg.dir("Yaksha")); Pkg.add("Coverage"); using Coverage; Codecov.submit(Codecov.process_folder())'

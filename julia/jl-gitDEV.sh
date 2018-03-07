@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 ################################################################################
-# FILE       : julia-dev.sh
-# DESCRIPTION: Installation script for the Julia source build from development version on github.
+# FILE       : jl-gitDEV.sh
+# DESCRIPTION: The Julia source build from development (master) version on github.
 # AUTHOR     : SVAKSHA, http://svaksha.com/pages/Bio
 # SOURCE     : http://svaksha.github.io/yaksha
 # COPYRIGHT© : 2005-Now SVAKSHA, All Rights Reserved.

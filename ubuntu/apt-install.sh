@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 ############################ METADATA ##########################################
-#1.PROGRAM   : apt-ubuntu.sh
+#1.PROGRAM   : aptinstall-ubuntu.sh
 #2.COPYRIGHT©: 2005-Present, SVAKSHA, http://svaksha.github.io/yaksha
 #3.AUTHOR    : SVAKSHA, http://svaksha.com/pages/Bio
 #4.LICENSE   : GNU AGPLv3 subject to meeting all the terms in the LICENSE file: 

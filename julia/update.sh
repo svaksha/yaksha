@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 ################################################################################
-# FILE      : yaks-update-julia.sh
+# FILE      : jl-update.sh
 # INFO      : Update the Julia source build and store different versions.
 # AUTHOR    : SVAKSHA, http://svaksha.com/pages/Bio
 # SOURCE    : http://svaksha.github.io/yaksha
@@ -39,12 +39,14 @@ done
 
 git pull git@github.com:JuliaLang/julia.git
 
-# Package Manager Functions.
-./julia -e 'Pkg.dir()'     # Returns the absolute path of the package directory. 
-./julia -e 'versioninfo()' # which JL version?
-./julia -e 'Pkg.status()'  # provide pkg list
-./julia -e 'Pkg.update()'  # Update Julia packages
-./julia -e 'Pkg.resolve()' # Determine the optimal/consistent package ver to install/upgrade from Pkg.dir("REQUIRE").
+# Package Manager Functions via the CLI - Moved to another script.
+julia -e 'Pkg.dir()'     # Returns the absolute path of the package directory. 
+julia -e 'versioninfo()' # which JL version?
+julia -e 'Pkg.status()'  # provide pkg list
+julia -e 'Pkg.update()'  # Update Julia packages
+julia -e 'Pkg.resolve()' # Determine the optimal/consistent package ver to install/upgrade from Pkg.dir("REQUIRE").
+#julia -e 'Pkg.add("InstallPackageName")' 
+#julia -e 'showall(sort(collect(keys(Pkg.installed()))))'
 
 #Rebuild at all costs
 #-------------------------------------------------------------------------------

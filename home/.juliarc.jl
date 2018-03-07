@@ -8,7 +8,7 @@
 #6.TECHNOTES : My Julia config file to store personal commands in homedir().
 #  Notes     : This file contains site-specific commands (EX. add directories to 
 #              the LOAD_PATH for execution when the Julia REPL starts up. 
-#7.DATE(S)   : 2013oct01-2018feb11
+#7.DATE(S)   : 2013oct01-2018mar07
 ############################ METADATA ##########################################
 
 
@@ -33,8 +33,10 @@ using Base
 atreplinit() do repl    
 # data files
     @eval using CSV
+    @eval using CSVFiles
     @eval using ExcelReaders
     @eval using HDF5
+    @eval using JLD2
 # array, et al.
     @eval using Dagger
     @eval using DataFrames
@@ -59,7 +61,7 @@ atreplinit() do repl
     @eval using StatsBase
     @eval using YAML
 # visualize
-    @eval using Plotly
+    @eval using Gadfly
 end
  
 #julia --eval 'Pkg.add("IJulia")'
