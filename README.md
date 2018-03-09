@@ -34,25 +34,25 @@ The [Yaksha.jl][Yaksha.jl] repository tree for is structured as below:
 ### 2. Folders
 + __~/backup/__ :: Backup script using the attic python lib.
 + __~/debian__ : 
-    + __apt-debian.sh__ :: An automated system installation shell script for all new Debian Jessie machines that installs the following developer stack: 
+    + apt-debian.sh :: An automated system installation shell script for all new Debian Jessie machines that installs the following developer stack: 
         * Atom, Vim, basher, tab completion, curl, git, GNU core utils, etc..
         * Anaconda, VirtualBox, Vagrant, Docker, etc..
         * {Database}: MySQL, PostgreSQL, SQLite, MongoDB, etc..
         * {Languages}: GCC, G++, Go, Python, Java, Javascript, R, Ruby, et al.
-    + __vm-debian8.sh__ :: {WIP} The dependencies for a VM running debian-8 (jessie).
+    + vm-debian8.sh :: {WIP} The dependencies for a VM running debian-8 (jessie).
 + __~/docker/__ :: The dockerfiles are a WIP.
 + __~/etc/__ :: copy of the `sources.list` for apt.
 + __~/git/__ :: automate git ...
-    + _git-extract-commits.sh_ :: git_extract_commits.sh for GSoC commits, Original gist, https://gist.github.com/xinan/42669b49153af52919b2
-    + _gitlab-omni.sh_ :: Program to automatically check the OS and install the `gitlab` version.
-    + _gitlab.sh_ :: Bash script to install the `gitlab` omnibus version. Use __gitlab-omni.sh__ instead.
-    + _gitup.sh_ :: Automagically update all the local GIT repos.
+    + git-extract-commits.sh :: extracts commits for GSoC commits, Original gist, https://gist.github.com/xinan/42669b49153af52919b2
+    + gitlab-omni.sh :: Program to automatically check the OS and install the `gitlab` version.
+    + gitlab.sh :: Bash script to install the `gitlab` omnibus version. Use __gitlab-omni.sh__ instead.
+    + gitup.sh :: Automagically update all the local GIT repos.
 + __~/home/__ :: Home dotfiles and config folders for `bash`, `.julia`, `.vim`, etc..
 + __~/julia__ :
     + jl-colors-migrate.sh :: Prof.Tim Holy's script.
-    + _julia-dev.sh_ :: This script installs __Julia__ and builds from the unstable master on github. {__Nota Bene__: I use the _master build_, so _dont_ use this script if you want stable Julia packages - some packages may have bugs and may not work with the unstable builds.}
-    + _julia-stable.sh_ :: A script to install the generic Linux 64-bit binaries for Julia stable releases only. 
-    + _julia-update.sh_ :: Updates and builds the julia unstable master installed via `julia-stable.sh`
+    + julia-dev.sh :: This script installs __Julia__ and builds from the unstable master on github. {__Nota Bene__: I use the _master build_, so _dont_ use this script if you want stable Julia packages - some packages may have bugs and may not work with the DEV build.}
+    + julia-stable.sh :: A script to install the generic Linux 64-bit binaries for Julia stable releases only. 
+    + julia-update.sh :: Updates and builds the julia unstable master installed via `julia-stable.sh`
 + __~/kernel/__ : Scripts for removing old kernels. 
 + __~/kubuntu__:: scripts for installing OS applications and the package dependencies, updates, etc..
 + __~/opensuse__ :

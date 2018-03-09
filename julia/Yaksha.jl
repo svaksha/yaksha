@@ -1,7 +1,4 @@
-# __precompile__()
-
 module Yaksha
-
 using Compat
 using OhMyREPL
 
