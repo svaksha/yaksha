@@ -184,14 +184,21 @@ function install_database() {
 #    sudo apt -y install mariadb
     sudo apt -y install sqlite3
     ## PostgreSQL
-    sudo apt -y install postgresql-9.6 #core database server
-    sudo apt -y install postgresql-client-9.6 # client libraries and client binaries
-    sudo apt -y install postgresql-contrib-9.6 # additional supplied modules
-    sudo apt -y install libpq-dev # libraries and headers for C language frontend development
-    sudo apt -y install postgresql-server-dev-9.6 # libraries and headers for C language backend development
-    sudo apt -y install pgadmin3 # pgAdmin III graphical administration utility
+#    sudo apt -y install postgresql-9.6 #core database server
+#    sudo apt -y install postgresql-client-9.6 # client libraries and client binaries
+#    sudo apt -y install postgresql-contrib-9.6 # additional supplied modules
+#    sudo apt -y install libpq-dev # libraries and headers for C language frontend development
+#    sudo apt -y install postgresql-server-dev-9.6 # libraries and headers for C language backend development
+#    sudo apt -y install pgadmin3 # pgAdmin III graphical administration utility
     ## Distributed File Systems
     sudo apt -y install hdf5-tools
+#-----------------------------------
+# Array databases : MonetDB
+# https://www.monetdb.org/downloads/deb/
+#-----------------------------------
+#  
+# wget --output-document=- https://www.monetdb.org/downloads/MonetDB-GPG-KEY | sudo apt-key add -
+
 }
 
 
@@ -450,6 +457,13 @@ function install_javascript() {
     sudo apt -y install gradle
     # Markdown to PDF conversion - JS tool (better than the py tool 'grip')
     sudo npm install -g markdown-pdf
+    #---------------------
+    # visualisation with Vega:
+    # https://vega.github.io/vega-lite/usage/embed.html
+    #---------------------
+    sudo npm install vega
+    sudo npm install vega-lite
+    sudo npm install vega-embed
 }
 
 

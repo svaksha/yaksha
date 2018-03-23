@@ -8,7 +8,7 @@
 # COPYRIGHT© : 2005-Now SVAKSHA, All Rights Reserved.
 # LICENSE    : GNU AGPLv3 and subject to meeting all the terms in the LICENSE 
 #              file: https://github.com/svaksha/yaksha/blob/master/LICENSE.md
-# DATES      : 2016feb17-Present
+# DATES      : 2016feb17-2018mar19
 ################################################################################
 #
 # References:
@@ -23,13 +23,13 @@
 ## DONT AutoRun && use all uninstall scripts with care.
 #bash $HOME/yaksha/yaks-apt-uninstall.sh
 
-function yksh_update {
-bash $HOME/yaksha/yaks-apt-update.sh
-bash $HOME/yaksha/yaks-update-julia.sh
+function update_ubuntu {
+bash $HOME/yaksha/kernel/apt-update-ubuntu.sh
+bash $HOME/yaksha/update-julia.sh
 }
 
 function yksh_install {
-bash $HOME/yaksha/yksh-apt-install.sh
+bash $HOME/yaksha/kernel/apt-install.sh
 bash $HOME/yaksha/yksh-git-julia.sh
 }
 
@@ -41,7 +41,7 @@ key="$2"
 
 case $key in
     -u|--update)
-        yksh_update="$1"
+        update_ubuntu="$1"
         shift
     ;;
     -i|--install)

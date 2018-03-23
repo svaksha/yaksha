@@ -1,4 +1,4 @@
-module Yaksha
+module yaksha
 using Compat
 using OhMyREPL
 
