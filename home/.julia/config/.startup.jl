@@ -1,14 +1,15 @@
 ############################ METADATA ##########################################
-#1.PROGRAM   : .juliarc.jl
+#1.PROGRAM   : .startup.jl
 #2.COPYRIGHT©: 2005-Present, SVAKSHA, http://svaksha.github.io/yaksha
 #3.AUTHOR    : SVAKSHA, http://svaksha.com/pages/Bio
 #4.LICENSE   : GNU AGPLv3 subject to meeting all the terms in the LICENSE file: 
 #              https://github.com/svaksha/yaksha/blob/master/LICENSE.md
 #5.REPOSITORY: http://svaksha.github.io/yaksha
-#6.TECHNOTES : My Julia config file to store personal commands in homedir().
+#6.TECHNOTES : My Julia config file stores personal customizations in the homedir().
 #  Notes     : This file contains site-specific commands (EX. add directories to 
 #              the LOAD_PATH for execution when the Julia REPL starts up. 
-#7.DATE(S)   : 2013oct01-2018mar07
+#              Packages to load, etc..
+#7.DATE(S)   : 2013oct01-2018apr05
 ############################ METADATA ##########################################
 
 
@@ -20,15 +21,49 @@ println("|| नमस्ते ! स्वक्षंस्या सङ्ग�
 push!(LOAD_PATH, pwd())
 push!(LOAD_PATH, ENV["HOME"]*"/.julia")
 push!(LOAD_PATH, ENV["HOME"]*"/julia")
+push!(LOAD_PATH, ENV["HOME"]*"/anaconda")
 push!(LOAD_PATH, ENV["HOME"]*"/devil-*")
 push!(LOAD_PATH, ENV["HOME"]*"/devya-*")
+push!(LOAD_PATH, ENV["HOME"]*"/divya")
 push!(LOAD_PATH, ENV["HOME"]*"/divya-*")
 
+
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+# Update my Julia package installation 
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Pkg.status()
+Pkg.update()
+
+# Load startup.jl
+const STARTUPJL = "./julia/config/startup.jl"
+
+startupjl_path = string(pwd(), "/", STARTUPJL);
+if isfile(startupjl_path)
+	include(startupjl_path)
+end
+
+# Enable a per-directory startup file.
+#-----------------------------------------
+if chomp(readstring(`pwd`)) != ENV["HOME"]
+    if isfile(startupjl_path)
+        require(startupjl_path)
+    end
+end
+
+# Optional additional initialization
+#if isfile("$(ENV["HOME"])/.startup.jl"); 
+#  include("$(ENV["HOME"])/.startup.jl"); 
+#end
+
+# REPL restart : http://docs.julialang.org/en/latest/manual/workflow-tips/#simplify-initialization
+#-------------------------------------------------------------------------------
+isinteractive() && isfile("_init.jl") && require("_init.jl")
 
 #-------------------------------------------------------------------------------
 # Import these packages on REPL startup 
 #-------------------------------------------------------------------------------
 using Base
+import Pkg  #https://discourse.julialang.org/t/base-pkg-is-deprecated-but-using-pkg-errors-out/9573/3
 
 atreplinit() do repl    
 # data files
@@ -74,58 +109,10 @@ end
 #push!(Libdl.DL_LOAD_PATH, "/opt/local/lib")
 #Pkg.build("HDF5")
 
-#-------------------------------------------------------------------------------
-# add directories to the LOAD_PATH to be executed when the Julia REPL starts up.
-#-------------------------------------------------------------------------------
-#=
-# Load my .juliarc.jl for each REPL run, enable a per-directory startup file.
-if chomp(readstring(`pwd`)) != ENV["HOME"]
-    if isfile(".juliarc.jl")
-        require(".juliarc.jl")
-    end
-end
-=#
 
-# for PRIVATE repos
-if isfile("$(ENV["HOME"])/.juliarc-yakshi.jl")
-    include("$(ENV["HOME"])/.juliarc-yakshi.jl")
-end
-
-
-#-------------------------------------------------------------------------------
-# _init.jl 
-#-------------------------------------------------------------------------------
-#
-# If `_init.jl` exists, run at runtime.
-#-------------------------------------------------------------------------------
-#=
-if VERSION < v"0.7-"
-    if isinteractive() &isfile("_init.jl")
-      info("Found", joinpath(pwd(), "_init.jl"))
-      include(joinpath(pwd(),"_init.jl"))
-	end
-else 
-    atreplinit() do repl
-        if isfile("_init.jl")
-            info("Found", joinpath(pwd(),"_init.jl"))
-            include(joinpath(pwd(),"_init.jl"))
-        end
-	end
-end
-=#
-
-# Macro to edit this file
-macro juliarc()
-    edit("~/.juliarc.jl")
-end
-
-# Methods macro
-macro methods(m)
-    @eval methods(m)
-end
-
-# Macro to run _init.jl if it exists
-#-------------------------------------------------------------------------------
+################################################################################
+# _init.jl : Macro to run _init.jl if it exists
+################################################################################
 macro init()
     if isfile("_init.jl")
         info("Found", joinpath(pwd(), "_init.jl"))
@@ -140,14 +127,13 @@ macro init()
   end
 end
 
-# REPL restart : http://docs.julialang.org/en/latest/manual/workflow-tips/#simplify-initialization
-#-------------------------------------------------------------------------------
-isinteractive() && isfile("_init.jl") && require("_init.jl")
+# Macro to edit this file
+macro startup()
+    edit("~/.startup.jl")
+end
 
-#-------------------------------------------------------------------------------
-# https://github.com/JuliaIO/HDF5.jl
-#-------------------------------------------------------------------------------
-# Add the path to Julia's Libdl.DL_LOAD_PATH variable to enable Julia to find the HDF5 library 
+# Methods macro
+macro methods(m)
+    @eval methods(m)
+end
 
-# push!(Libdl.DL_LOAD_PATH, "/opt/local/lib")
-# Pkg.build("HDF5")
