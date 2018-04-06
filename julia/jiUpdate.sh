@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 ################################################################################
-# FILE      : jl-update.sh
+# FILE      : jiUpdate.sh
 # INFO      : Update the Julia source build and store different versions.
 # AUTHOR    : SVAKSHA, http://svaksha.com/pages/Bio
 # SOURCE    : http://svaksha.github.io/yaksha

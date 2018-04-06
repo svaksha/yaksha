@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 ################################################################################
-# FILE       : jl-binary.sh
+# FILE       : jiBinary.sh
 # DESCRIPTION: Generic Linux binaries installation script for Julia stable releases.
 # AUTHOR     : SVAKSHA, http://svaksha.com/pages/Bio
 # SOURCE     : http://svaksha.github.io/yaksha
