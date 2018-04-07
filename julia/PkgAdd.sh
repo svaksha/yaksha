@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 ############################ METADATA ##########################################
-#1.PROGRAM   : jiPkg3.sh
+#1.PROGRAM   : PkgAdd.sh
 #2.COPYRIGHT©: 2005-Present, SVAKSHA, http://svaksha.github.io/yaksha
 #3.AUTHOR    : SVAKSHA, http://svaksha.com/pages/Bio
 #4.LICENSE   : GNU AGPLv3 subject to meeting all the terms in the LICENSE file: 
@@ -14,7 +14,7 @@
 
 
 # run some commands via the CLI Terminal instead of the REPL.
-julia -e 'Pkg.dir()'     # Returns the absoluTe path of the package directory. 
+julia -e 'using Pkg; Pkg.dir()'     # Returns the absoluTe path of the package directory. 
 julia -e 'versioninfo()' # which JL version?
 julia -e 'Pkg.status()'  # provide pkg list
 julia -e 'Pkg.update()'  # Update Julia packages
@@ -36,6 +36,8 @@ julia -e 'print(readdir(Pkg.dir("METADATA")))'
 
 # Add these packages for a new julia installation
 #--------------------------------------------------
+function metadatajl() {
+    ## Fetch and install packages from METADATA.JL on github.
 julia -e 'Pkg.add("CSV")'
 julia -e 'Pkg.add("ArgParse")'
 julia -e 'Pkg.add("FileFind")'
@@ -53,4 +55,6 @@ julia -e 'Pkg.add("SymmetricTensors")'
 julia -e 'Pkg.add("uCSV")'
 julia -e 'Pkg.add("Gadfly")'
 julia -e 'Pkg.add("HypothesisTests")'
+}
+
 

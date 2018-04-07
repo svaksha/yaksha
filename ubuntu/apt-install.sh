@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 ############################ METADATA ##########################################
-#1.PROGRAM   : aptinstall-ubuntu.sh
+#1.PROGRAM   : apt-install.sh
 #2.COPYRIGHT©: 2005-Present, SVAKSHA, http://svaksha.github.io/yaksha
 #3.AUTHOR    : SVAKSHA, http://svaksha.com/pages/Bio
 #4.LICENSE   : GNU AGPLv3 subject to meeting all the terms in the LICENSE file: 
@@ -8,7 +8,7 @@
 #5.REPOSITORY: http://svaksha.github.io/yaksha
 #6.TECHNOTES : Bash script to install packages on a fresh Ubuntu system. 
 #              Installs all the packages in <1 hour on a good internet bandwidth. 
-#7.DATE(S)   : 2005mar22-2018feb11
+#7.DATE(S)   : 2005mar22-2018apr07
 ################################################################################
 #
 # References:
@@ -16,12 +16,12 @@
 # https://github.com/svaksha/aksh/blob/master/cs-devops.md
 #₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹
 
-yaksha_dir=~/yaksha/kern
+yaksha_dir=~/yaksha/ubuntu
 
 # Log the date and time of execution of bash script into the `out` files.
 
-date +"%c|started running $(apt): " >> out-apt-ubuntu.log
-date +"%c|completed running: $?" >> out-apt-ubuntu.log
+date +"%c|started running $(apt): " >> out-apt-install.log
+date +"%c|completed running: $?" >> out-apt-install.log
 
 # The SET bulletin
 # Tip: Using "+" causes these flags to be turned off.
@@ -47,22 +47,22 @@ while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 # Check for release names: https://wiki.ubuntu.com/Releases
 #₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹
 install_ubuntu() {
-    sudo apt -y install wget
-    sudo apt -y install curl
-    sudo apt -y install whois
-    sudo apt -y install zip
-    sudo apt -y install unzip
-    sudo apt -y install unrar
+    sudo apt-get -y install wget
+    sudo apt-get -y install curl
+    sudo apt-get -y install whois
+    sudo apt-get -y install zip
+    sudo apt-get -y install unzip
+    sudo apt-get -y install unrar
     # sendmail or postfix
-    sudo apt -y install sendmail
-    sudo apt -y install postfix
+    sudo apt-get -y install sendmail
+    sudo apt-get -y install postfix
     # SSH
-    sudo apt -y install openssh-server
-    sudo apt -y install cron-apt
+    sudo apt-get -y install openssh-server
+    sudo apt-get -y install cron-apt
     # BASH script checker: http://m.jakstys.lt/tech/2016/08/bash
-    sudo apt -y install shellcheck  
+    sudo apt-get -y install shellcheck  
     # https://askubuntu.com/questions/892076/how-to-selectively-purge-old-kernels-all-at-once/892077#892077
-    sudo apt -y install dialog # DEP of server version of "rm-kernels-server"
+    sudo apt-get -y install dialog # DEP of server version of "rm-kernels-server"
 }
 
 #₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹
@@ -71,69 +71,69 @@ install_ubuntu() {
 install_gnome() {
     ## general cli tools for web, search
     #---------------------------------------------------------------------------
-    sudo apt -y install silversearcher-ag
-    sudo apt -y install ctags
-    sudo apt -y install exuberant-ctags ack-grep
-    sudo apt -y install screen
+    sudo apt-get -y install silversearcher-ag
+    sudo apt-get -y install ctags
+    sudo apt-get -y install exuberant-ctags ack-grep
+    sudo apt-get -y install screen
     ln -s  ${yaksha_dir}.screenrc ~/.screenrc # copy the old file, dont create new one
     ## Tools for dependency check and PPA removal
-    sudo apt -y install equivs
-    sudo apt -y install ppa-purge
-    sudo apt -y install nmap
+    sudo apt-get -y install equivs
+    sudo apt-get -y install ppa-purge
+    sudo apt-get -y install nmap
     # SSH
-    sudo apt -y install sshpass
+    sudo apt-get -y install sshpass
     # Install Augeas - http://augeas.net/download.html
     # An editing tool API to automate the configuration editing on remote servers.
     #---------------------------------------------------------------------------
-    sudo apt -y install augeas-dbg python3-augeas augeas-tools augeas-lenses
+    sudo apt-get -y install augeas-dbg python3-augeas augeas-tools augeas-lenses
     #
     #---------------------------------------------------------------------------
     ## UTILITIES
     #---------------------------------------------------------------------------
     ## BibTeX Reference software
-    sudo apt -y install pybliographer
-    sudo apt -y install referencer    #IGNORE, https://launchpad.net/referencer
+    sudo apt-get -y install pybliographer
+    sudo apt-get -y install referencer    #IGNORE, https://launchpad.net/referencer
     # hierarchical notebook : http://hnb.sourceforge.net/Documentation/
-    sudo apt -y install hnb
+    sudo apt-get -y install hnb
     #-----------------------------------------------
     # PDF Editor - package dependencies
     # http://www.ubuntugeek.com/list-of-pdf-editing-tools-for-ubuntu.html
     #-----------------------------------------------
-    sudo apt -y install pdfedit
-    sudo apt -y install flpsed pdftk
-    sudo apt -y install pdfjam
-    sudo apt -y install xournal
-    sudo apt -y install cups-pdf
+    sudo apt-get -y install pdfedit
+    sudo apt-get -y install flpsed pdftk
+    sudo apt-get -y install pdfjam
+    sudo apt-get -y install xournal
+    sudo apt-get -y install cups-pdf
     # PDF to MarkDown
     # http://www.howtogeek.com/228531/how-to-convert-a-pdf-file-to-editable-text-using-the-command-line-in-linux/
-    sudo apt -y install poppler-utils
+    sudo apt-get -y install poppler-utils
     # Markdown to PDF conversion - JS tool (better than the py tool 'grip')
     sudo npm install -g markdown-pdf
     # Markdown to PDF conversion - Python tool
     sudo pip3 install grip
     ## HP printer stuff
-    sudo apt -y install hplip
-    sudo apt -y install mtink  # http://xwtools.automatix.de/
-    sudo apt -y install hp-toolbox
-    sudo apt -y install hp-setup
-    sudo apt -y install hplip-plugin
+    sudo apt-get -y install hplip
+    sudo apt-get -y install mtink  # http://xwtools.automatix.de/
+    sudo apt-get -y install hp-toolbox
+    sudo apt-get -y install hp-setup
+    sudo apt-get -y install hplip-plugin
     ## Reactivate HP LaserJet 1018/1020 after reloading paper
-    sudo apt -y install printer-driver-foo2zjs-common   #20140209dfsg0-1kubuntu1
+    sudo apt-get -y install printer-driver-foo2zjs-common   #20140209dfsg0-1kubuntu1
     #
     #---------------------------------------------------------------------------
     ## video and audio (music - mpto mp3) converters
     #---------------------------------------------------------------------------
-    sudo apt -y install papcl audacity
-    sudo apt -y install ubuntu-restricted-extras # install the MP3 codec from the Ubuntu Restricted Extras package
-    sudo apt -y install soundconverter # install the Sound Converter program
+    sudo apt-get -y install papcl audacity
+    sudo apt-get -y install ubuntu-restricted-extras # install the MP3 codec from the Ubuntu Restricted Extras package
+    sudo apt-get -y install soundconverter # install the Sound Converter program
     # get the github source (https://github.com/rg3/youtube-dl)
     sudo pip3 install youtube_dl    # sudo pip install --upgrade youtube_dl  #(to upgrade if its already installed)
     # Taking Notes
-    sudo apt -y install tomboy transmission
+    sudo apt-get -y install tomboy transmission
     ## Communication Tools
-    sudo apt -y install jitsi # Skype alternative
+    sudo apt-get -y install jitsi # Skype alternative
     # STARTUP DISK CREATOR
-    sudo apt -y install unetbootin
+    sudo apt-get -y install unetbootin
     # Time Tracker, https://github.com/TailorDev/Watson
     sudo pip3 install td-watson
 }
@@ -144,8 +144,8 @@ install_gnome() {
 # http://stackoverflow.com/questions/8795538/how-to-share-odt-doc-documents-over-git
 #₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹
 install_databinary() {
-    sudo zypper install odt2txt
-    sudo zypper install oodiff
+    sudo apt-get -y install odt2txt
+    sudo apt-get -y install oodiff
 
 }
 
@@ -154,44 +154,44 @@ install_databinary() {
 #₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹
 hardware_utils() {
     ## CPU / HDD health monitoring
-    sudo apt -y install smartctl
-    sudo apt -y install smartmontools
-    sudo apt -y install gsmartcontrol   # GUI version
-    sudo apt -y install testdisk gddrescue  # grub rescue / HDD health
+    sudo apt-get -y install smartctl
+    sudo apt-get -y install smartmontools
+    sudo apt-get -y install gsmartcontrol   # GUI version
+    sudo apt-get -y install testdisk gddrescue  # grub rescue / HDD health
     # CPU Monitoring tools for Temperature, speed, et al.
     #------------------------------------------------------
     # https://wiki.ubuntu.com/Kernel/PowerManagement/ThermalIssues
-    sudo apt -y install thermald  # this daemon prevents machines from overheating
-    sudo apt -y install indicator-cpufreq
+    sudo apt-get -y install thermald  # this daemon prevents machines from overheating
+    sudo apt-get -y install indicator-cpufreq
     echo "This machine is currently being installed with important system packages!"
     sleep 1
     ## Sensors package to monitor the disk temperature
-    sudo apt -y install lm-sensors
-    sudo apt -y install powertop
-    sudo apt -y install atop
-    sudo apt -y install linux-tools-common # AKA, "perf": http://www.brendangregg.com/perf.html
-    sudo apt -y install simplescan
+    sudo apt-get -y install lm-sensors
+    sudo apt-get -y install powertop
+    sudo apt-get -y install atop
+    sudo apt-get -y install linux-tools-common # AKA, "perf": http://www.brendangregg.com/perf.html
+    sudo apt-get -y install simplescan
     ## Memory management
-    sudo apt -y install lowmem        # free memory for lowmem install
-    sudo apt -y install lowmemcheck   # detect low-memory systems and enter lowmem mode
-    sudo apt -y install memstat
+    sudo apt-get -y install lowmem        # free memory for lowmem install
+    sudo apt-get -y install lowmemcheck   # detect low-memory systems and enter lowmem mode
+    sudo apt-get -y install memstat
 }
 
 #₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹
 ## DATABASE packages
 #₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹
 function install_database() {
-#    sudo apt -y install mariadb
-    sudo apt -y install sqlite3
+#    sudo apt-get -y install mariadb
+    sudo apt-get -y install sqlite3
     ## PostgreSQL
-#    sudo apt -y install postgresql-9.6 #core database server
-#    sudo apt -y install postgresql-client-9.6 # client libraries and client binaries
-#    sudo apt -y install postgresql-contrib-9.6 # additional supplied modules
-#    sudo apt -y install libpq-dev # libraries and headers for C language frontend development
-#    sudo apt -y install postgresql-server-dev-9.6 # libraries and headers for C language backend development
-#    sudo apt -y install pgadmin3 # pgAdmin III graphical administration utility
+#    sudo apt-get -y install postgresql-9.6 #core database server
+#    sudo apt-get -y install postgresql-client-9.6 # client libraries and client binaries
+#    sudo apt-get -y install postgresql-contrib-9.6 # additional supplied modules
+#    sudo apt-get -y install libpq-dev # libraries and headers for C language frontend development
+#    sudo apt-get -y install postgresql-server-dev-9.6 # libraries and headers for C language backend development
+#    sudo apt-get -y install pgadmin3 # pgAdmin III graphical administration utility
     ## Distributed File Systems
-    sudo apt -y install hdf5-tools
+    sudo apt-get -y install hdf5-tools
 #-----------------------------------
 # Array databases : MonetDB
 # https://www.monetdb.org/downloads/deb/
@@ -219,7 +219,7 @@ function install_df_rdf() {
     fi
     cd "$CODE_BASE"
 
-    sudo apt install -y ruby # first we install Ruby and RubyGems
+    sudo apt-get install -y ruby # first we install Ruby and RubyGems
     sudo gem install rdf2json # then install rdf2json
     # Install Apache Any23, https://any23.apache.org/
     wget http://ftp.jaist.ac.jp/pub/apache/any23/1.1/apache-any23-core-${ANY23_VERSION}.tar.gz
@@ -237,13 +237,13 @@ function install_df_rdf() {
 ## DVCS packages
 #₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹
 function install_dvcs() {
-    sudo apt -y install git git-core
-    sudo apt -y install tig
-    # sudo apt -y install deb file for git-lfs {{https://github.com/github/git-lfs.git}}
-    sudo apt -y install mercurial
-    sudo apt -y install tortoisehg
-    sudo apt -y install bazaar
-    sudo apt -y install subversion
+    sudo apt-get -y install git git-core
+    sudo apt-get -y install tig
+    # sudo apt-get -y install deb file for git-lfs {{https://github.com/github/git-lfs.git}}
+    sudo apt-get -y install mercurial
+    sudo apt-get -y install tortoisehg
+    sudo apt-get -y install bazaar
+    sudo apt-get -y install subversion
     ln -s  ${yaksha_dir}.gitconfig ~/.gitconfig
     git clone https://github.com/jonas/tig /tmp/tig
     cd /tmp/tig; sudo make prefix=/usr/local
@@ -271,7 +271,7 @@ function install_dvcs() {
     #---------------
     curl -s https://release.gitkraken.com/linux/gitkraken-amd64.deb
     cd ~/home; sudo dpkg --install gitkraken-amd64.deb
-    sudo apt -y update
+    sudo apt-get -y update
 }
 
 #₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹
@@ -280,18 +280,18 @@ function install_dvcs() {
 function install_editors() {
     ## IDE for GNOME to support GTK+, GLib, APIs
     #---------------------------------------------------------------------------
-    sudo apt -y install builder
-    #  sudo apt -y install dconf-tools # Editor for Gnome tools.
-    sudo apt -y install emacs
-    sudo apt -y install geany
-    sudo apt -y install guake
-    sudo apt -y install meld  # comparison tool for GNOME
-    sudo apt -y install scite
-    sudo apt -y install spyder
+    sudo apt-get -y install builder
+    #  sudo apt-get -y install dconf-tools # Editor for Gnome tools.
+    sudo apt-get -y install emacs
+    sudo apt-get -y install geany
+    sudo apt-get -y install guake
+    sudo apt-get -y install meld  # comparison tool for GNOME
+    sudo apt-get -y install scite
+    sudo apt-get -y install spyder
     # CLI text editors for sysadmins working on remote Linux/Unix servers.
-    sudo apt -y install nano
-    sudo apt -y install pico
-    sudo apt -y install vim
+    sudo apt-get -y install nano
+    sudo apt-get -y install pico
+    sudo apt-get -y install vim
     # Atom editor 64-bit DEB file from github source
     wget https://github.com/atom/atom/releases/download/v1.6.0/atom-amd64.deb ~/home
     cd ~/home; sudo dpkg --install atom-amd64.deb
@@ -301,13 +301,13 @@ function install_editors() {
     #--------------------------------
     ## LaTeX2ε
     #--------------------------------
-    sudo apt -y install texlive texlive-latex-extra
+    sudo apt-get -y install texlive texlive-latex-extra
     # Latex Fonts support
-    sudo apt -y install texlive-fonts-recommended
-    sudo apt -y install texlive-fonts-extra
-    sudo apt -y install texlive-lang-cyrillic scalable-cyrfonts-tex 
+    sudo apt-get -y install texlive-fonts-recommended
+    sudo apt-get -y install texlive-fonts-extra
+    sudo apt-get -y install texlive-lang-cyrillic scalable-cyrfonts-tex 
     # for technical/scientific posters.
-    sudo apt -y install texlive-science 
+    sudo apt-get -y install texlive-science 
 }
 
 
@@ -315,7 +315,7 @@ function install_editors() {
 # Fonts
 #₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹
 function install_fonts() {
-    sudo apt -y install ttf-mscorefonts-installer # Microsoft fonts for Libreoffice.
+    sudo apt-get -y install ttf-mscorefonts-installer # Microsoft fonts for Libreoffice.
     wget https://github.com/Lokaltog/powerline/raw/develop/font/PowerlineSymbols.otf
     wget https://github.com/Lokaltog/powerline/raw/develop/font/10-powerline-symbols.conf
     mkdir -p ~/.fonts
@@ -332,29 +332,29 @@ function install_fonts() {
 function install_gcc() {
     echo "GCC (and its variant packages) installation is in progress!"
     ## C/C++
-    sudo apt -y install gcc
-    sudo apt -y install gnu
-    sudo apt -y install make
-    sudo apt -y install gnu-make
-    sudo apt -y install cmake
-    sudo apt -y install libncurses5-dev
-    sudo apt -y install cmake-curses-gui
-    sudo apt -y install clang
-    sudo apt -y install g++
+    sudo apt-get -y install gcc
+    sudo apt-get -y install gnu
+    sudo apt-get -y install make
+    sudo apt-get -y install gnu-make
+    sudo apt-get -y install cmake
+    sudo apt-get -y install libncurses5-dev
+    sudo apt-get -y install cmake-curses-gui
+    sudo apt-get -y install clang
+    sudo apt-get -y install g++
     ## Fortran
-    sudo apt -y install gfortran
-    sudo apt -y install m4
-    sudo apt -y install patch
+    sudo apt-get -y install gfortran
+    sudo apt-get -y install m4
+    sudo apt-get -y install patch
     ## BOOST
-    sudo apt -y install fftw-dev
-    sudo apt -y install libtiff4-dev
-    sudo apt -y install openexr
-    sudo apt -y install libboost
-    sudo apt -y install fftw3-dev
-    sudo apt -y install liblemon
-    sudo apt -y install libpng-dev
+    sudo apt-get -y install fftw-dev
+    sudo apt-get -y install libtiff4-dev
+    sudo apt-get -y install openexr
+    sudo apt-get -y install libboost
+    sudo apt-get -y install fftw3-dev
+    sudo apt-get -y install liblemon
+    sudo apt-get -y install libpng-dev
     ## Statistics
-    sudo apt -y install pspp
+    sudo apt-get -y install pspp
 }
 
 
@@ -362,20 +362,20 @@ function install_gcc() {
 # GO language : https://golang.org/doc/code.html
 #₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹
 function install_go() {
-    sudo apt -y install golang # Go compiler - METApackage
-    sudo apt -y install golang-go.net-dev # supplementary networking dev libs
-    sudo apt -y install golang-go.tools # supplementary Go tools
-    sudo apt -y install golang-go.tools-dev # suppl. Go tools - development
-    sudo apt -y install dh-golang # debhelper add-on for packaging software written in Go (golang)
-    sudo apt -y install gccgo-go # Go compiler over GCC
-    sudo apt -y install golang-bindata-dev # embed data in a Go program - library package
-    sudo apt -y install golang-doc # Go programming language compiler - documentation
-    sudo apt -y install golang-go # Go programming language compiler
+    sudo apt-get -y install golang # Go compiler - METApackage
+    sudo apt-get -y install golang-go.net-dev # supplementary networking dev libs
+    sudo apt-get -y install golang-go.tools # supplementary Go tools
+    sudo apt-get -y install golang-go.tools-dev # suppl. Go tools - development
+    sudo apt-get -y install dh-golang # debhelper add-on for packaging software written in Go (golang)
+    sudo apt-get -y install gccgo-go # Go compiler over GCC
+    sudo apt-get -y install golang-bindata-dev # embed data in a Go program - library package
+    sudo apt-get -y install golang-doc # Go programming language compiler - documentation
+    sudo apt-get -y install golang-go # Go programming language compiler
     # dependency tool for go
     wget https://github.com/tools/godep.git ~/home
     # Database drivers
-    sudo apt -y install golang-pq-dev # pure Go postgres driver for Go’s database/sql package
-    sudo apt -y install golang-gosqlite-dev # Trivial sqlite3 binding for Go (development files)
+    sudo apt-get -y install golang-pq-dev # pure Go postgres driver for Go’s database/sql package
+    sudo apt-get -y install golang-gosqlite-dev # Trivial sqlite3 binding for Go (development files)
 }
 
 
@@ -384,48 +384,48 @@ function install_go() {
 #₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹
 function install_graphics() {
     ## medical imaging
-    sudo apt -y install aeskulap
-    sudo apt -y install Ginkgo-CADx
-    #sudo apt -y install gimp ## Gimp Image Editor
-    sudo apt -y install inkscape   # Can process raster SVG images
-    sudo apt -y install imagemagick -with--libtiff
+    sudo apt-get -y install aeskulap
+    sudo apt-get -y install Ginkgo-CADx
+    #sudo apt-get -y install gimp ## Gimp Image Editor
+    sudo apt-get -y install inkscape   # Can process raster SVG images
+    sudo apt-get -y install imagemagick -with--libtiff
     #-----------------------------------------------------------
     ## Image processing tools and libraries :: https://wiki.ubuntu.com/UbuntuGIS
     #-----------------------------------------------------------
-    sudo apt -y install colordiff
+    sudo apt-get -y install colordiff
     # GRASS for geospatial data management, image processing, graphics/maps production, spatial modeling, and visualization.
-    sudo apt -y install grass
+    sudo apt-get -y install grass
     #--------------------------------
     # GIS
     #--------------------------------
-    sudo apt -y install postgis    # PG driver for GIS
-    sudo apt -y install QuantumGIS
+    sudo apt-get -y install postgis    # PG driver for GIS
+    sudo apt-get -y install QuantumGIS
     # Mapserver
-    sudo apt -y install cgi-mapserver mapserver-bin
+    sudo apt-get -y install cgi-mapserver mapserver-bin
     # Language bindings for mapserver
-    sudo apt -y install python-mapscript perl-mapscript php4-mapscript php5-mapscript
-    sudo apt -y install libterralib1c2a  # Terralib
+    sudo apt-get -y install python-mapscript perl-mapscript php4-mapscript php5-mapscript
+    sudo apt-get -y install libterralib1c2a  # Terralib
     #-----------------------------------------------------------
     ## Unified Modeling Language (UML) Tools
     # http://askubuntu.com/questions/9405/what-uml-unified-modelling-language-tools-are-available
     #-----------------------------------------------------------
-    sudo apt -y install dia
+    sudo apt-get -y install dia
     #--------------------------------
     # Circuits and diagrams
     #--------------------------------
-    sudo apt -y install cirkuit
+    sudo apt-get -y install cirkuit
     #--------------------------------
     # Scanning Tools
     #--------------------------------
-    sudo apt -y install scantailor gscan2pdf
+    sudo apt-get -y install scantailor gscan2pdf
     #--------------------------------
     # 3D graphics / Vector graphics
     #--------------------------------
-    sudo apt -y install blender
-    sudo apt -y install qgis qgis-plugin-grass # QuantumGIS supports vector, raster, and database formats.
-    sudo apt -y install gdal libgdal1c2a python-gdal  # handles raster formats
-    sudo apt -y install libgeotiff
-    sudo apt -y install e00compr # an ANSI C library that reads and writes Arc/Info compressed E00 files.
+    sudo apt-get -y install blender
+    sudo apt-get -y install qgis qgis-plugin-grass # QuantumGIS supports vector, raster, and database formats.
+    sudo apt-get -y install gdal libgdal1c2a python-gdal  # handles raster formats
+    sudo apt-get -y install libgeotiff
+    sudo apt-get -y install e00compr # an ANSI C library that reads and writes Arc/Info compressed E00 files.
 }
 
 #₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹
@@ -433,7 +433,7 @@ function install_graphics() {
 #₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹
 function install_java() {
     sudo add-apt-repository --yes ppa:webupd8team/java
-    sudo apt -y install oracle-java8-installer # javac -v = 1.8.XXX
+    sudo apt-get -y install oracle-java8-installer # javac -v = 1.8.XXX
 }
 
 
@@ -442,19 +442,19 @@ function install_java() {
 #₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹
 function install_javascript() {
     # NPM = node package manager
-    sudo apt -y install npm
+    sudo apt-get -y install npm
     sudo npm install -g configurable-http-proxy
     sudo npm install -g jslint
     sudo npm install -g jshint
     ln -s ${yaksha_dir}.jshintrc ~/.jshintrc
-    sudo apt -y update
-    sudo apt -y upgrade
-    sudo apt -y install nodejs # nodejs -v = 0.10.28 # dont pin versions
-    sudo apt -y install nodejs-legacy
+    sudo apt-get -y update
+    sudo apt-get -y upgrade
+    sudo apt-get -y install nodejs # nodejs -v = 0.10.28 # dont pin versions
+    sudo apt-get -y install nodejs-legacy
     # gradle
     sudo add-apt-repository --yes ppa:cwchien/gradle
-    #sudo apt update
-    sudo apt -y install gradle
+    #sudo apt-get update
+    sudo apt-get -y install gradle
     # Markdown to PDF conversion - JS tool (better than the py tool 'grip')
     sudo npm install -g markdown-pdf
     #---------------------
@@ -472,8 +472,8 @@ function install_javascript() {
 #₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹
 function install_network() {
     # VPN networks
-    sudo apt -y install openvpn
-    sudo apt -y install openconnect # Cisco Anyconnect
+    sudo apt-get -y install openvpn
+    sudo apt-get -y install openconnect # Cisco Anyconnect
 }
 
 
@@ -481,29 +481,29 @@ function install_network() {
 # Non-Free utilities
 #₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹
 function install_nonfree() {
-    sudo apt -y update
-    sudo apt -y upgrade
+    sudo apt-get -y update
+    sudo apt-get -y upgrade
     ##+++++++++++++
     ## Adobe
     ##+++++++++++++
-    sudo apt update
-    sudo apt -y install acroread mozilla-acroread
+    sudo apt-get update
+    sudo apt-get -y install acroread mozilla-acroread
     # OCR tools to copy text from locked filed: https://help.ubuntu.com/community/OCR
-    sudo apt -y install fuzzyocr # spamassassin plugin to check image attachments
-    sudo apt -y install ocrad # OCR program
-    sudo apt -y install ocrfeeder # document layout analysis and optical character recognition system
-    sudo apt -y install ocropus # document analysis and OCR system
-    sudo apt -y install cuneiform # multi-language OCR system 
+    sudo apt-get -y install fuzzyocr # spamassassin plugin to check image attachments
+    sudo apt-get -y install ocrad # OCR program
+    sudo apt-get -y install ocrfeeder # document layout analysis and optical character recognition system
+    sudo apt-get -y install ocropus # document analysis and OCR system
+    sudo apt-get -y install cuneiform # multi-language OCR system 
     
     ##+++++++++++++
     ## FLASH
     ##+++++++++++++
-    sudo apt -y install flashplugin-nonfree
-    sudo apt -f install
+    sudo apt-get -y install flashplugin-nonfree
+    sudo apt-get -f install
     # Install Skype from Canonical Partner Repository
     sudo add-apt-repository "deb http://archive.canonical.com/ $(lsb_release -sc) partner"
-    sudo apt -y update
-    sudo apt -y upgrade
+    sudo apt-get -y update
+    sudo apt-get -y upgrade
 }
 
 #₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹
@@ -511,28 +511,28 @@ function install_nonfree() {
 #₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹
 function install_python() {
     echo "Python (and its variant packages) installation is in progress!"
-    sudo apt -y install build-essential
+    sudo apt-get -y install build-essential
     # PIP = Python Installer
-    sudo apt -y install pip pip3
-    sudo apt -y install pip-installer
-    sudo apt -y install python-setuptools
-    sudo apt -y install python-pip python-dev python-yaml
-    sudo apt -y install python-software-properties
+    sudo apt-get -y install pip pip3
+    sudo apt-get -y install pip-installer
+    sudo apt-get -y install python-setuptools
+    sudo apt-get -y install python-pip python-dev python-yaml
+    sudo apt-get -y install python-software-properties
     # python3
-    sudo apt -y install python-virtualenv python3-dev pkgconf
-    sudo apt -y install libfreetype6-dev libfreetype6 libxft-dev
-    sudo apt -y install libblas-dev liblapack-dev libyaml-dev
-    sudo apt -y install python3-pip python3
+    sudo apt-get -y install python-virtualenv python3-dev pkgconf
+    sudo apt-get -y install libfreetype6-dev libfreetype6 libxft-dev
+    sudo apt-get -y install libblas-dev liblapack-dev libyaml-dev
+    sudo apt-get -y install python3-pip python3
     ## scientific python
-    sudo apt -y install cython
-    sudo apt -y install numpy python-numpy
-    sudo apt -y install scipy
-    sudo apt -y install python-matplotlib python-scipy
-    #sudo apt -y install python-virtualenv
-    sudo apt -y install manpages-dev
-    sudo apt -y install python-fontforge
+    sudo apt-get -y install cython
+    sudo apt-get -y install numpy python-numpy
+    sudo apt-get -y install scipy
+    sudo apt-get -y install python-matplotlib python-scipy
+    #sudo apt-get -y install python-virtualenv
+    sudo apt-get -y install manpages-dev
+    sudo apt-get -y install python-fontforge
     # Jupyter
-    #sudo apt -y install IPython ipython3 ipython3-notebook
+    #sudo apt-get -y install IPython ipython3 ipython3-notebook
     sudo pip3 install ipython jinja2 tornado pyzmq pandas jsonschema pyaml
     ## More Python stuff
     sudo pip3 install rotate-backups
@@ -541,11 +541,11 @@ function install_python() {
     sudo pip3 install pylint -i http://pypi.python.org/simple/
     # Nginx WebServer
     sudo add-apt-repository --yes ppa:nginx/stable
-    sudo apt update
-    sudo apt -y install nginx 
+    sudo apt-get update
+    sudo apt-get -y install nginx 
     # WebServer ZMQ, also needed by Jupyter/IPython / IRuby etc..
     #sudo add-apt-repository --yes ppa:chris-lea/zeromq
-    sudo apt -y install libzmq3-dbg libzmq3-dev libzmq3
+    sudo apt-get -y install libzmq3-dbg libzmq3-dev libzmq3
     # PandaSQL, https://github.com/yhat/pandasql
     sudo pip3 install -U pandasql
     # Rodeo, A Python IDE built for analyzing data
@@ -553,8 +553,8 @@ function install_python() {
     sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 33D40BC6
     sudo add-apt-repository "deb http://rodeo-deb.yhat.com/ rodeo main"
     #### install rodeo and run it
-    sudo apt update
-    sudo apt -y install rodeo
+    sudo apt-get update
+    sudo apt-get -y install rodeo
 }
 
 
@@ -563,22 +563,14 @@ function install_python() {
 #₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹
 function install_rlang() {
 #   sudo add-apt-repository --yes ppa:marutter/rrutter
-    sudo apt -y update
-    sudo apt -y install r-base r-base-dev r-base-core
-    sudo apt -y install r-recommended   # GNU R collection of recommended packages {metapackage}.
-    sudo apt -y install r-doc-info      # GNU R info manuals statistical computing system.
-    sudo apt -y install libc6 libcurl4-gnutls-dev # R -v = 3.1.0
+    sudo apt-get -y update
+    sudo apt-get -y install r-base r-base-dev r-base-core
+    sudo apt-get -y install r-recommended   # GNU R collection of recommended packages {metapackage}.
+    sudo apt-get -y install r-doc-info      # GNU R info manuals statistical computing system.
+    sudo apt-get -y install libc6 libcurl4-gnutls-dev # R -v = 3.1.0
     # Statistics & DataScience
-    sudo apt -y install r-cran-plyr #https://cran.r-project.org/web/packages/plyr/index.html
-    sudo apt -y install aod ggplot2 Rcpp # R data analysis
-    # Drop into R on a terminal to install with command "install.packages('devtools')"
-    # sudo apt install r-cran-fitdistrplus r-cran-logspline
-    #----------------------------------------------------------------
-    #PolyCub is a GNU-R package providing methods for cubature (numerical integration) over polygonal domains.
-#    sudo apt -y install r-cran-polycub
-    #----------------------------------------------------------------
-    # CUBATURE - GNU R package for adaptive multivariate integration
-#    sudo apt -y install r-cran-cubature
+    sudo apt-get -y install r-cran-plyr #https://cran.r-project.org/web/packages/plyr/index.html
+    sudo apt-get -y install aod ggplot2 Rcpp # R data analysis
     ## Fetching from CRAN
     sudo Rscript -e "install.packages('Rserve',,'http://cran.us.r-project.org')"
     sudo Rscript -e "install.packages('ggplot2',,'http://cran.us.r-project.org')"
@@ -586,49 +578,24 @@ function install_rlang() {
     sudo Rscript -e "install.packages('RJSONIO',,'http://cran.us.r-project.org')"
     sudo Rscript -e "install.packages('RCurl',,'http://cran.us.r-project.org')"
     sudo Rscript -e "install.packages('RCubature',,'http://cran.us.r-project.org')"
-
-    #PolyCub is a GNU-R package providing methods for cubature (numerical integration) over polygonal domains.
-#    sudo apt -y install r-cran-polycub
-    #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-    # CUBATURE - GNU R package for adaptive multivariate integration
-#    sudo apt -y install r-cran-cubature
-    # Cubature if you use Kubuntu.
-#    wget http://packages.ubuntu.com/xenial/r-cran-cubature r-cran-cubature_1.1-2-1_amd64.deb
-    # In BASH, the variable $OSTYPE stores the name of the operation system:
-    # `$OSTYPE` automatically set to a string that describes the operating system on which bash is executing.
-#    OSARCH=`uname -m`
-#   if [ ${OSARCH} == 'x86_64' ]; then
-    # Install 64-bit stuff here
-#    cd ~/home; sudo dpkg --install r-cran-cubature_1.1-2-1_amd64.deb
-#    fi
 }
 
 #₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹
 # RUBY
 #₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹
 function install_ruby() {
-    sudo apt -y install ruby
-    sudo apt -y install ruby-all-dev
-    sudo apt -y install ruby-dev
-    sudo apt -y install ruby-full
-    sudo apt -y install ruby-defaults
+    sudo apt-get -y install ruby
+    sudo apt-get -y install ruby-all-dev
+    sudo apt-get -y install ruby-dev
+    sudo apt-get -y install ruby-full
+    sudo apt-get -y install ruby-defaults
     sudo gem install iruby
     # VAGRANT  - tool for building and distributing virtualized development environments.
-    sudo apt -y install vagrant
+    sudo apt-get -y install vagrant
     # share a common package cache among similar VM instances
-    sudo apt -y install vagrant-cachier   # only available in stretch (testing)
+    sudo apt-get -y install vagrant-cachier   # only available in stretch (testing)
     # Linux container provider for Vagrant.
-    sudo apt -y install vagrant-lxc       # only available in stretch (testing)
-    # In BASH, the variable $OSTYPE stores the name of the operation system:
-    # `$OSTYPE` automatically set to a string that describes the operating system on which bash is executing.
-  #  OSARCH=`uname -m`
-   # if [ ${OSARCH} == 'x86_64' ]; then
-        # Install 64-bit stuff here
-    #    cd ~/home; sudo dpkg --install vagrant_1.7.4_x86_64.deb
-     #   else
-        # Install 32-bit stuff here
-      #  cd ~/home; sudo dpkg --install vagrant_1.7.4_i686.deb
-   # fi
+    sudo apt-get -y install vagrant-lxc       # only available in stretch (testing)
 }
 
 
@@ -637,7 +604,7 @@ function install_ruby() {
 # RUST LANGUAGE
 #₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹
 function install_rust() {
-    sudo apt -y install rust
+    sudo apt-get -y install rust
 }
 
 
@@ -645,8 +612,8 @@ function install_rust() {
 # TMUX
 #₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹
 function install_tmux() {
-    sudo apt -y install tmux
-    sudo apt -y install python-netifaces
+    sudo apt-get -y install tmux
+    sudo apt-get -y install python-netifaces
     ln -s ${yaksha_dir}.tmux ~/.tmux
     ln -s ${yaksha_dir}.config/ ~/.config
     git clone https://github.com/Lokaltog/powerline ~/.tmux/powerline2
@@ -658,9 +625,9 @@ function install_tmux() {
 # VIM
 #₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹
 function install_vim() {
-    sudo apt -y install fontforge
-    sudo apt -y install vim-nox
-    sudo apt -y install ctags
+    sudo apt-get -y install fontforge
+    sudo apt-get -y install vim-nox
+    sudo apt-get -y install ctags
     ln -s  ${yaksha_dir}.vim ~/.vim
     git clone https://github.com/gmarik/Vundle.vim  ~/.vim/bundle/Vundle.vim
     ln -s ${yaksha_dir}.pylintrc ~/.pylintrc
@@ -672,27 +639,27 @@ function install_vim() {
 #₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹
 # YKSHM DEVOPS
 #₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹
-ykshm_devops() {
+function install_webserver() {
     # DOCKER : https://docs.docker.com/installation/ubuntulinux/
-    #sudo apt -y install docker.io
+    #sudo apt-get -y install docker.io
     #apt-key adv --keyserver hkp://pgp.mit.edu:80 --recv-keys 58118E89F3A912897C070ADBF76221572C52609D
     ## AMQP
-    sudo apt -y install rabbitmq-server  ## Erlang
+    sudo apt-get -y install rabbitmq-server  ## Erlang
     sudo pip3 install pika -i https://github.com/pika/pika   # python client lib for RabbitMQ
     ## WebServer
-    sudo apt -y install twisted
-    sudo apt -y install tornado
+    sudo apt-get -y install twisted
+    sudo apt-get -y install tornado
     # gradle
     sudo add-apt-repository --yes ppa:cwchien/gradle
-    sudo apt update
-    sudo apt -y install gradle
+    sudo apt-get update
+    sudo apt-get -y install gradle
     # nginx
     sudo add-apt-repository --yes ppa:nginx/stable
-    sudo apt update
-    sudo apt -y install nginx # nginx -v = 1.6.0
+    sudo apt-get update
+    sudo apt-get -y install nginx # nginx -v = 1.6.0
     # ZMQ, also needed by Jupyter/IPython / IRuby etc..
     # sudo add-apt-repository --yes ppa:chris-lea/zeromq
-    sudo apt -y install libzmq3-dbg libzmq3-dev libzmq3
+    sudo apt-get -y install libzmq3-dbg libzmq3-dev libzmq3
     # Lets try out this package manager for bash scripts and functions.
     # Only tested for git based packages.
     git clone https://github.com/basherpm/basher.git ~/.basher
@@ -799,8 +766,8 @@ case $apt_ubuntu in
     vim)
         install_vim
     ;;
-    ykshm)
-        ykshm_devops
+    webserver)
+        install_webserver
     ;;
     all)
         install_ubuntu
@@ -825,7 +792,7 @@ case $apt_ubuntu in
         install_rust
         install_tmux
         install_vim
-        ykshm_devops
+        install_webserver
     ;;
     *)
         echo "UBUNTU package installation in progress, almost done!"
