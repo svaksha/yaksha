@@ -664,6 +664,44 @@ function install_vim() {
     cd ~/.vim/bundle/vimproc.vim/; make -f make_unix.mak
 }
 
+#₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹
+# https://en.wikipedia.org/wiki/Virtualization
+#₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹
+#
+#-------------------------------------------------------------------------------
+# DOCKER: https://store.docker.com/editions/community/docker-ce-server-ubuntu
+#-------------------------------------------------------------------------------
+
+function install_docker() {
+    # docker installation
+    # https://docs.docker.com/install/linux/docker-ce/ubuntu/#install-using-the-repository
+    sudo apt-get -y remove docker docker-engine docker.io
+    sudo apt-get -y install apt-transport-https ca-certificates software-properties-common
+    curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+    sudo apt-key fingerprint 0EBFCD88
+    sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+    # apt-cache madison docker-ce
+    # sudo apt-get install docker-ce=<VERSION>
+    sudo sh -c 'echo "deb [arch=amd64] https://download.docker.com/linux/ubuntu artful stable" >> /etc/apt/sources.list.d/docker.list'
+    sudo apt-get -y update
+    sudo apt install docker-ce
+    # then do the post-installation steps manually
+    # https://docs.docker.com/install/linux/linux-postinstall/    
+}
+
+#--- VirtualBox ----------------------------------------------------------------
+# https://en.wikipedia.org/wiki/VirtualBox
+#--- VirtualBox ----------------------------------------------------------------
+function install_virtualbox() {
+    # VMware != virtualbox 
+    sudo apt-get -y install open-vm-tools-desktop
+    # Import the Public Key of the Oracle VirtualBox repository
+    wget -q https://www.virtualbox.org/download/oracle_vbox_2016.asc -O- | sudo apt-key add -
+    # Add a VirtualBox repository - Ubuntu 18.04 
+    echo "deb [arch=amd64] http://download.virtualbox.org/virtualbox/debian bionic contrib" | sudo tee /etc/apt/sources.list.d/virtualbox.list
+    sudo apt-get -y update
+    sudo apt-get -y install virtualbox-5.2
+ }
 
 #₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹
 # YKSHM DEVOPS
@@ -793,6 +831,12 @@ case $apt_ubuntu in
     vim)
         install_vim
     ;;
+    docker)
+        install_docker
+    ;;
+    vmware)
+        install_virtualbox
+    ;;
     webserver)
         install_webserver
     ;;
@@ -819,6 +863,8 @@ case $apt_ubuntu in
         install_rust
         install_tmux
         install_vim
+        install_docker
+        install_virtualbox
         install_webserver
     ;;
     *)
