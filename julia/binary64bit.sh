@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 ################################################################################
-# FILE       : jiBinary.sh
+# FILE       : binary64bit.sh
 # DESCRIPTION: Generic Linux binaries installation script for Julia stable releases.
 # AUTHOR     : SVAKSHA, http://svaksha.com/pages/Bio
 # SOURCE     : http://svaksha.github.io/yaksha
@@ -30,9 +30,9 @@ PS4='$LINENO: '
 function install_linux64bitbinary() {
     INSTALL_DIR = $HOME/
     # get the latest compiled binary link for curl from here: https://julialang.org/downloads/
-    wget https://julialang-s3.julialang.org/bin/linux/x64/0.6/julia-0.6.0-linux-x86_64.tar.gz
+    wget https://julialang-s3.julialang.org/bin/linux/x64/0.6/julia-0.7.0-linux-x86_64.tar.gz
     # Extract the tarball (-x), decompress extract the gzip content (-z), verbose (-v), specific filename (-f).
-    tar -xzvf julia-0.6.0-linux-x86_64.tar.gz
+    tar -xzvf julia-0.7.0-linux-x86_64.tar.gz
     cd julia
     chmod 700 julia
     if [[ -f "$INSTALL_DIR/julia" ]] ; then
@@ -57,5 +57,5 @@ case $install_jlstable in
         install_linux64bitbinary
     ;;
     *)
-        echo "Installation of Non-Free packages is in progress!"
+        echo "Installation of Julia 64-bit binary is in progress!"
     esac

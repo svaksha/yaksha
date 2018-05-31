@@ -3,9 +3,16 @@ using Compat
 using OhMyREPL
 
 
-source_files = [
-    "env.jl",
-    "PkgAdd.jl",
+macro run(yakshajl, args...)
+    return esc(:(ARGS = $args; include($yakshajl)))
+end
+
+
+yakshajl = [
+#    "_init.jl",
+#    "env.jl",
+    "PkgAdd.jl"
 ]
-foreach(include, source_files)
+
+  foreach(include, yakshajl)
 end #EOModule

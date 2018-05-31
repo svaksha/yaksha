@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 ################################################################################
-# FILE       : jl-gitDEV.sh
+# FILE       : gitDEV.sh
 # DESCRIPTION: The Julia source build from development (master) version on github.
 # AUTHOR     : SVAKSHA, http://svaksha.com/pages/Bio
 # SOURCE     : http://svaksha.github.io/yaksha
@@ -23,7 +23,7 @@ set -x
 # From, https://gist.github.com/jiahao/3f9826b077372220b6f0
 #₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹
 
-JULIADIR=$HOME/julia  #TODO: http://stackoverflow.com/questions/59895/can-a-bash-script-tell-what-directory-its-stored-in?rq=1
+JULIADIR=$HOME/julia  #TODO: http://stackoverflow.com/questions/59895/can-a-bash-script-tell-what-directory-its-stored-in
 cd $JULIADIR
 set -e                   # stop on error
 
@@ -64,8 +64,10 @@ fi
 #--------------------------
 if [ $? -ne "0" ]; then
     make -C deps clean-openblas 
-    make OPENBLAS_TARGET_ARCH=NEHALEM OPENBLAS_USE_THREAD=0
+    make OPENBLAS_TARGET_ARCH=HASWELL OPENBLAS_USE_THREAD=0
+    make -C deps clean-openblas
     make OPENBLAS_DYNAMIC_ARCH=0
+    make testall
 fi
 
 if [test $? -ne "0"] ; then
@@ -73,14 +75,14 @@ if [test $? -ne "0"] ; then
   make clean
 fi
 
-if test $? -ne 0 ; then
-  make cleanall
-  make
-fi
-
-if test $? -ne 0; then 
+if test $? -ne 0; then  #nuclear option
   git clean -fdx         #nukes all your installed dependencies
   make
+  make cleanall
+  make distclean
+  make -C deps clean-uv
+  make -C deps distclean
+  make -C deps distclean-libgit2 && make 
 fi
 
 # Was there an error ?
@@ -110,4 +112,4 @@ case $install_julia in
         echo "JULIA language installation in progress."
     esac
 
-
+cd   # Exit current dir & Return to $HOME dir

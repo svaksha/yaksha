@@ -8,7 +8,7 @@
 #5.REPOSITORY: http://svaksha.github.io/yaksha
 #6.TECHNOTES : Bash script to install packages on a fresh Ubuntu system. 
 #              Installs all the packages in <1 hour on a good internet bandwidth. 
-#7.DATE(S)   : 2005mar22-2018apr07
+#7.DATE(S)   : 2005mar22-2018may31
 ################################################################################
 #
 # References:
@@ -64,6 +64,21 @@ install_ubuntu() {
     # https://askubuntu.com/questions/892076/how-to-selectively-purge-old-kernels-all-at-once/892077#892077
     sudo apt-get -y install dialog # DEP of server version of "rm-kernels-server"
 }
+
+#₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹
+# AUDIO VIDEO utilities
+#₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹
+install_vani() {
+    sudo apt-get -y install audacity
+    sudo apt-get -y install alsamixer
+    sudo apt-get -y install Rhythmbox
+    sudo apt-get -y install isomaster
+    sudo apt-get -y install pavucontrol
+    sudo apt-get -y install gTranscribe
+    sudo apt-get -y install transcriber # for manual transcription
+    sudo apt-get -y install vokoscreen #screencasting
+}
+
 
 #₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹
 # Gnome general system utilities
@@ -184,32 +199,38 @@ function install_database() {
 #    sudo apt-get -y install mariadb
     sudo apt-get -y install sqlite3
     ## PostgreSQL
-#    sudo apt-get -y install postgresql-9.6 #core database server
-#    sudo apt-get -y install postgresql-client-9.6 # client libraries and client binaries
-#    sudo apt-get -y install postgresql-contrib-9.6 # additional supplied modules
-#    sudo apt-get -y install libpq-dev # libraries and headers for C language frontend development
-#    sudo apt-get -y install postgresql-server-dev-9.6 # libraries and headers for C language backend development
-#    sudo apt-get -y install pgadmin3 # pgAdmin III graphical administration utility
+:'    sudo apt-get -y install postgresql-9.6 #core database server
+    sudo apt-get -y install postgresql-client-9.6 # client libraries and client binaries
+    sudo apt-get -y install postgresql-contrib-9.6 # additional supplied modules
+    sudo apt-get -y install libpq-dev # libraries and headers for C language frontend development
+    sudo apt-get -y install postgresql-server-dev-9.6 # libraries and headers for C language backend development
+    sudo apt-get -y install pgadmin3 # pgAdmin III graphical administration utility
+'
     ## Distributed File Systems
     sudo apt-get -y install hdf5-tools
+    sudo apt-get -y install hdf-compass
+
 #-----------------------------------
 # Array databases : MonetDB
 # https://www.monetdb.org/downloads/deb/
 #-----------------------------------
-#  
-# wget --output-document=- https://www.monetdb.org/downloads/MonetDB-GPG-KEY | sudo apt-key add -
-
+:'
+wget --output-document=- https://www.monetdb.org/downloads/MonetDB-GPG-KEY | sudo apt-key add -
+'
 }
 
 
 #₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹
 ## DATA_FORMATS : RDF
 #₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹
+:'
 function install_df_rdf() {
+    # Anything To Triples (any23) is a library, a web service and a command line 
+    # tool that extracts structured data in RDF format from a variety of Web documents.
     # SETTINGS SECTION
     CODE_BASE=src
     INSTALL_DIR=/usr/local/bin
-    ANY23_VERSION=1.1  # check the site for exact versions, https://any23.apache.org/
+    ANY23_VERSION=2.2 # check the site for exact versions, https://any23.apache.org/
 
     # END OF SETTINGS SECTION
     # Does the source base directory exist? No? Well, create it!
@@ -231,7 +252,7 @@ function install_df_rdf() {
     fi
     sudo ln -s "`pwd`/bin/any23" "$INSTALL_DIR/any23"
 }
-
+'
 
 #₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹
 ## DVCS packages
@@ -269,8 +290,9 @@ function install_dvcs() {
     #---------------
     # GitKraken : https://www.gitkraken.com/download
     #---------------
-    curl -s https://release.gitkraken.com/linux/gitkraken-amd64.deb
+:'    curl -s https://release.gitkraken.com/linux/gitkraken-amd64.deb
     cd ~/home; sudo dpkg --install gitkraken-amd64.deb
+'
     sudo apt-get -y update
 }
 
@@ -292,12 +314,16 @@ function install_editors() {
     sudo apt-get -y install nano
     sudo apt-get -y install pico
     sudo apt-get -y install vim
-    # Atom editor 64-bit DEB file from github source
+#---------------------------------------------------------------------------
+:'    # Atom editor 64-bit DEB file from github source
+#---------------------------------------------------------------------------
     wget https://github.com/atom/atom/releases/download/v1.6.0/atom-amd64.deb ~/home
     cd ~/home; sudo dpkg --install atom-amd64.deb
+    #---------------------------------------------------------------------------
     ## BRACKETS IDE for 64-bit
     #---------------------------------------------------------------------------
     # sudo dpkg --install Brackets.1.4.Extract.64-bit.deb 
+'
     #--------------------------------
     ## LaTeX2ε
     #--------------------------------
@@ -316,13 +342,14 @@ function install_editors() {
 #₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹
 function install_fonts() {
     sudo apt-get -y install ttf-mscorefonts-installer # Microsoft fonts for Libreoffice.
-    wget https://github.com/Lokaltog/powerline/raw/develop/font/PowerlineSymbols.otf
+:'    wget https://github.com/Lokaltog/powerline/raw/develop/font/PowerlineSymbols.otf
     wget https://github.com/Lokaltog/powerline/raw/develop/font/10-powerline-symbols.conf
     mkdir -p ~/.fonts
     mv PowerlineSymbols.otf ~/.fonts/
     mkdir -p ~/.config/fontconfig/conf.d
     mv 10-powerline-symbols.conf ~/.config/fontconfig/conf.d/
     fc-cache -vf ~/.fonts/
+'
 }
 
 
@@ -398,8 +425,9 @@ function install_graphics() {
     #--------------------------------
     # GIS
     #--------------------------------
-    sudo apt-get -y install postgis    # PG driver for GIS
+:'    sudo apt-get -y install postgis    # PG driver for GIS
     sudo apt-get -y install QuantumGIS
+'
     # Mapserver
     sudo apt-get -y install cgi-mapserver mapserver-bin
     # Language bindings for mapserver
@@ -636,6 +664,7 @@ function install_vim() {
     cd ~/.vim/bundle/vimproc.vim/; make -f make_unix.mak
 }
 
+
 #₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹
 # YKSHM DEVOPS
 #₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹
@@ -650,8 +679,6 @@ function install_webserver() {
     sudo apt-get -y install twisted
     sudo apt-get -y install tornado
     # gradle
-    sudo add-apt-repository --yes ppa:cwchien/gradle
-    sudo apt-get update
     sudo apt-get -y install gradle
     # nginx
     sudo add-apt-repository --yes ppa:nginx/stable
