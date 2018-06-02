@@ -84,7 +84,12 @@ install_vani() {
 # Gnome general system utilities
 #₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹
 install_gnome() {
-    ## general cli tools for web, search
+    #---------------------------------------------------------------------------
+    # Tweak Clock settings in 18.04
+    #---------------------------------------------------------------------------
+    sudo apt-get -y install gnome-tweak-tool
+    #---------------------------------------------------------------------------
+        ## general cli tools for web, search
     #---------------------------------------------------------------------------
     sudo apt-get -y install silversearcher-ag
     sudo apt-get -y install ctags
@@ -768,6 +773,9 @@ case $apt_ubuntu in
     ubuntu)
         install_ubuntu
     ;;
+    vani)
+        install_vani
+    ;;
     gnome)
         install_gnome
     ;;
@@ -842,9 +850,10 @@ case $apt_ubuntu in
     ;;
     all)
         install_ubuntu
+        install_vani
         install_gnome
         install_databinary
-        hardware_utils
+        install_hardware_utils
         install_database
         install_df_rdf
         install_dvcs
