@@ -14,12 +14,12 @@ RUN julia -e 'Pkg.add("DataFrames")'
 WORKDIR /root/
 RUN git clone http://github.com/svaksha/yaksha
 
-WORKDIR /root/yaksham/
+WORKDIR /root/yaksha/
 RUN stow tmux
 RUN stow zsh
 RUN stow vim
 RUN stow inputrc
 
-VOLUME /workspace
-WORKDIR /workspace
+VOLUME /yaksham
+WORKDIR /yaksham
 
