@@ -9,7 +9,7 @@
 #  Notes     : This file contains site-specific commands (EX. add directories to
 #              the LOAD_PATH for execution when the Julia REPL starts up.
 #              Packages to load, etc..
-#7.DATE(S)   : 2013oct01-2018apr08
+#7.DATE(S)   : 2013oct01-2018aug12
 ############################ METADATA ##########################################
 
 
@@ -22,7 +22,6 @@ push!(LOAD_PATH, pwd())
 push!(LOAD_PATH, ENV["HOME"]*)
 push!(LOAD_PATH, ENV["HOME"]*"/.julia")
 push!(LOAD_PATH, ENV["HOME"]*"/julia")
-push!(LOAD_PATH, ENV["HOME"]*"/anaconda")
 push!(LOAD_PATH, ENV["HOME"]*"/devil-*")
 push!(LOAD_PATH, ENV["HOME"]*"/devya-*")
 push!(LOAD_PATH, ENV["HOME"]*"/divya")
@@ -77,6 +76,9 @@ atreplinit() do repl
     @eval using Dagger
     @eval using DataFrames
     @eval using DataTables
+# AI, ML
+    @eval using Flux
+    @eval using TensorFlow
 # debug
    #@eval using Debug
     @eval using Documenter

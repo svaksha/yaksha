@@ -18,6 +18,7 @@ Hopefully having them listed as a manifesto will reduce ad-hoc changes and intro
         + only dotfiles
         + only julia related pkgs, etc.
 * Input/output (I/O) tasks management: For all IO tasks, the request allocation is handled via core programs.
+* Use [shellcheck](https://github.com/koalaman/shellcheck), a static analysis tool for shell scripts https://www.shellcheck.net
 
 ----
 

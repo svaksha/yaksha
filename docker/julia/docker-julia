@@ -1,4 +1,4 @@
-FROM ubuntu:zesty
+FROM ubuntu:18.04
 
 RUN echo 'deb http://ppa.launchpad.net/staticfloat/juliareleases/ubuntu zesty main' >> /etc/apt/sources.list
 RUN echo 'deb-src http://ppa.launchpad.net/staticfloat/juliareleases/ubuntu zesty main' >> /etc/apt/sources.list

@@ -7,12 +7,12 @@
 # COPYRIGHT© : 2005-Now SVAKSHA, All Rights Reserved.
 # LICENSE    : GNU AGPLv3 and subject to meeting all the terms in the LICENSE 
 #              file: https://github.com/svaksha/yaksha/blob/master/LICENSE.md
-# DATES      : Created:2006mar31 - Updated:2016mar11
+# DATES      : Created:2006mar31 - Updated:2018aug12
 ################################################################################
 #
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 # A script for regular system updates.
-# Usage: "./yaksha/ubuntu/update.sh"
+# Usage: "./yaksha/ubuntu/apt-update-update.sh"
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 # Clear the Terminal.
@@ -103,6 +103,7 @@ function update_ubuntu() {
     esac
   done
   #Ask if they wanna autoremove as well.
+  #--------------------------------------
   while true; do
     echo -n "Do you want to clean up and free some space? [y/N]"
     read response2
