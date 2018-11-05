@@ -8,7 +8,7 @@
 #5.REPOSITORY: http://svaksha.github.io/yaksha
 #6.TECHNOTES : Bash script to install packages on a fresh Ubuntu system. 
 #              Installs all the packages in <1 hour on a good internet bandwidth. 
-#7.DATE(S)   : 2005mar22-2018may31
+#7.DATE(S)   : 2005mar22-2018nov05
 ################################################################################
 #
 # References:
@@ -697,15 +697,18 @@ function install_docker() {
 #--- VirtualBox ----------------------------------------------------------------
 # https://en.wikipedia.org/wiki/VirtualBox
 #--- VirtualBox ----------------------------------------------------------------
-function install_virtualbox() {
-    # VMware != virtualbox 
-    sudo apt-get -y install open-vm-tools-desktop
-    # Import the Public Key of the Oracle VirtualBox repository
-    wget -q https://www.virtualbox.org/download/oracle_vbox_2016.asc -O- | sudo apt-key add -
-    # Add a VirtualBox repository - Ubuntu 18.04 
-    echo "deb [arch=amd64] http://download.virtualbox.org/virtualbox/debian bionic contrib" | sudo tee /etc/apt/sources.list.d/virtualbox.list
-    sudo apt-get -y update
-    sudo apt-get -y install virtualbox-5.2
+function install_saltstack() {
+    # Import the Public Key of the saltstack repository
+    wget -O - https://repo.saltstack.com/apt/ubuntu/18.04/amd64/latest/SALTSTACK-GPG-KEY.pub | sudo apt-key add -
+    # Add all salt repository - Ubuntu 18.04 
+    sudo apt-get -y install salt-master
+    sudo apt-get -y install salt-minion
+    sudo apt-get -y install salt-ssh
+    sudo apt-get -y install salt-syndic
+    sudo apt-get -y install salt-cloud
+    sudo apt-get -y install salt-api
+    #Upgrade & restart all upgraded services while testing in docker 
+#    sudo systemctl restart salt-minion
  }
 
 #₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹
@@ -843,7 +846,7 @@ case $apt_ubuntu in
         install_docker
     ;;
     vmware)
-        install_virtualbox
+        install_saltstack
     ;;
     webserver)
         install_webserver
@@ -873,7 +876,7 @@ case $apt_ubuntu in
         install_tmux
         install_vim
         install_docker
-        install_virtualbox
+        install_saltstack
         install_webserver
     ;;
     *)
