@@ -1,13 +1,13 @@
 #!/usr/bin/env bash
 ################################################################################
-# FILE       : yaks-start-vm-docker.sh
-# DESCRIPTION: Bash Installation script for Docker on a Debian-Jessie VM.
+# FILE       : docker-start.sh
+# DESCRIPTION: Bash Installation script for Docker on a Ubuntu/Debian-Jessie VM.
 # AUTHOR     : SVAKSHA, http://svaksha.com/pages/Bio
 # SOURCE     : http://svaksha.github.io/yaksha
 # COPYRIGHT© : 2005-Now SVAKSHA, All Rights Reserved.
 # LICENSE    : GNU AGPLv3 and subject to meeting all the terms in the LICENSE 
 #              file: https://github.com/svaksha/yaksha/blob/master/LICENSE.md
-# DATES      : Created:2016feb26 - Updated:2016feb28
+# DATES      : Created:2016feb26 - Updated:2018nov05
 ################################################################################
 #
 # References:
@@ -18,8 +18,8 @@
 yaksha_dir=~/yaksha/
 
 # Log the date and time of execution of bash script into the `out` files.
-date +'%c|started running `apt-get`: ' >> out-yaks-start-vm-dockerlog
-date +"%c|completed running: $?" >> out-yaks-start-vm-docker.log
+date +'%c|started running `apt-get`: ' >> out-docker-start.log
+date +"%c|completed running: $?" >> out-docker-start.log
 
 # Ask for the administrator password first.
 sudo -v
