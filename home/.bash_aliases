@@ -9,7 +9,7 @@
 #6.TECHNOTES : My BASH ALIAS definitions outgrew the ~/.bashrc file, split and 
 #              moved my additions into a separate "~/.bash_aliases" file.
 #              Also see /usr/share/doc/bash-doc/examples in the bash-doc package.
-#7.DATE(S)   : 2005nov05-2018feb21
+#7.DATE(S)   : 2005nov05-2018nov29
 ############################ METADATA ##########################################
 #
 
@@ -37,8 +37,8 @@ alias apt-autorm='sudo apt-get autoremove'  # apt remove system dep files - USE 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # BASH reloaded
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-alias b='. ~/.bashrc' # DOT shortcut to reload bash
-alias ba='source ~/.bashrc' # Another shortcut to reload bash
+alias b='. ~/.bashrc'            # DOT shortcut to reload bash
+alias ba='source ~/.bashrc'      # Another shortcut to reload bash
 alias bas='source $HOME/.bashrc' # reload bash
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -48,14 +48,14 @@ alias ..="cd .."        #go to parent dir
 alias ...="cd ../.."    #go to grandparent dir
 alias -- -="cd -"       #go to previous dir
 alias cd..='cd ..'
-alias clr='clear'    # Clear the terminal
-alias cal='cal -3' #show 3 months by default
+alias clr='clear'       # Clear the terminal
+alias cal='cal -3'      #show 3 months by default
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # HISTORY
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 alias h='history'
-alias hg='history | grep'        # search history
+alias hg='history | grep'         # search history
 alias clr='cd ~; clear'
 alias hcl='history -c; clear'     # clear all the history and screen
 
@@ -75,12 +75,12 @@ alias vi='vim'
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # LIST
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-alias l.='ls -d .*'     #list hidden files
+alias l.='ls -d .*'       #list hidden files
 alias l='ls -CF'
 alias la='ls -A'
 alias ll='ls -alF'
-alias lll='ls -lhrt'     # extra info compared to "l"
-alias lld='ls -lUd */'  # list only directories
+alias lll='ls -lhrt'      # extra info compared to "l"
+alias lld='ls -lUd */'    # list only directories
 alias ls='ls --color=auto'
 #alias lst='ls --color --time-style="+%b %d %Y %H:%M"' #replaced with bash script
 
@@ -91,7 +91,7 @@ alias s-gitc='cat $HOME/.gitconfig'
 
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-# PATH, Proceses
+# PATH, Processes
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 alias path='echo -e ${PATH//:/\\n}'
 ### various ping options. Read REF's for router/modem option.
@@ -118,9 +118,9 @@ alias at='acpi -t'
 #===============================================================================
 # Grouping all SEARCH utils
 #===============================================================================
-alias f='find . | grep'        # find file
-alias g='grep -inR'  # -i=ignore case, -n=line number, -R=Recursively search subdirectory
-#alias psg='ps aux | grep' # grep processes with [OPTION] PATTERN [FILE]
+alias f='find . | grep'     # find file
+alias g= 'grep -rnw -e'     # 'grep -inR'  # -i=ignore case, -n=line number, -R=Recursively search subdirectory
+#alias psg='ps aux | grep'  # grep processes with [OPTION] PATTERN [FILE]
 
 
 ################################################################################
@@ -129,15 +129,15 @@ alias g='grep -inR'  # -i=ignore case, -n=line number, -R=Recursively search sub
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # HDD health - using smartmontools
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-alias df='df -h'                                # Filesystem diskspace usage
-alias fdisk='sudo fdisk -l' # for partition info with all details.
+alias df='df -h'                 # Filesystem diskspace usage
+alias fdisk='sudo fdisk -l'      # for partition info with all details.
 
 # Kernel
-alias kern='cat /proc/version'             # detail about for the kernel image version
-alias unm-a='uname -a' # for all info regarding kernel version,
-alias unm-r='uname -r' # for exact kernel version
-alias lsb-a='lsb_release -a' # for all information related to ubuntu version,
-alias lsb-r='lsb_release -r' # for exact version
+alias kern='cat /proc/version'   # detail about for the kernel image version
+alias unm-a='uname -a'           # for all info regarding kernel version
+alias unm-r='uname -r'           # for exact kernel version
+alias lsb-a='lsb_release -a'     # for all information related to ubuntu version
+alias lsb-r='lsb_release -r'     # for exact version
 
 ################################################################################
 # PROGRAMMING LANGUAGES   # PROGRAMMING LANGUAGES   # PROGRAMMING LANGUAGES
@@ -147,12 +147,12 @@ alias lsb-r='lsb_release -r' # for exact version
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 alias ju='julia'
 alias jl='julia -i --color=yes --history-file=yes'
-alias jlab='jupyter lab' # the latest labapp that runs on jupyterhub too.
-alias juno='jupyter notebook' # single notebook app
-#alias jl-git='cd julia; git pull git@github.com:JuliaLang/julia.git' # IGNORE, # The "yaksha-jl-update.sh" script handles it.
-#alias jl-up='cd julia; ./julia -e "Pkg.update()"'  # The "yaksha-jl-update.sh" script handles it
+alias jlab='jupyter lab'        # the latest labapp that runs on jupyterhub too.
+alias juno='jupyter notebook'   # single notebook app
+#alias jl-git='cd julia; git pull git@github.com:JuliaLang/julia.git' # IGNORE, # The "jl-update.sh" script handles it.
+#alias jl-up='cd julia; ./julia -e "Pkg.update()"'  # The "jl-update.sh" script handles it
 alias juliavm="$HOME/.juliavm/juliavm"
-alias JULIA_PKGDIR=$HOME/julia   # $HOME/julia (v-0.7)
+alias JULIA_PKGDIR=$HOME/julia  # $HOME/julia (v-1.0)
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Python related commands
@@ -241,8 +241,8 @@ alias gch-detach='gt checkout HEAD^0'  #use with care
 alias gd-head='gt diff HEAD~'     #use with care
 # RESET HEAD
 # https://stackoverflow.com/questions/5473/how-can-i-undo-git-reset-hard-head1/29469#29469
-alias g-rset='git reset HEAD'     # unstage last cm
-alias g-rset-h='git reset --hard'
+alias grhead='git reset HEAD'     # unstage last cm
+alias grhard='git reset --hard'
 alias visual='gt !gitk'
 # TIG
 alias tg='tig'
@@ -271,7 +271,7 @@ alias h-pth='hg paths'          # Lists known remote Repos
 alias h-in='hg incoming'        # List changesets available
 alias h-tip='hg export tip'     # export the most recent commit
 # Only use in private repos.
-alias h-roll='hg rollback'      # can undo commit, import, pull, local push, and unbundle.
+alias hroll='hg rollback'      # can undo commit, import, pull, local push, and unbundle.
 
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
