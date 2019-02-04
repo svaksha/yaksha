@@ -186,6 +186,7 @@ hardware_utils() {
     # https://wiki.ubuntu.com/Kernel/PowerManagement/ThermalIssues
     sudo apt-get -y install thermald  # this daemon prevents machines from overheating
     sudo apt-get -y install indicator-cpufreq
+    sudo apt-get -y tlp tlp-rdw # start with 'sudo tlp start'
     echo "This machine is currently being installed with important system packages!"
     sleep 1
     ## Sensors package to monitor the disk temperature
