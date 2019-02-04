@@ -3,12 +3,12 @@
 #1.PROGRAM   : apt-install.sh
 #2.COPYRIGHT©: 2005-Present, SVAKSHA, http://svaksha.github.io/yaksha
 #3.AUTHOR    : SVAKSHA, http://svaksha.com/pages/Bio
-#4.LICENSE   : GNU AGPLv3 subject to meeting all the terms in the LICENSE file: 
+#4.LICENSE   : GNU AGPLv3 subject to meeting all the terms in the LICENSE file:
 #              https://github.com/svaksha/yaksha/blob/master/LICENSE.md
 #5.REPOSITORY: http://svaksha.github.io/yaksha
-#6.TECHNOTES : Bash script to install packages on a fresh Ubuntu system. 
-#              Installs all the packages in <1 hour on a good internet bandwidth. 
-#7.DATE(S)   : 2005mar22-2018nov05
+#6.TECHNOTES : Bash script to install packages on a fresh Ubuntu system.
+#              Installs all the packages in <1 hour on a good internet bandwidth.
+#7.DATE(S)   : 2005mar22-2019feb04
 ################################################################################
 #
 # References:
@@ -56,11 +56,14 @@ install_ubuntu() {
     # sendmail or postfix
     sudo apt-get -y install sendmail
     sudo apt-get -y install postfix
+    # universal packaging system
+    sudo apt-get -y install flatpak
+    sudo apt-get install gnome-software-plugin-flatpak
     # SSH
     sudo apt-get -y install openssh-server
     sudo apt-get -y install cron-apt
     # BASH script checker: http://m.jakstys.lt/tech/2016/08/bash
-    sudo apt-get -y install shellcheck  
+    sudo apt-get -y install shellcheck
     # https://askubuntu.com/questions/892076/how-to-selectively-purge-old-kernels-all-at-once/892077#892077
     sudo apt-get -y install dialog # DEP of server version of "rm-kernels-server"
 }
@@ -77,6 +80,23 @@ install_vani() {
     sudo apt-get -y install gTranscribe
     sudo apt-get -y install transcriber # for manual transcription
     sudo apt-get -y install vokoscreen #screencasting
+    #
+    #---------------------------------------------------------------------------
+    ## media codecs, video and audio (music - mpto mp3) converters
+    #---------------------------------------------------------------------------
+    sudo apt-get -y install papcl
+    sudo apt-get -y install ubuntu-restricted-extras # install the MP3 codec from the Ubuntu Restricted Extras package
+    sudo apt-get -y install soundconverter # install the Sound Converter program
+    # get the github source (https://github.com/rg3/youtube-dl)
+    sudo pip3 install youtube_dl    # sudo pip install --upgrade youtube_dl  #(to upgrade if its already installed)
+    # Taking Notes
+    sudo apt-get -y install tomboy transmission
+    ## Communication Tools
+    sudo apt-get -y install jitsi # Skype alternative
+    # STARTUP DISK CREATOR
+    sudo apt-get -y install unetbootin
+    # Time Tracker, https://github.com/TailorDev/Watson
+    sudo pip3 install td-watson
 }
 
 
@@ -139,23 +159,6 @@ install_gnome() {
     sudo apt-get -y install hplip-plugin
     ## Reactivate HP LaserJet 1018/1020 after reloading paper
     sudo apt-get -y install printer-driver-foo2zjs-common   #20140209dfsg0-1kubuntu1
-    #
-    #---------------------------------------------------------------------------
-    ## video and audio (music - mpto mp3) converters
-    #---------------------------------------------------------------------------
-    sudo apt-get -y install papcl audacity
-    sudo apt-get -y install ubuntu-restricted-extras # install the MP3 codec from the Ubuntu Restricted Extras package
-    sudo apt-get -y install soundconverter # install the Sound Converter program
-    # get the github source (https://github.com/rg3/youtube-dl)
-    sudo pip3 install youtube_dl    # sudo pip install --upgrade youtube_dl  #(to upgrade if its already installed)
-    # Taking Notes
-    sudo apt-get -y install tomboy transmission
-    ## Communication Tools
-    sudo apt-get -y install jitsi # Skype alternative
-    # STARTUP DISK CREATOR
-    sudo apt-get -y install unetbootin
-    # Time Tracker, https://github.com/TailorDev/Watson
-    sudo pip3 install td-watson
 }
 
 
@@ -230,7 +233,7 @@ wget --output-document=- https://www.monetdb.org/downloads/MonetDB-GPG-KEY | sud
 #₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹
 :'
 function install_df_rdf() {
-    # Anything To Triples (any23) is a library, a web service and a command line 
+    # Anything To Triples (any23) is a library, a web service and a command line
     # tool that extracts structured data in RDF format from a variety of Web documents.
     # SETTINGS SECTION
     CODE_BASE=src
@@ -327,7 +330,7 @@ function install_editors() {
     #---------------------------------------------------------------------------
     ## BRACKETS IDE for 64-bit
     #---------------------------------------------------------------------------
-    # sudo dpkg --install Brackets.1.4.Extract.64-bit.deb 
+    # sudo dpkg --install Brackets.1.4.Extract.64-bit.deb
 '
     #--------------------------------
     ## LaTeX2ε
@@ -336,9 +339,9 @@ function install_editors() {
     # Latex Fonts support
     sudo apt-get -y install texlive-fonts-recommended
     sudo apt-get -y install texlive-fonts-extra
-    sudo apt-get -y install texlive-lang-cyrillic scalable-cyrfonts-tex 
+    sudo apt-get -y install texlive-lang-cyrillic scalable-cyrfonts-tex
     # for technical/scientific posters.
-    sudo apt-get -y install texlive-science 
+    sudo apt-get -y install texlive-science
 }
 
 
@@ -526,8 +529,8 @@ function install_nonfree() {
     sudo apt-get -y install ocrad # OCR program
     sudo apt-get -y install ocrfeeder # document layout analysis and optical character recognition system
     sudo apt-get -y install ocropus # document analysis and OCR system
-    sudo apt-get -y install cuneiform # multi-language OCR system 
-    
+    sudo apt-get -y install cuneiform # multi-language OCR system
+
     ##+++++++++++++
     ## FLASH
     ##+++++++++++++
@@ -575,7 +578,7 @@ function install_python() {
     # Nginx WebServer
     sudo add-apt-repository --yes ppa:nginx/stable
     sudo apt-get update
-    sudo apt-get -y install nginx 
+    sudo apt-get -y install nginx
     # WebServer ZMQ, also needed by Jupyter/IPython / IRuby etc..
     #sudo add-apt-repository --yes ppa:chris-lea/zeromq
     sudo apt-get -y install libzmq3-dbg libzmq3-dev libzmq3
@@ -691,7 +694,7 @@ function install_docker() {
     sudo apt-get -y update
     sudo apt install docker-ce
     # then do the post-installation steps manually
-    # https://docs.docker.com/install/linux/linux-postinstall/    
+    # https://docs.docker.com/install/linux/linux-postinstall/
 }
 
 #--- VirtualBox ----------------------------------------------------------------
@@ -700,14 +703,14 @@ function install_docker() {
 function install_saltstack() {
     # Import the Public Key of the saltstack repository
     wget -O - https://repo.saltstack.com/apt/ubuntu/18.04/amd64/latest/SALTSTACK-GPG-KEY.pub | sudo apt-key add -
-    # Add all salt repository - Ubuntu 18.04 
+    # Add all salt repository - Ubuntu 18.04
     sudo apt-get -y install salt-master
     sudo apt-get -y install salt-minion
     sudo apt-get -y install salt-ssh
     sudo apt-get -y install salt-syndic
     sudo apt-get -y install salt-cloud
     sudo apt-get -y install salt-api
-    #Upgrade & restart all upgraded services while testing in docker 
+    #Upgrade & restart all upgraded services while testing in docker
 #    sudo systemctl restart salt-minion
  }
 
