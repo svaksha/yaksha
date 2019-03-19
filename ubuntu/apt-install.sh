@@ -275,9 +275,6 @@ function install_dvcs() {
     sudo apt-get -y install bazaar
     sudo apt-get -y install subversion
     ln -s  ${yaksha_dir}.gitconfig ~/.gitconfig
-    git clone https://github.com/jonas/tig /tmp/tig
-    cd /tmp/tig; sudo make prefix=/usr/local
-    cd /tmp/tig; sudo make install prefix=/usr/local
     # https://github.com/jimeh/git-aware-prompt
     # Display current Git branch name in your terminal prompt when in a Git working directory.
     mkdir ~/.bash
@@ -511,6 +508,8 @@ function install_network() {
     # VPN networks
     sudo apt-get -y install openvpn
     sudo apt-get -y install openconnect # Cisco Anyconnect
+    # ANDROID
+    sudo apt-get install go-mtpfs libmtp mtpfs mtp-tools
 }
 
 

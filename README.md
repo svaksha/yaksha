@@ -1,40 +1,37 @@
 # YAKSHA
-__My personal automation daimons!__
+__My personal automation daimons, use at your own risk!__
 
-Each time I installed and set up a new machine it was time-consuming to speculate the configuration setting I had customized in the old machine running (either Debian/ (K)Ubuntu/ Opensuse), the development environment stack I had used, or guess the new version numbers for packages I had previously installed or used and updated. Doing this manually was an error-prone process, a huge time-sink that resulted in annoying discrepancies, machines that worked differently than the one I was used to, or worse, dependency-hell. 
+[YAKSHA][yaksha], meaning "demon" in Sanskrit, is my personal automation daimon (daemons, if you like) standardized for __*nix__ dev installation, updates, backups, bash scripts, dockerfiles, dotfiles and configuration files using the `ansible` IT automation tool which is an agent-less Env-agnostic tool that can manage all environments.
 
-Enter [YAKSHA][yaksha], meaning "demon" in Sanskrit, my personal automation daimons (daemons, if you like) for __Ubuntu-Linux (stopped maintaining the Debian, Kubuntu & Opensuse ver.) system installation, updation, backups, bash shell scripts, dockerfiles, dotfiles and configuration files__. Standardizing my development environment by automating the installation process and organizing the various developer tools helps me understand my machine and its fun!
+Configuring and setting up a new machine manually was time-consuming and error-prone to customize for multiple development environments - a time-sink resulting in discrepancies with machines that worked differently or worse, dependency-hell. 
 
-__Change is the only constant in life__ and my constant experiments with these programs while trying to improve the configurations and dotfiles or optimizing the repo for ease of maintainence and extensibility, may leave some scripts in broken state. If you wish to experiment or use this repository code and these configs, follow the [installation](https://github.com/svaksha/yaksha#installation) instructions and if something broke or didnt work as expected, file a [bug report](https://github.com/svaksha/yaksha/issues) and help me improve it. But do remember that config files are meant to be personal customization, hence unique to each user and my program customizations may not be the perfect solution for your computing needs.
+I was using shell scripts but am porting it to ansible so this repo is a time permitting WIP, read, an experimental development state that may be unstable, break stuff and definitely not meant for production server use. 
+
+The standard disclaimer applies: Read the __License & Disclaimer__ No warranty and/or guarantee for any particular use, express or implied and you use these [automation daimons][yaksha] at your own risk and liability!
 
  [yaksha]: http://svaksha.github.io/yaksha "yaksha"
 
 # INSTALLATION 
-You can fork this repository and change things as per your requirements but before you clone and randomly run these program scripts & overwrite your dotfiles, read the [yaksha-manifesto] document in the docs folder. I often change things and the repo can be in an experimental development state (read, unstable and unusable, definitely not meant for production server use) so you use this repository contents at your own risk. 
 
-Finally, the standard disclaimer applies here: Read the __License & Disclaimer__ : No warranty and/or guarantee for any particular use, express or implied and you agree to use these [automation daimons][yaksha] at your own risk and liability!  
+1. At the outset, your Ubuntu machine should have _Ansible and Git_ intalled.
 
+```
+sudo apt-get update && sudo apt-get install ansible git
+```
 
-## System Dependencies
-At the outset, your Linux (Debian/Ubuntu) machine should have the following core tools installed : _Git and Python_. Github offers HTTPS and SSH as transfer protocols or the repo can be downloaded as a [zip-file][download] (latest 'master' branch). 
+You can also use `pip` to install ansible but I prefer the apt package. Note that if you have a standalone machine this step is a manual process, else automated for the network install.
 
-__Tip__: You should have uploaded your `ssh` key to github and have `git` installed locally before issuing the `git` commands on the terminal.
-
-+ For SSH protocol use the URL `git@github.com:svaksha/yaksha.git` via the clone command:
-
+2. Now clone this repo and execute the scripts. For SSH, use the URL `git@github.com:svaksha/yaksha.git` via the clone command:
 
 ```
 git clone ssh://github.com/svaksha/yaksha.git
 ```
 
-+ For HTTPS protocol use the URL `https://github.com/svaksha/yaksha.git` to clone/pull the repo locally.
-+ After the repo is cloned into the `~/yaksha` folder, change directory with the command `cd yaksha` to run the scripts you need. My dotfiles are stored in `~/home` with symlinks.
-
-
-The [Manifesto](https://github.com/svaksha/yaksha/blob/master/docs/yaksha-manifesto.md) page includes documentation that describes this repository tree structure and the ultimate goal is to implement them and complete all the TODO features.
-
-
+Alternatively, Github offers HTTPS (replace the ssh with https in the above command) as transfer protocols or the repo can be downloaded as a [zip-file][download] (latest 'master' branch). 
  [download]: https://github.com/svaksha/yaksha/archive/master.zip "download"
+
+
+3. Then, to install all the Ubuntu packages, run the ansible playbooks inside the Ubuntu folder. __NB:__ Note that `yaksha` is  not to be run on a production server.
 
 ----
 
