@@ -1,45 +1,106 @@
-tasks:
-- name: Install basic Ubuntu packages
-  package: name={{ item }} 
-    state: present
-    update_cache: yes
-  become: yes
-  become_method: sudo
-  gather_facts: no
-  with_items:
-  - git
-  - tig
-  - stow
-  - python-psutil
-  - mc
-  - wget
-  - curl
-  - whois
-  - zip
-  - unzip
-  - unrar
-#- hosts: # not required , as localhost is asumed 
+---
+- hosts: localhost
+  tasks:
+  - name: Install basic Ubuntu packages
+    package: 
+      name: "{{ item }}" 
+      state: present
+      update_cache: yes
+    become: yes
+    become_method: sudo
+    gather_facts: no
+    with_items:
+    - git
+    - tig
+    - stow
+    - python-psutil
+    - mc
+    - wget
+    - curl
+    - whois
+    - zip
+    - unzip
+    - unrar
+    - sendmail
+    - postfix
+    # universal packaging system
+    - flatpak
+    - gnome-software-plugin-flatpak
+    # SSH
+    - openssh-server
+    - cron-apt
+# BASH script checker: http://m.jakstys.lt/tech/2016/08/bash
+    - shellcheck
+    # https://askubuntu.com/questions/892076/how-to-selectively-purge-old-kernels-all-at-once/892077#892077
+    - dialog # DEP of server version of "rm-kernels-server"
+
+
+
+#- hosts: # not required as localhost is assumed 
     
 
-tasks:
-- name: Install  AUDIO VIDEO utilities
-  package: name={{ item }} 
-    state: present
-    update_cache: yes
-  become: yes
-  become_method: sudo
-  gather_facts: no
-  with_items:
-   - audacity
-   - alsamixer
-   - Rhythmbox
-   - isomaster
-    #---------------------------------------------------------------------------
+  - name: Install  AUDIO VIDEO utilities
+    package: 
+      name: "{{ item }}" 
+      state: present
+      update_cache: yes
+    become: yes
+    become_method: sudo
+    gather_facts: no
+    with_items:
+    - audacity
+    - alsa
+    - rhythmbox
+    - isomaster
     ## media codecs, video and audio (music - mpto mp3) converters
+    - ubuntu-restricted-extras # install the MP3 codec from the Ubuntu Restricted Extras package
+    - soundconverter # install the Sound Converter program
+    - pavucontrol
+    - gTranscribe
+    - transcriber # for manual transcription
+    - vokoscreen #screencasting
+    ## media codecs, video and audio (music - mpto mp3) converters
+    - sudo pip3 install youtube_dl    # sudo pip install --upgrade youtube_dl  #(to upgrade if its already installed)
+
+  - name: Install general Utils
+    package: 
+      name: "{{ item }}" 
+      state: present
+      update_cache: yes
+    become: yes
+    become_method: sudo
+    gather_facts: no
+    with_items:
+    - tomboy
+    - transmission
+    ## Communication Tools
+    - jitsi # Skype alternative
+    # Time Tracker, https://github.com/TailorDev/Watson
+ #   sudo pip3 install td-watson
+    
+    
+    
+  - name: Install Editors
+    package: 
+      name: "{{ item }}" 
+      state: present
+      update_cache: yes
+    become: yes
+    become_method: sudo
+    gather_facts: no
+    with_items:    
+  - name: installing editors
+    ## IDE for GNOME to support GTK+, GLib, APIs
     #---------------------------------------------------------------------------
-   - papcl
-   - ubuntu-restricted-extras # install the MP3 codec from the Ubuntu Restricted Extras package
-   - soundconverter # install the Sound Converter program
-   # STARTUP DISK CREATOR
-   - unetbootin
+    - builder
+    - emacs
+    - geany
+    - guake
+    - meld  # comparison tool for GNOME
+    - scite
+    - spyder
+    # CLI text editors for sysadmins working on remote Linux/Unix servers.
+    - nano
+    - pico
+    - vim
 
