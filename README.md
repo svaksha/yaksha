@@ -31,7 +31,12 @@ Alternatively, Github offers HTTPS (replace the ssh with https in the above comm
  [download]: https://github.com/svaksha/yaksha/archive/master.zip "download"
 
 
-3. Then, to install all the Ubuntu packages, run the ansible playbooks inside the Ubuntu folder. __NB:__ Note that `yaksha` is  not to be run on a production server.
+3. Then, to install all the Ubuntu packages, run the ansible playbooks inside the Ubuntu folder. 
+
+```
+ansible-playbook -b -K ubuntu/ansible-apt-ubuntu.yaml
+
+```
 
 ----
 
