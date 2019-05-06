@@ -1,0 +1,8 @@
+---
+- name: installing tasksel
+  package:
+    name: tasksel
+    state: present
+
+- name: installing ubuntu desktop
+  shell: tasksel install ubuntu-desktop

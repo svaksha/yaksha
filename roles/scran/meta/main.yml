@@ -1,0 +1,10 @@
+---
+
+dependencies:
+- role: bioconductor
+- role: ggplot2
+- role: dplyr
+- role: matrix
+- role: reshape2
+- role: edgeR
+- role: scater

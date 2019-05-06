@@ -1,0 +1,63 @@
+
+---
+
+- name: existing training accounts
+  debug:
+    msg: "{{ bioconductor_version }}"
+
+- name: install system dependencies
+
+  package:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - curl
+    - libpng-dev
+    - libxml2-dev
+    - libssl-dev
+    - libcurl4-openssl-dev
+    - zlib1g-dev 
+
+- name: install CRAN packages dependencies
+  shell:
+    install2.r -r https://cran.uni-muenster.de/ -s stats dynamicTreeCut Rcpp utils methods
+    igraph statmod  
+
+- name: install scran BioConductor packages dependencies
+  shell: 
+    cmd: | 
+         Rscript -e "BiocManager::install('BiocParallel');" 
+         Rscript -e "BiocManager::install('SingleCellExperiment');" 
+         Rscript -e "BiocManager::install('SummarizedExperiment');" 
+         Rscript -e "BiocManager::install('BiocGenerics');" 
+         Rscript -e "BiocManager::install('S4Vectors');" 
+         Rscript -e "BiocManager::install('BiocNeighbors');" 
+         Rscript -e "BiocManager::install('limma');" 
+         Rscript -e "BiocManager::install('DelayedArray');" 
+         Rscript -e "BiocManager::install('DelayedMatrixStats');" 
+  when: bioconductor_version == '3.9'
+
+- name: install scran 
+  shell: 
+    cmd: Rscript -e "BiocManager::install('scran');" 
+  when: bioconductor_version == '3.9'
+
+- name: install scran BioConductor packages dependencies Bioconductor 3.9
+  shell:
+    cmd: |
+         Rscript -e "source('https://bioconductor.org/biocLite.R'); biocLite('BiocParallel');"
+         Rscript -e "source('https://bioconductor.org/biocLite.R'); biocLite('SingleCellExperiment');"
+         Rscript -e "source('https://bioconductor.org/biocLite.R'); biocLite('SummarizedExperiment');"
+         Rscript -e "source('https://bioconductor.org/biocLite.R'); biocLite('BiocGenerics');"
+         Rscript -e "source('https://bioconductor.org/biocLite.R'); biocLite('S4Vectors');"
+         Rscript -e "source('https://bioconductor.org/biocLite.R'); biocLite('BiocNeighbors');"
+         Rscript -e "source('https://bioconductor.org/biocLite.R'); biocLite('limma');"
+         Rscript -e "source('https://bioconductor.org/biocLite.R'); biocLite('DelayedArray');"
+         Rscript -e "source('https://bioconductor.org/biocLite.R'); biocLite('DelayedMatrixStats');"
+  when: bioconductor_version == '3.9'
+
+- name: install scran
+  shell:
+    cmd: Rscript -e "source('https://bioconductor.org/biocLite.R'); biocLite('scran');"
+  when: bioconductor_version == '3.9'
+

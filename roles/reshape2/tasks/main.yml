@@ -1,0 +1,9 @@
+---
+- name: install reshape2 packages dependencies
+  shell: 
+    cmd: install2.r -s glue stringi stringr plyr 
+
+- name: install reshape2 
+  shell: 
+    cmd: install2.r reshape2 
+

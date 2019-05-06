@@ -1,0 +1,8 @@
+---
+- name: install Python2
+  package:
+    name: "{{ item }}"
+    state: present 
+  with_items:
+    - python2.7 
+    - python-pip 

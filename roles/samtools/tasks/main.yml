@@ -1,0 +1,32 @@
+---
+- name: download samtools {{ version }}
+  git:
+    repo: https://github.com/samtools/samtools
+    dest: "{{ source_dir }}/samtools-{{ version }}"
+    version: "{{ version }}"
+  tags: samtools
+
+- name: build samtools {{ version }}
+  shell: |
+    cd {{ source_dir }}/samtools-{{ version }};
+    sudo autoheader;
+    sudo autoconf -Wno-syntax;  # Generate the configure script
+    sudo ./configure --prefix={{ apps_dir }}/samtools-{{ version }} --with-htslib={{ source_dir }}/htslib-{{ version}}/; 
+    make all all-htslib; 
+    make install install-htslib  
+  args:
+    creates: "{{ apps_dir }}/samtools-{{ version }}/bin/samtools"
+  tags: samtools
+
+- name: setting register for samtools {{ version }}
+  stat:
+    path: "{{ apps_dir }}/samtools-{{ version }}/samtools"
+  register: s
+  tags: samtools
+
+- name: removing samtools {{ version }} source directory
+  file:
+    dest: "{{ source_dir }}/samtools-{{ version }}"
+    state: absent
+  when: "del_src and s.stat.exists"
+  tags: samtools

@@ -39,7 +39,6 @@
 
 
 #- hosts: # not required as localhost is assumed 
-    
 
     - name: Install  AUDIO VIDEO utilities
       package: 
@@ -77,7 +76,6 @@
       - transmission
       ## Communication Tools
       - jitsi # Skype alternative
-    
     
     - name: Install Editors
       package: 

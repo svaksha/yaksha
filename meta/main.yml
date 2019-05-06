@@ -1,0 +1,9 @@
+---
+yaksha_info:
+  author: SVAKSHA
+  description: The YAKSHA dotfiles role.
+  license: AGPLv3
+  min_ansible_version: 1.5
+  categories:
+  - system
+dependencies: []

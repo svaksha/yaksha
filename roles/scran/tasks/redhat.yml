@@ -1,0 +1,40 @@
+---
+
+- name: install system dependencies
+
+  package:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - curl
+    - libpng-devel
+    - libxml2-devel
+    - openssl-devel
+    - libcurl-devel
+    - zlib-devel 
+
+- name: install CRAN packages dependencies
+
+  shell: >
+    install2.r -r https://cran.uni-muenster.de/ -l /usr/lib64/R/library -s stats dynamicTreeCut Rcpp utils methods
+    igraph statmod
+
+- name: install scater BioConductor packages dependencies
+
+  shell:
+    cmd: |
+         Rscript -e "BiocManager::install('BiocParallel');" 
+         Rscript -e "BiocManager::install('SingleCellExperiment');" 
+         Rscript -e "BiocManager::install('SummarizedExperiment');" 
+         Rscript -e "BiocManager::install('BiocGenerics');" 
+         Rscript -e "BiocManager::install('S4Vectors');" 
+         Rscript -e "BiocManager::install('BiocNeighbors');" 
+         Rscript -e "BiocManager::install('limma');" 
+         Rscript -e "BiocManager::install('DelayedArray');" 
+         Rscript -e "BiocManager::install('DelayedMatrixStats');" 
+
+- name: install scater
+
+  shell:
+    cmd: Rscript -e "BiocManager::install('scran');" 
+

@@ -1,0 +1,20 @@
+---
+- name: install system dependencies
+  package:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - curl
+    - libxml2-dev
+    - libssl-dev
+    - libcurl4-openssl-dev
+    - pandoc 
+
+- name: install R packages dependencies
+  shell: >
+    install2.r -r https://cran.uni-muenster.de/ -s Rcpp graphics utils jsonlite Matrix 
+
+- name: install reticulate 
+  shell: install2.r -r https://cran.uni-muenster.de/ reticulate 
+
+

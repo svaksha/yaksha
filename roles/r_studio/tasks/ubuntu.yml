@@ -1,0 +1,9 @@
+---
+# https://www.rstudio.com/products/rstudio/download-server/
+# https://cran.rstudio.com/bin/linux/ubuntu/README.html
+- name: download and install rstudio-server-1.2.1335-amd64.deb
+  apt:
+    deb: "https://download2.rstudio.org/server/bionic/amd64/rstudio-server-1.2.1335-amd64.deb"
+  become:  true
+  become_method: sudo
+  when: ansible_os_family == "Ubuntu" and ansible_lsb.major_release|int >= 16
