@@ -46,7 +46,7 @@ while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 # UBUNTU package utilities
 # Check for release names: https://wiki.ubuntu.com/Releases
 #₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹
-install_ubuntu() {
+function install_ubuntu() {
     sudo apt-get -y install wget
     sudo apt-get -y install curl
     sudo apt-get -y install whois
@@ -71,7 +71,7 @@ install_ubuntu() {
 #₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹
 # AUDIO VIDEO utilities
 #₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹
-install_vani() {
+function install_vani() {
     sudo apt-get -y install audacity
     sudo apt-get -y install alsamixer
     sudo apt-get -y install Rhythmbox
@@ -742,6 +742,16 @@ function install_webserver() {
 }
 
 
+#₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹
+# Gnome general system utilities
+#₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹
+function install_biotech() {
+    # https://abibuilder.informatik.uni-tuebingen.de/archive/openms/Documentation/release/latest/html/install_linux.html
+    # OpenMS for reading RAW files
+    sudo apt-get -y install build-essential cmake autoconf patch libtool git automake
+    sudo apt-get -y install qtbase5-dev libqt5svg5-dev
+    sudo apt-get install -y libeigen3-dev libsqlite3-dev libwildmagic-dev libboost-random1.62-dev libboost-regex1.62-dev libboost-iostreams1.62-dev libboost-date-time1.62-dev libboost-math1.62-dev libxerces-c-dev libglpk-dev zlib1g-dev libsvm-dev libbz2-dev seqan-dev coinor-libcoinmp-dev
+}
 
 #₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹
 apt_ubuntu='all'
@@ -854,6 +864,9 @@ case $apt_ubuntu in
     webserver)
         install_webserver
     ;;
+    biotech)
+        install_biotech
+    ;;
     all)
         install_ubuntu
         install_vani
@@ -881,6 +894,7 @@ case $apt_ubuntu in
         install_docker
         install_saltstack
         install_webserver
+        install_biotech
     ;;
     *)
         echo "UBUNTU package installation in progress, almost done!"
