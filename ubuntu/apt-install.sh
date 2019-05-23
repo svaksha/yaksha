@@ -746,8 +746,9 @@ function install_webserver() {
 # Gnome general system utilities
 #₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹
 function install_biotech() {
-    # https://abibuilder.informatik.uni-tuebingen.de/archive/openms/Documentation/release/latest/html/install_linux.html
     # OpenMS for reading RAW files
+    # https://abibuilder.informatik.uni-tuebingen.de/archive/openms/Documentation/release/latest/html/install_linux.html
+    # Debian Package tracker: https://tracker.debian.org/pkg/openms
     sudo apt-get -y install build-essential cmake autoconf patch libtool git automake
     sudo apt-get -y install qtbase5-dev libqt5svg5-dev
     sudo apt-get install -y libeigen3-dev libsqlite3-dev libwildmagic-dev libboost-random1.62-dev libboost-regex1.62-dev libboost-iostreams1.62-dev libboost-date-time1.62-dev libboost-math1.62-dev libxerces-c-dev libglpk-dev zlib1g-dev libsvm-dev libbz2-dev seqan-dev coinor-libcoinmp-dev
