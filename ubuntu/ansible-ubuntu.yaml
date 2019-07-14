@@ -40,7 +40,7 @@
 
 #- hosts: # not required as localhost is assumed 
 
-    - name: Install  AUDIO VIDEO utilities
+    - name: Install AUDIO VIDEO utilities
       package: 
         name: "{{ item }}" 
         state: present
@@ -76,6 +76,7 @@
       - transmission
       ## Communication Tools
       - jitsi # Skype alternative
+      
     
     - name: Install Editors
       package: 
@@ -86,7 +87,6 @@
       become_method: sudo
       gather_facts: no
       with_items:    
-# - name: installing editors
     ## IDE for GNOME to support GTK+, GLib, APIs
     #---------------------------------------------------------------------------
       - builder
@@ -100,4 +100,5 @@
       - nano
       - pico
       - vim
+
 
