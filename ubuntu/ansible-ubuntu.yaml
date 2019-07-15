@@ -74,8 +74,6 @@
       with_items:
       - tomboy
       - transmission
-      ## Communication Tools
-      - jitsi # Skype alternative
       
     
     - name: Install Editors
