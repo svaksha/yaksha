@@ -86,8 +86,7 @@
       gather_facts: no
       with_items:    
     ## IDE for GNOME to support GTK+, GLib, APIs
-    #---------------------------------------------------------------------------
-      - builder
+    #--------------------------------------------------------------------------
       - emacs
       - geany
       - guake
@@ -96,7 +95,8 @@
       - spyder
     # CLI text editors for sysadmins working on remote Linux/Unix servers.
       - nano
-      - pico
       - vim
+
+
 
 
