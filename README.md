@@ -33,15 +33,15 @@ Alternatively, Github offers HTTPS (replace the ssh with https in the above comm
  [download]: https://github.com/svaksha/yaksha/archive/master.zip "download"
 
 
-3. Then, to install all the Ubuntu packages, run the ansible playbooks inside the Ubuntu folder. 
+3. Then, to install all the Ubuntu packages, run the ansible playbooks inside the '/ubuntu' folder, viz. 
 
 ```
-ansible-playbook -b -K ubuntu/ansible-apt-ubuntu.yaml
+ansible-playbook -b -K ubuntu/ansible-ubuntu.yaml
 ansible-playbook -b -K roles/ubuntu/main.yml
 
 ```
 
-There is a lot of legacy code that needs to go (when I have the time :-)), but presently the structure has changed to:
+A lot has changed over the years, so there is a lot of legacy code that needs to be cleaned - old installation scripts that still need to be ported (when I have the time :-)) to ansible. So, the current structure is:
 
 * __/roles__: Splitting ansible playbooks for different tasks requires a [roles](https://docs.ansible.com/ansible/latest/user_guide/playbooks_reuse_roles.html) directory.
 
