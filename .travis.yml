@@ -1,25 +1,42 @@
-# Documentation: http://docs.travis-ci.com/user/languages/julia/
-language: julia
+---
+# Need sudo for some Docker commands.
+sudo: required
 
-os:
-  - linux
+env:
+# Add a list of OS'es to be tested on.
+  - distro: ubuntu1804
+    init: /lib/systemd/systemd
+    run_opts: "--privileged --volume=/sys/fs/cgroup:/sys/fs/cgroup:ro"
+  - distro: debian8
+    init: /lib/systemd/systemd
+    run_opts: "--privileged --volume=/sys/fs/cgroup:/sys/fs/cgroup:ro"
+#  - distro: OpenSUSE  
+  
+    
+# Tell Travis to start Docker when it brings up an environment.
+services:
+  - docker
 
-julia:
-  - release
-  - nightly
-
-notifications:
-  email: false
+before_install:
+  # Pull the image from Docker Hub for the OS under test.
 
 script:
-    - if [[ -a .git/shallow ]]; then git fetch --unshallow; fi
-    - julia --check-bounds=yes -e 'Pkg.clone(pwd()); Pkg.build("Yaksha"); Pkg.test("Yaksha"; coverage=true)'
-    - julia -e 'Pkg.add("Yaksha") #; Pkg.add("AxisArrays"); Pkg.add("DistributedArrays")'
-    - julia -e 'versioninfo(); Pkg.init(); run(`ln -s $(pwd()) $(Pkg.dir("Yaksha"))`); Pkg.pin("Yaksha"); Pkg.resolve()'
-    - julia -e 'println("success!")'
+  # Start the container from the image and perform tests.
 
-after_success:
-  # push coverage results to Coveralls
-  - julia -e 'cd(Pkg.dir("Yaksha")); Pkg.add("Coverage"); using Coverage; Coveralls.submit(Coveralls.process_folder())'
-  # push coverage results to Codecov
-  - julia -e 'cd(Pkg.dir("Yaksha")); Pkg.add("Coverage"); using Coverage; Codecov.submit(Codecov.process_folder())'
+notifications:
+  # Notify Ansible Galaxy when a role builds successfully.
+
+before_install:
+  # Pull container from Docker Hub.
+  - 'docker pull ansible/ansible'
+
+script:
+  # Create a random file to store the container ID.
+  - container_id=$(mktemp)
+
+  # Run container detached, with our role mounted inside.
+  - 'docker run --detach --volume="${PWD}":/etc/ansible/roles/role_under_test:ro ${run_opts} docker push svaksha/docker:latest "${init}" > "${container_id}"'
+
+  # TODO - Test the Ansible role.
+  
+

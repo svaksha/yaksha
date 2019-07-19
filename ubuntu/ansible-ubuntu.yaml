@@ -15,7 +15,6 @@
       - git
       - tig
       - stow
-      - python-psutil
       - mc
       - wget
       - curl
@@ -35,6 +34,12 @@
       - shellcheck
      # https://askubuntu.com/questions/892076/how-to-selectively-purge-old-kernels-all-at-once/892077#892077
       - dialog # DEP of server version of "rm-kernels-server"
+     # python packages
+      - python-yaml
+      - python-jinja2 
+      - python-paramiko 
+      - python-crypto
+      - python-psutil
 
 
 
@@ -96,7 +101,5 @@
     # CLI text editors for sysadmins working on remote Linux/Unix servers.
       - nano
       - vim
-
-
 
 

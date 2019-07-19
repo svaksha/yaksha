@@ -1,0 +1,24 @@
+namespace: "svaksha"
+name: "yaksha"
+version: "19.07"
+readme: "README.md"
+authors:
+    - "SVAKSHA (http://svaksha.com)"
+license:
+    - "AGPLv3"
+tags:
+    - daemons
+    - automation
+    - ansible
+    - shell
+    - dotfiles
+    - debian
+    - ubuntu
+    - automation
+    - bash
+    - docker
+    - opensuse
+repository: "https://github.com/svaksha/yaksha"
+documentation: "https://github.com/svaksha/yaksha"
+homepage: "http://svaksha.github.io/yaksha"
+issues: "https://github.com/svaksha/yaksha/issues"

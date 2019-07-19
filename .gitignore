@@ -10,8 +10,11 @@
 # Ignore the following
 # ----------------------------------------------------------
 *.directory
-home/.directory
+HOME/.directory
 *.log
+pvt*/*
+PRIVATE/*
+
 
 #====================================================
 # DVCS

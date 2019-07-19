@@ -1,0 +1,14 @@
+---
+- hosts: localhost
+  user: ansible
+  become: yes
+  become_method: sudo
+  vars:
+      # variable needed for localhost installation
+      var_localhost: /tmp
+  roles:
+      - ubuntu
+      - python
+      - julia
+      - nodejs
+       
