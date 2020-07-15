@@ -1,5 +1,18 @@
 ---
+#- name: Install env for lxd
+#  apt:
+#  - name: snap
+#    state: present
 
+#- name: fix snap
+#  command: snap install core
+
+#- name: snap install lxd, atom
+#  snap:
+#  - name: lxd
+#    classic: yes
+    
+# Now use Debian APT-GET
 - name: inital installs
   hosts: localhost
   tasks:
@@ -10,14 +23,15 @@
         update_cache: yes
       become: yes
       become_method: sudo
-      gather_facts: no
       with_items:
       - git
       - tig
       - stow
       - mc
-      - wget
-      - curl
+      # gAWK and SED
+      - gawk, mawk
+      # download using CLI terminal commands
+      - wget, curl, w3m, elinks
       - whois
       - zip
       - unzip
@@ -27,79 +41,113 @@
       # universal packaging system
       - flatpak
       - gnome-software-plugin-flatpak
-     # SSH
-      - openssh-server
       - cron-apt
-# BASH script checker: http://m.jakstys.lt/tech/2016/08/bash
+      # BASH script checker: http://m.jakstys.lt/tech/2016/08/bash
       - shellcheck
-     # https://askubuntu.com/questions/892076/how-to-selectively-purge-old-kernels-all-at-once/892077#892077
-      - dialog # DEP of server version of "rm-kernels-server"
-     # python packages
-      - python-yaml
-      - python-jinja2 
-      - python-paramiko 
-      - python-crypto
-      - python-psutil
-
-
-
-#- hosts: # not required as localhost is assumed 
-
-    - name: Install AUDIO VIDEO utilities
-      package: 
-        name: "{{ item }}" 
-        state: present
-        update_cache: yes
-      become: yes
-      become_method: sudo
-      gather_facts: no
-      with_items:
-      - audacity
-      - alsa
-      - rhythmbox
-      - isomaster
-    ## media codecs, video and audio (music - mpto mp3) converters
+      # https://askubuntu.com/questions/892076/how-to-selectively-purge-old-kernels-all-at-once/892077#892077
+      - dialog # DEP of server version of "rm-kernels-server"     
+      #########################################################################
+      ## media codecs, video and audio (music - mpto mp3) converters
+      #########################################################################
       - ubuntu-restricted-extras # install the MP3 codec from the Ubuntu Restricted Extras package
       - soundconverter # install the Sound Converter program
       - pavucontrol
       - transcriber # for manual transcription
       - vokoscreen #screencasting
-    ## media codecs, video and audio (music - mpto mp3) converters
- 
-#     - sudo pip3 install youtube_dl    # sudo pip install --upgrade youtube_dl  #(to upgrade if its already installed)
-
-    - name: Install general Utils
-      package: 
-        name: "{{ item }}" 
-        state: present
-        update_cache: yes
-      become: yes
-      become_method: sudo
-      gather_facts: no
-      with_items:
-      - tomboy
       - transmission
-      
-    
-    - name: Install Editors
-      package: 
-        name: "{{ item }}" 
-        state: present
-        update_cache: yes
-      become: yes
-      become_method: sudo
-      gather_facts: no
-      with_items:    
-    ## IDE for GNOME to support GTK+, GLib, APIs
-    #--------------------------------------------------------------------------
+      - audacity
+      - alsa
+      - rhythmbox
+      - isomaster
+      - dconf-editor
+      #########################################################################
+      # IDE for GNOME to support GTK+, GLib, APIs
+      #########################################################################
       - emacs
       - geany
       - guake
       - meld  # comparison tool for GNOME
-      - scite
       - spyder
-    # CLI text editors for sysadmins working on remote Linux/Unix servers.
+      # CLI text editors for sysadmins working on remote Linux/Unix servers.
       - nano
       - vim
-
-
+      # Tweak Clock settings in 18.04
+      - gnome-tweak-tool
+      #########################################################################
+      ## general cli tools for web, search
+      #########################################################################
+      - silversearcher-ag
+      - ctags
+      - screen
+      # Tools for dependency check and PPA removal
+      - equivs
+      - ppa-purge
+      - nmap
+      - dirmngr
+      #########################################################################
+      # Automate SERVER - NETWORKING - CLOUD
+      #########################################################################
+      # SSH
+      - sshpass
+      # SSH
+      - openssh-server
+      - net-tools
+      - apparmor, apparmor-profiles, apparmor-utils
+      - wireguard
+      - openvpn
+      #########################################################################
+      # Install Augeas - http://augeas.net/download.html
+      # An editing tool API to automate the configuration editing on remote servers.
+      #########################################################################
+      - python3-augeas 
+      - augeas-tools
+      - augeas-lenses
+      #########################################################################
+      # BASIC python packages
+      #########################################################################
+      - python-yaml
+      - python3-pip
+      - python-jinja2 
+      - python-crypto
+      - python-psutil
+      - cython
+      - pyqt5-dev-tools
+      # python-imaging
+      - python-pil-doc, python3-pil, python3-pil-dbg, python3-pil.imagetk
+      - python3-sane, python3-sane-dbg, python-pil.imagetk
+      #########################################################################
+      # OCR packages
+      #########################################################################
+      - libtesseract-dev
+      - tesseract-ocr
+      - libleptonica-dev
+      # Language packs
+      - tesseract-ocr-eng, tesseract-ocr-ara, tesseract-ocr-chi-sim
+      - tesseract-ocr-script-latn, tesseract-ocr-script-deva
+      #₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹
+      # GCC {{ C, CPP, Fortran }}
+      #₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹
+      ## C/C++
+      - gcc, make
+      - cmake
+      - libncurses5-dev
+      - cmake-curses-gui
+      - clang
+      - g++
+      ## Fortran
+      - gfortran
+      - m4
+      - patch
+      ## BOOST
+      - fftw-dev
+      - openexr
+      - libboost-all-dev
+      - fftw3-dev
+      - liblemonldap-ng-common-perl, liblemonldap-ng-handler-perl
+      - libpng-dev
+      #₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹
+      # Basic JAVASCRIPT with package manager 
+      #₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹
+      - npm 
+      
+      

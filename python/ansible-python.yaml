@@ -1,0 +1,24 @@
+---
+- name: python package DEPS installation
+  hosts: all
+  tasks:
+    # https://www.middlewareinventory.com/blog/ansible-playbook-example/
+    # Name of the Play (an ordered set of tasks which should be run against hosts selected from your inventory.
+    - name: Basic Python package installation using Ansible PIP module.
+      packages: 
+        name: "{{ pip }}" 
+        state: latest
+        update_cache: yes
+      become: yes
+      become_method: sudo
+      pip:
+      - numpy
+      - pandas
+      # NLP
+      - nltk
+      # DATA SCIENCE, STATISTICS
+      - scikit-learn, sklearn, tensorflow, keras, pytorch
+      # IMAGE MANIPULATION
+      - pillow, OpenCV
+      # image labeling
+      - labelImg

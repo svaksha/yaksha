@@ -2,11 +2,11 @@
 ############################# METADATA #########################################
 # FILENAME  : .bashrc
 # TECHNICAL : Configuration file for BASH, save as ~/.bashrc to use.
-# AUTHOR    : SVAKSHA <http://svaksha.com/pages/Bio>
-# COPYRIGHT©: 2005-Now SVAKSHA (http://svaksha.com/pages/Bio) AllRightsReserved.
+# AUTHOR    : SVAKSHA <http://svaksha.com/pages/BIO>
+# COPYRIGHT©: 2005-Now SVAKSHA (http://svaksha.com/pages/BIO) AllRightsReserved.
 # LICENSE   : GNU AGPLv3 subject to all terms stated in the LICENSE.md file.
 # REPOSITORY: http://svaksha.github.io/yaksha
-# VERSION   : created:2005mar22, @svaksha, modified:2017oct11
+# VERSION   : created:2005mar22, @svaksha, modified:2020jul14
 ############################# METADATA #########################################
 #
 # ~/.bashrc: executed by bash(1) for non-login shells. For examples
@@ -37,7 +37,7 @@ shopt -s histappend
 #-------------------------------------------------------------------------------
 HISTSIZE=50005
 HISTFILESIZE=50005
-export HISTTIMEFORMAT="%F[%H:%M] "  # HISTTIMEFORMAT=’%c ‘ also does the same thing.
+export HISTTIMEFORMAT="%F[%H:%M] " # HISTTIMEFORMAT=’%c ‘ also does the same thing.
 
 # After each command, save and reload history
 #-------------------------------------------------------------------------------
@@ -205,7 +205,7 @@ export LS_COLORS=$LS_COLORS:"*.wmv=01;35":"*.wma=01;35":"*.flv=01;35":"*.m4a=01;
 # http://ubuntugenius.wordpress.com/2011/07/11/how-to-change-the-command-line-prompt-colour-in-the-ubuntulinux-terminal/
 #-------------------------------------------------------------------------------
 if [ "$color_prompt" = yes ]; then
-    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]स्व\[\033[01;31m\]@क्ष\[\033[01;33m\]:\[\033[00;36m\]\w\[\033[01;37m\]\$ '
+    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]स्व\[\033[01;31m\]@क्ष\[\033[01;33m\]:\[\033[00;36m\]\w\[\033[0;37m\]\$ '
 else
 #    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
     PS1='${debian_chroot:+($debian_chroot)}svaksha@kheops:\w\$ '
