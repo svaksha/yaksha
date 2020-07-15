@@ -11,7 +11,6 @@
 #  snap:
 #  - name: lxd
 #    classic: yes
-    
 # Now use Debian APT-GET
 - name: inital installs
   hosts: localhost
@@ -73,6 +72,7 @@
       - vim
       # Tweak Clock settings in 18.04
       - gnome-tweak-tool
+      - gnome-clocks
       #########################################################################
       ## general cli tools for web, search
       #########################################################################
@@ -124,6 +124,10 @@
       # Language packs
       - tesseract-ocr-eng, tesseract-ocr-ara, tesseract-ocr-chi-sim
       - tesseract-ocr-script-latn, tesseract-ocr-script-deva
+      # iagemagick lib
+      - graphicsmagick-imagemagick-compat  # version 1.4+really1.3.35-1, or
+      - imagemagick-6.q16                  # version 8:6.9.10.23+dfsg-2.1ubuntu11
+      - imagemagick-6.q16hdri  
       #₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹
       # GCC {{ C, CPP, Fortran }}
       #₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹
