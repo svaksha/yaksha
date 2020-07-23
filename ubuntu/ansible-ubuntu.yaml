@@ -69,7 +69,17 @@
       - spyder
       # CLI text editors for sysadmins working on remote Linux/Unix servers.
       - nano
-      - vim
+      # VIM
+      - vim, fontforge, vim-nox, ctags
+      ##########################################################################      
+      # TMUX
+      ##########################################################################      
+      - tmux
+      - python-netifaces
+      ###################### ###################################################
+      #########################################################################
+      # GNOME tweaks
+      #########################################################################
       # Tweak Clock settings in 18.04
       - gnome-tweak-tool
       - gnome-clocks
@@ -85,18 +95,6 @@
       - nmap
       - dirmngr
       #########################################################################
-      # Automate SERVER - NETWORKING - CLOUD
-      #########################################################################
-      # SSH
-      - sshpass
-      # SSH
-      - openssh-server
-      - net-tools
-      - apparmor, apparmor-profiles, apparmor-utils
-      - wireguard
-      - openvpn
-      - docker
-      #########################################################################
       # Install Augeas - http://augeas.net/download.html
       # An editing tool API to automate the configuration editing on remote servers.
       #########################################################################
@@ -104,33 +102,51 @@
       - augeas-tools
       - augeas-lenses
       #########################################################################
-      # BASIC python packages
+      # PYTHON packages
       #########################################################################
       - python-yaml
-      - python3-pip
       - python-jinja2 
       - python-crypto
       - python-psutil
-      - cython
       - pyqt5-dev-tools
       # python-imaging
       - python3-pil, python3-pil-dbg, python3-pil.imagetk
       - python3-sane, python3-sane-dbg
       - python-pil-doc, python-pil.imagetk
-      #########################################################################
-      # OCR packages
-      #########################################################################
-      - libtesseract-dev
-      - tesseract-ocr
-      - libleptonica-dev
-      # Language packs
-      - tesseract-ocr-eng, tesseract-ocr-ara, tesseract-ocr-chi-sim
-      - tesseract-ocr-script-latn, tesseract-ocr-script-deva
-      - tesseract-ocr-*
-      # iagemagick lib
-      - graphicsmagick-imagemagick-compat  # version 1.4+really1.3.35-1, or
-      - imagemagick-6.q16                  # version 8:6.9.10.23+dfsg-2.1ubuntu11
-      - imagemagick-6.q16hdri  
+      - build-essential
+      # PIP = Python Installer
+      - python3-pip
+      - python-setuptools
+      - python-dev
+      - python-yaml
+      # python3
+      - python3-dev
+      - pkgconf
+      - libfreetype6-dev, libfreetype6, libxft-dev
+      - libblas-dev, liblapack-dev, libyaml-dev
+      - python3
+      ## scientific python
+      - cython
+      - numpy
+      - python-numpy
+      - scipy
+      - python-matplotlib
+      - python-scipy
+      - manpages-dev
+      # Jupyter
+      # sudo pip3 install ipython jinja2 tornado pyzmq pandas jsonschema pyaml 
+      # sudo pip3 install rotate-backups
+      # sudo pip3 install plumbum ## An alternatice to Fabric, https://github.com/tomerfiliba/plumbum
+      # sudo pip3 install jedi -i http://pypi.python.org/simple/
+      # sudo pip3 install pylint -i http://pypi.python.org/simple/
+      ##---------
+      ## More Python stuff
+      # Nginx WebServer
+      - nginx
+      # WebServer ZMQ, also needed by Jupyter/IPython / IRuby etc..
+      - libzmq3-dbg
+      - libzmq3-dev
+      - libzmq3
       #₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹
       # GCC {{ C, CPP, Fortran }}
       #₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹
@@ -153,8 +169,164 @@
       - liblemonldap-ng-common-perl, liblemonldap-ng-handler-perl
       - libpng-dev
       #₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹
-      # Basic JAVASCRIPT with package manager 
+      ## DATABASE packages
       #₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹
-      - npm 
-      
-      
+      - sqlite3
+      ## PostgreSQL
+      - postgresql-12 #core database server
+      - postgresql-client-12 # client libraries and client binaries
+      - postgresql-contrib-12 # additional supplied modules
+      - libpq-dev # libraries and headers for C language frontend development
+      - postgresql-server-dev-12 # libraries and headers for C language backend development
+      - pgadmin3 # pgAdmin III graphical administration utility
+      ## Distributed File Systems
+      - hdf5-tools
+      - hdf-compass
+      #₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹
+      ## DVCS packages
+      #₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹
+      - tig
+      - git-lfs #{{https://github.com/github/git-lfs.git}}
+      - mercurial
+      ##########################################################################
+      ## LaTeX2ε
+      ##########################################################################
+      - texlive, texlive-latex-extra
+      # Latex Fonts support
+      - texlive-fonts-recommended
+      - texlive-fonts-extra
+      - texlive-lang-cyrillic, scalable-cyrfonts-tex
+      # for technical/scientific posters.
+      - texlive-science
+      #₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹
+      # FONTS
+      #₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹
+      - ttf-mscorefonts-installer # Microsoft fonts for Libreoffice. 
+      #₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹
+      # GO language : https://golang.org/doc/code.html
+      #₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹
+      - golang # Go compiler - METApackage
+      - golang-go.net-dev # supplementary networking dev libs
+      - dh-golang # debhelper add-on for packaging software written in Go (golang)
+      - gccgo-go # Go compiler over GCC
+      - golang-bindata-dev # embed data in a Go program - library package
+      - golang-doc # Go programming language compiler - documentation
+      - golang-go # Go programming language compiler
+      # Database drivers
+      - golang-pq-dev # pure Go postgres driver for Go’s database/sql package
+      - golang-gosqlite-dev # Trivial sqlite3 binding for Go (development files)
+      #########################################################################
+      # OCR packages
+      #########################################################################
+      - libtesseract-dev
+      - tesseract-ocr-all
+      - libleptonica-dev
+      # Language packs
+      - tesseract-ocr-eng, tesseract-ocr-ara, tesseract-ocr-chi-sim
+      - tesseract-ocr-script-latn, tesseract-ocr-script-deva
+      - tesseract-ocr-*
+      - libicu-dev 
+      - libpango1.0-dev 
+      - libcairo2-dev
+      # iagemagick lib
+      - graphicsmagick-imagemagick-compat  # version 1.4+really1.3.35-1, or
+      - imagemagick-6.q16                  # version 8:6.9.10.23+dfsg-2.1ubuntu11
+      - imagemagick-6.q16hdri  
+      ## OCR tools to copy text from locked filed: https://help.ubuntu.com/community/OCR
+      - fuzzyocr # spamassassin plugin to check image attachments
+      - ocrad # OCR program
+      - ocrfeeder # document layout analysis and optical character recognition system
+      - cuneiform # multi-language OCR system
+      ##########################################################################
+      # GRAPHICS, IMAGE PROCESSING, COMPUTER VISION, MACHINE VISION
+      ##########################################################################
+      ## medical imaging
+      - aeskulap
+      - gimp ## Gimp Image Editor
+      - inkscape   # Can process raster SVG images
+      #-----------------------------------------------------------
+      ## Image processing tools and libraries :: https://wiki.ubuntu.com/UbuntuGIS
+      #-----------------------------------------------------------
+      - colordiff
+      # GRASS for geospatial data management, image processing, graphics/maps production, spatial modeling, and visualization.
+      - grass
+      # GIS
+      - postgis    # PG driver for GIS
+      - perl-mapscript  # Language bindings for mapserver
+      #-----------------------------------------------------------
+      ## Unified Modeling Language (UML) Tools
+      # http://askubuntu.com/questions/9405/what-uml-unified-modelling-language-tools-are-available
+      #-----------------------------------------------------------
+      - dia
+      # 3D graphics / Vector graphics ---------
+      - blender
+      - e00compr # an ANSI C library that reads and writes Arc/Info compressed E00 files.
+      ##########################################################################
+      # JavaScript
+      ##########################################################################
+      - npm # NPM = node package manager
+      - nodejs # nodejs -v = 0.10.28 # dont pin versions
+      - gradle
+      ##########################################################################
+      # Networking INFRA Cloud
+      ##########################################################################
+      # VPN networks
+      - openvpn
+      - openconnect # Cisco Anyconnect
+      # ANDROID
+      - go-mtpfs
+      - mtp-tools
+      ##########################################################################      
+      # Non-Free utilities
+      ##########################################################################      
+      - flashplugin-nonfree    # Flash 
+      ##########################################################################      
+      # R-project / language
+      ##########################################################################      
+      - r-base, r-base-dev, r-base-core
+      - r-recommended   # GNU R collection of recommended packages {metapackage}.
+      - r-doc-info      # GNU R info manuals statistical computing system.
+      - libc6, libcurl4-gnutls-dev # R -v = 3.1.0
+      # Statistics & DataScience
+      - r-cran-plyr #https://cran.r-project.org/web/packages/plyr/index.html
+      - aod ggplot2 Rcpp # R data analysis
+      ##########################################################################      
+      # RUBY
+      ##########################################################################      
+      - ruby
+      - ruby-all-dev
+      - ruby-dev
+      - ruby-full
+      ###################### ###################################################
+      # YAKSHA DEVOPS
+      # Automate SERVER - NETWORKING - CLOUD
+      #########################################################################
+      # SSH
+      - sshpass
+      - openssh-server
+      - net-tools
+      - apparmor
+      - apparmor-profiles
+      - apparmor-utils
+      - wireguard
+      - openvpn
+      - docker
+      # https://en.wikipedia.org/wiki/Virtualization
+      # DOCKER: https://store.docker.com/editions/community/docker-ce-server-ubuntu
+      - software-properties-common
+      # Webserver
+      - twisted
+      - tornado
+      - vagrant
+      - vagrant-cachier ## share a common package cache among similar VM instances
+      - vagrant-lxc   # Linux container provider for Vagrant.
+      ## AMQP
+      - rabbitmq-server  ## Erlang
+      # ZMQ, also needed by Jupyter/IPython / IRuby etc..
+      - libzmq3-dev
+      ##########################################################################      
+      # Gnome general system utilities
+      ##########################################################################      
+      - build-essential, cmake, autoconf, patch, libtool, automake
+      - qtbase5-dev
+      - libqt5svg5-dev

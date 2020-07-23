@@ -208,7 +208,7 @@ function install_database() {
 #    sudo apt-get -y install mariadb
     sudo apt-get -y install sqlite3
     ## PostgreSQL
-:'    sudo apt-get -y install postgresql-9.6 #core database server
+:   sudo apt-get -y install postgresql-9.6 #core database server
     sudo apt-get -y install postgresql-client-9.6 # client libraries and client binaries
     sudo apt-get -y install postgresql-contrib-9.6 # additional supplied modules
     sudo apt-get -y install libpq-dev # libraries and headers for C language frontend development
@@ -284,7 +284,7 @@ function install_dvcs() {
     # GIT-LFS installation: https://git-lfs.github.com/
     #------------------------------------------------
     curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | sudo bash
-    sudo apt install git-lfs
+    sudo apt-get install git-lfs
     #---------------
     # Gitsome : https://github.com/donnemartin/gitsome#installation
     #---------------
@@ -386,8 +386,6 @@ function install_gcc() {
     sudo apt-get -y install fftw3-dev
     sudo apt-get -y install liblemon
     sudo apt-get -y install libpng-dev
-    ## Statistics
-    sudo apt-get -y install pspp
 }
 
 
