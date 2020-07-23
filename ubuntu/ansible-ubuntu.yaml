@@ -95,6 +95,7 @@
       - apparmor, apparmor-profiles, apparmor-utils
       - wireguard
       - openvpn
+      - docker
       #########################################################################
       # Install Augeas - http://augeas.net/download.html
       # An editing tool API to automate the configuration editing on remote servers.
@@ -113,8 +114,9 @@
       - cython
       - pyqt5-dev-tools
       # python-imaging
-      - python-pil-doc, python3-pil, python3-pil-dbg, python3-pil.imagetk
-      - python3-sane, python3-sane-dbg, python-pil.imagetk
+      - python3-pil, python3-pil-dbg, python3-pil.imagetk
+      - python3-sane, python3-sane-dbg
+      - python-pil-doc, python-pil.imagetk
       #########################################################################
       # OCR packages
       #########################################################################
@@ -124,6 +126,7 @@
       # Language packs
       - tesseract-ocr-eng, tesseract-ocr-ara, tesseract-ocr-chi-sim
       - tesseract-ocr-script-latn, tesseract-ocr-script-deva
+      - tesseract-ocr-*
       # iagemagick lib
       - graphicsmagick-imagemagick-compat  # version 1.4+really1.3.35-1, or
       - imagemagick-6.q16                  # version 8:6.9.10.23+dfsg-2.1ubuntu11
