@@ -1,14 +1,16 @@
+#!/usr/bin/env ansible-playbook
+# ^ Trick: the above line can be used to make your play an executable
+# you also must add 'x' permissions to the file
+# Credit: https://github.com/ansible/ansible/blob/devel/examples/play.yml
+# this file is based on phred's 'pedantically commented playbook'
+# https://github.com/phred/ansible-examples/blob/master/pedantically_commented_playbook.yml
+#
 ---
-- hosts: localhost
-  user: ansible
-  become: yes
-  become_method: sudo
-  vars:
-      # variable needed for localhost installation
-      var_localhost: /tmp
-  roles:
-      - ubuntu
-      - python
-      - julia
-      - nodejs
-       
+
+- name: yaksha
+  hosts: all
+#  tasks:
+  #- import_playbook: ubuntu/ansible-ubuntu.yaml
+- include: ubuntu/ansible-ubuntu.yaml
+  #- include: python/ansible-python.yaml
+...

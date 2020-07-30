@@ -30,7 +30,7 @@ sudo apt-get update && sudo apt-get install ansible git
 
 You can also use `pip` to install ansible but I prefer the `apt-get` package. Note that if you have a standalone machine this step is a manual process, else automated for the network installation.
 
-2. Now clone this repo and execute the scripts. For SSH, use the URL `git@github.com:svaksha/yaksha.git` via the clone command:
+2. Now clone [this repo][https://github.com/svaksha/yaksha/]. For SSH, use the URL `git@github.com:svaksha/yaksha.git` via the clone command:
 
 ```
 git clone ssh://github.com/svaksha/yaksha.git
@@ -38,12 +38,19 @@ git clone ssh://github.com/svaksha/yaksha.git
 
 Alternatively, Github offers HTTPS (replace the ssh with https in the above command) as transfer protocols or the repo can be downloaded as a [zip-file][https://github.com/svaksha/yaksha/archive/master.zip] (latest 'master' branch). 
 
-3. Then, to install all the Ubuntu packages, run the ansible playbooks inside the '/ubuntu' folder, viz. 
+3. Then, to run all the ansible playbooks sequentially, 'cd' into the directory and run the following commands in your terminal:
 
 ```
-ansible-playbook -b -K ubuntu/ansible-ubuntu.yaml
-ansible-playbook -b -K roles/ubuntu/main.yml
+$ cd yaksha
 
+$ ansible-playbook -b -K yaksha.yml
+```
+
+The above runs all the playbooks listed in the yaksha.yml` file. But, if you want to individually run specific playbooks, e.g. install only Ubuntu package-deps via apt-get, then run the ansible playbooks inside the /ubuntu folder, viz. 
+
+
+``
+ansible-playbook -b -K ubuntu/ansible-ubuntu.yaml
 ```
 
 

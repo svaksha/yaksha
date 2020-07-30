@@ -1,3 +1,4 @@
+#!/usr/bin/env ansible-playbook
 ---
 #- name: Install env for lxd
 #  apt:
@@ -12,7 +13,7 @@
 #  - name: lxd
 #    classic: yes
 # Now use Debian APT-GET
-- name: inital installs
+- name: Ubuntu System Deps
   hosts: localhost
   tasks:
     - name: Install basic Ubuntu packages
@@ -59,6 +60,7 @@
       - rhythmbox
       - isomaster
       - dconf-editor
+      - software-properties-common
       #########################################################################
       # IDE for GNOME to support GTK+, GLib, APIs
       #########################################################################
@@ -125,13 +127,8 @@
       - libfreetype6-dev, libfreetype6, libxft-dev
       - libblas-dev, liblapack-dev, libyaml-dev
       - python3
-      ## scientific python
       - cython
-      - numpy
       - python-numpy
-      - scipy
-      - python-matplotlib
-      - python-scipy
       - manpages-dev
       # Jupyter
       # sudo pip3 install ipython jinja2 tornado pyzmq pandas jsonschema pyaml 
@@ -140,16 +137,12 @@
       # sudo pip3 install jedi -i http://pypi.python.org/simple/
       # sudo pip3 install pylint -i http://pypi.python.org/simple/
       ##---------
-      ## More Python stuff
-      # Nginx WebServer
-      - nginx
-      # WebServer ZMQ, also needed by Jupyter/IPython / IRuby etc..
-      - libzmq3-dbg
-      - libzmq3-dev
-      - libzmq3
-      #₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹
+      # XML deps
+      - libxml2-dev 
+      - libxslt-dev
+      #₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹
       # GCC {{ C, CPP, Fortran }}
-      #₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹
+      #₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹
       ## C/C++
       - gcc, make
       - cmake
@@ -276,7 +269,7 @@
       # ANDROID
       - go-mtpfs
       - mtp-tools
-      ##########################################################################      
+       ##########################################################################      
       # Non-Free utilities
       ##########################################################################      
       - flashplugin-nonfree    # Flash 
@@ -289,9 +282,8 @@
       - libc6, libcurl4-gnutls-dev # R -v = 3.1.0
       # Statistics & DataScience
       - r-cran-plyr #https://cran.r-project.org/web/packages/plyr/index.html
-      - aod ggplot2 Rcpp # R data analysis
       ##########################################################################      
-      # RUBY
+      # RUBY      
       ##########################################################################      
       - ruby
       - ruby-all-dev
@@ -310,23 +302,26 @@
       - apparmor-utils
       - wireguard
       - openvpn
-      - docker
       # https://en.wikipedia.org/wiki/Virtualization
       # DOCKER: https://store.docker.com/editions/community/docker-ce-server-ubuntu
-      - software-properties-common
+      - docker
+      - docker.io 
+      - python3-docker 
       # Webserver
-      - twisted
-      - tornado
       - vagrant
       - vagrant-cachier ## share a common package cache among similar VM instances
       - vagrant-lxc   # Linux container provider for Vagrant.
-      ## AMQP
-      - rabbitmq-server  ## Erlang
+      # Nginx WebServer
+      - nginx
       # ZMQ, also needed by Jupyter/IPython / IRuby etc..
       - libzmq3-dev
+      ## AMQP
+      - rabbitmq-server  ## Erlang
       ##########################################################################      
-      # Gnome general system utilities
+      # GNOME general system utilities 
       ##########################################################################      
       - build-essential, cmake, autoconf, patch, libtool, automake
       - qtbase5-dev
       - libqt5svg5-dev
+...
+

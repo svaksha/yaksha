@@ -1,0 +1,21 @@
+## scientific python
+# REF: https://docs.ansible.com/ansible/2.3/YAMLSyntax.html
+scipy
+python-matplotlib
+python-scipy
+nltk
+# DATA SCIENCE, STATISTICS
+scikit-learn
+sklearn
+tensorflow
+keras
+pytorch
+pandas
+# IMAGE MANIPULATION
+pillow
+OpenCV
+# image labeling
+labelImg
+boto3
+
+

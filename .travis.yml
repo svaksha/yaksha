@@ -4,10 +4,10 @@ sudo: required
 
 env:
 # Add a list of OS'es to be tested on.
-  - distro: ubuntu1804
+  - distro: ubuntu2004
     init: /lib/systemd/systemd
     run_opts: "--privileged --volume=/sys/fs/cgroup:/sys/fs/cgroup:ro"
-  - distro: debian8
+  - distro: debian10.4 # buster
     init: /lib/systemd/systemd
     run_opts: "--privileged --volume=/sys/fs/cgroup:/sys/fs/cgroup:ro"
 #  - distro: OpenSUSE  
@@ -39,4 +39,4 @@ script:
 
   # TODO - Test the Ansible role.
   
-
+...

@@ -1,0 +1,7 @@
+---
+- hosts: all
+  tasks:
+  # https://docs.ansible.com/ansible/latest/modules/script_module.html
+  - name: Run a script with arguments (using 'cmd' parameter)
+    script:
+      cmd: /yaksha/script.sh

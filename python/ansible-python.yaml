@@ -1,24 +1,28 @@
 ---
-- name: python package DEPS installation
+- name: Python package deps with Pip3
   hosts: all
   tasks:
     # https://www.middlewareinventory.com/blog/ansible-playbook-example/
     # Name of the Play (an ordered set of tasks which should be run against hosts selected from your inventory.
-    - name: Basic Python package installation using Ansible PIP module.
-      packages: 
-        name: "{{ pip }}" 
-        state: latest
+    - name: PIP3 installs PyPi Deps
+      package: 
+        name: "{{pip3}}" 
+        state: present
         update_cache: yes
-      become: yes
+      gather_facts: False
+      become: True
+      #become: yes
       become_method: sudo
-      pip:
-      - numpy
-      - pandas
-      # NLP
-      - nltk
-      # DATA SCIENCE, STATISTICS
-      - scikit-learn, sklearn, tensorflow, keras, pytorch
-      # IMAGE MANIPULATION
-      - pillow, OpenCV
-      # image labeling
-      - labelImg
+      #update_cache: yes
+      with_pip3:
+      - NumPy
+      - tensorflow 
+   #   - ['pytorch, 'pandas']    
+      # For TESTING Ansible
+      - pip3 install molecule
+      #- pip3 install 'molecule[docker]'
+      # Or use ansible-lint
+      - ansible-lint
+      ##------------------------
+      #requirements: yaksha/python/requirements.txt
+...
