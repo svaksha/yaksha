@@ -9,8 +9,8 @@
 
 - name: yaksha
   hosts: all
-#  tasks:
-  #- import_playbook: ubuntu/ansible-ubuntu.yaml
+    shell: |
+    sudo apt-get update && upgrade
 - include: ubuntu/ansible-ubuntu.yaml
   #- include: python/ansible-python.yaml
 ...

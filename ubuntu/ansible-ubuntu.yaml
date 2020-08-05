@@ -15,11 +15,12 @@
 # Now use Debian APT-GET
 - name: Ubuntu System Deps
   hosts: localhost
+  #strategy: debug
   tasks:
     - name: Install basic Ubuntu packages
       package: 
-        name: "{{ item }}" 
-        state: present
+        name: "{{item}}" 
+        state: latest
         update_cache: yes
       become: yes
       become_method: sudo
@@ -104,6 +105,10 @@
       - augeas-tools
       - augeas-lenses
       #########################################################################
+      # JULIA packages
+      #########################################################################
+      - julia
+      #########################################################################
       # PYTHON packages
       #########################################################################
       - python-yaml
@@ -116,6 +121,7 @@
       - python3-sane, python3-sane-dbg
       - python-pil-doc, python-pil.imagetk
       - build-essential
+      - python-pil 
       # PIP = Python Installer
       - python3-pip
       - python-setuptools
@@ -128,8 +134,8 @@
       - libblas-dev, liblapack-dev, libyaml-dev
       - python3
       - cython
-      - python-numpy
       - manpages-dev
+      - python-numpy
       # Jupyter
       # sudo pip3 install ipython jinja2 tornado pyzmq pandas jsonschema pyaml 
       # sudo pip3 install rotate-backups
@@ -140,6 +146,53 @@
       # XML deps
       - libxml2-dev 
       - libxslt-dev
+      - python-lxml 
+      #########################################################################
+      # OCR packages
+      #########################################################################
+      - libtesseract-dev
+      - tesseract-ocr-all
+      - libleptonica-dev
+      # Language packs
+      - tesseract-ocr-eng, tesseract-ocr-ara, tesseract-ocr-chi-sim
+      - tesseract-ocr-script-latn, tesseract-ocr-script-deva
+      - tesseract-ocr-*
+      - libicu-dev 
+      - libpango1.0-dev 
+      - libcairo2-dev
+      # iagemagick lib
+      - graphicsmagick-imagemagick-compat  # version 1.4+really1.3.35-1, or
+      - imagemagick-6.q16                  # version 8:6.9.10.23+dfsg-2.1ubuntu11
+      - imagemagick-6.q16hdri  
+      ## OCR tools to copy text from locked filed: https://help.ubuntu.com/community/OCR
+      - fuzzyocr # spamassassin plugin to check image attachments
+      - ocrad # OCR program
+      - ocrfeeder # document layout analysis and optical character recognition system
+      - cuneiform # multi-language OCR system
+      ##########################################################################
+      # GRAPHICS, IMAGE PROCESSING, COMPUTER VISION, MACHINE VISION
+      ##########################################################################
+      ## medical imaging
+      - aeskulap
+      - gimp ## Gimp Image Editor
+      - inkscape   # Can process raster SVG images
+      #-----------------------------------------------------------
+      ## Image processing tools and libraries :: https://wiki.ubuntu.com/UbuntuGIS
+      #-----------------------------------------------------------
+      - colordiff
+      # GRASS for geospatial data management, image processing, graphics/maps production, spatial modeling, and visualization.
+      - grass
+      # GIS
+      - postgis    # PG driver for GIS
+      - perl-mapscript  # Language bindings for mapserver
+      #-----------------------------------------------------------
+      ## Unified Modeling Language (UML) Tools
+      # http://askubuntu.com/questions/9405/what-uml-unified-modelling-language-tools-are-available
+      #-----------------------------------------------------------
+      - dia
+      # 3D graphics / Vector graphics ---------
+      - blender
+      - e00compr # an ANSI C library that reads and writes Arc/Info compressed E00 files.
       #₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹
       # GCC {{ C, CPP, Fortran }}
       #₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹
@@ -208,52 +261,6 @@
       # Database drivers
       - golang-pq-dev # pure Go postgres driver for Go’s database/sql package
       - golang-gosqlite-dev # Trivial sqlite3 binding for Go (development files)
-      #########################################################################
-      # OCR packages
-      #########################################################################
-      - libtesseract-dev
-      - tesseract-ocr-all
-      - libleptonica-dev
-      # Language packs
-      - tesseract-ocr-eng, tesseract-ocr-ara, tesseract-ocr-chi-sim
-      - tesseract-ocr-script-latn, tesseract-ocr-script-deva
-      - tesseract-ocr-*
-      - libicu-dev 
-      - libpango1.0-dev 
-      - libcairo2-dev
-      # iagemagick lib
-      - graphicsmagick-imagemagick-compat  # version 1.4+really1.3.35-1, or
-      - imagemagick-6.q16                  # version 8:6.9.10.23+dfsg-2.1ubuntu11
-      - imagemagick-6.q16hdri  
-      ## OCR tools to copy text from locked filed: https://help.ubuntu.com/community/OCR
-      - fuzzyocr # spamassassin plugin to check image attachments
-      - ocrad # OCR program
-      - ocrfeeder # document layout analysis and optical character recognition system
-      - cuneiform # multi-language OCR system
-      ##########################################################################
-      # GRAPHICS, IMAGE PROCESSING, COMPUTER VISION, MACHINE VISION
-      ##########################################################################
-      ## medical imaging
-      - aeskulap
-      - gimp ## Gimp Image Editor
-      - inkscape   # Can process raster SVG images
-      #-----------------------------------------------------------
-      ## Image processing tools and libraries :: https://wiki.ubuntu.com/UbuntuGIS
-      #-----------------------------------------------------------
-      - colordiff
-      # GRASS for geospatial data management, image processing, graphics/maps production, spatial modeling, and visualization.
-      - grass
-      # GIS
-      - postgis    # PG driver for GIS
-      - perl-mapscript  # Language bindings for mapserver
-      #-----------------------------------------------------------
-      ## Unified Modeling Language (UML) Tools
-      # http://askubuntu.com/questions/9405/what-uml-unified-modelling-language-tools-are-available
-      #-----------------------------------------------------------
-      - dia
-      # 3D graphics / Vector graphics ---------
-      - blender
-      - e00compr # an ANSI C library that reads and writes Arc/Info compressed E00 files.
       ##########################################################################
       # JavaScript
       ##########################################################################
@@ -316,12 +323,9 @@
       # ZMQ, also needed by Jupyter/IPython / IRuby etc..
       - libzmq3-dev
       ## AMQP
-      - rabbitmq-server  ## Erlang
-      ##########################################################################      
-      # GNOME general system utilities 
-      ##########################################################################      
+      - rabbitmq-server  ## Erlang      ##########################################################################      
+      # GNOME general system utilities ##########################################################################      
       - build-essential, cmake, autoconf, patch, libtool, automake
       - qtbase5-dev
       - libqt5svg5-dev
 ...
-

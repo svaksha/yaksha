@@ -1,28 +1,29 @@
+#!/usr/bin/env ansible-playbook
 ---
-- name: Python package deps with Pip3
-  hosts: all
-  tasks:
-    # https://www.middlewareinventory.com/blog/ansible-playbook-example/
-    # Name of the Play (an ordered set of tasks which should be run against hosts selected from your inventory.
-    - name: PIP3 installs PyPi Deps
-      package: 
-        name: "{{pip3}}" 
-        state: present
+- name: PyPI deps with Pip3
+#  hosts: all
+#  strategy: debug
+  pip3:
+    name: pip3
+    package: 
+        name: "{{item}}" 
+        state: latest
+        extra_args: --upgrade
         update_cache: yes
-      gather_facts: False
-      become: True
-      #become: yes
-      become_method: sudo
-      #update_cache: yes
-      with_pip3:
+        executable: pip3 
+      sudo: true
+      with_items:
       - NumPy
       - tensorflow 
-   #   - ['pytorch, 'pandas']    
+      - ['pytorch, 'pandas']    
       # For TESTING Ansible
-      - pip3 install molecule
+      #- pip3 install molecule
       #- pip3 install 'molecule[docker]'
       # Or use ansible-lint
-      - ansible-lint
+   #   - ansible-lint
+   #   - molecule
       ##------------------------
       #requirements: yaksha/python/requirements.txt
+      #https://github.com/deeptools/pyBigWig
+      #- pyBigWig
 ...
