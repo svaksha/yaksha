@@ -49,7 +49,7 @@ $ ansible-playbook -b -K yaksha.yml
 The above runs all the playbooks listed in the yaksha.yml` file. But, if you want to individually run specific playbooks, e.g. install only Ubuntu package-deps via apt-get, then run the ansible playbooks inside the /ubuntu folder, viz. 
 
 
-``
+```
 ansible-playbook -b -K ubuntu/ansible-ubuntu.yaml
 ```
 

@@ -1,21 +1,27 @@
 #!/usr/bin/env ansible-playbook
 ---
-- name: PyPI deps with Pip3
-#  hosts: all
+- name: Pip3 install PyPI deps
+  hosts: localhost
+  gather_facts: no
 #  strategy: debug
-  pip3:
-    name: pip3
-    package: 
-        name: "{{item}}" 
+  tasks:
+    - name: pip3
+      package: 
+        name: "{{ item }}" 
         state: latest
-        extra_args: --upgrade
+#        extra_args: --upgrade
         update_cache: yes
-        executable: pip3 
-      sudo: true
+    #    executable: pip3 
+      become: yes
+      become_method: sudo
       with_items:
       - NumPy
       - tensorflow 
-      - ['pytorch, 'pandas']    
+      #pip install tensorflow torch
+      - tensorflow 
+      - torch
+      - tonic
+ #     - ['pytorch, 'pandas']    
       # For TESTING Ansible
       #- pip3 install molecule
       #- pip3 install 'molecule[docker]'
@@ -27,3 +33,4 @@
       #https://github.com/deeptools/pyBigWig
       #- pyBigWig
 ...
+

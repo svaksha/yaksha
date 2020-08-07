@@ -1,0 +1,71 @@
+#!/usr/bin/env ansible-playbook
+---
+- name: Ubuntu System Deps
+  hosts: localhost
+  #strategy: debug
+  tasks:
+    - dpkg_selections: name="{{item}}" selection=hold
+      with_items:
+      - git
+      - tig
+      - stow
+      - mc
+      # gAWK and SED
+      - gawk, mawk
+      # download using CLI terminal commands
+      - wget, curl, w3m, elinks
+      - whois
+      - zip
+      - unzip
+      - unrar
+      - cron-apt
+      # BASH script checker: http://m.jakstys.lt/tech/2016/08/bash
+      - shellcheck
+      # https://askubuntu.com/questions/892076/how-to-selectively-purge-old-kernels-all-at-once/892077#892077
+      - dialog # DEP of server version of "rm-kernels-server"     
+      #########################################################################
+      ## media codecs, video and audio (music - mpto mp3) converters
+      #########################################################################
+      - ubuntu-restricted-extras # install the MP3 codec from the Ubuntu Restricted Extras package
+      #########################################################################
+      ## general cli tools for web, search
+      #########################################################################
+      - silversearcher-ag
+      - ctags
+      - screen
+      # Tools for dependency check and PPA removal
+      - equivs
+      - ppa-purge
+      - nmap
+      - dirmngr
+      #########################################################################
+      # Install Augeas - http://augeas.net/download.html
+      # An editing tool API to automate the configuration editing on remote servers.
+      #########################################################################
+      - python3-augeas 
+      - augeas-tools
+      - augeas-lenses
+      
+      #########################################################################
+      # PYTHON packages
+      #########################################################################
+      - python-yaml
+      - python-jinja2 
+      - python-crypto
+      - python-psutil
+      - pyqt5-dev-tools
+      # python-imaging
+      - python3-pil, python3-pil-dbg, python3-pil.imagetk
+      - python3-sane, python3-sane-dbg
+      - python-pil-doc, python-pil.imagetk
+      - build-essential
+      - python-pil 
+      # PIP = Python Installer
+      - python3-pip
+      - python-setuptools
+      - python-dev
+      - python-yaml
+      # python3
+      - python3-dev
+      - pkgconf
+...

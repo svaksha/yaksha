@@ -8,9 +8,9 @@
 ---
 
 - name: yaksha
-  hosts: all
-    shell: |
-    sudo apt-get update && upgrade
+  hosts: localhost
+#    shell: |
+#    sudo apt-get update && upgrade
 - include: ubuntu/ansible-ubuntu.yaml
-  #- include: python/ansible-python.yaml
+#- include: python/ansible-python.yaml
 ...
