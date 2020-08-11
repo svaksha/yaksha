@@ -325,9 +325,20 @@
       ## AMQP
       - rabbitmq-server  ## Erlang      
       ##########################################################################      
-      # GNOME general system utilities 
+      # GNOME Qt and general system utilities 
       ##########################################################################      
       - build-essential, cmake, autoconf, patch, libtool, automake
       - qtbase5-dev
       - libqt5svg5-dev
+      # Qt deps for Anaconda: https://docs.anaconda.com/anaconda/install/linux/
+      - libgl1-mesa-glx 
+      - libegl1-mesa 
+      - libxrandr2 
+      - libxrandr2 
+      - libxss1 
+      - libxcursor1 
+      - libxcomposite1 
+      - libasound2 
+      - libxi6 
+      - libxtst6   
 ...

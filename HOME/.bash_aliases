@@ -9,7 +9,7 @@
 #6.TECHNOTES : My BASH ALIAS definitions outgrew the ~/.bashrc file, split and 
 #              moved my additions into a separate "~/.bash_aliases" file.
 #              Also see /usr/share/doc/bash-doc/examples in the bash-doc package.
-#7.DATE(S)   : 2005nov05-2018nov29
+#7.DATE(S)   : 2005nov05-2020aug11
 ############################ METADATA ##########################################
 #
 
@@ -145,23 +145,25 @@ alias lsb-r='lsb_release -r'     # for exact version
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # JULIA REPL & programming
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-alias ju='julia'
-alias jl='julia -i --color=yes --history-file=yes'
-alias jlab='jupyter lab'        # the latest labapp that runs on jupyterhub too.
+alias jil='julia'
+alias gil='$(pwd)/juliadev/bin'
+alias jihi='julia -i --color=yes --history-file=yes'
+alias jilab='jupyter lab'        # the latest labapp that runs on jupyterhub too.
 alias juno='jupyter notebook'   # single notebook app
-#alias jl-git='cd julia; git pull git@github.com:JuliaLang/julia.git' # IGNORE, # The "jl-update.sh" script handles it.
-#alias jl-up='cd julia; ./julia -e "Pkg.update()"'  # The "jl-update.sh" script handles it
+#alias JILL='cd julia; git pull git@github.com:JuliaLang/julia.git' 
+#alias JILL-up='cd julia; ./julia -e "Pkg.update()"'  # The "jl-update.sh" script handles it
 alias juliavm="$HOME/.juliavm/juliavm"
-alias JULIA_PKGDIR=$HOME/julia  # $HOME/julia (v-1.0)
+alias JULIA_PKGDIR=$HOME/julia # $HOME/julia (v-1.x)
+
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Python related commands
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # ANACONDA -----------------
-alias con='cd anaconda3/envs/'
-alias cona='source activate'
-alias cond='source deactivate'
-alias py='python'
+alias ana='cd anaconda3/envs/'
+alias anaa='source activate'
+alias anad='source deactivate'
+alias py3='python3'
 # From @audreyr, http://www.codemakesmehappy.com/2015/04/spring-cleaning-for-python-programmers.html
 alias rmpyc='find . -type f -name "*.pyc" -print -delete'
 # Recursively IGNORE "Permission denied" directories.

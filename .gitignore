@@ -12,7 +12,8 @@
 *.directory
 HOME/.directory
 *.log
-pvt*/*
+pvt*
+pvt-*/*
 PRIVATE/*
 
 

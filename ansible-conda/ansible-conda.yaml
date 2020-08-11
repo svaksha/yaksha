@@ -1,0 +1,39 @@
+---
+- name: Install Conda
+  hosts: localhost
+  block:
+    - name: Download Anaconda
+      get_url:
+        url: https://repo.continuum.io/https://docs.anaconda.com/anaconda/install/linux/
+        dest: $HOME/
+        #checksum: md5:a946ea1d0c4a642ddf0c3a26a18bb16d
+        mode: 0550
+    - name: Create conda folder
+      become: True
+      file:
+        path: $HOME/anaconda3
+        state: directory
+        owner: div
+        mode: 755
+        recurse: yes
+    - name: Run the installer
+      shell: /tmp/install-miniconda.sh -b -u -p $HOME/anaconda3
+    - name: Remove the installer
+      file:
+        state: absent
+        path: $HOME/Anaconda3-2020.07-Linux-x86_64.sh 
+    - name: Add anaconda bin to path
+      become: True
+      shell: echo 'export PATH=$HOME/anaconda3/bin:$PATH' >> /etc/profile
+    - name: conda - read permission for all
+      become: True
+      file:
+        path: $HOME/anaconda3
+        mode: +r
+        recurse: yes
+    - name: conda - execution permission for all
+      become: True
+      file:
+        path: $HOME/anaconda3/bin
+        mode: +x
+        recurse: yes

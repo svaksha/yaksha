@@ -1,11 +1,10 @@
 namespace: "svaksha"
 name: "yaksha"
-version: "20.07"
+version: "20.08"
+description: "Yaksha uses daemons to automate the system installation & management for cross-platform OS for multiple programming languages using ansible playbooks, with dotfiles and configuration files!"
 readme: "README.md"
-authors:
-    - "SVAKSHA (http://svaksha.com)"
-license:
-    - "AGPLv3"
+authors: ["SVAKSHA"]
+license: ["AGPLv3"]
 tags:
     - daemons
     - automation
@@ -15,11 +14,7 @@ tags:
     - debian
     - ubuntu
     - automation
-    - bash
-    - docker
-    - opensuse
     - python
-    - julia
 repository: "https://github.com/svaksha/yaksha"
 documentation: "https://github.com/svaksha/yaksha"
 homepage: "http://svaksha.github.io/yaksha"
