@@ -150,6 +150,7 @@
       #########################################################################
       # OCR packages
       #########################################################################
+      - ocrmypdf   # https://github.com/jbarlow83/OCRmyPDF
       - libtesseract-dev
       - tesseract-ocr-all
       - libleptonica-dev

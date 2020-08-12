@@ -13,7 +13,7 @@ The standard disclaimer applies: Read the __License & Disclaimer__ No warranty a
 
 + [INSTALL](#install)
    + [Basic System Installation](#basic-system-installation) 
-        + [Python3 packages](#python3-packages)
+        + [Python3 Packages](#python3-packages)
 + [COPYRIGHT-LICENSE](#copyright-license)
    + [Contribute-Feedback](#contribute-feedback)
    + [References](#references)
@@ -62,7 +62,8 @@ The above command runs all the playbooks listed in the 'yaksha.yml' file. But, i
 ansible-playbook -b -K ubuntu/ansible-ubuntu.yaml
 ```
 
-### Python3 packages (via pip3 or conda?) using ansible
+### Python3 Packages 
+__(via pip3 or conda?) using ansible__
 
 The Python package (PyPI) installation deserves a longer rant, especially for Data Science. there is pip3 but then, Anaconda has eased the process and miniconda is the no-frill DIY version. Both make it easier to install all the AI/ML packages using Ansible but conda is its own beast, almost a parallel PKG manager system to pip3. 
 For DS with python, it was harder to know if a dep was installed via 'apt-get' or 'pip' or 'conda' and I wanted an integrated system installation process that does all the work silently without having to fiddle with various PKG management systems of each programming language. 
