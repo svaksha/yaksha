@@ -9,21 +9,22 @@
 #  Notes     : This file contains site-specific commands (EX. add directories to
 #              the LOAD_PATH for execution when the Julia REPL starts up.
 #              Packages to load, etc..
-#7.DATE(S)   : 2013oct01-2018apr08
+#7.DATE(S)   : 2013oct01-2020aug18
 ############################ METADATA ##########################################
 
 
 # Greet the user(s) upon startup.
 #-------------------------------------------------------------------------------
-print("|| नमस्ते ! स्वक्षंस्या सङ्गणकप्रक्रमम् स्वागतम || Greetings! ")
+print("|| नमस्ते ! स्वक्षंस्या सङ्गणकप्रक्रमम् स्वागतम || Greetings!")
+print("Version 1.4.1 from Ubuntu 20.04 ⛬ julia/1.4.1+dfsg-1")
 
 # PATHs, multiple options
 push!(LOAD_PATH, pwd())
-push!(LOAD_PATH, ENV["HOME"]*)
+#push!(LOAD_PATH, ENV["HOME"]*)
 push!(LOAD_PATH, ENV["HOME"]*"/.julia")
 push!(LOAD_PATH, ENV["HOME"]*"/julia")
-push!(LOAD_PATH, ENV["HOME"]*"/anaconda")
-push!(LOAD_PATH, ENV["HOME"]*"/devil-*")
+push!(LOAD_PATH, ENV["HOME"]*"/anaconda3")
+#push!(LOAD_PATH, ENV["HOME"]*"/devil-*")
 push!(LOAD_PATH, ENV["HOME"]*"/devya-*")
 push!(LOAD_PATH, ENV["HOME"]*"/divya")
 push!(LOAD_PATH, ENV["HOME"]*"/divya-*")
@@ -32,8 +33,8 @@ push!(LOAD_PATH, ENV["HOME"]*"/yaksh*")
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 # Update my Julia package installation
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-Pkg.status()
-Pkg.update()
+#Pkg.status()
+#Pkg.update()
 
 # Load startup.jl
 const STARTUPJL = "./julia/config/startup.jl"
@@ -43,6 +44,7 @@ if isfile(startupjl_path)
 	include(startupjl_path)
 end
 
+#=
 # Enable a per-directory startup file.
 #-----------------------------------------
 if chomp(readstring(`pwd`)) != ENV["HOME"]
@@ -50,6 +52,7 @@ if chomp(readstring(`pwd`)) != ENV["HOME"]
         require(startupjl_path)
     end
 end
+=#
 
 # Optional additional initialization
 #if isfile("$(ENV["HOME"])/.startup.jl");
@@ -96,8 +99,13 @@ atreplinit() do repl
     @eval using Query
     @eval using StatsBase
     @eval using YAML
+    @eval using Conda
+# OCR
+    @eval using OCRreact
 # visualize
+    @eval using Images
     @eval using Gadfly
+    @eval using ImageMagick
 end
 
 #julia --eval 'Pkg.add("IJulia")'
