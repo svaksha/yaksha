@@ -9,7 +9,7 @@
 #6.TECHNOTES : My BASH ALIAS definitions outgrew the ~/.bashrc file, split and 
 #              moved my additions into a separate "~/.bash_aliases" file.
 #              Also see /usr/share/doc/bash-doc/examples in the bash-doc package.
-#7.DATE(S)   : 2005nov05-2020aug11
+#7.DATE(S)   : 2005nov05-2020aug25
 ############################ METADATA ##########################################
 #
 
@@ -225,6 +225,15 @@ alias gpom='git push -u origin master'
 alias gss='gt status'
 alias gs-i='git status --ignored'
 alias gx='gitx --all'
+
+
+#-------------------------------------------------------------------------------
+# git BRANCH and git MERGED 
+#-------------------------------------------------------------------------------
+alias gbm='git branch --merged'
+# Clean MERGED branches: https://stackoverflow.com/a/21857717
+alias gbmd='!git branch --merged | grep  -v '\\*\\|master\\|develop' | xargs -n 1 git branch -d'
+
 #-------------------------------------------------------------------------------
 # git FETCH Prune
 # http://stackoverflow.com/questions/18308535/automatic-prune-with-git-fetch-or-pull
