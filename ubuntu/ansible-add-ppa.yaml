@@ -1,0 +1,12 @@
+---
+- hosts: localhost
+  user: ansible
+  become: True
+  tasks:
+   - name: Add Nginx
+     apt_repository:
+      repo: ppa:nginx/stable
+      state: present
+      update_cache: False #True
+      validate_certs: False
+...

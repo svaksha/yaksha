@@ -261,7 +261,7 @@ function install_df_rdf() {
     fi
     sudo ln -s "`pwd`/bin/any23" "$INSTALL_DIR/any23"
 }
-'
+
 
 #₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹
 ## DVCS packages
@@ -727,8 +727,6 @@ function install_webserver() {
     sudo apt-get -y install tornado
     # gradle
     sudo apt-get -y install gradle
-    # nginx
-    sudo add-apt-repository --yes ppa:nginx/stable
     sudo apt-get update
     sudo apt-get -y install nginx # nginx -v = 1.6.0
     # ZMQ, also needed by Jupyter/IPython / IRuby etc..

@@ -6,7 +6,7 @@
 # COPYRIGHT©: 2005-Now SVAKSHA (http://svaksha.com/pages/BIO) AllRightsReserved.
 # LICENSE   : GNU AGPLv3 subject to all terms stated in the LICENSE.md file.
 # REPOSITORY: http://svaksha.github.io/yaksha
-# VERSION   : created:2005mar22, @svaksha, modified:2020jul14
+# VERSION   : created:2005mar22, @svaksha, modified:2020sep18
 ############################# METADATA #########################################
 #
 # ~/.bashrc: executed by bash(1) for non-login shells. For examples
@@ -76,7 +76,7 @@ fi
 
 function _exit()	# function to run upon exit of shell
 {
-    echo -e "${RED}NAMASTE${NC}"
+    echo -e "${BLUE}NAMASTE${NC}"
 }
 trap _exit EXIT
 
@@ -112,14 +112,14 @@ source "${GITAWAREPROMPT}/main.sh"
 
 function host_zero()   # get current host related info
 {
-  echo -e "\nYou are logged on ${RED}$HOST"
+  echo -e "\nYou are logged on ${GREEN}$HOST"
   echo -e "\nAdditionnal information:$NC " ; uname -a
-  echo -e "\n${RED}Users logged on:$NC " ; w -h
-  echo -e "\n${RED}Current date :$NC " ; date
-  echo -e "\n${RED}Machine stats :$NC " ; uptime
-  echo -e "\n${RED}Memory stats :$NC " ; free
-  echo -e "\n${RED}Local IP Address :$NC" ; echo ${MY_IP:-"Not connected"}
-  echo -e "\n${RED}ISP Address :$NC" ; echo ${MY_ISP:-"Not connected"}
+  echo -e "\n${BLUE}Users logged on:$NC " ; w -h
+  echo -e "\n${CYAN}Current date :$NC " ; date
+  echo -e "\n${BLUE}Machine stats :$NC " ; uptime
+  echo -e "\n${CYAN}Memory stats :$NC " ; free
+  echo -e "\n${BLUE}Local IP Address :$NC" ; echo ${MY_IP:-"Not connected"}
+  echo -e "\n${CYAN}ISP Address :$NC" ; echo ${MY_ISP:-"Not connected"}
   echo
 }
 
@@ -196,7 +196,7 @@ fi
 
 # define color to additional file types
 #-------------------------------------------------------------------------------
-export LS_COLORS=$LS_COLORS:"*.wmv=01;35":"*.wma=01;35":"*.flv=01;35":"*.m4a=01;35"
+export LS_COLORS=$LS_COLORS:"*.wmv=01;36":"*.wma=01;36":"*.flv=01;36":"*.m4a=01;36"
 
 
 #-------------------------------------------------------------------------------
@@ -205,7 +205,7 @@ export LS_COLORS=$LS_COLORS:"*.wmv=01;35":"*.wma=01;35":"*.flv=01;35":"*.m4a=01;
 # http://ubuntugenius.wordpress.com/2011/07/11/how-to-change-the-command-line-prompt-colour-in-the-ubuntulinux-terminal/
 #-------------------------------------------------------------------------------
 if [ "$color_prompt" = yes ]; then
-    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]स्व\[\033[01;31m\]@क्ष\[\033[01;33m\]:\[\033[00;36m\]\w\[\033[0;37m\]\$ '
+    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]स्व\[\033[01;36m\]@क्ष\[\033[01;32\]:\[\033[00;33m\]\w\[\033[0;36m\]\$ '
 else
 #    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
     PS1='${debian_chroot:+($debian_chroot)}svaksha@kheops:\w\$ '
@@ -357,16 +357,16 @@ export TESSDATA_PREFIX=/usr/share/tesseract-ocr/4.00/tessdata
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/div/anaconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/home/div/anaconda3/etc/profile.d/conda.sh" ]; then
-        . "/home/div/anaconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/home/div/anaconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
+#__conda_setup="$('/home/div/anaconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+#if [ $? -eq 0 ]; then
+#    eval "$__conda_setup"
+#else
+#    if [ -f "/home/div/anaconda3/etc/profile.d/conda.sh" ]; then
+#        . "/home/div/anaconda3/etc/profile.d/conda.sh"
+#    else
+#        export PATH="/home/div/anaconda3/bin:$PATH"
+#    fi
+#fi
+#unset __conda_setup
 # <<< conda initialize <<<
 

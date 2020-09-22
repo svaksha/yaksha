@@ -1,0 +1,36 @@
+#!/usr/bin/env ansible-playbook
+---
+- name: Pip3 install PyPI deps
+  hosts: localhost
+  gather_facts: yes
+  strategy: debug
+  tasks:
+    - name: pip3
+      pip: 
+        state: latest
+        executable: pip3
+        # QUALITY:: Linting
+        name: ['ansible-lint', 'molecule']
+        # Install python packages using a remote protocol: bzr+, hg+, or git+ 
+        name: git+https://github.com/pipxproject/pipx
+        # PORTING
+        name: ['argparse', 'pika', 'six', 'bottle']
+        # SCIENTIFIC PYTHON 
+        name: ['NumPy', 'scipy', 'python-scipy', 'tonic', 'python-scipy'] 
+        # AI, MachineLearning
+        name: ['keras', 'tensorflow', 'pytorch', 'torch'] 
+        # NLP
+        name: ['nltk']
+        # Statistics, DATASCIENCE
+        name: ['pandas', 'scikit-learn', 'sklearn'] 
+        # IMAGING :: OCR 
+        name: ocrd_tesserocr # https://github.com/OCR-D/ocrd_tesserocr#from-pypi
+        # IMAGE MANIPULATION
+        name: ['pillow', 'OpenCV']
+        # image labeling
+        name: ['labelImg', 'boto3']
+        # VIZ - Graphics
+        name: ['nltk'] #'python-matplotlib']
+        # BIOINFORMATICS
+        #name: git+https://github.com/deeptools/pyBigWig
+...
