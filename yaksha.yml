@@ -7,10 +7,11 @@
 #
 ---
 
-- name: yaksha
+- name: Yaksha
   hosts: localhost
 #    shell: |
 #    sudo apt-get update && upgrade
 - include: ubuntu/ansible-ubuntu.yaml
-#- include: python/ansible-python.yaml
+#- include: ubuntu/ansible-add-ppa.yaml
+#- include: python/ansible-pypip3.yaml
 ...

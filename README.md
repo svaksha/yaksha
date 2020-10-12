@@ -39,28 +39,29 @@ sudo apt-get update && sudo apt-get install ansible git
 
 You can also use `pip` to install ansible but I prefer the `apt-get` package. Note that if you have a standalone machine this step is a manual process, else automated for the network installation.
 
-2. Now clone [this repo][https://github.com/svaksha/yaksha/]. For SSH, use the URL `git@github.com:svaksha/yaksha.git` via the clone command:
+2. Then, clone [Yaksha](https://github.com/svaksha/yaksha/). For SSH, use the URL `git@github.com:svaksha/yaksha.git` via the clone command:
 
 ```
 git clone ssh://github.com/svaksha/yaksha.git
 ```
 
-Alternatively, Github offers HTTPS (replace the ssh with https in the above command) as transfer protocols or the repo can be downloaded as a [zip-file][https://github.com/svaksha/yaksha/archive/master.zip] (latest 'master' branch). 
+Alternatively, Github offers HTTPS (replace the ssh with https in the above command) as transfer protocols and the repo can be downloaded as a [zip-file](https://github.com/svaksha/yaksha/archive/master.zip) (latest 'master' branch). 
 
-3. Then, to run all the ansible playbooks sequentially, 'cd' into the directory and run the following commands in your terminal:
+3. Then, to run all the ansible playbooks sequentially, run the following commands in your terminal:
 
 ```
-$ cd yaksha
+$ cd yaksha    #change directory into yaksha
 
-$ ansible-playbook -b -K yaksha.yml
+$ ansible-playbook -b -C -K -v yaksha.yml    #run all PBs
 ```
 
-The above command runs all the playbooks listed in the 'yaksha.yml' file. But, if you want to individually run specific playbooks, e.g. install only Ubuntu package-deps via apt-get, then run the ansible playbooks inside the /ubuntu folder, viz. 
+The above command runs all the playbooks listed in the `yaksha.yml` file. But, if you want to individually run specific playbooks, e.g. install only Ubuntu package-deps via apt-get, then run the ansible playbooks inside the /ubuntu folder, with specific commands: 
 
 
 ```
 ansible-playbook -b -K ubuntu/ansible-ubuntu.yaml
 ```
+
 
 ### Python3 Packages 
 __(via pip3 or conda?) using ansible__
@@ -71,6 +72,7 @@ For DS with python, it was harder to know if a dep was installed via 'apt-get' o
 
 ----
 
+
 # COPYRIGHT-LICENSE
 
 + COPYRIGHT© 2005-Now [SVAKSHA](http://svaksha.com/pages/Bio). This repository is licensed and distributed under the [AGPLv3 License](http://www.gnu.org/licenses/agpl-3.0.html) and ALL references, citations, copies and forks of this work must retain the Copyright, Licence (LICENSE.md file), this permission notice and attribute [credit](https://en.wikipedia.org/wiki/Creative_Commons_license#Attribution). Copyrights for code when referenced, and/or attributed to other people, repos and/or entities, belongs to them as licensed by them. 
@@ -80,7 +82,7 @@ For DS with python, it was harder to know if a dep was installed via 'apt-get' o
 All feedback and suggestions for improvements are welcome [via BR's](https://github.com/svaksha/yaksha/issues)!
 
 ## References
-List of references and a list of people (repo'S) that have inspired me to learn and improve `Yaksha over time. It is amazing how much one can learn from other peoples code so lets share the credits: 
+List of references and a list of people (repo'S) that have inspired me to learn and improve `Yaksha` over time. It is amazing how much one can learn from other peoples code so lets share the credits: 
 
 + https://galaxy.ansible.com/docs/contributing/creating_role.html
 + https://github.com/cowboy/dotfiles/

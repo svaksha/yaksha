@@ -19,9 +19,9 @@
   tasks:
     - name: Install basic Ubuntu packages
       package: 
-#        name: "{{item}}" 
-#       state: latest
-#      update_cache: yes
+        name: "{{item}}" 
+        state: latest
+        update_cache: yes
       become: yes
       become_method: sudo
       with_items:
@@ -74,19 +74,6 @@
       - nano
       # VIM
       - vim, fontforge, vim-nox, ctags
-      - xournal
-      ##########################################################################
-      ## LaTeX2ε
-      ##########################################################################
-      - Texmaker
-      - TeXstudio
-      - texlive, texlive-latex-extra
-      # Latex Fonts support
-      - texlive-fonts-recommended
-      - texlive-fonts-extra
-      - texlive-lang-cyrillic, scalable-cyrfonts-tex
-      # for technical/scientific posters.
-      - texlive-science
       ##########################################################################      
       # TMUX
       ##########################################################################      
@@ -251,6 +238,16 @@
       - tig
       - git-lfs #{{https://github.com/github/git-lfs.git}}
       - mercurial
+      ##########################################################################
+      ## LaTeX2ε
+      ##########################################################################
+      - texlive, texlive-latex-extra
+      # Latex Fonts support
+      - texlive-fonts-recommended
+      - texlive-fonts-extra
+      - texlive-lang-cyrillic, scalable-cyrfonts-tex
+      # for technical/scientific posters.
+      - texlive-science
       #₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹
       # FONTS
       #₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹
@@ -355,3 +352,4 @@
       - libxi6 
       - libxtst6   
 ...
+

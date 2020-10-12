@@ -18,6 +18,11 @@
 
 yaksha_dir=~/yaksha/ubuntu
 
+# DEBUG your BASH script 
+# From, https://twitter.com/b0rk/status/1312413779951595531
+trap '(read -p "[$BASH_SOURCE:§LINENO] $BASH_COMMAND?")' DEBUG
+
+
 # Log the date and time of execution of bash script into the `out` files.
 
 date +"%c|started running $(apt): " >> out-apt-install.log
