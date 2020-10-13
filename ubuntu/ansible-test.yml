@@ -1,0 +1,29 @@
+#!/usr/bin/env ansible-playbook
+---
+# using builtin Debian APT-GET
+# https://docs.ansible.com/ansible/latest/collections/ansible/builtin/apt_module.html#ansible-collections-ansible-builtin-apt-module
+- name: Install Ubuntu DEV pkgs 
+  hosts: localhost
+  strategy: debug
+  gather_facts: true
+  become: yes
+  become_method: sudo
+  tasks:
+    apt: 
+    state: latest
+#    executable: apt
+    - git
+    - tig
+    - stow
+    - mc
+    # gAWK and SED
+    - gawk, mawk
+    # download using CLI terminal commands
+    - wget, curl, w3m, elinks
+    - whois
+    - zip
+    - unzip
+    - unrar
+    - sendmail
+    - postfix
+...

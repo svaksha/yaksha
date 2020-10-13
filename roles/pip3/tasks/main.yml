@@ -1,9 +1,0 @@
----
-- name: install python3 pip
-  hosts: all
-  gather_facts: False
-  become: True
-  package:
-  - python3-pip
-  - numpy
-   

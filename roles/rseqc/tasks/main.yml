@@ -1,8 +1,0 @@
----
-
-- name: pip install RSeQC {{ rseqc_version }}
-  pip:
-    name: RSeQC 
-    executable: pip
-    version: "v{{ rseqc_version }}"
-  tags: RSeQC 

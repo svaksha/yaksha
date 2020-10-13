@@ -37,3 +37,4 @@
         path: $HOME/anaconda3/bin
         mode: +x
         recurse: yes
+...

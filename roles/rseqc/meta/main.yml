@@ -1,4 +1,0 @@
----
-dependencies:
-#https://github.com/deeptools/pyBigWig
-- role: pyBigWig

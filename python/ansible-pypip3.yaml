@@ -4,6 +4,7 @@
   hosts: localhost
   gather_facts: yes
   strategy: debug
+  become: True
   tasks:
     - name: pip3
       pip: 
