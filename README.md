@@ -2,11 +2,11 @@
 
 __My personal automation daimons :: use at your own risk!__
 
-The term __YAKSHA__, is used to refer to ["fairies", "demons" and "spirits"](https://en.wikipedia.org/wiki/Yaksha) in Sanskrit; i.e. my automated daemons for DEVEL installation & management for cross-platform __*nix__ OS for multiple programming languages, updates, backups, bash scripts, dockerfiles, playbooks, dotfiles and configuration files!
+The term __YAKSHA__, is used to refer to ["fairies", "demons" and "spirits"](https://en.wikipedia.org/wiki/Yaksha) in Sanskrit; i.e. my automated daemons to avoid `Yak-Sha`ving with DEVEL installation & management that should run on cross-platform __*nix__ OS for multiple programming languages, updates, backups, bash scripts, dockerfiles, playbooks, dotfiles and configuration files!
 
-I turned towards automation in my quest for a standard development environment across multiple machines. Manual customization was time-consuming and error-prone. Wrestling with my OS was a huge time-sink that resulted in discrepancies with machines that worked differently, programs ran differently or broke unexpectedly and worse, dependency-hell. 
+Automating my development environment across multiple machines helps me keep track of packages, dep-hell and redundancy; unlike manual customization that was not only time-consuming but error-prone too. Wrestling with my OS was a huge time-sink that resulted in discrepancies with machines that worked differently, programs ran differently or broke unexpectedly and worse, dependency-hell. A broken OS can be very frustrating! 
 
-I started using shell scripts to manage the `apt-get` install process for many years but these old bash scripts are being (slowly) retired. ATM, I am in the process of porting to use `ansible`, an agentless distro-agnostic tool to manage my dev environments. You can find this repo on [galaxy-ansible](https://galaxy.ansible.com/svaksha) too. __PS__: The old shell/ bash scripts work, but are unsupported & unmaintained. Eg. lotsa packages changed between Ubuntu 18.04 and 20.04 LTS, so was impractical to maintain individual scripts for multiple OS'es.
+Initially, I had started with bash-shell scripts to manage the `apt-get` install process but over the years there are newer devops methods, so its time to port these bash scripts and (slowly) retire them. I am in the process of porting some parts of the installation to manage my dev environments to `ansible`, an agentless distro-agnostic tool. You can find this repo on [galaxy-ansible](https://galaxy.ansible.com/svaksha) too. __PS__: The old shell/ bash scripts work, but are unsupported & unmaintained. Eg. many packages changed between Ubuntu 18.04 and 20.04 LTS, so was impractical to maintain individual scripts for multiple OS'es.
 
 The standard disclaimer applies: Read the __License & Disclaimer__ No warranty and/or guarantee for any particular use, express or implied and YOU USE ALL CONTENTS IN YAKSHA AT YOUR OWN RISK AND LIABILITY!
 
@@ -25,11 +25,26 @@ The standard disclaimer applies: Read the __License & Disclaimer__ No warranty a
 
 Installation processes have constantly evolved over the years, so there may be some legacy code that needs pruning or still needs to be ported to ansible. Hence, the constant [CRUD](https://en.wikipedia.org/wiki/Create,_read,_update_and_delete) sandbox status may break your machine. 
 
-Currently, the repository has:
+## DEV Packages Installation - Bash
 
-* __/roles__: Splitting ansible playbooks for different tasks requires a [roles](https://docs.ansible.com/ansible/latest/user_guide/playbooks_reuse_roles.html) directory.
+If you have NOT set the PATH environment variable for running Bash scripts from anywhere on your system, then:
 
-## Basic System Installation
+
+```
+$ cd yaksha/ubuntu    #change directory into the ubuntu dir in the yaksha repo.
+
+$ chmod +x /yaksha/ubuntu/apt-install.sh   # give it executable perms, if not already given.
+ 
+```
+
+Since `.` refers to the current directory and as `apt-install.sh` in the current directory, you can easily run it with:
+
+```
+$ ./apt-install.sh  
+
+```
+
+## DEV Packages Installation - Ansible
 
 1. At the outset, your Ubuntu machine should have _Ansible and Git_ intalled.
 

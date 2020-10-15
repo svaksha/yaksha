@@ -13,5 +13,5 @@
 #    sudo apt-get update && upgrade
 - include: ubuntu/ansible-ubuntu.yaml
 #- include: ubuntu/ansible-add-ppa.yaml
-#- include: python/ansible-pypip3.yaml
+- include: python/ansible-pypip3.yaml
 ...
