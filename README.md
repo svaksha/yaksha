@@ -1,7 +1,5 @@
 # YAKSHA
 
-__My personal automation daimons :: use at your own risk!__
-
 The term __YAKSHA__, is used to refer to ["fairies", "demons" and "spirits"](https://en.wikipedia.org/wiki/Yaksha) in Sanskrit; i.e. my automated daemons to avoid `Yak-Sha`ving with DEVEL installation & management that should run on cross-platform __*nix__ OS for multiple programming languages, updates, backups, bash scripts, dockerfiles, playbooks, dotfiles and configuration files!
 
 Automating my development environment across multiple machines helps me keep track of packages, dep-hell and redundancy; unlike manual customization that was not only time-consuming but error-prone too. Wrestling with my OS was a huge time-sink that resulted in discrepancies with machines that worked differently, programs ran differently or broke unexpectedly and worse, dependency-hell. A broken OS can be very frustrating! 
@@ -12,8 +10,8 @@ The standard disclaimer applies: Read the __License & Disclaimer__ No warranty a
 
 
 + [INSTALL](#install)
-   + [Basic System Installation](#basic-system-installation) 
-        + [Python3 Packages](#python3-packages)
+   + [DEV Installation-Bash](#dev-installation-bash) 
+   + [DEV Installation-Ansible](#dev-installation-ansible)
 + [COPYRIGHT-LICENSE](#copyright-license)
    + [Contribute-Feedback](#contribute-feedback)
    + [References](#references)
@@ -25,7 +23,7 @@ The standard disclaimer applies: Read the __License & Disclaimer__ No warranty a
 
 Installation processes have constantly evolved over the years, so there may be some legacy code that needs pruning or still needs to be ported to ansible. Hence, the constant [CRUD](https://en.wikipedia.org/wiki/Create,_read,_update_and_delete) sandbox status may break your machine. 
 
-## DEV Packages Installation - Bash
+## DEV Installation-Bash
 
 If you have NOT set the PATH environment variable for running Bash scripts from anywhere on your system, then:
 
@@ -44,7 +42,7 @@ $ ./apt-install.sh
 
 ```
 
-## DEV Packages Installation - Ansible
+## DEV Installation-Ansible
 
 1. At the outset, your Ubuntu machine should have _Ansible and Git_ intalled.
 
@@ -78,19 +76,20 @@ ansible-playbook -b -K ubuntu/ansible-ubuntu.yaml
 ```
 
 
-### Python3 Packages 
-__(via pip3 or conda?) using ansible__
+__Install Python3 scientific packages (via pip3) using ansible__
 
-The Python package (PyPI) installation deserves a longer rant, especially for Data Science. there is pip3 but then, Anaconda has eased the process and miniconda is the no-frill DIY version. Both make it easier to install all the AI/ML packages using Ansible but conda is its own beast, almost a parallel PKG manager system to pip3. 
-For DS with python, it was harder to know if a dep was installed via 'apt-get' or 'pip' or 'conda' and I wanted an integrated system installation process that does all the work silently without having to fiddle with various PKG management systems of each programming language. 
+The Python package (PyPI) installation deserves a longer rant, especially for Data Science. Pip3 is nice, but Anaconda (& no-frills miniconda) came by so now DS/ scientific python has multiple dep-installation methods, via 'apt-get' or 'pip/pip3' or 'conda' or the timeless 'source' installation. IMPO, while Conda made it easier to install all the scientific AI/ML packages it is its own beast with tons of unnecessary pre-packaged-packages that I wont use! It works as a parallel PKG manager system to pip3, but for DS, but I have some qualms about 'an OS inside an OS' that only handles packages of ONE programming language and wonder if I need the bloat. Why isnt pkg-dep hell as simple as Julia? TL;DR, I will stick to 'apt-get and pip3' here:
 
+```
+ansible-playbook -b -K python/ansible-pypip3.yaml
+```
 
 ----
 
 
 # COPYRIGHT-LICENSE
 
-+ COPYRIGHT© 2005-Now [SVAKSHA](http://svaksha.com/pages/Bio). This repository is licensed and distributed under the [AGPLv3 License](http://www.gnu.org/licenses/agpl-3.0.html) and ALL references, citations, copies and forks of this work must retain the Copyright, Licence (LICENSE.md file), this permission notice and attribute [credit](https://en.wikipedia.org/wiki/Creative_Commons_license#Attribution). Copyrights for code when referenced, and/or attributed to other people, repos and/or entities, belongs to them as licensed by them. 
++ COPYRIGHT© 2005-Now SVAKSHA. This repository is licensed and distributed under the [AGPLv3 License](http://www.gnu.org/licenses/agpl-3.0.html) and ALL references, citations, copies and forks of this work must retain the Copyright, Licence (LICENSE.md file), this permission notice and attribute [credit](https://en.wikipedia.org/wiki/Creative_Commons_license#Attribution). Copyrights for code when referenced, and/or attributed to other people, repos and/or entities, belongs to them as licensed by them. 
 
 
 ## Contribute-Feedback
