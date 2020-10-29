@@ -86,12 +86,17 @@
       - Texmaker
       - TeXstudio
       - texlive, texlive-latex-extra
+      - texlive-latex-base
       # Latex Fonts support
       - texlive-fonts-recommended
       - texlive-fonts-extra
       - texlive-lang-cyrillic, scalable-cyrfonts-tex
+      - texlive-fonts-recommended 
+      - texlive-fonts-extra
       # for technical/scientific posters.
       - texlive-science
+      - texlive-luatex
+      - texlive-bibtex-extra biber
       ##########################################################################      
       # TMUX
       ##########################################################################      
