@@ -10,12 +10,16 @@
       pip: 
         state: latest
         executable: pip3
+        # Jupyter
+        name: ['jupyterlab']
         # QUALITY:: Linting
         name: ['ansible-lint', 'molecule']
         # Install python packages using a remote protocol: bzr+, hg+, or git+ 
         name: git+https://github.com/pipxproject/pipx
         # PORTING
         name: ['argparse', 'pika', 'six', 'bottle']
+        # DATA-IO formats
+        name: ['xlrd']
         # SCIENTIFIC PYTHON 
         name: ['NumPy', 'scipy', 'python-scipy', 'tonic', 'python-scipy'] 
         # AI, MachineLearning

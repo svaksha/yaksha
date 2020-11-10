@@ -163,11 +163,7 @@
       - manpages-dev
       - python-numpy
       # Jupyter
-      # sudo pip3 install ipython jinja2 tornado pyzmq pandas jsonschema pyaml 
-      # sudo pip3 install rotate-backups
-      # sudo pip3 install plumbum ## An alternatice to Fabric, https://github.com/tomerfiliba/plumbum
-      # sudo pip3 install jedi -i http://pypi.python.org/simple/
-      # sudo pip3 install pylint -i http://pypi.python.org/simple/
+      - jupyter, jupyter-core
       ##---------
       # XML deps
       - libxml2-dev 
