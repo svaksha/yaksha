@@ -1,0 +1,62 @@
+---
+# file: ~/yaksha/tesseract/main.yml
+
+- name: Ensure packages
+  apt:
+    pkg: '{{ packages }}'
+    state: present
+    update_cache: yes
+    cache_valid_time: 3600
+    vars:
+      packages:
+        - tesseract-ocr
+        - tesseract-ocr-eng
+        - tesseract-ocr-deu
+        - libtesseract-dev
+
+- name: Install pre-requisites
+  apt: pkg={{ item }}
+  sudo: yes
+  with_items:
+    - autoconf
+    - automake
+    - libtool
+    - subversion
+        
+- name: Install Tesseract-deps-1
+  apt: pkg={{ item }}
+  sudo: yes
+  with_items:
+    - libpng12-dev
+    - libjpeg62-dev
+    - zlib1g-dev
+    - libleptonica-dev
+    
+- name: Install Tesseract-deps-2
+  apt: pkg=libtiff4-dev
+  sudo: yes
+
+- name: Git tesseract code
+  git:
+    repo: https://github.com/tesseract-ocr/tesseract
+    dest: "{{ tesseract_dir }}"
+
+- name: Configure Tesseract
+  command: chdir={{ tesseract }} {{ item }}
+  with_items:
+    - ./autogen.sh
+    - ./configure 
+    - make
+  tags:
+    - compile
+
+- name: Installing Tesseract
+  command: chdir={{ tesseract }} {{ item }}
+  sudo: yes
+  with_items:
+    - make install
+    - ldconfig
+  tags:
+    - install
+...
+

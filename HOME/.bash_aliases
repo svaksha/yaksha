@@ -145,15 +145,17 @@ alias lsb-r='lsb_release -r'     # for exact version
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # JULIA REPL & programming
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 alias jil='julia'
 alias gil='$(pwd)/juliadev/bin'
 alias juhi='julia -i --color=yes --history-file=yes'
-alias jinn='jupyter lab'        # the latest labapp that runs on jupyterhub too.
-alias juno='jupyter notebook'   # single notebook app
+alias jlab='jupyter lab'        # the latest labapp that runs on jupyterhub too.
+alias jnb='jupyter notebook'   # single notebook app
 #alias JILL='cd julia; git pull git@github.com:JuliaLang/julia.git' 
 #alias JILLup='cd julia; ./julia -e "Pkg.update()"'  # The "jl-update.sh" script handles it
 alias juliavm="$HOME/.juliavm/juliavm"
 alias JULIA_PKGDIR=$HOME/julia # $HOME/julia (v-1.x)
+
 
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

@@ -1,0 +1,91 @@
+---
+- name: "Install Ubuntu Packages"
+  hosts: localhost
+#https://stackoverflow.com/questions/63423324/issue-with-ansible-playbook-in-ubuntu
+# https://stackoverflow.com/questions/63070523/ansible-further-plays-are-not-executing-if-task-in-one-play-failed-when-multipl
+
+#  connection: local
+  become: yes
+  become_method: sudo
+#  become_user: sudo
+  tasks:
+
+  - name: DPKG fixes pkg problems
+    shell: sudo dpkg --configure -a
+
+  - name: Run apt-get install
+    shell: sudo apt-get install -f
+
+  - name: Clean & Update
+    shell: sudo apt-get clean && sudo apt-get update
+
+  - name: Upgrade
+    shell: sudo apt-get upgrade -y
+
+  - name: Install basic packages
+    apt:
+      name:
+      - vim
+      - curl
+      - python3-pip
+      - apache2
+      - libapache2-mod-wsgi-py3
+      - mysql-server
+      - libmysqlclient-dev
+#      state: latest
+#      cache_valid_time: 3600
+
+
+  - name: Install erlang packages
+    apt:
+      name:
+      - erlang-base
+      - erlang-asn1
+      - erlang-crypto
+      - erlang-eldap
+      - erlang-ftp
+      - erlang-inets
+      - erlang-mnesia
+      - erlang-os-mon
+      - erlang-parsetools
+      - erlang-public-key
+      - erlang-runtime-tools
+      - erlang-snmp
+      - erlang-ssl
+      - erlang-syntax-tools
+      - erlang-tftp
+      - erlang-tools
+      - erlang-xmerl
+#      state: latest
+#      cache_valid_time: 3600
+
+- name: Attempt and graceful roll back demo
+  block:
+    - name: Print a message
+      ansible.builtin.debug:
+        msg: 'I execute normally'
+
+    - name: Force a failure
+      ansible.builtin.command: /bin/false
+
+    - name: Never print this
+      ansible.builtin.debug:
+        msg: 'I never execute, due to the above task failing, :-('
+  rescue:
+    - name: Print when errors
+      ansible.builtin.debug:
+        msg: 'I caught an error'
+
+    - name: Force a failure in middle of recovery! >:-)
+      ansible.builtin.command: /bin/false
+
+    - name: Never print this
+      ansible.builtin.debug:
+        msg: 'I also never execute :-('
+  always:
+    - name: Always do this
+      ansible.builtin.debug:
+        msg: "This always executes"
+...
+
+

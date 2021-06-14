@@ -165,8 +165,8 @@ back_White='\e[47m'       # White
 
 # Looks best on a black background.....
 #-------------------------------------------------------------------------------
-echo -e "${BLUE}This is BASH ${YELLOW}${BASH_VERSION%.*}\
-${BLUE} - DISPLAY on ${YELLOW}$DISPLAY${NC}\n"
+echo -e "${BLUE}This is BASH ${RED}${BASH_VERSION%.*}\
+${BLUE} - DISPLAY on ${RED}$DISPLAY${NC}\n"
 date
 if [ -x /usr/games/fortune ]; then
     /usr/games/fortune -s     # makes our day a bit more fun.... :-)
@@ -205,7 +205,7 @@ export LS_COLORS=$LS_COLORS:"*.wmv=01;36":"*.wma=01;36":"*.flv=01;36":"*.m4a=01;
 # http://ubuntugenius.wordpress.com/2011/07/11/how-to-change-the-command-line-prompt-colour-in-the-ubuntulinux-terminal/
 #-------------------------------------------------------------------------------
 if [ "$color_prompt" = yes ]; then
-    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]स्व\[\033[01;36m\]@क्ष\[\033[01;32\]:\[\033[00;33m\]\w\[\033[0;36m\]\$ '
+    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;35m\]स्व\[\033[01;36m\]@क्ष\[\033[01;32\]:\[\033[01;33m\]\w\[\033[1;34m\]\$ '
 else
 #    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
     PS1='${debian_chroot:+($debian_chroot)}svaksha@kheops:\w\$ '

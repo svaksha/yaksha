@@ -1,0 +1,17 @@
+---
+# did-yaksha-install.yml
+# USAGE: ansible-playbook -e '{ "pkgs": ["foo", "zip"] }' did-yaksha-install.yaml
+
+- name: Check to see if a package is installed
+  hosts: "{{ hosts | default('localhost') }}"
+  tasks:
+
+  - name: Gather the packager facts
+    package_facts:
+
+  - name: Package status
+    debug:
+      msg: "{{ item }} {{ 'installed' if item in ansible_facts.packages else 'not installed' }}"
+    loop: "{{ pkgs | default([]) }}"
+
+...

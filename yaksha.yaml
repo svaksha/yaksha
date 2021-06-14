@@ -1,17 +1,21 @@
 #!/usr/bin/env ansible-playbook
+---
 # ^ Trick: the above line can be used to make your play an executable
 # you also must add 'x' permissions to the file
 # Credit: https://github.com/ansible/ansible/blob/devel/examples/play.yml
 # this file is based on phred's 'pedantically commented playbook'
 # https://github.com/phred/ansible-examples/blob/master/pedantically_commented_playbook.yml
+# 
+# Usage: ansible-playbook -b -C -K -v yaksha.yml 
 #
----
 
 - name: Yaksha
   hosts: localhost
 #    shell: |
 #    sudo apt-get update && upgrade
-- include: ubuntu/ansible-ubuntu.yaml
+- include: ubuntu/main.yaml
 #- include: ubuntu/ansible-add-ppa.yaml
-- include: python/ansible-pypip3.yaml
+#- include: python/main.yaml
+# Tesseract
+#- include: tesseract/main.yaml
 ...

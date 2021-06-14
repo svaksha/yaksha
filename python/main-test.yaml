@@ -1,0 +1,28 @@
+#!/usr/bin/env ansible-playbook
+---
+- name: PyPip3
+  hosts: localhost
+  #strategy: debug
+  tasks:
+    - name: Pip Install Python packages
+#     pip3: pkg={{ item }}
+      package: 
+        name: "{{ item }}" 
+        state: latest
+        update_cache: yes
+      become: yes
+      become_method: sudo
+      with_items:
+#        - six 
+#        - bottle 
+        - pandas
+        - tensorflow
+        - numpy
+        # https://github.com/pipxproject/pipx
+        - pika
+        - argparse
+        #- docker
+#        - ['pytorch, 'pandas']        
+        - pytorch
+...
+

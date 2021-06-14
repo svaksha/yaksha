@@ -13,15 +13,15 @@
 #  - name: lxd
 #    classic: yes
 # Now use Debian APT-GET
-- name: Ubuntu System Deps
+- name: Install Ubuntu Packages
   hosts: localhost
   #strategy: debug
   tasks:
     - name: Install basic Ubuntu packages
       package: 
-#     name: "{{item}}" 
-#     state: latest
-#     update_cache: yes
+     name: "{{item}}" 
+     state: latest
+     update_cache: yes
       become: yes
       become_method: sudo
       with_items:
@@ -67,6 +67,7 @@
       - isomaster
       - dconf-editor
       - software-properties-common
+      - youtube-dl
       #########################################################################
       # IDE for GNOME to support GTK+, GLib, APIs
       #########################################################################
@@ -80,6 +81,9 @@
       # VIM
       - vim, fontforge, vim-nox, ctags
       - xournal
+      # Wallpaper slideshow with data and time 
+      # Homepage: http://peterlevi.com/variety AND Github: https://github.com/varietywalls/variety
+      - variety
       ##########################################################################
       ## LaTeX2ε
       ##########################################################################
@@ -185,7 +189,7 @@
       - libcairo2-dev
       # iagemagick lib
       - graphicsmagick-imagemagick-compat  # version 1.4+really1.3.35-1, or
-      - imagemagick-6.q16                  # version 8:6.9.10.23+dfsg-2.1ubuntu11
+      - imagemagick-6.q16           # version 8:6.9.10.23+dfsg-2.1ubuntu11
       - imagemagick-6.q16hdri  
       ## OCR tools to copy text from locked filed: https://help.ubuntu.com/community/OCR
       - fuzzyocr # spamassassin plugin to check image attachments
@@ -220,12 +224,14 @@
       # GCC {{ C, CPP, Fortran }}
       #₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹
       ## C/C++
-      - gcc, make
-      - cmake
+      - gcc, make, cmake
       - libncurses5-dev
       - cmake-curses-gui
       - clang
       - g++
+      - gcc-multilib
+      # # LLVM OpenMP runtime dev package
+      - libomp-dev # OpenMP runtime implementation manages the multiple threads in an OpenMP program while it is executing.
       ## Fortran
       - gfortran
       - m4
@@ -271,7 +277,9 @@
       ##########################################################################
       # JAVA
       ##########################################################################
+      - default-jdk
       - openjdk-11-jdk
+      - libwebkitgtk-1.0-0
       ##########################################################################
       # JavaScript
       ##########################################################################
@@ -308,8 +316,7 @@
       - ruby
       - ruby-all-dev
       - ruby-dev
-      - ruby-full
-      ###################### ###################################################
+      - ruby-full #########################################################################
       # YAKSHA DEVOPS
       # Automate SERVER - NETWORKING - CLOUD
       #########################################################################
@@ -354,4 +361,24 @@
       - libasound2 
       - libxi6 
       - libxtst6   
+      ### Command line utils Wdiff
+      - wdiff
+      # more utils ---
+      - pkg-config 
+      - libjpeg-dev 
+      - libpng-dev 
+      - libtiff-dev 
+      - libavcodec-dev 
+      - libavformat-dev
+      - libswscale-dev
+      - libv4l-dev
+      - libxvidcore-dev 
+      - libx264-dev
+      - libjpeg-dev
+      - libpng-dev
+      - libtiff-dev
+      - libavcodec-dev
+      - libgtk-3-dev
+      - libatlas-base-dev
+      - gfortran
 ...

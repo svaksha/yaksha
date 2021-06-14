@@ -1,0 +1,48 @@
+---
+
+# Use Debian APT-GET
+- name: Install Ubuntu Packages
+  hosts: localhost
+  #strategy: debug
+  apt: 
+    state: latest
+    update_cache: true
+    become: yes
+    become_method: sudo
+    pkg: 
+      #₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹
+      ## DVCS packages
+      #₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹
+      - mercurial
+      - git
+      - tig
+      - git-lfs #{{https://github.com/github/git-lfs.git}}
+      - stow
+      - mc
+    # gAWK and SED
+      - gawk, mawk
+      # download using CLI terminal commands
+      - wget, curl, w3m, elinks
+      - whois
+      - zip
+      - unzip
+      - unrar
+       #########################################################################
+       # JULIA packages
+      #########################################################################
+      - julia
+      #########################################################################
+      # PYTHON packages
+      #########################################################################
+      - python-yaml
+      - python-jinja2 
+      - python-crypto
+      - python-psutil
+      - pyqt5-dev-tools
+      # python-imaging
+      - python3-pil, python3-pil-dbg, python3-pil.imagetk
+      - python3-sane, python3-sane-dbg
+      - python-pil-doc, python-pil.imagetk
+      - build-essential
+      - python-pil 
+...

@@ -1,10 +1,10 @@
 # YAKSHA
 
-The term __YAKSHA__, is used to refer to ["fairies", "demons" and "spirits"](https://en.wikipedia.org/wiki/Yaksha) in Sanskrit; i.e. my automated daemons to avoid `Yak-Sha`ving with DEVEL installation & management that should run on cross-platform __*nix__ OS for multiple programming languages, updates, backups, bash scripts, dockerfiles, playbooks, dotfiles and configuration files!
+The term __YAKSHA__, is used to refer to ["fairies", "demons" and "spirits"](https://en.wikipedia.org/wiki/Yaksha) in Sanskrit; i.e. my automated daemons to save me from mundane [Yak-Sha](https://en.wiktionary.org/wiki/yak_shaving)ving the OS with DEVEL installation & management that should "just work", irrespective of cross-platform __*nix__ OS, with multiple programming languages, updates, backups, bash scripts, dockerfiles, playbooks, dotfiles and configuration files!
 
-Automating my development environment across multiple machines helps me keep track of packages, dep-hell and redundancy; unlike manual customization that was not only time-consuming but error-prone too. Wrestling with my OS was a huge time-sink that resulted in discrepancies with machines that worked differently, programs ran differently or broke unexpectedly and worse, dependency-hell. A broken OS can be very frustrating! 
+Ofcourse, automating my development environment across multiple machines helps me keep track of packages, dep-hell and redundancy; unlike manual customization that was not only time-consuming but error-prone too. Wrestling with my OS was a huge time-sink that resulted in discrepancies with machines that worked differently, programs ran differently or broke unexpectedly and worse, dependency-hell. Hours wasted on a kaput OS can be very frustrating! 
 
-Initially, I had started with bash-shell scripts to manage the `apt-get` install process but over the years there are newer devops methods, so its time to port these bash scripts and (slowly) retire them. I am in the process of porting some parts of the installation to manage my dev environments to `ansible`, an agentless distro-agnostic tool. You can find this repo on [galaxy-ansible](https://galaxy.ansible.com/svaksha) too. __PS__: The old shell/ bash scripts work, but are unsupported & unmaintained. Eg. many packages changed between Ubuntu 18.04 and 20.04 LTS, so was impractical to maintain individual scripts for multiple OS'es.
+Initially, I had started with bash-shell scripts to manage the `apt-get` install process but over the years there are newer devops methods, so its time to port these bash scripts and (slowly?) retire them. I am in the process of porting some parts of the installation to manage my dev environments to `ansible`, an agentless distro-agnostic tool. You can find this repo on [galaxy-ansible](https://galaxy.ansible.com/svaksha) too. __PS__: The old shell/ bash scripts work, but are unsupported & unmaintained. Eg. many packages changed between Ubuntu 18.04 and 20.04 LTS, so was impractical to maintain individual scripts for multiple OS'es.
 
 The standard disclaimer applies: Read the __License & Disclaimer__ No warranty and/or guarantee for any particular use, express or implied and YOU USE ALL CONTENTS IN YAKSHA AT YOUR OWN RISK AND LIABILITY!
 
@@ -14,6 +14,7 @@ The standard disclaimer applies: Read the __License & Disclaimer__ No warranty a
    + [DEV Installation-Ansible](#dev-installation-ansible)
 + [COPYRIGHT-LICENSE](#copyright-license)
    + [Contribute-Feedback](#contribute-feedback)
+   + [Stargazers](#stargazers)
    + [References](#references)
         
         
@@ -21,7 +22,7 @@ The standard disclaimer applies: Read the __License & Disclaimer__ No warranty a
 
 # INSTALL
 
-Installation processes have constantly evolved over the years, so there may be some legacy code that needs pruning or still needs to be ported to ansible. Hence, the constant [CRUD](https://en.wikipedia.org/wiki/Create,_read,_update_and_delete) sandbox status may break your machine. 
+Installation processes have constantly evolved over the years, so there may be some legacy code that needs pruning or still needs to be ported to ansible. Hence, the constant [CRUD](https://en.wikipedia.org/wiki/Create,_read,_update_and_delete) sandbox status may break your dev machine (__NB__: currently used for all my DEV machines, not tested for production servers). 
 
 ## DEV Installation-Bash
 
@@ -47,7 +48,7 @@ $ ./apt-install.sh
 1. At the outset, your Ubuntu machine should have _Ansible and Git_ intalled.
 
 ```
-sudo apt-get update && sudo apt-get install ansible git
+sudo apt update && sudo apt install ansible git
 ```
 
 You can also use `pip` to install ansible but I prefer the `apt-get` package. Note that if you have a standalone machine this step is a manual process, else automated for the network installation.
@@ -65,10 +66,10 @@ Alternatively, Github offers HTTPS (replace the ssh with https in the above comm
 ```
 $ cd yaksha    #change directory into yaksha
 
-$ ansible-playbook -b -C -K -v yaksha.yml    #run all PBs
+$ ansible-playbook -b -C -K -v yaksha.yaml    #run all PBs
 ```
 
-The above command runs all the playbooks listed in the `yaksha.yml` file. But, if you want to individually run specific playbooks, e.g. install only Ubuntu package-deps via apt-get, then run the ansible playbooks inside the /ubuntu folder, with specific commands: 
+The above command runs all the playbooks listed in the `yaksha.yaml` file. But, if you want to individually run specific playbooks, e.g. install only Ubuntu package-deps via apt-get, then run the ansible playbooks inside the /ubuntu folder, with specific commands: 
 
 
 ```
@@ -95,6 +96,10 @@ ansible-playbook -b -K python/ansible-pypip3.yaml
 ## Contribute-Feedback
 All feedback and suggestions for improvements are welcome [via BR's](https://github.com/svaksha/yaksha/issues)!
 
+## Stargazers
+[![Stargazers over time](https://starchart.cc/svaksha/yaksha.svg)](https://starchart.cc/svaksha/yaksha)
+   
+   
 ## References
 List of references and a list of people (repo'S) that have inspired me to learn and improve `Yaksha` over time. It is amazing how much one can learn from other peoples code so lets share the credits: 
 
