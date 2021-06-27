@@ -1,17 +1,5 @@
 #!/usr/bin/env ansible-playbook
----
-#- name: Install env for lxd
-#  apt:
-#  - name: snap
-#    state: present
-
-#- name: fix snap
-#  command: snap install core
-
-#- name: snap install lxd, atom
-#  snap:
-#  - name: lxd
-#    classic: yes
+---  # the document start marker
 # Now use Debian APT-GET
 - name: Install Ubuntu Packages
   hosts: localhost
@@ -19,15 +7,15 @@
   tasks:
     - name: Install basic Ubuntu packages
       package: 
-     name: "{{item}}" 
-     state: latest
-     update_cache: yes
+        name: "{{item}}" 
+        state: latest
+        update_cache: yes
       become: yes
       become_method: sudo
       with_items:
-      #₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹
+      #₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹
       ## DVCS packages
-      #₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹
+      #₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹₹
       - mercurial
       - git
       - tig
@@ -83,10 +71,8 @@
       - xournal
       # Wallpaper slideshow with data and time 
       # Homepage: http://peterlevi.com/variety AND Github: https://github.com/varietywalls/variety
-      - variety
-      ##########################################################################
-      ## LaTeX2ε
-      ##########################################################################
+      - variety ##########################################################################
+      ## LaTeX2ε ##########################################################################
       - Texmaker
       - TeXstudio
       - texlive, texlive-latex-extra
@@ -109,8 +95,7 @@
       #########################################################################
       # Time Tracking & Task Management
       ###++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-      - timewarrior
-      #########################################################################
+      - timewarrior #########################################################################
       # GNOME tweaks
       #########################################################################
       # Tweak Clock settings in Gnome-Ubuntu

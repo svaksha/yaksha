@@ -64,25 +64,26 @@ Alternatively, Github offers HTTPS (replace the ssh with https in the above comm
 3. Then, to run all the ansible playbooks sequentially, run the following commands in your terminal:
 
 ```
-$ cd yaksha    #change directory into yaksha
+$ cd yaksha    # change directory into yaksha
 
-$ ansible-playbook -b -C -K -v yaksha.yaml    #run all PBs
-```
-
-The above command runs all the playbooks listed in the `yaksha.yaml` file. But, if you want to individually run specific playbooks, e.g. install only Ubuntu package-deps via apt-get, then run the ansible playbooks inside the /ubuntu folder, with specific commands: 
-
+$ ansible-playbook -b -C -K -v yaksha.yaml    # runs all Playbooks.
 
 ```
-ansible-playbook -b -K ubuntu/ansible-ubuntu.yaml
+
+The above command runs all the playbooks listed in the `yaksha.yaml` file. However, if you want to individually run specific playbooks, e.g. install only Ubuntu package-deps via apt, then run the ansible playbooks inside the /ubuntu folder, with a specific command, e.g.: 
+
+
+```
+ansible-playbook -b -K ubuntu/ansible-imaging.yaml   # install packages for OCR and imaging tasks.
 ```
 
 
 __Install Python3 scientific packages (via pip3) using ansible__
 
-The Python package (PyPI) installation deserves a longer rant, especially for Data Science. Pip3 is nice, but Anaconda (& no-frills miniconda) came by so now DS/ scientific python has multiple dep-installation methods, via 'apt-get' or 'pip/pip3' or 'conda' or the timeless 'source' installation. IMPO, while Conda made it easier to install all the scientific AI/ML packages it is its own beast with tons of unnecessary pre-packaged-packages that I wont use! It works as a parallel PKG manager system to pip3, but for DS, but I have some qualms about 'an OS inside an OS' that only handles packages of ONE programming language and wonder if I need the bloat. Why isnt pkg-dep hell as simple as Julia? TL;DR, I will stick to 'apt-get and pip3' here:
+The Python package (PyPI) installation deserves a longer rant, especially for Data Science. Pip3 is nice, but Anaconda (& no-frills miniconda) came by so now DS/ scientific python has multiple dep-installation methods, via 'apt' or 'pip/pip3' or 'conda' or the timeless 'source' installation. IMPO, while Conda made it easier to install all the scientific AI/ML packages it is its own beast with tons of unnecessary "pre-packaged" packages that I dont need. It works as a parallel PKG manager system to pip3, but for DS, but I have some qualms about 'an OS inside an OS' that only handles packages of ONE programming language and wonder if I need the extra packages. Why isnt dep hell as simple as Julia? TL;DR, I will stick to 'apt + pip3' here:
 
 ```
-ansible-playbook -b -K python/ansible-pypip3.yaml
+ansible-playbook -b -K python/main.yaml
 ```
 
 ----
