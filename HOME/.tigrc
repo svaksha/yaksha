@@ -2,7 +2,7 @@
 ################################################################################
 # NAME       : .tigrc
 # DESCRIPTION: Configuration file for tig.
-# AUTHOR     : SVAKSHA :: http://svaksha.com/pages/Bio
+# AUTHOR     : SVAKSHA :: http://github.com/svaksha
 # SOURCE     : http://svaksha.github.io/yaksha
 # COPYRIGHT© : 2005-Now SVAKSHA AllRightsReserved
 # LICENSE    : GNU AGPLv3 subject to meeting the terms and conditions in the LICENSE
@@ -62,6 +62,8 @@ set show-notes	      = yes		# When non-bool passed as `--show-notes=...` (diff)
 #--------------------------------------------
 # Change grep view to be similar to `git grep` format
 set grep-view	           = file-name:yes line-number:yes,interval=1 text
+# https://github.com/jonas/tig/issues/340#issuecomment-575454059
+set main-view-id = yes 
 # Main view column settings.
 set main-view              = line-number:yes,interval=5 id:yes date:default author:full commit-title:yes,graph,refs,overflow=no
 # Shorthands to change view settings for a previously defined column

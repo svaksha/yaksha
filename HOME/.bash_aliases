@@ -1,15 +1,15 @@
 #!/usr/bin/env bash
 ############################ METADATA ##########################################
 #1.PROGRAM   : .bash_aliases
-#2.COPYRIGHT©: 2005-Present, SVAKSHA, http://svaksha.github.io/yaksha
-#3.AUTHOR    : SVAKSHA, http://svaksha.com/pages/Bio
+#2.COPYRIGHT©: 2005-Present, SVAKSHA, https://svaksha.github.io/yaksha
+#3.AUTHOR    : SVAKSHA, https://github.io/yaksha
 #4.LICENSE   : GNU AGPLv3 subject to meeting all the terms in the LICENSE file: 
 #              https://github.com/svaksha/yaksha/blob/master/LICENSE.md
 #5.REPOSITORY: http://svaksha.github.io/yaksha
 #6.TECHNOTES : My BASH ALIAS definitions outgrew the ~/.bashrc file, split and 
 #              moved my additions into a separate "~/.bash_aliases" file.
 #              Also see /usr/share/doc/bash-doc/examples in the bash-doc package.
-#7.DATE(S)   : 2005nov05-2020oct30
+#7.DATE(S)   : 2005nov05-2021jul14
 ############################ METADATA ##########################################
 #
 
@@ -205,6 +205,8 @@ alias gk='gitk --all&'
 # LOG history
 alias gl='git log'
 alias gl-1='git log -1 HEAD'
+alias glong='git log --pretty=oneline'
+alias ghash='git log --abbrev-commit --pretty=oneline'
 alias gl-pg='git log --pretty=format:"%h %s" --graph'
 alias gl-pgd='git log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short'
 alias gl-gd-all='gt log --all --graph --decorate'
