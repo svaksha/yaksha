@@ -2,7 +2,7 @@
 ############################ METADATA ##########################################
 #1.PROGRAM   : .bash_aliases
 #2.COPYRIGHT©: 2005-Present, SVAKSHA, https://svaksha.github.io/yaksha
-#3.AUTHOR    : SVAKSHA, https://github.io/yaksha
+#3.AUTHOR    : SVAKSHA, https://github.com/svaksha
 #4.LICENSE   : GNU AGPLv3 subject to meeting all the terms in the LICENSE file: 
 #              https://github.com/svaksha/yaksha/blob/master/LICENSE.md
 #5.REPOSITORY: http://svaksha.github.io/yaksha

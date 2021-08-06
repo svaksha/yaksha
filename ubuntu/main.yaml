@@ -104,6 +104,7 @@
       #########################################################################
       ## general cli tools for web, search
       #########################################################################
+      - ripgrep   # https://github.com/BurntSushi/ripgrep
       - silversearcher-ag
       - ctags
       - screen
